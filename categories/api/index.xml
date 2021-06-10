@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>API on SPERIXLABS</title>
+    <link>https://sperixlabs.org/categories/api/</link>
+    <description>Recent content in API on SPERIXLABS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>SPERIXLABS</copyright>
+    <lastBuildDate>Thu, 18 Feb 2021 16:43:21 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/categories/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sample Projects</title>
+      <link>https://sperixlabs.org/api/</link>
+      <pubDate>Thu, 18 Feb 2021 16:43:21 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/api/</guid>
+      <description>A DNS Ad-Blocker for iOS, macOS and Android. https://github.com/jayluxferro/block-ads
+  Cookie-Editor extension for Safari. https://github.com/jayluxferro/Cookie-Editor
+  Hack-Tools extension for Safari. https://github.com/jayluxferro/Hack-Tools-Safari-Extension
+  APK Downloader. https://github.com/jayluxferro/APK-Downloader
+  ECG Power Recharge Platform. https://enersmart.sperixlabs.org
+  Flutterwave Moodle Plugin. https://github.com/jayluxferro/Flutterwave-Moodle-Plugin
+  XDM Browser Extension for Safari Browser. https://github.com/jayluxferro/XDM-Browser-Extension
+  GhanaPostGPS REST API. https://github.com/jayluxferro/GhanaPostGPS-REST-API
+  ProxyMe: Android VPN Interceptor to Send HTTP and HTTPS traffic to a proxy.</description>
+    </item>
+    
+    <item>
+      <title>GhanaPostGPS REST API</title>
+      <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
+      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
+      <description>Whitepaper Read Now
+
+API Details End Point URL: https://ghanapostgps.sperixlabs.org
+Method: POST
+Parameters: address (GhanaPostGPS Address)
+Content-Type: application/x-www-form-urlencoded
+Output/Response:  Address found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;#34;: [ { &amp;#34;Area&amp;#34;: &amp;#34;NEW KAGYASI&amp;#34;, &amp;#34;CenterLatitude&amp;#34;: 6.650080145273592, &amp;#34;CenterLongitude&amp;#34;: -1.648700346667856, &amp;#34;District&amp;#34;: &amp;#34;Kumasi&amp;#34;, &amp;#34;EastLat&amp;#34;: 6.65005768739201, &amp;#34;EastLong&amp;#34;: -1.6486780409076, &amp;#34;GPSName&amp;#34;: &amp;#34;AK4849321&amp;#34;, &amp;#34;NorthLat&amp;#34;: 6.65010262239948, &amp;#34;NorthLong&amp;#34;: -1.6487229566718, &amp;#34;PostCode&amp;#34;: &amp;#34;AK484&amp;#34;, &amp;#34;Region&amp;#34;: &amp;#34;Ashanti&amp;#34;, &amp;#34;SouthLat&amp;#34;: 6.65005768739201, &amp;#34;SouthLong&amp;#34;: -1.6487229566718, &amp;#34;Street&amp;#34;: &amp;#34;Kumasi, Ashanti, GHA&amp;#34;, &amp;#34;WestLat&amp;#34;: 6.65010262239948, &amp;#34;WestLong&amp;#34;: -1.6486780409076 } ] }, &amp;#34;found&amp;#34;: true } Address not found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;#34;: null }, &amp;#34;found&amp;#34;: false } Sample Codes  C-Sharp | cURL | Golang | Javascript | NodeJS | PHP | Python | Swift | Java | Ruby | PowerShell</description>
+    </item>
+    
+  </channel>
+</rss>

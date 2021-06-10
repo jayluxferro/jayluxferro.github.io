@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on SPERIXLABS</title>
+    <link>https://sperixlabs.org/categories/</link>
+    <description>Recent content in Categories on SPERIXLABS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>SPERIXLABS</copyright>
+    <lastBuildDate>Thu, 18 Feb 2021 16:43:21 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API</title>
+      <link>https://sperixlabs.org/categories/api/</link>
+      <pubDate>Thu, 18 Feb 2021 16:43:21 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/categories/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://sperixlabs.org/categories/research/</link>
+      <pubDate>Thu, 18 Feb 2021 16:42:36 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/categories/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reverse Engineering</title>
+      <link>https://sperixlabs.org/categories/reverse-engineering/</link>
+      <pubDate>Sun, 10 Jan 2021 17:21:02 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/categories/reverse-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flaw</title>
+      <link>https://sperixlabs.org/categories/flaw/</link>
+      <pubDate>Mon, 30 Nov 2020 17:15:25 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/categories/flaw/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

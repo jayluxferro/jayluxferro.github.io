@@ -1,0 +1,648 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on SPERIXLABS</title>
+        <link>https://sperixlabs.org/posts/</link>
+        <description>Recent content in Posts on SPERIXLABS</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>SPERIXLABS</copyright>
+        <lastBuildDate>Sun, 10 Jan 2021 17:21:02 +0000</lastBuildDate>
+        <atom:link href="https://sperixlabs.org/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Possible Implementation Flaws in Mobile Applications: A Security Audit of a  Mobile Application</title>
+            <link>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</link>
+            <pubDate>Sun, 10 Jan 2021 17:21:02 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</guid>
+            <description>This research presents a security flaw in a mobile application (both iOS and Android). The platform used for the assessment was iOS. Both platforms (iOS and Android) are affected by this flaw due the fact that they were built using a cross-platform framework (ionic).
+Technical Details 
+Details </description>
+            <content type="html"><![CDATA[<p>This research presents a security flaw in a mobile application (both iOS and Android). The platform used for the assessment was iOS. Both platforms (iOS and Android) are affected by this flaw due the fact that they were built using a cross-platform framework (ionic).</p>
+<h3 id="technical-details">Technical Details</h3>
+
+
+<p></p>
+<a href="https://www.researchgate.net/publication/348844973_Possible_Implementation_Flaws_in_Mobile_Applications_A_Security_Audit_of_a_Mobile_Application" target="_blank">Details</a>
+
+
+]]></content>
+        </item>
+        
+        <item>
+            <title>Unauthorised User Account Access on iRokoTV Platform</title>
+            <link>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</link>
+            <pubDate>Mon, 30 Nov 2020 17:15:25 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</guid>
+            <description>This research presents a flaw in user authentication that enables an unauthorised user to enumerate valid user accounts on the iRokoTV client applications (mobile and web) and also crack a person’s pin code. The security analysis was done on the iOS platform; the flaw translates to other platforms (android and web).
+Details of the Flaw The iRokoTV iOS application (version 1.7.12) presents a user with the option to sign up or log in as an existing user.</description>
+            <content type="html"><![CDATA[<p>This research presents a flaw in user authentication that enables an unauthorised user to enumerate valid user accounts on the iRokoTV client applications (mobile and web) and also crack a person’s pin code.
+The security analysis was done on the iOS platform; the flaw translates to other platforms (android and web).</p>
+<h3 id="details-of-the-flaw">Details of the Flaw</h3>
+<p>The iRokoTV iOS application (version 1.7.12) presents a user with the option to sign up or log in as an existing user. When a user signs up, a 4 digit verification code is sent to the user’s number. Upon verifying, the user is made to create a 4 digit pin code that will be used in accessing the platform; together with his phone number ( as shown below).
+<img src="/img/itv/login.jpg" alt="Verification code"></p>
+<p>In signing up as a user, the mobile client makes a post request to <strong>v3-api.iRokoTV.com</strong> with the URI <strong>/v2/user/[user’s phone number]</strong>; as shown in the example below:
+<img src="/img/itv/signup.jpg" alt="Sign up"></p>
+<p>If the user is new, a verification code is sent to the person after which he continues to set his default pin code for accessing the platform. A sample response for a new user is shown below:
+<img src="/img/itv/r1.jpg" alt="Verify"></p>
+<p>If the user already exists, a sample response to the request is shown below:
+<img src="/img/itv/r2.jpg" alt="Verify">
+This endpoint API can be leveraged on by an unauthorised user to enumerate accounts that exist on the platform.</p>
+<p>The request sent to the API endpoint for an existing user includes the <strong>device_id</strong>, <strong>credential_type</strong>, <strong>pin</strong>, <strong>phone</strong>, <strong>scope</strong> and <strong>device_name</strong>.
+<img src="/img/itv/vpin.jpg" alt="Login"></p>
+<p>If the pin sent is incorrect, a response with an error code of 401 is thrown (shown below).
+<img src="/img/itv/vu.jpg" alt="Login"></p>
+<p>A correct pin returns a response that contains a token (JWT) together with the user’s id.
+<img src="/img/itv/va.jpg" alt="Login"></p>
+<p>With the use of 4 digit pin codes, a user’s pin code will definitely be in <strong>0000 - 9999</strong>; hence an unauthorised person can replay the requests by changing the pin code till the correct pin is found (response with a JWT).</p>
+<p>A proof-of-concept (PoC) is shown below:
+<img src="/img/itv/poc.jpg" alt="poc"></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>GhanaPostGPS REST API</title>
+            <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
+            <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
+            <description>Whitepaper Read Now
+
+API Details End Point URL: https://ghanapostgps.sperixlabs.org
+Method: POST
+Parameters: address (GhanaPostGPS Address)
+Content-Type: application/x-www-form-urlencoded
+Output/Response:  Address found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;#34;: [ { &amp;#34;Area&amp;#34;: &amp;#34;NEW KAGYASI&amp;#34;, &amp;#34;CenterLatitude&amp;#34;: 6.650080145273592, &amp;#34;CenterLongitude&amp;#34;: -1.648700346667856, &amp;#34;District&amp;#34;: &amp;#34;Kumasi&amp;#34;, &amp;#34;EastLat&amp;#34;: 6.65005768739201, &amp;#34;EastLong&amp;#34;: -1.6486780409076, &amp;#34;GPSName&amp;#34;: &amp;#34;AK4849321&amp;#34;, &amp;#34;NorthLat&amp;#34;: 6.65010262239948, &amp;#34;NorthLong&amp;#34;: -1.6487229566718, &amp;#34;PostCode&amp;#34;: &amp;#34;AK484&amp;#34;, &amp;#34;Region&amp;#34;: &amp;#34;Ashanti&amp;#34;, &amp;#34;SouthLat&amp;#34;: 6.65005768739201, &amp;#34;SouthLong&amp;#34;: -1.6487229566718, &amp;#34;Street&amp;#34;: &amp;#34;Kumasi, Ashanti, GHA&amp;#34;, &amp;#34;WestLat&amp;#34;: 6.65010262239948, &amp;#34;WestLong&amp;#34;: -1.6486780409076 } ] }, &amp;#34;found&amp;#34;: true } Address not found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;#34;: null }, &amp;#34;found&amp;#34;: false } Sample Codes  C-Sharp | cURL | Golang | Javascript | NodeJS | PHP | Python | Swift | Java | Ruby | PowerShell</description>
+            <content type="html"><![CDATA[<h3 id="whitepaper">Whitepaper</h3>
+
+
+<p><a target="_blank" href="http://dx.doi.org/10.13140/RG.2.2.24355.27684/2">Read Now</a></p>
+<p></p>
+
+
+<h3 id="api-details">API Details</h3>
+
+
+<b>End Point URL:</b> https://ghanapostgps.sperixlabs.org<br>
+<b>Method:</b> POST<br>
+<b>Parameters:</b> address (GhanaPostGPS Address)<br>
+<b>Content-Type:</b> application/x-www-form-urlencoded<br>
+
+
+<h4 id="outputresponse">Output/Response:</h4>
+<ol>
+<li>Address found</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;data&#34;</span>: {
+        <span style="color:#f92672">&#34;Table&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;Area&#34;</span>: <span style="color:#e6db74">&#34;NEW KAGYASI&#34;</span>,
+                <span style="color:#f92672">&#34;CenterLatitude&#34;</span>: <span style="color:#ae81ff">6.650080145273592</span>,
+                <span style="color:#f92672">&#34;CenterLongitude&#34;</span>: <span style="color:#ae81ff">-1.648700346667856</span>,
+                <span style="color:#f92672">&#34;District&#34;</span>: <span style="color:#e6db74">&#34;Kumasi&#34;</span>,
+                <span style="color:#f92672">&#34;EastLat&#34;</span>: <span style="color:#ae81ff">6.65005768739201</span>,
+                <span style="color:#f92672">&#34;EastLong&#34;</span>: <span style="color:#ae81ff">-1.6486780409076</span>,
+                <span style="color:#f92672">&#34;GPSName&#34;</span>: <span style="color:#e6db74">&#34;AK4849321&#34;</span>,
+                <span style="color:#f92672">&#34;NorthLat&#34;</span>: <span style="color:#ae81ff">6.65010262239948</span>,
+                <span style="color:#f92672">&#34;NorthLong&#34;</span>: <span style="color:#ae81ff">-1.6487229566718</span>,
+                <span style="color:#f92672">&#34;PostCode&#34;</span>: <span style="color:#e6db74">&#34;AK484&#34;</span>,
+                <span style="color:#f92672">&#34;Region&#34;</span>: <span style="color:#e6db74">&#34;Ashanti&#34;</span>,
+                <span style="color:#f92672">&#34;SouthLat&#34;</span>: <span style="color:#ae81ff">6.65005768739201</span>,
+                <span style="color:#f92672">&#34;SouthLong&#34;</span>: <span style="color:#ae81ff">-1.6487229566718</span>,
+                <span style="color:#f92672">&#34;Street&#34;</span>: <span style="color:#e6db74">&#34;Kumasi, Ashanti, GHA&#34;</span>,
+                <span style="color:#f92672">&#34;WestLat&#34;</span>: <span style="color:#ae81ff">6.65010262239948</span>,
+                <span style="color:#f92672">&#34;WestLong&#34;</span>: <span style="color:#ae81ff">-1.6486780409076</span>
+            }
+        ]
+    },
+    <span style="color:#f92672">&#34;found&#34;</span>: <span style="color:#66d9ef">true</span>
+}
+</code></pre></div><ol start="2">
+<li>Address not found</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;data&#34;</span>: {
+        <span style="color:#f92672">&#34;Table&#34;</span>: <span style="color:#66d9ef">null</span>
+    },
+    <span style="color:#f92672">&#34;found&#34;</span>: <span style="color:#66d9ef">false</span>
+}
+</code></pre></div><h3 id="sample-codes">Sample Codes</h3>
+<p>
+
+<a href="#csharp">C-Sharp</a> | <a href="#curl">cURL</a> | <a href="#go">Golang</a> | <a href="#js">Javascript</a> | <a href="#node">NodeJS</a> | <a href="#php">PHP</a> | <a href="#python">Python</a> | <a href="#swift">Swift</a> | <a href="#java">Java</a> | <a href="#ruby">Ruby</a> | <a href="#powershell">PowerShell</a><br><br>
+<hr/>
+<b>Address:</b> AK-484-9321 or AK4849321<br><br>
+
+
+<hr id="csharp">
+<h4>C-Sharp</h4>
+<hr/>
+
+
+Code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">var</span> client = <span style="color:#66d9ef">new</span> RestClient(<span style="color:#e6db74">&#34;https://ghanapostgps.sperixlabs.org&#34;</span>);
+client.Timeout = -<span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">var</span> request = <span style="color:#66d9ef">new</span> RestRequest(Method.POST);
+request.AddHeader(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span>);
+request.AddParameter(<span style="color:#e6db74">&#34;address&#34;</span>, <span style="color:#e6db74">&#34;AK-484-9321&#34;</span>);
+request.OnBeforeDeserialization = resp =&gt; { resp.ContentType = <span style="color:#e6db74">&#34;application/json&#34;</span>; };
+IRestResponse response = client.Execute(request);
+Console.WriteLine(response.Content);
+</code></pre></div><p>
+
+<hr id="curl">
+<h4>cURL</h4>
+<hr/>
+
+
+Code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl --location --request POST <span style="color:#e6db74">&#39;https://ghanapostgps.sperixlabs.org&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--header <span style="color:#e6db74">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--data-urlencode <span style="color:#e6db74">&#39;address=AK-484-9321&#39;</span>
+</code></pre></div><p>
+
+<hr id="go">
+<h4>Go</h4>
+<hr/>
+
+
+Code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+  <span style="color:#e6db74">&#34;fmt&#34;</span>
+  <span style="color:#e6db74">&#34;strings&#34;</span>
+  <span style="color:#e6db74">&#34;net/http&#34;</span>
+  <span style="color:#e6db74">&#34;io/ioutil&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+
+  <span style="color:#a6e22e">url</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;https://ghanapostgps.sperixlabs.org&#34;</span>
+  <span style="color:#a6e22e">method</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;POST&#34;</span>
+
+  <span style="color:#a6e22e">payload</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#e6db74">&#34;address=AK-484-9321&#34;</span>)
+
+  <span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Client</span> {
+  }
+  <span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">NewRequest</span>(<span style="color:#a6e22e">method</span>, <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">payload</span>)
+
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+  }
+  <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">Header</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span>)
+
+  <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Do</span>(<span style="color:#a6e22e">req</span>)
+  <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
+  <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">Body</span>)
+
+  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(string(<span style="color:#a6e22e">body</span>))
+}
+</code></pre></div><p>
+
+<hr id="js">
+<h4>Javscript</h4>
+<hr/>
+
+
+Code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myHeaders</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Headers</span>();
+<span style="color:#a6e22e">myHeaders</span>.<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span>);
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">urlencoded</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">URLSearchParams</span>();
+<span style="color:#a6e22e">urlencoded</span>.<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#34;address&#34;</span>, <span style="color:#e6db74">&#34;AK-484-9321&#34;</span>);
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">requestOptions</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+  <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">myHeaders</span>,
+  <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">urlencoded</span>,
+  <span style="color:#a6e22e">redirect</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;follow&#39;</span>
+};
+
+<span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;https://ghanapostgps.sperixlabs.org&#34;</span>, <span style="color:#a6e22e">requestOptions</span>)
+  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>())
+  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">result</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>))
+  .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;error&#39;</span>, <span style="color:#a6e22e">error</span>));
+</code></pre></div><p>
+
+<hr id="node">
+<h4>NodeJS</h4>
+<hr/>
+
+
+Code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">request</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;request&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> {
+  <span style="color:#e6db74">&#39;method&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+  <span style="color:#e6db74">&#39;url&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://ghanapostgps.sperixlabs.org&#39;</span>,
+  <span style="color:#e6db74">&#39;headers&#39;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/x-www-form-urlencoded&#39;</span>
+  },
+  <span style="color:#a6e22e">form</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#39;address&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;AK-484-9321&#39;</span>
+  }
+};
+<span style="color:#a6e22e">request</span>(<span style="color:#a6e22e">options</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">response</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>) <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#a6e22e">error</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">body</span>);
+});
+</code></pre></div><p>
+
+<hr id="php">
+<h4>PHP</h4>
+<hr/>
+
+
+Code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+
+$curl <span style="color:#f92672">=</span> <span style="color:#a6e22e">curl_init</span>();
+
+<span style="color:#a6e22e">curl_setopt_array</span>($curl, <span style="color:#66d9ef">array</span>(
+  <span style="color:#a6e22e">CURLOPT_URL</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#34;https://ghanapostgps.sperixlabs.org&#34;</span>,
+  <span style="color:#a6e22e">CURLOPT_RETURNTRANSFER</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">CURLOPT_ENCODING</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#34;&#34;</span>,
+  <span style="color:#a6e22e">CURLOPT_MAXREDIRS</span> <span style="color:#f92672">=&gt;</span> <span style="color:#ae81ff">10</span>,
+  <span style="color:#a6e22e">CURLOPT_TIMEOUT</span> <span style="color:#f92672">=&gt;</span> <span style="color:#ae81ff">0</span>,
+  <span style="color:#a6e22e">CURLOPT_FOLLOWLOCATION</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">CURLOPT_HTTP_VERSION</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">CURL_HTTP_VERSION_1_1</span>,
+  <span style="color:#a6e22e">CURLOPT_CUSTOMREQUEST</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#34;POST&#34;</span>,
+  <span style="color:#a6e22e">CURLOPT_POSTFIELDS</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#34;address=AK-484-9321&#34;</span>,
+  <span style="color:#a6e22e">CURLOPT_HTTPHEADER</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">array</span>(
+    <span style="color:#e6db74">&#34;Content-Type: application/x-www-form-urlencoded&#34;</span>
+  ),
+));
+
+$response <span style="color:#f92672">=</span> <span style="color:#a6e22e">curl_exec</span>($curl);
+
+<span style="color:#a6e22e">curl_close</span>($curl);
+<span style="color:#66d9ef">echo</span> $response;
+</code></pre></div><p>
+
+<hr id="python">
+<h4>Python</h4>
+<hr/>
+
+
+Code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
+
+url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ghanapostgps.sperixlabs.org&#34;</span>
+
+payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;address=AK-484-9321&#39;</span>
+headers <span style="color:#f92672">=</span> {
+  <span style="color:#e6db74">&#39;Content-Type&#39;</span>: <span style="color:#e6db74">&#39;application/x-www-form-urlencoded&#39;</span>
+}
+
+response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>request(<span style="color:#e6db74">&#34;POST&#34;</span>, url, headers<span style="color:#f92672">=</span>headers, data <span style="color:#f92672">=</span> payload)
+
+<span style="color:#66d9ef">print</span>(response<span style="color:#f92672">.</span>json())
+</code></pre></div><p>
+
+<hr id="swift">
+<h4>Swift</h4>
+<hr/>
+
+
+Code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Foundation</span>
+
+<span style="color:#66d9ef">var</span> semaphore = DispatchSemaphore (value: <span style="color:#ae81ff">0</span>)
+
+<span style="color:#66d9ef">let</span> parameters = <span style="color:#e6db74">&#34;address=AK-484-9321&#34;</span>
+<span style="color:#66d9ef">let</span> postData =  parameters.data(using: .utf8)
+
+<span style="color:#66d9ef">var</span> request = URLRequest(url: URL(string: <span style="color:#e6db74">&#34;https://ghanapostgps.sperixlabs.org&#34;</span>)<span style="color:#f92672">!</span>,timeoutInterval: Double.infinity)
+request.addValue(<span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span>, forHTTPHeaderField: <span style="color:#e6db74">&#34;Content-Type&#34;</span>)
+
+request.httpMethod = <span style="color:#e6db74">&#34;POST&#34;</span>
+request.httpBody = postData
+
+<span style="color:#66d9ef">let</span> task = URLSession.shared.dataTask(with: request) { data, response, error <span style="color:#66d9ef">in</span> 
+  <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> data = data <span style="color:#66d9ef">else</span> {
+    print(String(describing: error))
+    <span style="color:#66d9ef">return</span>
+  }
+  print(String(data: data, encoding: .utf8)<span style="color:#f92672">!</span>)
+  semaphore.signal()
+}
+
+task.resume()
+semaphore.wait()
+</code></pre></div><p>
+
+<hr id="java">
+<h4>Java</h4>
+<hr/>
+
+
+Code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">OkHttpClient client <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OkHttpClient<span style="color:#f92672">().</span><span style="color:#a6e22e">newBuilder</span><span style="color:#f92672">()</span>
+  <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+MediaType mediaType <span style="color:#f92672">=</span> MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span><span style="color:#f92672">);</span>
+RequestBody body <span style="color:#f92672">=</span> RequestBody<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>mediaType<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;address=AK-484-9321&#34;</span><span style="color:#f92672">);</span>
+Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+  <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://ghanapostgps.sperixlabs.org&#34;</span><span style="color:#f92672">)</span>
+  <span style="color:#f92672">.</span><span style="color:#a6e22e">method</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;POST&#34;</span><span style="color:#f92672">,</span> body<span style="color:#f92672">)</span>
+  <span style="color:#f92672">.</span><span style="color:#a6e22e">addHeader</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span><span style="color:#f92672">)</span>
+  <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+Response response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">).</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">();</span>
+</code></pre></div><p>
+
+<hr id="ruby">
+<h4>Ruby</h4>
+<hr/>
+
+
+Code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require <span style="color:#e6db74">&#34;uri&#34;</span>
+require <span style="color:#e6db74">&#34;net/http&#34;</span>
+
+url <span style="color:#f92672">=</span> <span style="color:#66d9ef">URI</span>(<span style="color:#e6db74">&#34;https://ghanapostgps.sperixlabs.org&#34;</span>)
+
+https <span style="color:#f92672">=</span> <span style="color:#66d9ef">Net</span><span style="color:#f92672">::</span><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">.</span>new(url<span style="color:#f92672">.</span>host, url<span style="color:#f92672">.</span>port);
+https<span style="color:#f92672">.</span>use_ssl <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+
+request <span style="color:#f92672">=</span> <span style="color:#66d9ef">Net</span><span style="color:#f92672">::</span><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>new(url)
+request<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span>
+request<span style="color:#f92672">.</span>body <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;address=AK-484-9321&#34;</span>
+
+response <span style="color:#f92672">=</span> https<span style="color:#f92672">.</span>request(request)
+puts response<span style="color:#f92672">.</span>read_body
+</code></pre></div><p>
+
+<hr id="powershell">
+<h4>PowerShell</h4>
+<hr/>
+
+
+Code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$headers = New-Object <span style="color:#e6db74">&#34;System.Collections.Generic.Dictionary[[String],[String]]&#34;</span>
+$headers.Add(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span>)
+
+$body = <span style="color:#e6db74">&#34;address=AK-484-9321&#34;</span>
+
+$response = Invoke-RestMethod <span style="color:#e6db74">&#39;https://ghanapostgps.sperixlabs.org&#39;</span> -Method <span style="color:#e6db74">&#39;POST&#39;</span> -Headers $headers -Body $body
+$response | ConvertTo-Json
+</code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>Reverse Engineering GhanaPostGPS Mobile Application to Create an API for Local Developers</title>
+            <link>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</link>
+            <pubDate>Sat, 05 Sep 2020 17:07:23 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</guid>
+            <description>GhanaPostGPS is Ghana&amp;rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp;amp; area code). Its core functionality is to translate a user&amp;rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions.</description>
+            <content type="html"><![CDATA[<p>GhanaPostGPS is Ghana&rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp; area code). Its core functionality is to translate a user&rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions. This research presents how the digital addressing system&rsquo;s mobile application was reversed engineered to create a publicly available API (<strong><a href="https://jayluxferro.github.io/post/ghpgps/">https://jayluxferro.github.io/post/ghpgps/</a></strong>).</p>
+<h3 id="introduction">Introduction</h3>
+<p>Digital addressing is a modern and revolutionary approach to allocating addresses within a defined space with the aid of the latest geocoding technology. Ghana, in its effort of enhancing digitization, has introduced this digital addressing system (GhanaPostGPS) which covers every inch of the country and ensures that all locations in the country are addressed [1]. With GhanaPostGPS, every location has a unique digital address. It is rather unfortunate that digital solutions built in the country do not make use of this addressing system since there isn&rsquo;t a publicly available API; hence the essence of this research.</p>
+<h3 id="how-does-the-ghanapostgps-application-work">How does the GhanaPostGPS Application work?</h3>
+<p>The communication process follows a client-server architecture (as shown in the figure below). The application runs on both mobile (iOS and Android) and web platforms.</p>
+<!-- raw HTML omitted -->
+<p>When a user launches the application, he has the option to sign in (if he&rsquo;s an existing using), sign up as a new user or use the app without registering (anonymous account). Phone numbers are used in signing on to the platform and verified through a short message service (SMS). When a user signs in successfully, he has the ability to register/generate a digital address and also query for location details (either by name or by address). The mobile applications (iOS and Android) have panic buttons which help users in easy communication with the Police, Fire and Ambulance services in the event of an imminent danger. This is made possible due to the integration of a session initiation protocol (SIP)[2] API in the mobile clients.</p>
+<h3 id="end-to-end--encryption-e2ee">End-to-End  Encryption (E2EE)</h3>
+<p>Communication between the clients and the web service uses asymmetric encryption. When the application is launched for the first time, the mobile client connects to the endpoint <strong><a href="https://api.ghanapostgps.com/GetAPIData.aspx">https://api.ghanapostgps.com/GetAPIData.aspx</a></strong> to get the server&rsquo;s public key (a sample is shown below).</p>
+<pre><code>	-----BEGIN PUBLIC KEY-----
+	MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlO6O2gAGlT4+YP+evP9c
+	9qynWdv/qIAx5Jc4kp+UTmrsn8wJn4bD9H8rynSvepH0navZiDwYvioAPbIcR6cG
+	MMFnP5/2wN9zrBFZtnofcpSrk4q9/GRHj4IuHheQjvMiislrRdIEgqxjMQ1aaiG7
+	+MeoeQuHz08O+aecHuMtJTXzcIQDqkMHkeA/yt/ge/ASDqSRn0Hdpa/4OA/ZtVpT
+	8Ph2lLgMv+O5Iz11UIwSqyewSdAZzX0H4jUPKCCfnhgWsS+7WJU6KufYptvl0/P4
+	NSdJKSdYg/y44pWiPxlgMUf6s1nOXJJ0vSi0zrDFjx+y+GD2h+dMBRWe9nym+NmJ
+	1QIDAQAB
+	-----END PUBLIC KEY-----
+</code></pre><p>Upon getting the public key, the mobile client generates a random string (using the method below) of length 16 characters.</p>
+<pre><code>	 private static final String ALLOWED_CHARACTERS = &quot;0123456789qwertyuiopasdfghjklzxcvbnm!@$#^&amp;*()&quot;;
+	 public static String getRandomString(int i) {
+	 	Random random = new Random();
+	 	StringBuilder sb = new StringBuilder(i);
+	 	for (int i2 = 0; i2 &lt; i; i2++) {
+	 		sb.append(ALLOWED_CHARACTERS.charAt(random.nextInt(ALLOWED_CHARACTERS.length())));
+	 	}
+	 	return sb.toString();
+	 }
+</code></pre><p>The generated random string becomes a symmetric key that is used in the encryption and decryption of data between the client and the server. The client sends the generated random string (16 bytes) together with a universally unique identifier (UUID) and the operating system&rsquo;s name (Android or iOS) to the server. This data is encrypted (using RSA) and encoded in base64 using the server&rsquo;s public key before it is sent. A sample is shown below:</p>
+<pre><code>	TiJ/O4d2rFzaR046lLMYBJ6yU3e+vqDjkrYNVrhFm9K+jLXbMzTB6xAdtz/f/Rx+Nyw5ZB64ok3v8MRJq9jf8NwpYeFQZUGR0UzMmg
+	EgYR3MlAgFz7vRkQt0GGt/BwEaK081PJKxnqVqqXjr3NqNbfJr3GDDkfIfVKT4xOZRZbcCFdPpDD6Ofb5RD7mL8LQLvwOPOUVq3+/
+	MlNDVhxOD4Osq0PqWh8CvrZY8y2Q1sDJYDTUsKFn0ChxFNtJhso1ImtqLBkNFZbrWUXn6NbHV+p3HBJVeZNcJxlWPPHaBh8Ip7
+	qPOnnMww4ZXWC88/tWTlScFemwTcyGpT58T9rMySA==
+</code></pre><p>The server responds by sending a base64 encoded data which can be decrypted using the client&rsquo;s symmetric key. The decrypted data is shown below.</p>
+<pre><code>	PlsUseYourOwnKey||https://api.ghanapostgps.com/PublicGPGPSAPI.aspx
+</code></pre><p>The decrypted data contained a new endpoint <strong><a href="https://api.ghanapostgps.com/PublicGPGPSAPI.aspx">https://api.ghanapostgps.com/PublicGPGPSAPI.aspx</a></strong> through which all subsequent communications were made. The symmetric encryption used is advanced encryption standard (AES); as shown below.</p>
+<pre><code>	// Java, AES CBC Encryption
+	package com.ghanapostgps.ghanapost.util;
+
+	import android.util.Base64;
+	import javax.crypto.Cipher;
+	import javax.crypto.spec.IvParameterSpec;
+	import javax.crypto.spec.SecretKeySpec;
+	import org.apache.commons.compress.utils.CharsetNames;
+
+	public class AESenc {
+		private String key = &quot;&quot;;
+
+		public AESenc(String str) {
+			this.key = str;
+		}
+
+		public String encrypt(String str) {
+			try {
+				byte[] bytes = Utils.getRandomString(16).getBytes(CharsetNames.UTF_8);
+				IvParameterSpec ivParameterSpec = new IvParameterSpec(bytes);
+				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &quot;AES&quot;);
+				Cipher instance = Cipher.getInstance(&quot;AES/CBC/PKCS7PADDING&quot;);
+				instance.init(1, secretKeySpec, ivParameterSpec);
+				byte[] doFinal = instance.doFinal(str.getBytes());
+				byte[] bArr = new byte[(bytes.length + doFinal.length)];
+				System.arraycopy(bytes, 0, bArr, 0, bytes.length);
+				System.arraycopy(doFinal, 0, bArr, 16, doFinal.length);
+				return Base64.encodeToString(bArr, 0);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+
+		public String decrypt(String str) {
+			try {
+				byte[] decode = Base64.decode(str, 0);
+				int length = decode.length - 16;
+				byte[] bArr = new byte[length];
+				byte[] bArr2 = new byte[16];
+				System.arraycopy(decode, 0, bArr2, 0, 16);
+				System.arraycopy(decode, 16, bArr, 0, length);
+				IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr2);
+				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &quot;AES&quot;);
+				Cipher instance = Cipher.getInstance(&quot;AES/CBC/PKCS5PADDING&quot;);
+				instance.init(2, secretKeySpec, ivParameterSpec);
+				return new String(instance.doFinal(bArr));
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+	}
+</code></pre><p>From the AES encryption/decryption method, the initializing vector (IV) is the first 16 bytes of the base64 decoded data. When the client is encrypting a piece of data to be sent to the server, it generates a 16 byte string based on the <strong>getRandomString</strong> method; this forms the first 16 bytes of the data to be sent. The actual data is encrypted using the symmetric key and the randomly generated 16 bytes string (the IV). Afterwards, the data is base64 encoded before it is sent.</p>
+<p>The client decrypts the information received from the server by decoding the base64 string. It then extracts the first 16 bytes as the IV. The remaining bytes of data is decrypted using the symmetric key and the IV.</p>
+<p>The same E2EE mechanism was implemented in Golang which was used in developing the public API. Details of the implementation can be found using <strong><a href="https://github.com/jayluxferro/ghanapostgps">https://github.com/jayluxferro/ghanapostgps</a></strong>.</p>
+<h3 id="references">References</h3>
+<ol>
+<li>GhanaPostGPS, <a href="https://ghanapostgps.com">https://ghanapostgps.com</a>.</li>
+<li>Session Initiation Protocol (SIP), <a href="https://tools.ietf.org/html/rfc3261">https://tools.ietf.org/html/rfc3261</a>.</li>
+<li>Universally Unique IDentifier (UUID), <a href="https://tools.ietf.org/html/rfc4122">https://tools.ietf.org/html/rfc4122</a>.</li>
+</ol>
+]]></content>
+        </item>
+        
+        <item>
+            <title>A Security Analysis of WhatsApp iOS Mobile Application</title>
+            <link>https://sperixlabs.org/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/</link>
+            <pubDate>Wed, 17 Jun 2020 17:00:58 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/</guid>
+            <description>This research presents an investigation into WhatsApp&amp;rsquo;s on-device data storage on iOS. WhatsApp is one of the most widely used messaging application and hence it is required that a secured on-device storage mechanism be implemented to complement Apple&amp;rsquo;s security measures for their devices. This will help protect a user&amp;rsquo;s data in instances where his/her device is compromised physically. The research presents a security analysis on the storage format of data used by WhatsApp on end-users&#39; devices.</description>
+            <content type="html"><![CDATA[<p>This research presents an investigation into  WhatsApp&rsquo;s on-device data storage on iOS. WhatsApp is one of the most widely used messaging application and hence it is required that a secured on-device storage mechanism be implemented to complement Apple&rsquo;s security measures for their devices. This will help protect a user&rsquo;s data  in instances where his/her device is compromised physically. The research presents a security analysis on the storage format of data used by WhatsApp on end-users' devices.</p>
+<h3 id="introduction">Introduction</h3>
+<p>The team behind <strong>Uc0ver</strong> [1] released an iOS 11.0 - 13.5.5 jailbreak for all iPhones and iPads. This is the first iOS jailbreak in years to use a 0-day exploit as previous tools relied on a 1-day exploit or other security lapses from Apple&rsquo;s part [2].</p>
+<p>&ldquo;<strong>Jailbreaking</strong>&rdquo; is a privilege escalation of an Apple device for the purpose of removing software restrictions imposed by Apple on iOS. It permits root access in Apple&rsquo;s mobile operating system, allowing the installation of software that is unavailable through the official Apple App Store. Apple states that Jailbreaking an Apple device eliminates security layers designed to protect one&rsquo;s personal information [3].</p>
+<p>This research explores how data is stored securely by <strong>WhatsApp Messenger</strong> (a cross-platform messaging and Voice-over-IP service) on an iPhone.</p>
+<h3 id="research--approach">Research  Approach</h3>
+<p><strong>WhatsApp Messenger</strong>, or simply <strong>WhatsApp</strong> allows users to send text messages and voice messages, make voice and video calls, and share images, documents, user locations and other media. In January 2018, WhatsApp released a standalone business app targeted at small business owners, called <strong>WhatsApp Business</strong>, to allow companies to communicate with customers who use the standard WhatsApp client. This research does not explore on-device data security of the WhatsApp Business application.</p>
+<p>The standard security mechanism put in place by Apple prevents unauthorized access to an application&rsquo;s data folder; which is circumvented through jailbreak.  This research uses an iPhone 7 for the security analysis. The security analysis focuses on only WhatsApp&rsquo;s on-device application data storage.</p>
+<h3 id="security-analysis">Security Analysis</h3>
+<p>The WhatsApp version used in this research was <strong>2.20.52.7</strong>. A brief content of the application&rsquo;s <strong>info.plist</strong> is shown in Fig. 1.
+<img src="/img/wa/infolist.png" alt="Info.plist Contents">
+<strong>Fig. 1:</strong> Info.plist Contents <!-- raw HTML omitted --></p>
+<p>The content&rsquo;s of WhatsApp&rsquo;s application folder is shown in Fig. 2.
+<img src="/img/wa/1.png" alt="Contents of Application Data">
+<strong>Fig. 2:</strong> Contents of Application Data <!-- raw HTML omitted --></p>
+<p>The <strong>Biz</strong> folder contains an SQLite file; which stores the details of all WhatsApp Business clients that a user has in his/her contacts. Details of such clients are stored in plain text in the SQLite file as shown in Figs. 3, 4 and 5. This details include their business names, phone numbers, business addresses, business location cooordinates, email addresses etc.
+<img src="/img/wa/wb3.png" alt="Details of WhatsApp Business Clients">
+<strong>Fig. 3:</strong> Details of WhatsApp Business Clients <!-- raw HTML omitted --></p>
+<p><img src="/img/wa/wb4.png" alt="Details of WhatsApp Business Clients">
+<strong>Fig. 4:</strong> Details of WhatsApp Business Clients <!-- raw HTML omitted --></p>
+<p><img src="/img/wa/wb5.png" alt="Details of WhatsApp Business Clients">
+<strong>Fig. 5:</strong> Details of WhatsApp Business Clients <!-- raw HTML omitted --></p>
+<p>It was realized that WhatsApp filters certain keywords from all messages sent/received. This is stored in an SQLite file called &ldquo;<strong>ChatSearchV5f</strong>&rdquo;. A sample content is shown in Fig. 6. As at the time of writing, it is unknown what such information is used for.
+<img src="/img/wa/fts.png" alt="Chat Search">
+<strong>Fig. 6:</strong> Chat Search <!-- raw HTML omitted --></p>
+<p>&lsquo;<strong>Status</strong>&rsquo; images and videos are stored in the media library folder. The images have a <strong>.thumb</strong> extension whereas the videos have no file extension. It was realized that the streaming files are <strong>mp4</strong> encoded (shown in Fig. 7). Adding \textbf{.mp4} as an extension to the streaming files enables you to play them.
+<img src="/img/wa/video.png" alt="Video Extension">
+<strong>Fig. 7:</strong> Video Extension <!-- raw HTML omitted --></p>
+<p>Chat messages are stored in &ldquo;<strong>CallHistory.sqlite</strong>&rdquo;. This SQLite file stores names of groups a user belongs to (shown in Fig. 8), messages sent to and received in the group, messages sent/received from other users (shown in Fig. 9) and links to encrypted images and videos sent/received (shown in Fig. 10 and 11).
+<img src="/img/wa/ch1.png" alt="User&rsquo;s WhatsApp Groups">
+<strong>Fig. 8:</strong> User&rsquo;s WhatsApp Groups <!-- raw HTML omitted --></p>
+<p><img src="/img/wa/ch2.png" alt="Links to Encrypted Shared or Received Images/Documents">
+<strong>Fig. 9:</strong> Links to Encrypted Shared or Received Images/Documents <!-- raw HTML omitted --></p>
+<p><img src="/img/wa/ch3.png" alt="Chat Messages">
+<strong>Fig. 10:</strong> Chat Messages <!-- raw HTML omitted --></p>
+<p><img src="/img/wa/ch4.png" alt="Push Names of WhatsApp Contacts">
+<strong>Fig. 11:</strong> Push Names of WhatsApp Contacts <!-- raw HTML omitted --></p>
+<p>Audio files (sent/received) are stored in \textbf{.opus} extension (shown in Fig. 12).
+<img src="/img/wa/audio.png" alt="Audio File(s)">
+<strong>Fig. 12:</strong> Audio Files(s) <!-- raw HTML omitted --></p>
+<p>WhatsApp has a privacy consent that enables them to upload all contacts on a user&rsquo;s phone to their server. This is shown in Fig. 13.
+<img src="/img/wa/ct.png" alt="Privacy Consent to upload contacts to WhatsApp&rsquo;s Server">
+<strong>Fig. 13:</strong> Privacy Consent to upload contacts to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
+<p>A copy of all contacts on a user&rsquo;s phone is stored in &ldquo;<strong>ContactsV2.sqlite</strong>&rdquo;. This is shown in Fig. 14 and 15.
+<img src="/img/wa/ct1.png" alt="User&rsquo;s Contacts collected and uploaded to WhatsApp Server">
+<strong>Fig. 14:</strong> User&rsquo;s contacts collected and uploaded to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
+<p><img src="/img/wa/ct2.png" alt="User&rsquo;s Contacts collected and uploaded to WhatsApp Server">
+<strong>Fig. 15:</strong> User&rsquo;s contacts collected and uploaded to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
+<p>From the above security analysis, it can be observed that most of the data stored on the device is in plain text. Hence, it can be inferred that WhatsApp does not implement a secured on-device data storage mechanism.</p>
+<h3 id="conclusion-and-recommendation">Conclusion and Recommendation</h3>
+<p>This research analyzes how WhatsApp secures on-device data of its users. It has been demonstrated how WhatsApp&rsquo;s data is not securely stored  on end-users' devices; hence can be retrieved by an attacker who has physical access to the device.</p>
+<p>It is recommended that WhatsApp implements a secure data storage mechanism for its users to protect them against instances where the physical device is compromised.</p>
+<h3 id="reference-list">Reference List</h3>
+<ol>
+<li>
+<p>unc0ver, <a href="https://unc0ver.dev">https://unc0ver.dev</a>.</p>
+</li>
+<li>
+<p>How to Jailbreak iOS 13.5 on iPhone or iPad using Unc0ver Jailbreak, [Accessed Online] <a href="https://www.iphonehacks.com/2020/05/how-jailbreak-ios-13-iphone.html">https://www.iphonehacks.com/2020/05/how-jailbreak-ios-13-iphone.html</a>.</p>
+</li>
+<li>
+<p>Unauthorized modification of iOS, <a href="https://support.apple.com/en-us/HT201954,">https://support.apple.com/en-us/HT201954,</a> 2020.</p>
+</li>
+</ol>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Security Flaw in the KNUST AIM Application</title>
+            <link>https://sperixlabs.org/post/2019/09/security-flaw-in-the-knust-aim-application/</link>
+            <pubDate>Fri, 20 Sep 2019 23:12:53 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2019/09/security-flaw-in-the-knust-aim-application/</guid>
+            <description>The Academic Information Manager (AIM) is the official mobile application for KNUST students. The key functions of AIM include: course registration, checking of results, editing of personal records, access to news from the University&amp;rsquo;s website, notifications and checking of fees. This research presents a flaw in the bearer authorization token implementation in the REST API for the AIM app. This authorization token is not validated per user basis, hence can be exploited to access or modify any student&amp;rsquo;s information through the REST API.</description>
+            <content type="html"><![CDATA[<p>The Academic Information Manager (AIM) is the official mobile application for KNUST students. The key functions of AIM include: course registration, checking of results, editing of personal records, access to news from the University&rsquo;s website, notifications and checking of fees. This research presents a flaw in the bearer authorization token implementation in the REST API for the AIM app. This authorization token is not validated per user basis, hence can be exploited to access or modify any student&rsquo;s information through the REST API.
+
+
+<br/>
+<br/>
+<img src="/img/knustaim/logo.jpg" style="width: 450px;"/>
+<br/>
+
+</p>
+<h3 id="security-flaw">Security Flaw</h3>
+<p>This section explains the details of the security flaw.</p>
+<h4 id="application-version">Application Version</h4>
+<p><strong>Operating System</strong>: Android 
+<br/>
+
+<strong>Version</strong>: 1.0.13.2
+<br/>
+
+<strong>Release Date</strong>: 18th September, 2018 
+<br/>
+
+
+
+<p></p>
+<img src="/img/knustaim/signature.png" style=""/>
+
+</p>
+<p>The REST API base url for the AIM application is</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">https://apps.knust.edu.gh/StudentAPI/
+</code></pre></div><p>This is shown below.
+
+
+<p></p>
+<img src="/img/knustaim/url.png"/>
+
+</p>
+<p>The AIM REST API uses bearer token to allow access to the associated resources [1]. The implementation of the bearer token verification in the mobile application is shown below.
+
+
+<p></p>
+<img src="/img/knustaim/auth.png"/>
+
+</p>
+<p>The bearer token is generated when a user logs in with his reference number and password. The parameters for the REST API is shown below.
+
+
+<p></p>
+<img src="/img/knustaim/token.png"/>
+
+</p>
+<p>A sample C# implementation of the authentication request and the token generated are shown below.
+
+
+<p></p>
+<img src="/img/knustaim/loginCode.png"/><br/>
+<img src="/img/knustaim/bearerToken.png"/>
+
+</p>
+<p>The bearer token is a very good security implementation. The problem lies in the fact that a valid bearer token of a particular student can be used to access or modify other students' information once the reference number is known.</p>
+<h3 id="references">References</h3>
+<ol>
+<li>RFC670, &ldquo;The OAuth 2.0 Authorization Framework: Bearer Token Usage&rdquo;, Internet Engineering Task Force (IETF), 2012.</li>
+</ol>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ionic on SPERIXLABS</title>
+    <link>https://sperixlabs.org/tags/ionic/</link>
+    <description>Recent content in ionic on SPERIXLABS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>SPERIXLABS</copyright>
+    <lastBuildDate>Sun, 10 Jan 2021 17:21:02 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/ionic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Possible Implementation Flaws in Mobile Applications: A Security Audit of a  Mobile Application</title>
+      <link>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</link>
+      <pubDate>Sun, 10 Jan 2021 17:21:02 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</guid>
+      <description>This research presents a security flaw in a mobile application (both iOS and Android). The platform used for the assessment was iOS. Both platforms (iOS and Android) are affected by this flaw due the fact that they were built using a cross-platform framework (ionic).
+Technical Details 
+Details </description>
+    </item>
+    
+  </channel>
+</rss>

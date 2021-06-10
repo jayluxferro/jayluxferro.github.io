@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on SPERIXLABS</title>
+    <link>https://sperixlabs.org/tags/security/</link>
+    <description>Recent content in Security on SPERIXLABS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>SPERIXLABS</copyright>
+    <lastBuildDate>Sun, 10 Jan 2021 17:21:02 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Possible Implementation Flaws in Mobile Applications: A Security Audit of a  Mobile Application</title>
+      <link>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</link>
+      <pubDate>Sun, 10 Jan 2021 17:21:02 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</guid>
+      <description>This research presents a security flaw in a mobile application (both iOS and Android). The platform used for the assessment was iOS. Both platforms (iOS and Android) are affected by this flaw due the fact that they were built using a cross-platform framework (ionic).
+Technical Details 
+Details </description>
+    </item>
+    
+    <item>
+      <title>Unauthorised User Account Access on iRokoTV Platform</title>
+      <link>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</link>
+      <pubDate>Mon, 30 Nov 2020 17:15:25 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</guid>
+      <description>This research presents a flaw in user authentication that enables an unauthorised user to enumerate valid user accounts on the iRokoTV client applications (mobile and web) and also crack a person’s pin code. The security analysis was done on the iOS platform; the flaw translates to other platforms (android and web).
+Details of the Flaw The iRokoTV iOS application (version 1.7.12) presents a user with the option to sign up or log in as an existing user.</description>
+    </item>
+    
+    <item>
+      <title>Reverse Engineering GhanaPostGPS Mobile Application to Create an API for Local Developers</title>
+      <link>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</link>
+      <pubDate>Sat, 05 Sep 2020 17:07:23 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</guid>
+      <description>GhanaPostGPS is Ghana&amp;rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp;amp; area code). Its core functionality is to translate a user&amp;rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions.</description>
+    </item>
+    
+    <item>
+      <title>Security Flaw in the KNUST AIM Application</title>
+      <link>https://sperixlabs.org/post/2019/09/security-flaw-in-the-knust-aim-application/</link>
+      <pubDate>Fri, 20 Sep 2019 23:12:53 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/post/2019/09/security-flaw-in-the-knust-aim-application/</guid>
+      <description>The Academic Information Manager (AIM) is the official mobile application for KNUST students. The key functions of AIM include: course registration, checking of results, editing of personal records, access to news from the University&amp;rsquo;s website, notifications and checking of fees. This research presents a flaw in the bearer authorization token implementation in the REST API for the AIM app. This authorization token is not validated per user basis, hence can be exploited to access or modify any student&amp;rsquo;s information through the REST API.</description>
+    </item>
+    
+  </channel>
+</rss>

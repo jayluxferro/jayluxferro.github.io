@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Research on SPERIXLABS</title>
+    <link>https://sperixlabs.org/tags/research/</link>
+    <description>Recent content in Research on SPERIXLABS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>SPERIXLABS</copyright>
+    <lastBuildDate>Thu, 18 Feb 2021 16:42:36 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Research Publications</title>
+      <link>https://sperixlabs.org/publication/</link>
+      <pubDate>Thu, 18 Feb 2021 16:42:36 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/publication/</guid>
+      <description>Reverse Engineering   Possible Implementation Flaws in Mobile Applications: A Security Audit of a Bank&amp;rsquo;s Mobile Application. http://dx.doi.org/10.13140/RG.2.2.17654.42566/2
+  Unauthorised User Account Access on iRokotv platform. http://dx.doi.org/10.13140/RG.2.2.25486.79681/2
+  Reverse Engineering GhanaPostGPS Mobile Application to Create an Application Programming Interface for Local Developers. http://dx.doi.org/10.13140/RG.2.2.24355.27684/2
+  A Security Analysis of WhatsApp iOS Mobile Application. http://dx.doi.org/10.13140/RG.2.2.30510.33605
+  Academic Research   A Critical Survey on Overhead Control Traffic Reduction Strategies in Software-Defined Wireless Sensor Networking.</description>
+    </item>
+    
+  </channel>
+</rss>
