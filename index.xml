@@ -79,11 +79,7 @@ Details of the Flaw The iRokoTV iOS application (version 1.7.12) presents a user
       <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
       <description>Whitepaper Read Now
 
-API Details End Point URL: https://ghanapostgps.sperixlabs.org
-Method: POST
-Parameters: address (GhanaPostGPS Address)
-Content-Type: application/x-www-form-urlencoded
-Output/Response:  Address found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;#34;: [ { &amp;#34;Area&amp;#34;: &amp;#34;NEW KAGYASI&amp;#34;, &amp;#34;CenterLatitude&amp;#34;: 6.650080145273592, &amp;#34;CenterLongitude&amp;#34;: -1.648700346667856, &amp;#34;District&amp;#34;: &amp;#34;Kumasi&amp;#34;, &amp;#34;EastLat&amp;#34;: 6.65005768739201, &amp;#34;EastLong&amp;#34;: -1.6486780409076, &amp;#34;GPSName&amp;#34;: &amp;#34;AK4849321&amp;#34;, &amp;#34;NorthLat&amp;#34;: 6.65010262239948, &amp;#34;NorthLong&amp;#34;: -1.6487229566718, &amp;#34;PostCode&amp;#34;: &amp;#34;AK484&amp;#34;, &amp;#34;Region&amp;#34;: &amp;#34;Ashanti&amp;#34;, &amp;#34;SouthLat&amp;#34;: 6.65005768739201, &amp;#34;SouthLong&amp;#34;: -1.6487229566718, &amp;#34;Street&amp;#34;: &amp;#34;Kumasi, Ashanti, GHA&amp;#34;, &amp;#34;WestLat&amp;#34;: 6.65010262239948, &amp;#34;WestLong&amp;#34;: -1.6486780409076 } ] }, &amp;#34;found&amp;#34;: true } Address not found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;#34;: null }, &amp;#34;found&amp;#34;: false } Sample Codes  C-Sharp | cURL | Golang | Javascript | NodeJS | PHP | Python | Swift | Java | Ruby | PowerShell</description>
+API Details Read Now</description>
     </item>
     
     <item>
@@ -94,11 +90,7 @@ Output/Response:  Address found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;
       <guid>https://sperixlabs.org/ghpgps/</guid>
       <description>Whitepaper Read Now
 
-API Details End Point URL: https://ghanapostgps.sperixlabs.org
-Method: POST
-Parameters: address (GhanaPostGPS Address)
-Content-Type: application/x-www-form-urlencoded
-Output/Response:  Address found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;#34;: [ { &amp;#34;Area&amp;#34;: &amp;#34;NEW KAGYASI&amp;#34;, &amp;#34;CenterLatitude&amp;#34;: 6.650080145273592, &amp;#34;CenterLongitude&amp;#34;: -1.648700346667856, &amp;#34;District&amp;#34;: &amp;#34;Kumasi&amp;#34;, &amp;#34;EastLat&amp;#34;: 6.65005768739201, &amp;#34;EastLong&amp;#34;: -1.6486780409076, &amp;#34;GPSName&amp;#34;: &amp;#34;AK4849321&amp;#34;, &amp;#34;NorthLat&amp;#34;: 6.65010262239948, &amp;#34;NorthLong&amp;#34;: -1.6487229566718, &amp;#34;PostCode&amp;#34;: &amp;#34;AK484&amp;#34;, &amp;#34;Region&amp;#34;: &amp;#34;Ashanti&amp;#34;, &amp;#34;SouthLat&amp;#34;: 6.65005768739201, &amp;#34;SouthLong&amp;#34;: -1.6487229566718, &amp;#34;Street&amp;#34;: &amp;#34;Kumasi, Ashanti, GHA&amp;#34;, &amp;#34;WestLat&amp;#34;: 6.65010262239948, &amp;#34;WestLong&amp;#34;: -1.6486780409076 } ] }, &amp;#34;found&amp;#34;: true } Address not found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;#34;: null }, &amp;#34;found&amp;#34;: false } Sample Codes  C-Sharp | cURL | Golang | Javascript | NodeJS | PHP | Python | Swift | Java | Ruby | PowerShell</description>
+API Details Read Now</description>
     </item>
     
     <item>
@@ -109,11 +101,7 @@ Output/Response:  Address found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;
       <guid>https://sperixlabs.org/post/ghpgps/</guid>
       <description>Whitepaper Read Now
 
-API Details End Point URL: https://ghanapostgps.sperixlabs.org
-Method: POST
-Parameters: address (GhanaPostGPS Address)
-Content-Type: application/x-www-form-urlencoded
-Output/Response:  Address found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;#34;: [ { &amp;#34;Area&amp;#34;: &amp;#34;NEW KAGYASI&amp;#34;, &amp;#34;CenterLatitude&amp;#34;: 6.650080145273592, &amp;#34;CenterLongitude&amp;#34;: -1.648700346667856, &amp;#34;District&amp;#34;: &amp;#34;Kumasi&amp;#34;, &amp;#34;EastLat&amp;#34;: 6.65005768739201, &amp;#34;EastLong&amp;#34;: -1.6486780409076, &amp;#34;GPSName&amp;#34;: &amp;#34;AK4849321&amp;#34;, &amp;#34;NorthLat&amp;#34;: 6.65010262239948, &amp;#34;NorthLong&amp;#34;: -1.6487229566718, &amp;#34;PostCode&amp;#34;: &amp;#34;AK484&amp;#34;, &amp;#34;Region&amp;#34;: &amp;#34;Ashanti&amp;#34;, &amp;#34;SouthLat&amp;#34;: 6.65005768739201, &amp;#34;SouthLong&amp;#34;: -1.6487229566718, &amp;#34;Street&amp;#34;: &amp;#34;Kumasi, Ashanti, GHA&amp;#34;, &amp;#34;WestLat&amp;#34;: 6.65010262239948, &amp;#34;WestLong&amp;#34;: -1.6486780409076 } ] }, &amp;#34;found&amp;#34;: true } Address not found  { &amp;#34;data&amp;#34;: { &amp;#34;Table&amp;#34;: null }, &amp;#34;found&amp;#34;: false } Sample Codes  C-Sharp | cURL | Golang | Javascript | NodeJS | PHP | Python | Swift | Java | Ruby | PowerShell</description>
+API Details Read Now</description>
     </item>
     
     <item>
