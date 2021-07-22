@@ -227,7 +227,7 @@ API Details Read Now</description>
 <p>It was realized that WhatsApp filters certain keywords from all messages sent/received. This is stored in an SQLite file called &ldquo;<strong>ChatSearchV5f</strong>&rdquo;. A sample content is shown in Fig. 6. As at the time of writing, it is unknown what such information is used for.
 <img src="/img/wa/fts.png" alt="Chat Search">
 <strong>Fig. 6:</strong> Chat Search <!-- raw HTML omitted --></p>
-<p>&lsquo;<strong>Status</strong>&rsquo; images and videos are stored in the media library folder. The images have a <strong>.thumb</strong> extension whereas the videos have no file extension. It was realized that the streaming files are <strong>mp4</strong> encoded (shown in Fig. 7). Adding \textbf{.mp4} as an extension to the streaming files enables you to play them.
+<p>&lsquo;<strong>Status</strong>&rsquo; images and videos are stored in the media library folder. The images have a <strong>.thumb</strong> extension whereas the videos have no file extension. It was realized that the streaming files are <strong>mp4</strong> encoded (shown in Fig. 7). Adding <!-- raw HTML omitted -->.mp4<!-- raw HTML omitted --> as an extension to the streaming files enables you to play them.
 <img src="/img/wa/video.png" alt="Video Extension">
 <strong>Fig. 7:</strong> Video Extension <!-- raw HTML omitted --></p>
 <p>Chat messages are stored in &ldquo;<strong>CallHistory.sqlite</strong>&rdquo;. This SQLite file stores names of groups a user belongs to (shown in Fig. 8), messages sent to and received in the group, messages sent/received from other users (shown in Fig. 9) and links to encrypted images and videos sent/received (shown in Fig. 10 and 11).
@@ -239,7 +239,7 @@ API Details Read Now</description>
 <strong>Fig. 10:</strong> Chat Messages <!-- raw HTML omitted --></p>
 <p><img src="/img/wa/ch4.png" alt="Push Names of WhatsApp Contacts">
 <strong>Fig. 11:</strong> Push Names of WhatsApp Contacts <!-- raw HTML omitted --></p>
-<p>Audio files (sent/received) are stored in \textbf{.opus} extension (shown in Fig. 12).
+<p>Audio files (sent/received) are stored in <!-- raw HTML omitted -->.opus<!-- raw HTML omitted --> extension (shown in Fig. 12).
 <img src="/img/wa/audio.png" alt="Audio File(s)">
 <strong>Fig. 12:</strong> Audio Files(s) <!-- raw HTML omitted --></p>
 <p>WhatsApp has a privacy consent that enables them to upload all contacts on a user&rsquo;s phone to their server. This is shown in Fig. 13.

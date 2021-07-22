@@ -44,7 +44,7 @@
 <meta itemprop="name" content="A Security Analysis of WhatsApp iOS Mobile Application">
 <meta itemprop="description" content="This research presents an investigation into WhatsApp&rsquo;s on-device data storage on iOS. WhatsApp is one of the most widely used messaging application and hence it is required that a secured on-device storage mechanism be implemented to complement Apple&rsquo;s security measures for their devices. This will help protect a user&rsquo;s data in instances where his/her device is compromised physically. The research presents a security analysis on the storage format of data used by WhatsApp on end-users&#39; devices."><meta itemprop="datePublished" content="2020-06-17T17:00:58+00:00" />
 <meta itemprop="dateModified" content="2020-06-17T17:00:58+00:00" />
-<meta itemprop="wordCount" content="848"><meta itemprop="image" content="https://sperixlabs.org/"/>
+<meta itemprop="wordCount" content="846"><meta itemprop="image" content="https://sperixlabs.org/"/>
 <meta itemprop="keywords" content="iOS,Audit," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sperixlabs.org/"/>
@@ -173,7 +173,7 @@
 <p>It was realized that WhatsApp filters certain keywords from all messages sent/received. This is stored in an SQLite file called &ldquo;<strong>ChatSearchV5f</strong>&rdquo;. A sample content is shown in Fig. 6. As at the time of writing, it is unknown what such information is used for.
 <img src="https://sperixlabs.org/img/wa/fts.png" alt="Chat Search">
 <strong>Fig. 6:</strong> Chat Search <!-- raw HTML omitted --></p>
-<p>&lsquo;<strong>Status</strong>&rsquo; images and videos are stored in the media library folder. The images have a <strong>.thumb</strong> extension whereas the videos have no file extension. It was realized that the streaming files are <strong>mp4</strong> encoded (shown in Fig. 7). Adding \textbf{.mp4} as an extension to the streaming files enables you to play them.
+<p>&lsquo;<strong>Status</strong>&rsquo; images and videos are stored in the media library folder. The images have a <strong>.thumb</strong> extension whereas the videos have no file extension. It was realized that the streaming files are <strong>mp4</strong> encoded (shown in Fig. 7). Adding <!-- raw HTML omitted -->.mp4<!-- raw HTML omitted --> as an extension to the streaming files enables you to play them.
 <img src="https://sperixlabs.org/img/wa/video.png" alt="Video Extension">
 <strong>Fig. 7:</strong> Video Extension <!-- raw HTML omitted --></p>
 <p>Chat messages are stored in &ldquo;<strong>CallHistory.sqlite</strong>&rdquo;. This SQLite file stores names of groups a user belongs to (shown in Fig. 8), messages sent to and received in the group, messages sent/received from other users (shown in Fig. 9) and links to encrypted images and videos sent/received (shown in Fig. 10 and 11).
@@ -185,7 +185,7 @@
 <strong>Fig. 10:</strong> Chat Messages <!-- raw HTML omitted --></p>
 <p><img src="https://sperixlabs.org/img/wa/ch4.png" alt="Push Names of WhatsApp Contacts">
 <strong>Fig. 11:</strong> Push Names of WhatsApp Contacts <!-- raw HTML omitted --></p>
-<p>Audio files (sent/received) are stored in \textbf{.opus} extension (shown in Fig. 12).
+<p>Audio files (sent/received) are stored in <!-- raw HTML omitted -->.opus<!-- raw HTML omitted --> extension (shown in Fig. 12).
 <img src="https://sperixlabs.org/img/wa/audio.png" alt="Audio File(s)">
 <strong>Fig. 12:</strong> Audio Files(s) <!-- raw HTML omitted --></p>
 <p>WhatsApp has a privacy consent that enables them to upload all contacts on a user&rsquo;s phone to their server. This is shown in Fig. 13.
@@ -245,7 +245,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        848 Words
+        846 Words
       </p>
 
       <p>
