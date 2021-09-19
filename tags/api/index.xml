@@ -14,15 +14,26 @@
       <pubDate>Thu, 18 Feb 2021 16:43:21 +0000</pubDate>
       
       <guid>https://sperixlabs.org/api/</guid>
-      <description>A DNS Ad-Blocker for iOS, macOS and Android. https://github.com/jayluxferro/block-ads
+      <description>pbcopy. A small utility to copy text to the clipboard on a jailbroken iPhone https://github.com/jayluxferro/pbcopy
+  A DNS Ad-Blocker for iOS, macOS and Android. https://github.com/jayluxferro/block-ads
   Cookie-Editor extension for Safari. https://github.com/jayluxferro/Cookie-Editor
   Hack-Tools extension for Safari. https://github.com/jayluxferro/Hack-Tools-Safari-Extension
   APK Downloader. https://github.com/jayluxferro/APK-Downloader
   ECG Power Recharge Platform. https://enersmart.sperixlabs.org
   Flutterwave Moodle Plugin. https://github.com/jayluxferro/Flutterwave-Moodle-Plugin
   XDM Browser Extension for Safari Browser. https://github.com/jayluxferro/XDM-Browser-Extension
-  GhanaPostGPS REST API. https://github.com/jayluxferro/GhanaPostGPS-REST-API
-  ProxyMe: Android VPN Interceptor to Send HTTP and HTTPS traffic to a proxy.</description>
+  GhanaPostGPS REST API.</description>
+    </item>
+    
+    <item>
+      <title>GhanaPostGPS REST API</title>
+      <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
+      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
+      <description>Whitepaper Read Now
+
+API Details Read Now</description>
     </item>
     
     <item>
@@ -42,17 +53,6 @@ API Details Read Now</description>
       <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
       
       <guid>https://sperixlabs.org/post/ghpgps/</guid>
-      <description>Whitepaper Read Now
-
-API Details Read Now</description>
-    </item>
-    
-    <item>
-      <title>GhanaPostGPS REST API</title>
-      <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
-      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      
-      <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
       <description>Whitepaper Read Now
 
 API Details Read Now</description>
