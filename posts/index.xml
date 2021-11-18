@@ -103,7 +103,7 @@ API Details Read Now</description>
 <p>When a user launches the application, he has the option to sign in (if he&rsquo;s an existing using), sign up as a new user or use the app without registering (anonymous account). Phone numbers are used in signing on to the platform and verified through a short message service (SMS). When a user signs in successfully, he has the ability to register/generate a digital address and also query for location details (either by name or by address). The mobile applications (iOS and Android) have panic buttons which help users in easy communication with the Police, Fire and Ambulance services in the event of an imminent danger. This is made possible due to the integration of a session initiation protocol (SIP)[2] API in the mobile clients.</p>
 <h3 id="end-to-end--encryption-e2ee">End-to-End  Encryption (E2EE)</h3>
 <p>Communication between the clients and the web service uses asymmetric encryption. When the application is launched for the first time, the mobile client connects to the endpoint <strong><a href="https://api.ghanapostgps.com/GetAPIData.aspx">https://api.ghanapostgps.com/GetAPIData.aspx</a></strong> to get the server&rsquo;s public key (a sample is shown below).</p>
-<pre><code>	-----BEGIN PUBLIC KEY-----
+<pre tabindex="0"><code>	-----BEGIN PUBLIC KEY-----
 	MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlO6O2gAGlT4+YP+evP9c
 	9qynWdv/qIAx5Jc4kp+UTmrsn8wJn4bD9H8rynSvepH0navZiDwYvioAPbIcR6cG
 	MMFnP5/2wN9zrBFZtnofcpSrk4q9/GRHj4IuHheQjvMiislrRdIEgqxjMQ1aaiG7
@@ -113,7 +113,7 @@ API Details Read Now</description>
 	1QIDAQAB
 	-----END PUBLIC KEY-----
 </code></pre><p>Upon getting the public key, the mobile client generates a random string (using the method below) of length 16 characters.</p>
-<pre><code>	 private static final String ALLOWED_CHARACTERS = &quot;0123456789qwertyuiopasdfghjklzxcvbnm!@$#^&amp;*()&quot;;
+<pre tabindex="0"><code>	 private static final String ALLOWED_CHARACTERS = &quot;0123456789qwertyuiopasdfghjklzxcvbnm!@$#^&amp;*()&quot;;
 	 public static String getRandomString(int i) {
 	 	Random random = new Random();
 	 	StringBuilder sb = new StringBuilder(i);
@@ -123,14 +123,14 @@ API Details Read Now</description>
 	 	return sb.toString();
 	 }
 </code></pre><p>The generated random string becomes a symmetric key that is used in the encryption and decryption of data between the client and the server. The client sends the generated random string (16 bytes) together with a universally unique identifier (UUID) and the operating system&rsquo;s name (Android or iOS) to the server. This data is encrypted (using RSA) and encoded in base64 using the server&rsquo;s public key before it is sent. A sample is shown below:</p>
-<pre><code>	TiJ/O4d2rFzaR046lLMYBJ6yU3e+vqDjkrYNVrhFm9K+jLXbMzTB6xAdtz/f/Rx+Nyw5ZB64ok3v8MRJq9jf8NwpYeFQZUGR0UzMmg
+<pre tabindex="0"><code>	TiJ/O4d2rFzaR046lLMYBJ6yU3e+vqDjkrYNVrhFm9K+jLXbMzTB6xAdtz/f/Rx+Nyw5ZB64ok3v8MRJq9jf8NwpYeFQZUGR0UzMmg
 	EgYR3MlAgFz7vRkQt0GGt/BwEaK081PJKxnqVqqXjr3NqNbfJr3GDDkfIfVKT4xOZRZbcCFdPpDD6Ofb5RD7mL8LQLvwOPOUVq3+/
 	MlNDVhxOD4Osq0PqWh8CvrZY8y2Q1sDJYDTUsKFn0ChxFNtJhso1ImtqLBkNFZbrWUXn6NbHV+p3HBJVeZNcJxlWPPHaBh8Ip7
 	qPOnnMww4ZXWC88/tWTlScFemwTcyGpT58T9rMySA==
 </code></pre><p>The server responds by sending a base64 encoded data which can be decrypted using the client&rsquo;s symmetric key. The decrypted data is shown below.</p>
-<pre><code>	PlsUseYourOwnKey||https://api.ghanapostgps.com/PublicGPGPSAPI.aspx
+<pre tabindex="0"><code>	PlsUseYourOwnKey||https://api.ghanapostgps.com/PublicGPGPSAPI.aspx
 </code></pre><p>The decrypted data contained a new endpoint <strong><a href="https://api.ghanapostgps.com/PublicGPGPSAPI.aspx">https://api.ghanapostgps.com/PublicGPGPSAPI.aspx</a></strong> through which all subsequent communications were made. The symmetric encryption used is advanced encryption standard (AES); as shown below.</p>
-<pre><code>	// Java, AES CBC Encryption
+<pre tabindex="0"><code>	// Java, AES CBC Encryption
 	package com.ghanapostgps.ghanapost.util;
 
 	import android.util.Base64;
@@ -263,7 +263,7 @@ API Details Read Now</description>
 <p>How to Jailbreak iOS 13.5 on iPhone or iPad using Unc0ver Jailbreak, [Accessed Online] <a href="https://www.iphonehacks.com/2020/05/how-jailbreak-ios-13-iphone.html">https://www.iphonehacks.com/2020/05/how-jailbreak-ios-13-iphone.html</a>.</p>
 </li>
 <li>
-<p>Unauthorized modification of iOS, <a href="https://support.apple.com/en-us/HT201954,">https://support.apple.com/en-us/HT201954,</a> 2020.</p>
+<p>Unauthorized modification of iOS, <a href="https://support.apple.com/en-us/HT201954">https://support.apple.com/en-us/HT201954</a>, 2020.</p>
 </li>
 </ol>
 ]]></content>
@@ -304,7 +304,7 @@ API Details Read Now</description>
 
 </p>
 <p>The REST API base url for the AIM application is</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">https://apps.knust.edu.gh/StudentAPI/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">https://apps.knust.edu.gh/StudentAPI/
 </code></pre></div><p>This is shown below.
 
 
