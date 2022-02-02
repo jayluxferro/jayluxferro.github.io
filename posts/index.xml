@@ -53,12 +53,12 @@
 <li>Open Terminal.</li>
 <li>Build the .pkg file using the pkgbuild command.</li>
 </ol>
-<pre tabindex="0"><code>sudo pkgbuild --component /path_to_installed_app/macapp.app      --install-location /Applications   --sign &quot;Developer ID Installer: *******&quot;       /path_to_saved_package/packagename.pkg
+<pre tabindex="0"><code>pkgbuild --component /path_to_installed_app/macapp.app      --install-location /Applications   --sign &quot;Developer ID Installer: *******&quot;       /path_to_saved_package/packagename.pkg
 </code></pre><p>Here, the quoted text refers to the name of your certificate. The two arguments specify the location of the already installed .app file (/path_to_installed_app/macapp.app) and the location of the newly generated .pkg file (/path_to_saved_package/packagename.pkg), respectively.</p>
 <ol start="4">
 <li>Sign the .pkg file using the productbuild command.</li>
 </ol>
-<pre tabindex="0"><code>sudo productbuild --package /path_to_saved_package/packagename.pkg       --content /path_to_app/         --sign &quot;Developer ID Installer: *******&quot;       /path_to_signed_pkg/signed.pkg
+<pre tabindex="0"><code>productbuild --package /path_to_saved_package/packagename.pkg       --content /path_to_app/         --sign &quot;Developer ID Installer: *******&quot;       /path_to_signed_pkg/signed.pkg
 </code></pre><p>Here, the quoted text refers to the name of the certificate. The two arguments specify the location of the newly generated .pkg file (/path_to_saved_package/packagename.pkg) and the location of the signed .pkg file (/path_to_signed_pkg/signed.pkg), respectively.</p>
 <h3 id="steps-to-sign-macos-pkg-files">Steps to sign macOS PKG files</h3>
 <p>To sign a macOS PKG file,</p>

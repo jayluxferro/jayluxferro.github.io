@@ -48,7 +48,7 @@
  Generate a signing request. Generate Developer ID Installer certificate. Sign the macOS PKG file.  Steps to Generate a Signing Request For generating a certificate, first of all you require a Certificate Signing Request (CSR) file.
  Open “Keychain Access” program within your macOS device. Click on Keychain Access appearing on the top menu bar. Go to Certificate Assistant &gt; Request a Certificate From a Certificate Authority."><meta itemprop="datePublished" content="2022-02-02T09:36:53+00:00" />
 <meta itemprop="dateModified" content="2022-02-02T09:36:53+00:00" />
-<meta itemprop="wordCount" content="499"><meta itemprop="image" content="https://sperixlabs.org/"/>
+<meta itemprop="wordCount" content="497"><meta itemprop="image" content="https://sperixlabs.org/"/>
 <meta itemprop="keywords" content="macOS," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sperixlabs.org/"/>
@@ -191,12 +191,12 @@
 <li>Open Terminal.</li>
 <li>Build the .pkg file using the pkgbuild command.</li>
 </ol>
-<pre tabindex="0"><code>sudo pkgbuild --component /path_to_installed_app/macapp.app      --install-location /Applications   --sign &quot;Developer ID Installer: *******&quot;       /path_to_saved_package/packagename.pkg
+<pre tabindex="0"><code>pkgbuild --component /path_to_installed_app/macapp.app      --install-location /Applications   --sign &quot;Developer ID Installer: *******&quot;       /path_to_saved_package/packagename.pkg
 </code></pre><p>Here, the quoted text refers to the name of your certificate. The two arguments specify the location of the already installed .app file (/path_to_installed_app/macapp.app) and the location of the newly generated .pkg file (/path_to_saved_package/packagename.pkg), respectively.</p>
 <ol start="4">
 <li>Sign the .pkg file using the productbuild command.</li>
 </ol>
-<pre tabindex="0"><code>sudo productbuild --package /path_to_saved_package/packagename.pkg       --content /path_to_app/         --sign &quot;Developer ID Installer: *******&quot;       /path_to_signed_pkg/signed.pkg
+<pre tabindex="0"><code>productbuild --package /path_to_saved_package/packagename.pkg       --content /path_to_app/         --sign &quot;Developer ID Installer: *******&quot;       /path_to_signed_pkg/signed.pkg
 </code></pre><p>Here, the quoted text refers to the name of the certificate. The two arguments specify the location of the newly generated .pkg file (/path_to_saved_package/packagename.pkg) and the location of the signed .pkg file (/path_to_signed_pkg/signed.pkg), respectively.</p>
 <h3 id="steps-to-sign-macos-pkg-files">Steps to sign macOS PKG files</h3>
 <p>To sign a macOS PKG file,</p>
@@ -243,7 +243,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        499 Words
+        497 Words
       </p>
 
       <p>
