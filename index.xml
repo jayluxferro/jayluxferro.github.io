@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Thu, 18 Feb 2021 16:43:21 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Feb 2022 09:36:53 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Sign macOS PKG Files for Deployment</title>
+      <link>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</link>
+      <pubDate>Wed, 02 Feb 2022 09:36:53 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</guid>
+      <description>Signing a package is a multi-step process.
+ Generate a signing request. Generate Developer ID Installer certificate. Sign the macOS PKG file.  Steps to Generate a Signing Request For generating a certificate, first of all you require a Certificate Signing Request (CSR) file.
+ Open “Keychain Access” program within your macOS device. Click on Keychain Access appearing on the top menu bar. Go to Certificate Assistant &amp;gt; Request a Certificate From a Certificate Authority.</description>
+    </item>
+    
     <item>
       <title>Sample Projects</title>
       <link>https://sperixlabs.org/api/</link>
@@ -108,15 +119,6 @@ API Details Read Now</description>
       
       <guid>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</guid>
       <description>GhanaPostGPS is Ghana&amp;rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp;amp; area code). Its core functionality is to translate a user&amp;rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions.</description>
-    </item>
-    
-    <item>
-      <title>A Security Analysis of WhatsApp iOS Mobile Application</title>
-      <link>https://sperixlabs.org/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/</link>
-      <pubDate>Wed, 17 Jun 2020 17:00:58 +0000</pubDate>
-      
-      <guid>https://sperixlabs.org/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/</guid>
-      <description>This research presents an investigation into WhatsApp&amp;rsquo;s on-device data storage on iOS. WhatsApp is one of the most widely used messaging application and hence it is required that a secured on-device storage mechanism be implemented to complement Apple&amp;rsquo;s security measures for their devices. This will help protect a user&amp;rsquo;s data in instances where his/her device is compromised physically. The research presents a security analysis on the storage format of data used by WhatsApp on end-users&#39; devices.</description>
     </item>
     
   </channel>

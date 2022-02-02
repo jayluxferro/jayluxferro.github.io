@@ -6,8 +6,75 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>SPERIXLABS</copyright>
-        <lastBuildDate>Sun, 10 Jan 2021 17:21:02 +0000</lastBuildDate>
+        <lastBuildDate>Wed, 02 Feb 2022 09:36:53 +0000</lastBuildDate>
         <atom:link href="https://sperixlabs.org/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>How to Sign macOS PKG Files for Deployment</title>
+            <link>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</link>
+            <pubDate>Wed, 02 Feb 2022 09:36:53 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</guid>
+            <description>Signing a package is a multi-step process.
+ Generate a signing request. Generate Developer ID Installer certificate. Sign the macOS PKG file.  Steps to Generate a Signing Request For generating a certificate, first of all you require a Certificate Signing Request (CSR) file.
+ Open “Keychain Access” program within your macOS device. Click on Keychain Access appearing on the top menu bar. Go to Certificate Assistant &amp;gt; Request a Certificate From a Certificate Authority.</description>
+            <content type="html"><![CDATA[<p>Signing a package is a multi-step process.</p>
+<ol>
+<li>Generate a signing request.</li>
+<li>Generate Developer ID Installer certificate.</li>
+<li>Sign the macOS PKG file.</li>
+</ol>
+<h3 id="steps-to-generate-a-signing-request">Steps to Generate a Signing Request</h3>
+<p>For generating a certificate, first of all you require a Certificate Signing Request (CSR) file.</p>
+<ol>
+<li>Open “<strong>Keychain Access</strong>” program within your macOS device.</li>
+<li>Click on Keychain Access appearing on the top menu bar.</li>
+<li>Go to <strong>Certificate Assistant</strong> &gt; <strong>Request a Certificate From a Certificate Authority</strong>.</li>
+<li>Add your email address in the User Email Address field, and name in the Common Name field. Leave the CA Email Address field blank.</li>
+<li>Under the Request is option, click Saved to Disc.</li>
+<li>Click Continue.</li>
+<li>Specify the location on the device where the .csr file is to be saved and click Save.</li>
+</ol>
+<p>The signing request will be saved to your machine in the specified location. This file is required to generate the “<strong>Developer ID Installer</strong>” certificate.</p>
+<h3 id="steps-to-generate-developer-id-installer-certificate">Steps to Generate Developer ID Installer Certificate</h3>
+<p>To generate the certificate:</p>
+<ol>
+<li>Go to Apple Developer Portal. Click on Accounts.</li>
+<li>Either create a new account or sign in using an existing account.</li>
+<li>Click on Certificates &gt; IDs &gt; Profiles.</li>
+<li>Click on Certificates + and select Developer ID Installer.</li>
+<li>Upload the Certificate Signing Request which was downloaded in the above step.</li>
+<li>The Developer ID Installer certificate will be generated. Download the certificate and install it on your macOS device to sign the packages.</li>
+</ol>
+<h3 id="steps-to-build-and-sign-a-macos-pkg-file">Steps to Build and Sign a macOS PKG file</h3>
+<p>To build and sign a macOS PKG file for a third-party app,</p>
+<ol>
+<li>Install the app on the device.</li>
+<li>Open Terminal.</li>
+<li>Build the .pkg file using the pkgbuild command.</li>
+</ol>
+<pre tabindex="0"><code>sudo pkgbuild --component /path_to_installed_app/macapp.app      --install-location /Applications   --sign &quot;Developer ID Installer: *******&quot;       /path_to_saved_package/packagename.pkg
+</code></pre><p>Here, the quoted text refers to the name of your certificate. The two arguments specify the location of the already installed .app file (/path_to_installed_app/macapp.app) and the location of the newly generated .pkg file (/path_to_saved_package/packagename.pkg), respectively.</p>
+<ol start="4">
+<li>Sign the .pkg file using the productbuild command.</li>
+</ol>
+<pre tabindex="0"><code>sudo productbuild --package /path_to_saved_package/packagename.pkg       --content /path_to_app/         --sign &quot;Developer ID Installer: *******&quot;       /path_to_signed_pkg/signed.pkg
+</code></pre><p>Here, the quoted text refers to the name of the certificate. The two arguments specify the location of the newly generated .pkg file (/path_to_saved_package/packagename.pkg) and the location of the signed .pkg file (/path_to_signed_pkg/signed.pkg), respectively.</p>
+<h3 id="steps-to-sign-macos-pkg-files">Steps to sign macOS PKG files</h3>
+<p>To sign a macOS PKG file,</p>
+<ol>
+<li>Open “<strong>Keychain Access</strong>” within the Mac and locate the certificate. The name of the certificate should be of the format: Developer ID Installer: Apple account name (serial number).</li>
+<li>Open “Terminal”. The command to sign the package should look something like this:</li>
+</ol>
+<pre tabindex="0"><code>productsign -sign “Developer ID Installer: Your Apple Account Name (**********)” ~/Desktop/example.pkg ~/Desktop/signed-example.pkg
+</code></pre><p>Here, the quoted text following the –sign tag refers to the name of your certificate. The two arguments, following the name of the certificate, refer to the current location of the unsigned package (/Desktop/example.pkg) and the location of the signed package (/Desktop/signed-example.pkg), respectively.</p>
+<p>The signed certificate gets stored in the destination path specified in the command. Now you can upload it to the app inventory.</p>
+<h3 id="references">References</h3>
+<ol>
+<li><a href="https://www.hexnode.com/mobile-device-management/help/how-to-sign-macos-pkg-files-for-deployment-with-hexnode-mdm/">https://www.hexnode.com/mobile-device-management/help/how-to-sign-macos-pkg-files-for-deployment-with-hexnode-mdm/</a></li>
+</ol>
+]]></content>
+        </item>
         
         <item>
             <title>Possible Implementation Flaws in Mobile Applications: A Security Audit of a  Mobile Application</title>
