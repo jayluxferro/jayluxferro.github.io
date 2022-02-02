@@ -41,8 +41,8 @@
 <ol>
 <li>Go to Apple Developer Portal. Click on Accounts.</li>
 <li>Either create a new account or sign in using an existing account.</li>
-<li>Click on Certificates &gt; IDs &gt; Profiles.</li>
-<li>Click on Certificates + and select Developer ID Installer.</li>
+<li>Click on <strong>Certificates</strong> &gt; <strong>IDs</strong> &gt; <strong>Profiles</strong>.</li>
+<li>Click on <strong>Certificates +</strong> and select <strong>Developer ID Installer</strong>.</li>
 <li>Upload the Certificate Signing Request which was downloaded in the above step.</li>
 <li>The Developer ID Installer certificate will be generated. Download the certificate and install it on your macOS device to sign the packages.</li>
 </ol>
