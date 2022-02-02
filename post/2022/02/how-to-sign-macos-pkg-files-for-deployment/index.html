@@ -177,7 +177,7 @@
 <h3 id="steps-to-generate-developer-id-installer-certificate">Steps to Generate Developer ID Installer Certificate</h3>
 <p>To generate the certificate:</p>
 <ol>
-<li>Go to Apple Developer Portal. Click on Accounts.</li>
+<li>Go to <strong>Apple Developer Portal</strong>. Click on <strong>Accounts</strong>.</li>
 <li>Either create a new account or sign in using an existing account.</li>
 <li>Click on <strong>Certificates</strong> &gt; <strong>IDs</strong> &gt; <strong>Profiles</strong>.</li>
 <li>Click on <strong>Certificates +</strong> and select <strong>Developer ID Installer</strong>.</li>
@@ -188,7 +188,7 @@
 <p>To build and sign a macOS PKG file for a third-party app,</p>
 <ol>
 <li>Install the app on the device.</li>
-<li>Open Terminal.</li>
+<li>Open &ldquo;<strong>Terminal</strong>&rdquo;.</li>
 <li>Build the .pkg file using the pkgbuild command.</li>
 </ol>
 <pre tabindex="0"><code>pkgbuild --component /path_to_installed_app/macapp.app      --install-location /Applications   --sign &quot;Developer ID Installer: *******&quot;       /path_to_saved_package/packagename.pkg
@@ -202,7 +202,7 @@
 <p>To sign a macOS PKG file,</p>
 <ol>
 <li>Open “<strong>Keychain Access</strong>” within the Mac and locate the certificate. The name of the certificate should be of the format: Developer ID Installer: Apple account name (serial number).</li>
-<li>Open “Terminal”. The command to sign the package should look something like this:</li>
+<li>Open “<strong>Terminal</strong>”. The command to sign the package should look something like this:</li>
 </ol>
 <pre tabindex="0"><code>productsign -sign “Developer ID Installer: Your Apple Account Name (**********)” ~/Desktop/example.pkg ~/Desktop/signed-example.pkg
 </code></pre><p>Here, the quoted text following the –sign tag refers to the name of your certificate. The two arguments, following the name of the certificate, refer to the current location of the unsigned package (/Desktop/example.pkg) and the location of the signed package (/Desktop/signed-example.pkg), respectively.</p>
