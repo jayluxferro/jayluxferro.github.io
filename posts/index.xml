@@ -6,8 +6,30 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>SPERIXLABS</copyright>
-        <lastBuildDate>Wed, 02 Feb 2022 09:36:53 +0000</lastBuildDate>
+        <lastBuildDate>Sun, 13 Mar 2022 18:41:53 +0000</lastBuildDate>
         <atom:link href="https://sperixlabs.org/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Protecting Your Privacy Online</title>
+            <link>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</link>
+            <pubDate>Sun, 13 Mar 2022 18:41:53 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</guid>
+            <description>The current surge in the usage of smart devices has contributed significantly to the large volumes of internet traffic data being generated. In the year 2021, it was estimated that the total population in the world was 7.83 billion and about 4.66 billion of them are active internet users; which constitutes about 59.5 of the total population [1]. On average, 57 exabytes of data were generated per month in that year [2].</description>
+            <content type="html"><![CDATA[<p>The current surge in the usage of smart devices has contributed significantly to the large volumes of internet traffic data being generated. In the year 2021, it was estimated that the total population in the world was 7.83 billion and about 4.66 billion of them are active internet users; which constitutes about 59.5 of the total population [1]. On average, 57 exabytes of data were generated per month in that year [2]. These facts illustrate how many people are engaged in online activities, hence the need for people to protect their privacy online.</p>
+<p>There are several ways internet users can adopt to enhance their privacy online. This article focuses mainly on how users can prevent or minimize online tracking through the use of “cookies”. A brief overview of online tracking is presented together with some techniques to minimize the tracking.</p>
+<p>Users&rsquo; activities online leave a trail. When a user visits a website, a file called “cookie” is stored on his browser. Websites use cookies to enhance users’ browsing experience. Cookies are used to keep your login sessions on visited websites active. They can also be used to show topics of interest. Some are used to show targeted advertisements and some are also used by analytics companies to get details about websites users visit. These details can include the number of hours a user spent on a site, pages visited, etc. These details are sometimes used to resolve issues on the visited websites to enhance the user experience.</p>
+<p>Despite the positive usage of cookies, some websites use them in device fingerprinting. Device fingerprinting is a technique where the websites use the cookies to uniquely identify your browser/device and hence can track your activities. This results in targeted ads across all your electronic devices.</p>
+<p>One cannot completely get rid of targeted ads. A user can adjust his privacy settings on the browsers used in surfing the internet. One can decide to allow certain types of cookies to be stored on the websites visited. Furthermore, one can decide to delete the stored cookies. This approach isn’t permanent since cookies deleted or cleared can be set again. Hence one will be required to clear them periodically.</p>
+<p>Most mobile devices have a privacy settings option that enables one to control targeted ads. For instance, on an iPhone one can disable Ad personalization, location control, tracking controls, and also reset advertising identifiers. A new feature called “Private Relay” can be turned on the protect your location and browsing activity while using their Safari browser.</p>
+<p>Ad blockers can be used to prevent target ads. Not all ads can be blocked by ad blockers. Recently, it has been realized that some websites are capable of detecting the use of ad blockers and therefore block users from accessing some specific content on their website. It is expedient for users. To compare the features and reviews of these ad blockers before using them. It should be noted that ad blockers do not protect one from viruses or malware infections.</p>
+<p>If you don’t want the browsing history, cookies, etc to be persistent and used in user tracking, there is an option for private mode in all browsers. In Chrome, it is called “Incognito” mode whereas Firefox calls it “Private Browsing”; just to mention a few. Even though incognito browsing does have certain benefits, it still doesn’t fully maintain your privacy online. Anonymous search engines like “duckduckgo” and virtual private networks can help boost your online privacy; a story for another day.</p>
+<p>In summary, this article highlights a few approaches to help protect your privacy online. It will be advisable to adopt these techniques together with other resilient techniques to enhance your online privacy.</p>
+<h2 id="references">References:</h2>
+<p>[1] <a href="https://websitesetup.org/news/internet-facts-stats/">https://websitesetup.org/news/internet-facts-stats/</a></p>
+<p>[2] <a href="https://www.statista.com/statistics/292859/north-america-mobile-data-traffic/">https://www.statista.com/statistics/292859/north-america-mobile-data-traffic/</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>How to Sign macOS PKG Files for Deployment</title>
@@ -53,12 +75,12 @@
 <li>Open &ldquo;<strong>Terminal</strong>&rdquo;.</li>
 <li>Build the .pkg file using the pkgbuild command.</li>
 </ol>
-<pre tabindex="0"><code>pkgbuild --component /path_to_installed_app/macapp.app      --install-location /Applications   --sign &quot;Developer ID Installer: *******&quot;       /path_to_saved_package/packagename.pkg
+<pre tabindex="0"><code>pkgbuild --component /path_to_installed_app/macapp.app      --install-location /Applications   --sign &#34;Developer ID Installer: *******&#34;       /path_to_saved_package/packagename.pkg
 </code></pre><p>Here, the quoted text refers to the name of your certificate. The two arguments specify the location of the already installed .app file (/path_to_installed_app/macapp.app) and the location of the newly generated .pkg file (/path_to_saved_package/packagename.pkg), respectively.</p>
 <ol start="4">
 <li>Sign the .pkg file using the productbuild command.</li>
 </ol>
-<pre tabindex="0"><code>productbuild --package /path_to_saved_package/packagename.pkg       --content /path_to_app/         --sign &quot;Developer ID Installer: *******&quot;       /path_to_signed_pkg/signed.pkg
+<pre tabindex="0"><code>productbuild --package /path_to_saved_package/packagename.pkg       --content /path_to_app/         --sign &#34;Developer ID Installer: *******&#34;       /path_to_signed_pkg/signed.pkg
 </code></pre><p>Here, the quoted text refers to the name of the certificate. The two arguments specify the location of the newly generated .pkg file (/path_to_saved_package/packagename.pkg) and the location of the signed .pkg file (/path_to_signed_pkg/signed.pkg), respectively.</p>
 <h3 id="steps-to-sign-macos-pkg-files">Steps to sign macOS PKG files</h3>
 <p>To sign a macOS PKG file,</p>
@@ -180,7 +202,7 @@ API Details Read Now</description>
 	1QIDAQAB
 	-----END PUBLIC KEY-----
 </code></pre><p>Upon getting the public key, the mobile client generates a random string (using the method below) of length 16 characters.</p>
-<pre tabindex="0"><code>	 private static final String ALLOWED_CHARACTERS = &quot;0123456789qwertyuiopasdfghjklzxcvbnm!@$#^&amp;*()&quot;;
+<pre tabindex="0"><code>	 private static final String ALLOWED_CHARACTERS = &#34;0123456789qwertyuiopasdfghjklzxcvbnm!@$#^&amp;*()&#34;;
 	 public static String getRandomString(int i) {
 	 	Random random = new Random();
 	 	StringBuilder sb = new StringBuilder(i);
@@ -207,7 +229,7 @@ API Details Read Now</description>
 	import org.apache.commons.compress.utils.CharsetNames;
 
 	public class AESenc {
-		private String key = &quot;&quot;;
+		private String key = &#34;&#34;;
 
 		public AESenc(String str) {
 			this.key = str;
@@ -217,8 +239,8 @@ API Details Read Now</description>
 			try {
 				byte[] bytes = Utils.getRandomString(16).getBytes(CharsetNames.UTF_8);
 				IvParameterSpec ivParameterSpec = new IvParameterSpec(bytes);
-				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &quot;AES&quot;);
-				Cipher instance = Cipher.getInstance(&quot;AES/CBC/PKCS7PADDING&quot;);
+				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &#34;AES&#34;);
+				Cipher instance = Cipher.getInstance(&#34;AES/CBC/PKCS7PADDING&#34;);
 				instance.init(1, secretKeySpec, ivParameterSpec);
 				byte[] doFinal = instance.doFinal(str.getBytes());
 				byte[] bArr = new byte[(bytes.length + doFinal.length)];
@@ -240,8 +262,8 @@ API Details Read Now</description>
 				System.arraycopy(decode, 0, bArr2, 0, 16);
 				System.arraycopy(decode, 16, bArr, 0, length);
 				IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr2);
-				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &quot;AES&quot;);
-				Cipher instance = Cipher.getInstance(&quot;AES/CBC/PKCS5PADDING&quot;);
+				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &#34;AES&#34;);
+				Cipher instance = Cipher.getInstance(&#34;AES/CBC/PKCS5PADDING&#34;);
 				instance.init(2, secretKeySpec, ivParameterSpec);
 				return new String(instance.doFinal(bArr));
 			} catch (Exception e) {
@@ -268,8 +290,8 @@ API Details Read Now</description>
             <pubDate>Wed, 17 Jun 2020 17:00:58 +0000</pubDate>
             
             <guid>https://sperixlabs.org/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/</guid>
-            <description>This research presents an investigation into WhatsApp&amp;rsquo;s on-device data storage on iOS. WhatsApp is one of the most widely used messaging application and hence it is required that a secured on-device storage mechanism be implemented to complement Apple&amp;rsquo;s security measures for their devices. This will help protect a user&amp;rsquo;s data in instances where his/her device is compromised physically. The research presents a security analysis on the storage format of data used by WhatsApp on end-users&#39; devices.</description>
-            <content type="html"><![CDATA[<p>This research presents an investigation into  WhatsApp&rsquo;s on-device data storage on iOS. WhatsApp is one of the most widely used messaging application and hence it is required that a secured on-device storage mechanism be implemented to complement Apple&rsquo;s security measures for their devices. This will help protect a user&rsquo;s data  in instances where his/her device is compromised physically. The research presents a security analysis on the storage format of data used by WhatsApp on end-users' devices.</p>
+            <description>This research presents an investigation into WhatsApp&amp;rsquo;s on-device data storage on iOS. WhatsApp is one of the most widely used messaging application and hence it is required that a secured on-device storage mechanism be implemented to complement Apple&amp;rsquo;s security measures for their devices. This will help protect a user&amp;rsquo;s data in instances where his/her device is compromised physically. The research presents a security analysis on the storage format of data used by WhatsApp on end-users&amp;rsquo; devices.</description>
+            <content type="html"><![CDATA[<p>This research presents an investigation into  WhatsApp&rsquo;s on-device data storage on iOS. WhatsApp is one of the most widely used messaging application and hence it is required that a secured on-device storage mechanism be implemented to complement Apple&rsquo;s security measures for their devices. This will help protect a user&rsquo;s data  in instances where his/her device is compromised physically. The research presents a security analysis on the storage format of data used by WhatsApp on end-users&rsquo; devices.</p>
 <h3 id="introduction">Introduction</h3>
 <p>The team behind <strong>Uc0ver</strong> [1] released an iOS 11.0 - 13.5.5 jailbreak for all iPhones and iPads. This is the first iOS jailbreak in years to use a 0-day exploit as previous tools relied on a 1-day exploit or other security lapses from Apple&rsquo;s part [2].</p>
 <p>&ldquo;<strong>Jailbreaking</strong>&rdquo; is a privilege escalation of an Apple device for the purpose of removing software restrictions imposed by Apple on iOS. It permits root access in Apple&rsquo;s mobile operating system, allowing the installation of software that is unavailable through the official Apple App Store. Apple states that Jailbreaking an Apple device eliminates security layers designed to protect one&rsquo;s personal information [3].</p>
@@ -298,7 +320,7 @@ API Details Read Now</description>
 <img src="/img/wa/video.png" alt="Video Extension">
 <strong>Fig. 7:</strong> Video Extension <!-- raw HTML omitted --></p>
 <p>Chat messages are stored in &ldquo;<strong>CallHistory.sqlite</strong>&rdquo;. This SQLite file stores names of groups a user belongs to (shown in Fig. 8), messages sent to and received in the group, messages sent/received from other users (shown in Fig. 9) and links to encrypted images and videos sent/received (shown in Fig. 10 and 11).
-<img src="/img/wa/ch1.png" alt="User&rsquo;s WhatsApp Groups">
+<img src="/img/wa/ch1.png" alt="User&amp;rsquo;s WhatsApp Groups">
 <strong>Fig. 8:</strong> User&rsquo;s WhatsApp Groups <!-- raw HTML omitted --></p>
 <p><img src="/img/wa/ch2.png" alt="Links to Encrypted Shared or Received Images/Documents">
 <strong>Fig. 9:</strong> Links to Encrypted Shared or Received Images/Documents <!-- raw HTML omitted --></p>
@@ -310,16 +332,16 @@ API Details Read Now</description>
 <img src="/img/wa/audio.png" alt="Audio File(s)">
 <strong>Fig. 12:</strong> Audio Files(s) <!-- raw HTML omitted --></p>
 <p>WhatsApp has a privacy consent that enables them to upload all contacts on a user&rsquo;s phone to their server. This is shown in Fig. 13.
-<img src="/img/wa/ct.png" alt="Privacy Consent to upload contacts to WhatsApp&rsquo;s Server">
+<img src="/img/wa/ct.png" alt="Privacy Consent to upload contacts to WhatsApp&amp;rsquo;s Server">
 <strong>Fig. 13:</strong> Privacy Consent to upload contacts to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
 <p>A copy of all contacts on a user&rsquo;s phone is stored in &ldquo;<strong>ContactsV2.sqlite</strong>&rdquo;. This is shown in Fig. 14 and 15.
-<img src="/img/wa/ct1.png" alt="User&rsquo;s Contacts collected and uploaded to WhatsApp Server">
+<img src="/img/wa/ct1.png" alt="User&amp;rsquo;s Contacts collected and uploaded to WhatsApp Server">
 <strong>Fig. 14:</strong> User&rsquo;s contacts collected and uploaded to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
-<p><img src="/img/wa/ct2.png" alt="User&rsquo;s Contacts collected and uploaded to WhatsApp Server">
+<p><img src="/img/wa/ct2.png" alt="User&amp;rsquo;s Contacts collected and uploaded to WhatsApp Server">
 <strong>Fig. 15:</strong> User&rsquo;s contacts collected and uploaded to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
 <p>From the above security analysis, it can be observed that most of the data stored on the device is in plain text. Hence, it can be inferred that WhatsApp does not implement a secured on-device data storage mechanism.</p>
 <h3 id="conclusion-and-recommendation">Conclusion and Recommendation</h3>
-<p>This research analyzes how WhatsApp secures on-device data of its users. It has been demonstrated how WhatsApp&rsquo;s data is not securely stored  on end-users' devices; hence can be retrieved by an attacker who has physical access to the device.</p>
+<p>This research analyzes how WhatsApp secures on-device data of its users. It has been demonstrated how WhatsApp&rsquo;s data is not securely stored  on end-users&rsquo; devices; hence can be retrieved by an attacker who has physical access to the device.</p>
 <p>It is recommended that WhatsApp implements a secure data storage mechanism for its users to protect them against instances where the physical device is compromised.</p>
 <h3 id="reference-list">Reference List</h3>
 <ol>
@@ -371,8 +393,8 @@ API Details Read Now</description>
 
 </p>
 <p>The REST API base url for the AIM application is</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">https://apps.knust.edu.gh/StudentAPI/
-</code></pre></div><p>This is shown below.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>https://apps.knust.edu.gh/StudentAPI/
+</span></span></code></pre></div><p>This is shown below.
 
 
 <p></p>
@@ -401,7 +423,7 @@ API Details Read Now</description>
 <img src="/img/knustaim/bearerToken.png"/>
 
 </p>
-<p>The bearer token is a very good security implementation. The problem lies in the fact that a valid bearer token of a particular student can be used to access or modify other students' information once the reference number is known.</p>
+<p>The bearer token is a very good security implementation. The problem lies in the fact that a valid bearer token of a particular student can be used to access or modify other students&rsquo; information once the reference number is known.</p>
 <h3 id="references">References</h3>
 <ol>
 <li>RFC670, &ldquo;The OAuth 2.0 Authorization Framework: Bearer Token Usage&rdquo;, Internet Engineering Task Force (IETF), 2012.</li>

@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Sun, 10 Jan 2021 17:21:02 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Mar 2022 18:41:53 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Protecting Your Privacy Online</title>
+      <link>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</link>
+      <pubDate>Sun, 13 Mar 2022 18:41:53 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</guid>
+      <description>The current surge in the usage of smart devices has contributed significantly to the large volumes of internet traffic data being generated. In the year 2021, it was estimated that the total population in the world was 7.83 billion and about 4.66 billion of them are active internet users; which constitutes about 59.5 of the total population [1]. On average, 57 exabytes of data were generated per month in that year [2].</description>
+    </item>
+    
     <item>
       <title>Possible Implementation Flaws in Mobile Applications: A Security Audit of a  Mobile Application</title>
       <link>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</link>

@@ -3,24 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sperixlabs.org/categories/</loc>
-    <lastmod>2022-02-02T09:36:53+00:00</lastmod>
+    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/posts/</loc>
+    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</loc>
+    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/security/</loc>
+    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/</loc>
+    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/</loc>
+    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/categories/tips/</loc>
+    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</loc>
     <lastmod>2022-02-02T09:36:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/macos/</loc>
-    <lastmod>2022-02-02T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/posts/</loc>
-    <lastmod>2022-02-02T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/</loc>
-    <lastmod>2022-02-02T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/</loc>
-    <lastmod>2022-02-02T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/categories/tips/</loc>
     <lastmod>2022-02-02T09:36:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/api/</loc>
@@ -65,22 +71,19 @@
     <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
     <lastmod>2021-01-10T17:21:02+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/tags/security/</loc>
-    <lastmod>2021-01-10T17:21:02+00:00</lastmod>
-  </url><url>
     <loc>https://sperixlabs.org/categories/flaw/</loc>
     <lastmod>2020-11-30T17:15:25+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</loc>
     <lastmod>2020-11-30T17:15:25+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</loc>
-    <lastmod>2020-10-05T17:07:23+00:00</lastmod>
-  </url><url>
     <loc>https://sperixlabs.org/ghpgps/</loc>
     <lastmod>2020-10-05T17:07:23+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/ghpgps/</loc>
+    <lastmod>2020-10-05T17:07:23+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</loc>
     <lastmod>2020-10-05T17:07:23+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/</loc>

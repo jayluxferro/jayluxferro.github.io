@@ -167,7 +167,7 @@
 	1QIDAQAB
 	-----END PUBLIC KEY-----
 </code></pre><p>Upon getting the public key, the mobile client generates a random string (using the method below) of length 16 characters.</p>
-<pre tabindex="0"><code>	 private static final String ALLOWED_CHARACTERS = &quot;0123456789qwertyuiopasdfghjklzxcvbnm!@$#^&amp;*()&quot;;
+<pre tabindex="0"><code>	 private static final String ALLOWED_CHARACTERS = &#34;0123456789qwertyuiopasdfghjklzxcvbnm!@$#^&amp;*()&#34;;
 	 public static String getRandomString(int i) {
 	 	Random random = new Random();
 	 	StringBuilder sb = new StringBuilder(i);
@@ -194,7 +194,7 @@
 	import org.apache.commons.compress.utils.CharsetNames;
 
 	public class AESenc {
-		private String key = &quot;&quot;;
+		private String key = &#34;&#34;;
 
 		public AESenc(String str) {
 			this.key = str;
@@ -204,8 +204,8 @@
 			try {
 				byte[] bytes = Utils.getRandomString(16).getBytes(CharsetNames.UTF_8);
 				IvParameterSpec ivParameterSpec = new IvParameterSpec(bytes);
-				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &quot;AES&quot;);
-				Cipher instance = Cipher.getInstance(&quot;AES/CBC/PKCS7PADDING&quot;);
+				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &#34;AES&#34;);
+				Cipher instance = Cipher.getInstance(&#34;AES/CBC/PKCS7PADDING&#34;);
 				instance.init(1, secretKeySpec, ivParameterSpec);
 				byte[] doFinal = instance.doFinal(str.getBytes());
 				byte[] bArr = new byte[(bytes.length + doFinal.length)];
@@ -227,8 +227,8 @@
 				System.arraycopy(decode, 0, bArr2, 0, 16);
 				System.arraycopy(decode, 16, bArr, 0, length);
 				IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr2);
-				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &quot;AES&quot;);
-				Cipher instance = Cipher.getInstance(&quot;AES/CBC/PKCS5PADDING&quot;);
+				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &#34;AES&#34;);
+				Cipher instance = Cipher.getInstance(&#34;AES/CBC/PKCS5PADDING&#34;);
 				instance.init(2, secretKeySpec, ivParameterSpec);
 				return new String(instance.doFinal(bArr));
 			} catch (Exception e) {
@@ -456,7 +456,7 @@
 
 
 
-<script type="text/javascript" src="https://sperixlabs.org/bundle.min.2ce64ea6ea44a72b13dd812fc2eb5cca3efe878cce258a47c137c17edf46e0602a05e422b618a5b80b5939c731b7a293351c2f2222a21f6ee27e54a8448dd20e.js" integrity="sha512-LOZOpupEpysT3YEvwutcyj7&#43;h4zOJYpHwTfBft9G4GAqBeQithiluAtZOccxt6KTNRwvIiKiH27iflSoRI3SDg=="></script>
+<script type="text/javascript" src="https://sperixlabs.org/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
 
 
 

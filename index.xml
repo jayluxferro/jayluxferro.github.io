@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Wed, 02 Feb 2022 09:36:53 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Mar 2022 18:41:53 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Protecting Your Privacy Online</title>
+      <link>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</link>
+      <pubDate>Sun, 13 Mar 2022 18:41:53 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</guid>
+      <description>The current surge in the usage of smart devices has contributed significantly to the large volumes of internet traffic data being generated. In the year 2021, it was estimated that the total population in the world was 7.83 billion and about 4.66 billion of them are active internet users; which constitutes about 59.5 of the total population [1]. On average, 57 exabytes of data were generated per month in that year [2].</description>
+    </item>
+    
     <item>
       <title>How to Sign macOS PKG Files for Deployment</title>
       <link>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</link>
@@ -81,17 +90,6 @@ Details of the Flaw The iRokoTV iOS application (version 1.7.12) presents a user
     
     <item>
       <title>GhanaPostGPS REST API</title>
-      <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
-      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      
-      <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
-      <description>Whitepaper Read Now
-
-API Details Read Now</description>
-    </item>
-    
-    <item>
-      <title>GhanaPostGPS REST API</title>
       <link>https://sperixlabs.org/ghpgps/</link>
       <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
       
@@ -113,12 +111,14 @@ API Details Read Now</description>
     </item>
     
     <item>
-      <title>Reverse Engineering GhanaPostGPS Mobile Application to Create an API for Local Developers</title>
-      <link>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</link>
-      <pubDate>Sat, 05 Sep 2020 17:07:23 +0000</pubDate>
+      <title>GhanaPostGPS REST API</title>
+      <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
+      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
       
-      <guid>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</guid>
-      <description>GhanaPostGPS is Ghana&amp;rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp;amp; area code). Its core functionality is to translate a user&amp;rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions.</description>
+      <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
+      <description>Whitepaper Read Now
+
+API Details Read Now</description>
     </item>
     
   </channel>
