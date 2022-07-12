@@ -15,8 +15,8 @@
       
       <guid>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</guid>
       <description>Signing a package is a multi-step process.
- Generate a signing request. Generate Developer ID Installer certificate. Sign the macOS PKG file.  Steps to Generate a Signing Request For generating a certificate, first of all you require a Certificate Signing Request (CSR) file.
- Open “Keychain Access” program within your macOS device. Click on Keychain Access appearing on the top menu bar. Go to Certificate Assistant &amp;gt; Request a Certificate From a Certificate Authority.</description>
+Generate a signing request. Generate Developer ID Installer certificate. Sign the macOS PKG file. Steps to Generate a Signing Request For generating a certificate, first of all you require a Certificate Signing Request (CSR) file.
+Open “Keychain Access” program within your macOS device. Click on Keychain Access appearing on the top menu bar. Go to Certificate Assistant &amp;gt; Request a Certificate From a Certificate Authority.</description>
     </item>
     
   </channel>

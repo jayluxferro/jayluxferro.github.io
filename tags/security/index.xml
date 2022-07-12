@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Sun, 13 Mar 2022 18:41:53 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 May 2022 17:23:24 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obscurity is not Security: A Security Analysis of MyVodafone (Ghana) Application</title>
+      <link>https://sperixlabs.org/post/2022/05/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</link>
+      <pubDate>Sun, 01 May 2022 17:23:24 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/post/2022/05/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</guid>
+      <description>This research presents a security analysis on a cross-platform application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
+Technical Details </description>
+    </item>
+    
     <item>
       <title>Protecting Your Privacy Online</title>
       <link>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</link>
@@ -24,8 +34,7 @@
       
       <guid>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</guid>
       <description>This research presents a security flaw in a mobile application (both iOS and Android). The platform used for the assessment was iOS. Both platforms (iOS and Android) are affected by this flaw due the fact that they were built using a cross-platform framework (ionic).
-Technical Details 
-Details </description>
+Technical Details Details </description>
     </item>
     
     <item>

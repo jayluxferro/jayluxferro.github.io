@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Sun, 13 Mar 2022 18:41:53 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 May 2022 17:23:24 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reverse Engineering</title>
+      <link>https://sperixlabs.org/categories/reverse-engineering/</link>
+      <pubDate>Sun, 01 May 2022 17:23:24 +0000</pubDate>
+      
+      <guid>https://sperixlabs.org/categories/reverse-engineering/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Tips</title>
       <link>https://sperixlabs.org/categories/tips/</link>
@@ -32,15 +41,6 @@
       <pubDate>Thu, 18 Feb 2021 16:42:36 +0000</pubDate>
       
       <guid>https://sperixlabs.org/categories/research/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Reverse Engineering</title>
-      <link>https://sperixlabs.org/categories/reverse-engineering/</link>
-      <pubDate>Sun, 10 Jan 2021 17:21:02 +0000</pubDate>
-      
-      <guid>https://sperixlabs.org/categories/reverse-engineering/</guid>
       <description></description>
     </item>
     

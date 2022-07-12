@@ -2,22 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sperixlabs.org/tags/android/</loc>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/audit/</loc>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
+  </url><url>
     <loc>https://sperixlabs.org/categories/</loc>
-    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/cordova/</loc>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/ionic/</loc>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/ios/</loc>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2022/05/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</loc>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/posts/</loc>
-    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</loc>
-    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
+    <loc>https://sperixlabs.org/tags/react-native/</loc>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/security/</loc>
-    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/</loc>
-    <lastmod>2022-03-13T18:41:53+00:00</lastmod>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/</loc>
+    <lastmod>2022-05-01T17:23:24+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</loc>
     <lastmod>2022-03-13T18:41:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/categories/tips/</loc>
@@ -53,22 +77,7 @@
     <loc>https://sperixlabs.org/about/</loc>
     <lastmod>2021-01-31T22:55:13+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/tags/android/</loc>
-    <lastmod>2021-01-10T17:21:02+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/audit/</loc>
-    <lastmod>2021-01-10T17:21:02+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/ionic/</loc>
-    <lastmod>2021-01-10T17:21:02+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/ios/</loc>
-    <lastmod>2021-01-10T17:21:02+00:00</lastmod>
-  </url><url>
     <loc>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</loc>
-    <lastmod>2021-01-10T17:21:02+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
     <lastmod>2021-01-10T17:21:02+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/categories/flaw/</loc>
@@ -77,13 +86,13 @@
     <loc>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</loc>
     <lastmod>2020-11-30T17:15:25+00:00</lastmod>
   </url><url>
+    <loc>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</loc>
+    <lastmod>2020-10-05T17:07:23+00:00</lastmod>
+  </url><url>
     <loc>https://sperixlabs.org/ghpgps/</loc>
     <lastmod>2020-10-05T17:07:23+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/ghpgps/</loc>
-    <lastmod>2020-10-05T17:07:23+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</loc>
     <lastmod>2020-10-05T17:07:23+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/</loc>
