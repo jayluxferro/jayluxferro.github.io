@@ -1617,6 +1617,8 @@ Bundle URL: com.vodafone.gh.myvodafone.app
 <p>From the <code>Info.plist</code> file, there is a permission request for location, camera and contacts; <code>NSLocation</code>, <code>NSCamera</code> and <code>NSContacts</code>.</p>
 <p>Interestingly, there is a permission to allow access to <code>Apple Music</code>; 😅 indicated as <code>NSAppleMusicUsageDescription: To allow access to Apple Music</code>.</p>
 <p>The default application is indicated by <code>CFBundleURLName</code> and is <code>myvodafoneapp</code>. The bundle URL is defined by <code>CFBundleURLTypes</code> and the value is <code>com.vodafone.gh.myvodafone.app</code>.</p>
+<p>There are eight(8) launch services registered in the application (for more details on launch services visit <a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html);">https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html);</a> <code>whatsapp</code>, <code>vodafonemusic</code>, <code>fb</code>, <code>youtube</code>, <code>twitter</code>, <code>2ctv</code>, <code>wi-flix</code> and <code>dreamlab</code>.</p>
+<p>There are about 19 fonts that are reference in the <code>Info.plist</code> file. The app version is indicated by the key <code>CFBundleShortVersionString</code> and it&rsquo;s value is <code>4.3.0</code>.</p>
 ]]></content>
         </item>
         
