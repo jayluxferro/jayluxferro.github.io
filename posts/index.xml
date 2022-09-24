@@ -15,10 +15,1608 @@
             <pubDate>Sun, 01 May 2022 17:23:24 +0000</pubDate>
             
             <guid>https://sperixlabs.org/post/2022/05/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</guid>
-            <description>This research presents a security analysis on a cross-platform application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
-Technical Details </description>
-            <content type="html"><![CDATA[<p>This research presents a security analysis on a cross-platform application. The <strong>My Vodafone (Ghana)</strong> application formed the basis for the analysis; detailing both static and dynamic analysis.</p>
+            <description>This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
+Technical Details The platform for the analysis was iOS. Details are below:
+Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and uncompressed ipa file shows the following contents:
+. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.</description>
+            <content type="html"><![CDATA[<p>This research presents a security analysis on a cross-platform mobile application. The <strong>My Vodafone (Ghana)</strong> application formed the basis for the analysis; detailing both static and dynamic analysis.</p>
 <h3 id="technical-details">Technical Details</h3>
+<p>The platform for the analysis was iOS. Details are below:</p>
+<pre tabindex="0"><code>Title: My Vodafone (Ghana)
+Version: 4.3.0
+Bundle URL: com.vodafone.gh.myvodafone.app
+</code></pre><h4 id="directory-structure">Directory Structure</h4>
+<p>A decrypted and uncompressed ipa file shows the following contents:</p>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code>.
+├── AccessibilityResources.bundle
+│   ├── Info.plist
+│   └── en.lproj
+│       └── Localizable.strings
+├── AirshipAutomationResources.bundle
+│   ├── Info.plist
+│   ├── UAAutomation.momd
+│   │   ├── UAAutomation 2.mom
+│   │   ├── UAAutomation 3.mom
+│   │   ├── UAAutomation 4.mom
+│   │   ├── UAAutomation 5.mom
+│   │   ├── UAAutomation 6.mom
+│   │   ├── UAAutomation 7.mom
+│   │   ├── UAAutomation 8.mom
+│   │   ├── UAAutomation 9.mom
+│   │   ├── UAAutomation 9.omo
+│   │   ├── UAAutomation.mom
+│   │   └── VersionInfo.plist
+│   ├── UAAutomationActions.plist
+│   ├── UAFrequencyLimits.momd
+│   │   ├── UAFrequencyLimits.mom
+│   │   └── VersionInfo.plist
+│   ├── UAInAppMessageBannerContentView.nib
+│   ├── UAInAppMessageBannerView.nib
+│   ├── UAInAppMessageButtonView.nib
+│   ├── UAInAppMessageFullScreenViewController.nib
+│   ├── UAInAppMessageHTMLViewController.nib
+│   ├── UAInAppMessageModalViewController.nib
+│   └── UAInAppMessageResizableViewController.nib
+├── AirshipConfig.plist
+├── AirshipCoreResources.bundle
+│   ├── Info.plist
+│   ├── UADefaultActions.plist
+│   ├── UADefaultActionsTvOS.plist
+│   ├── UAEvents.momd
+│   │   ├── UAEvents.mom
+│   │   └── VersionInfo.plist
+│   ├── UANativeBridge
+│   ├── UANotificationCategories.plist
+│   ├── UARemoteData.momd
+│   │   ├── UARemoteData 2.mom
+│   │   ├── UARemoteData 2.omo
+│   │   ├── UARemoteData.mom
+│   │   └── VersionInfo.plist
+│   ├── af.lproj
+│   │   └── UrbanAirship.strings
+│   ├── am.lproj
+│   │   └── UrbanAirship.strings
+│   ├── ar.lproj
+│   │   └── UrbanAirship.strings
+│   ├── bg.lproj
+│   │   └── UrbanAirship.strings
+│   ├── ca.lproj
+│   │   └── UrbanAirship.strings
+│   ├── cs.lproj
+│   │   └── UrbanAirship.strings
+│   ├── da.lproj
+│   │   └── UrbanAirship.strings
+│   ├── de.lproj
+│   │   └── UrbanAirship.strings
+│   ├── el.lproj
+│   │   └── UrbanAirship.strings
+│   ├── en.lproj
+│   │   └── UrbanAirship.strings
+│   ├── es-419.lproj
+│   │   └── UrbanAirship.strings
+│   ├── es.lproj
+│   │   └── UrbanAirship.strings
+│   ├── et.lproj
+│   │   └── UrbanAirship.strings
+│   ├── fa.lproj
+│   │   └── UrbanAirship.strings
+│   ├── fi.lproj
+│   │   └── UrbanAirship.strings
+│   ├── fr-CA.lproj
+│   │   └── UrbanAirship.strings
+│   ├── fr.lproj
+│   │   └── UrbanAirship.strings
+│   ├── hi.lproj
+│   │   └── UrbanAirship.strings
+│   ├── hr.lproj
+│   │   └── UrbanAirship.strings
+│   ├── hu.lproj
+│   │   └── UrbanAirship.strings
+│   ├── id.lproj
+│   │   └── UrbanAirship.strings
+│   ├── it.lproj
+│   │   └── UrbanAirship.strings
+│   ├── iw.lproj
+│   │   └── UrbanAirship.strings
+│   ├── ja.lproj
+│   │   └── UrbanAirship.strings
+│   ├── ko.lproj
+│   │   └── UrbanAirship.strings
+│   ├── lt.lproj
+│   │   └── UrbanAirship.strings
+│   ├── lv.lproj
+│   │   └── UrbanAirship.strings
+│   ├── ms.lproj
+│   │   └── UrbanAirship.strings
+│   ├── nl.lproj
+│   │   └── UrbanAirship.strings
+│   ├── no.lproj
+│   │   └── UrbanAirship.strings
+│   ├── pl.lproj
+│   │   └── UrbanAirship.strings
+│   ├── pt-PT.lproj
+│   │   └── UrbanAirship.strings
+│   ├── pt.lproj
+│   │   └── UrbanAirship.strings
+│   ├── ro.lproj
+│   │   └── UrbanAirship.strings
+│   ├── ru.lproj
+│   │   └── UrbanAirship.strings
+│   ├── sk.lproj
+│   │   └── UrbanAirship.strings
+│   ├── sl.lproj
+│   │   └── UrbanAirship.strings
+│   ├── sr.lproj
+│   │   └── UrbanAirship.strings
+│   ├── sv.lproj
+│   │   └── UrbanAirship.strings
+│   ├── sw.lproj
+│   │   └── UrbanAirship.strings
+│   ├── th.lproj
+│   │   └── UrbanAirship.strings
+│   ├── tr.lproj
+│   │   └── UrbanAirship.strings
+│   ├── uk.lproj
+│   │   └── UrbanAirship.strings
+│   ├── vi.lproj
+│   │   └── UrbanAirship.strings
+│   ├── zh-HK.lproj
+│   │   └── UrbanAirship.strings
+│   ├── zh-Hans.lproj
+│   │   └── UrbanAirship.strings
+│   ├── zh-Hant.lproj
+│   │   └── UrbanAirship.strings
+│   └── zu.lproj
+│       └── UrbanAirship.strings
+├── AirshipExtendedActionsResources.bundle
+│   ├── Info.plist
+│   └── UAExtendedActions.plist
+├── AirshipMessageCenterResources.bundle
+│   ├── Info.plist
+│   ├── UADefaultMessageCenterListViewController.nib
+│   ├── UADefaultMessageCenterMessageViewController.nib
+│   ├── UAInbox.momd
+│   │   ├── UAInbox 2.mom
+│   │   ├── UAInbox 2.omo
+│   │   ├── UAInbox.mom
+│   │   └── VersionInfo.plist
+│   ├── UAMessageCenterActions.plist
+│   ├── UAMessageCenterListCell.nib
+│   └── UAMessageCenterPlaceholderIcon.png
+├── AntDesign.ttf
+├── AppIcon60x60@2x.png
+├── AppIcon76x76@2x~ipad.png
+├── Assets.car
+├── Entypo.ttf
+├── EvilIcons.ttf
+├── Feather.ttf
+├── FontAwesome.ttf
+├── FontAwesome5_Brands.ttf
+├── FontAwesome5_Regular.ttf
+├── FontAwesome5_Solid.ttf
+├── Fontisto.ttf
+├── Foundation.ttf
+├── Frameworks
+│   ├── NetPerformSDK.framework
+│   │   ├── Info.plist
+│   │   ├── NetPerformSDK
+│   │   └── _CodeSignature
+│   │       └── CodeResources
+│   ├── SecLibRNFramework.framework
+│   │   ├── DeviceMappingList.plist
+│   │   ├── Info.plist
+│   │   ├── ResponseStatus.plist
+│   │   ├── SecLibDB.momd
+│   │   │   ├── SecLibDB.mom
+│   │   │   └── VersionInfo.plist
+│   │   ├── SecLibRNFramework
+│   │   ├── Settings.plist
+│   │   └── _CodeSignature
+│   │       └── CodeResources
+│   ├── TealiumIOS.framework
+│   │   ├── Info.plist
+│   │   ├── TealiumIOS
+│   │   ├── _CodeSignature
+│   │   │   └── CodeResources
+│   │   └── device-names.json
+│   └── TealiumIOSLifecycle.framework
+│       ├── Info.plist
+│       ├── TealiumIOSLifecycle
+│       ├── _CodeSignature
+│       │   └── CodeResources
+│       └── device-names.json
+├── GoogleMaps.bundle
+│   ├── GMSCacheStorage.momd
+│   │   ├── Storage.mom
+│   │   ├── StorageWithTileProto.mom
+│   │   ├── StorageWithTileProto.omo
+│   │   ├── StorageWithTileVersionID.mom
+│   │   └── VersionInfo.plist
+│   ├── GMSCoreResources.bundle
+│   │   ├── Assets.car
+│   │   ├── DroidSansMerged-Regular.ttf
+│   │   ├── GMSNavNightModeSprites-0-1x.png
+│   │   ├── GMSNavNightModeSprites-0-2x.png
+│   │   ├── GMSNavNightModeSprites-0-3x.png
+│   │   ├── GMSNavSprites-0-1x.png
+│   │   ├── GMSNavSprites-0-2x.png
+│   │   ├── GMSNavSprites-0-3x.png
+│   │   ├── GMSSprites-0-1x.png
+│   │   ├── GMSSprites-0-2x.png
+│   │   ├── GMSSprites-0-3x.png
+│   │   ├── Info.plist
+│   │   ├── Tharlon-Regular.ttf
+│   │   ├── ar.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── button_background.png
+│   │   ├── button_background@2x.png
+│   │   ├── button_background@3x.png
+│   │   ├── button_compass.png
+│   │   ├── button_compass@2x.png
+│   │   ├── button_compass_night.png
+│   │   ├── button_compass_night@2x.png
+│   │   ├── button_my_location.png
+│   │   ├── button_my_location@2x.png
+│   │   ├── ca.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── cs.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── da.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── dav_one_way_16_256.png
+│   │   ├── de.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── el.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── en.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── en_AU.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── en_GB.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── en_IN.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── es.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── es_419.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── es_MX.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── fi.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── fr.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── fr_CA.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── he.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── hi.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── hr.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── hu.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── ic_compass_needle.png
+│   │   ├── ic_compass_needle@2x.png
+│   │   ├── ic_compass_needle_large.png
+│   │   ├── ic_compass_needle_large@2x.png
+│   │   ├── ic_compass_needle_large@3x.png
+│   │   ├── ic_location_off.png
+│   │   ├── ic_location_off@2x.png
+│   │   ├── ic_location_off@3x.png
+│   │   ├── ic_qu_direction_mylocation.png
+│   │   ├── ic_qu_direction_mylocation@2x.png
+│   │   ├── ic_qu_direction_mylocation@3x.png
+│   │   ├── id.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── it.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── ja.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── ko.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── lt.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── lv.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── ms.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── nb.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── nl.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── pl.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── polyline_colors_texture.png
+│   │   ├── polyline_colors_texture_dim.png
+│   │   ├── pt.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── pt_BR.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── pt_PT.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── ro.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── road_1-1.png
+│   │   ├── road_128-32.png
+│   │   ├── road_16-4.png
+│   │   ├── road_2-1.png
+│   │   ├── road_256-64.png
+│   │   ├── road_32-8.png
+│   │   ├── road_4-1.png
+│   │   ├── road_64-16.png
+│   │   ├── road_8-2.png
+│   │   ├── ru.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── sk.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── sv.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── th.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── tr.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── uk.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── vi.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── zh_CN.lproj
+│   │   │   └── GMSCore.strings
+│   │   ├── zh_HK.lproj
+│   │   │   └── GMSCore.strings
+│   │   └── zh_TW.lproj
+│   │       └── GMSCore.strings
+│   ├── Info.plist
+│   ├── bubble_left.png
+│   ├── bubble_left@2x.png
+│   ├── bubble_left@3x.png
+│   ├── bubble_right.png
+│   ├── bubble_right@2x.png
+│   ├── bubble_right@3x.png
+│   ├── default_marker.png
+│   ├── default_marker@2x.png
+│   ├── default_marker@3x.png
+│   ├── ic_error.png
+│   ├── ic_error@2x.png
+│   ├── ic_error@3x.png
+│   └── oss_licenses_maps.txt.gz
+├── GoogleService-Info.plist
+├── Info.plist
+├── Ionicons.ttf
+├── LaunchScreen.storyboardc
+│   ├── 01J-lp-oVM-view-Ze5-6b-2t3.nib
+│   ├── Info.plist
+│   └── UIViewController-01J-lp-oVM.nib
+├── MaterialCommunityIcons.ttf
+├── MaterialIcons.ttf
+├── Octicons.ttf
+├── PkgInfo
+├── SC_Info
+│   ├── Manifest.plist
+│   ├── myvodafoneapp.sinf
+│   ├── myvodafoneapp.supf
+│   ├── myvodafoneapp.supp
+│   └── myvodafoneapp.supx
+├── SimpleLineIcons.ttf
+├── Vodafone Rg Bold.ttf
+├── VodafoneLt.ttf
+├── VodafoneRg.ttf
+├── Zocial.ttf
+├── _CodeSignature
+│   └── CodeResources
+├── assets
+│   ├── App
+│   │   ├── ExternalComponents
+│   │   │   └── EditorialCard
+│   │   │       └── bossu1.png
+│   │   ├── Images
+│   │   │   ├── Background
+│   │   │   │   ├── header.png
+│   │   │   │   ├── scanner-frame.png
+│   │   │   │   ├── scanner-frame@2x.png
+│   │   │   │   ├── scanner-frame@3x.png
+│   │   │   │   ├── vf-background.jpg
+│   │   │   │   ├── wavesRed.png
+│   │   │   │   ├── wavesRed@2x.png
+│   │   │   │   ├── wavesRed@3x.png
+│   │   │   │   ├── waves_grey_texture.png
+│   │   │   │   └── waves_red_texture.png
+│   │   │   ├── Brand
+│   │   │   │   ├── welcomeBg1.gif
+│   │   │   │   └── welcomeBg2.gif
+│   │   │   ├── DarkIcons
+│   │   │   │   ├── Admin-hi-dark.png
+│   │   │   │   ├── Small-payment-mid.jpg
+│   │   │   │   ├── Small-search-mid.jpg
+│   │   │   │   ├── acceleration-hi-dark.png
+│   │   │   │   ├── add-friend-system.png
+│   │   │   │   ├── all-rewards-hi-dark.png
+│   │   │   │   ├── bundles-hi-dark.png
+│   │   │   │   ├── business-hi-dark.png
+│   │   │   │   ├── business-phone-hi-dark.png
+│   │   │   │   ├── case-study-hi-dark.png
+│   │   │   │   ├── chart-line-hi-dark.png
+│   │   │   │   ├── chat-hi-dark.png
+│   │   │   │   ├── connectivity-hi-dark.png
+│   │   │   │   ├── consolelight.png
+│   │   │   │   ├── consultant-hi-dark.png
+│   │   │   │   ├── contacts-hi-dark.png
+│   │   │   │   ├── converged-proposition-hi-dark.png
+│   │   │   │   ├── data-hi-dark.png
+│   │   │   │   ├── deals-hi-dark.png
+│   │   │   │   ├── delete-hi-dark.png
+│   │   │   │   ├── document-hi-dark.png
+│   │   │   │   ├── document-xls-hi-dark.png
+│   │   │   │   ├── download-hi-dark.png
+│   │   │   │   ├── e-sim-hi-dark.png
+│   │   │   │   ├── edit-hi-dark.png
+│   │   │   │   ├── engineer-hi-dark.png
+│   │   │   │   ├── failed-hi-dark.png
+│   │   │   │   ├── family-hi-dark.png
+│   │   │   │   ├── info-circle-hi-dark.png
+│   │   │   │   ├── mesh-wifi-repeater-hi-dark.png
+│   │   │   │   ├── minutes-sms-hi-dark.png
+│   │   │   │   ├── mobile-hi-dark.png
+│   │   │   │   ├── motion-sensor-hi-dark.png
+│   │   │   │   ├── move-money-hi-dark.png
+│   │   │   │   ├── need-help-hi-dark.png
+│   │   │   │   ├── network-tower-hi-dark.png
+│   │   │   │   ├── notification-hi-dark.png
+│   │   │   │   ├── payment-hi-dark.png
+│   │   │   │   ├── prepare-hi-dark.png
+│   │   │   │   ├── price-promise-hi-dark.png
+│   │   │   │   ├── qr-code-hi-dark.png
+│   │   │   │   ├── record-hi-dark.png
+│   │   │   │   ├── savings-hi-dark.png
+│   │   │   │   ├── share-your-mins-hi-dark.png
+│   │   │   │   ├── sim-hi-dark.png
+│   │   │   │   ├── sms-hi-dark.png
+│   │   │   │   ├── sos-hi-dark.png
+│   │   │   │   ├── star-32.png
+│   │   │   │   ├── sync-hi-dark.png
+│   │   │   │   ├── top-up-hi-dark.png
+│   │   │   │   ├── unlocked-rewards-hi-dark.png
+│   │   │   │   ├── warning-hi.png
+│   │   │   │   ├── web-protection-hi-dark.png
+│   │   │   │   └── withdraw-money-hi-dark.png
+│   │   │   ├── Icons
+│   │   │   │   ├── 247.png
+│   │   │   │   ├── 2ctv.jpg
+│   │   │   │   ├── Small-clock-mid.jpg
+│   │   │   │   ├── SpeechMark_Loading_Icon.gif
+│   │   │   │   ├── acceleration-low-mid.png
+│   │   │   │   ├── add-friend-system.png
+│   │   │   │   ├── airteltigoMoney.png
+│   │   │   │   ├── app_fridays.png
+│   │   │   │   ├── app_images_icons_data_voice.png
+│   │   │   │   ├── appointment.png
+│   │   │   │   ├── arrow_left.png
+│   │   │   │   ├── ball.png
+│   │   │   │   ├── big_data_lifestyle.png
+│   │   │   │   ├── book_mid.png
+│   │   │   │   ├── boosting_ash.png
+│   │   │   │   ├── bossu_data.png
+│   │   │   │   ├── bullet.png
+│   │   │   │   ├── bullet@2x.png
+│   │   │   │   ├── bullet@3x.png
+│   │   │   │   ├── bundles.png
+│   │   │   │   ├── bundles@2x.png
+│   │   │   │   ├── bundles@3x.png
+│   │   │   │   ├── business.png
+│   │   │   │   ├── calender_1.png
+│   │   │   │   ├── calender_1@2x.png
+│   │   │   │   ├── calender_1@3x.png
+│   │   │   │   ├── calender_30.png
+│   │   │   │   ├── calender_30@2x.png
+│   │   │   │   ├── calender_30@3x.png
+│   │   │   │   ├── calender_7.png
+│   │   │   │   ├── calender_7@2x.png
+│   │   │   │   ├── calender_7@3x.png
+│   │   │   │   ├── callMid.png
+│   │   │   │   ├── calls_ash.png
+│   │   │   │   ├── calls_contacts.png
+│   │   │   │   ├── calls_contacts@2x.png
+│   │   │   │   ├── calls_contacts@3x.png
+│   │   │   │   ├── cancel_mid.png
+│   │   │   │   ├── case_study_mid.png
+│   │   │   │   ├── celebrate.png
+│   │   │   │   ├── celebrate@2x.png
+│   │   │   │   ├── celebrate@3x.png
+│   │   │   │   ├── chart-line-mid.png
+│   │   │   │   ├── chat_midhifi.png
+│   │   │   │   ├── check_green.png
+│   │   │   │   ├── chip.png
+│   │   │   │   ├── cloud_upload_mid.png
+│   │   │   │   ├── confidential-system.png
+│   │   │   │   ├── connected_devices_mid.png
+│   │   │   │   ├── connectivity_mid.png
+│   │   │   │   ├── consolelight.png
+│   │   │   │   ├── consultant_mid.png
+│   │   │   │   ├── countryash.png
+│   │   │   │   ├── coupons.png
+│   │   │   │   ├── dataMid.png
+│   │   │   │   ├── data_voice.png
+│   │   │   │   ├── delete-system.png
+│   │   │   │   ├── devices.png
+│   │   │   │   ├── document.png
+│   │   │   │   ├── download.png
+│   │   │   │   ├── download_old.png
+│   │   │   │   ├── dreamapp.png
+│   │   │   │   ├── dreamapp@2x.png
+│   │   │   │   ├── dreamapp@3x.png
+│   │   │   │   ├── e_sim_mid.png
+│   │   │   │   ├── edit_mid.png
+│   │   │   │   ├── editpen.png
+│   │   │   │   ├── editpenred.png
+│   │   │   │   ├── enterprise.png
+│   │   │   │   ├── facebook.png
+│   │   │   │   ├── family.png
+│   │   │   │   ├── family@2x.png
+│   │   │   │   ├── family@3x.png
+│   │   │   │   ├── fastestfingers.png
+│   │   │   │   ├── favorite-system.png
+│   │   │   │   ├── fbb_pic.png
+│   │   │   │   ├── gameroombig.png
+│   │   │   │   ├── heart.png
+│   │   │   │   ├── icDeleteRed.png
+│   │   │   │   ├── icSyncWhite.png
+│   │   │   │   ├── icSyncWhite@2x.png
+│   │   │   │   ├── icSyncWhite@3x.png
+│   │   │   │   ├── ic_notification.png
+│   │   │   │   ├── ic_qr_code.png
+│   │   │   │   ├── ic_qr_code@2x.png
+│   │   │   │   ├── ic_qr_code@3x.png
+│   │   │   │   ├── ic_rewards.png
+│   │   │   │   ├── ic_star.png
+│   │   │   │   ├── ic_star@2x.png
+│   │   │   │   ├── ic_star@3x.png
+│   │   │   │   ├── ic_sync.png
+│   │   │   │   ├── icclosewhite.png
+│   │   │   │   ├── icrefreshgif.gif
+│   │   │   │   ├── icrefreshred.png
+│   │   │   │   ├── info.png
+│   │   │   │   ├── knob.png
+│   │   │   │   ├── landline_mid.png
+│   │   │   │   ├── locateash.png
+│   │   │   │   ├── login.png
+│   │   │   │   ├── logout.png
+│   │   │   │   ├── logout@2x.png
+│   │   │   │   ├── made4me_pic_curved.png
+│   │   │   │   ├── mailNewHiDark.png
+│   │   │   │   ├── mailNewHiDark@2x.png
+│   │   │   │   ├── mailNewHiDark@3x.png
+│   │   │   │   ├── make_payment.png
+│   │   │   │   ├── make_payment@2x.png
+│   │   │   │   ├── make_payment@3x.png
+│   │   │   │   ├── make_payment_mid.png
+│   │   │   │   ├── map-dotted.png
+│   │   │   │   ├── map.png
+│   │   │   │   ├── members.png
+│   │   │   │   ├── messageLight.png
+│   │   │   │   ├── messagesash.png
+│   │   │   │   ├── microphone-mid.png
+│   │   │   │   ├── mobile.png
+│   │   │   │   ├── mobile_hi.png
+│   │   │   │   ├── moreicon.png
+│   │   │   │   ├── motion_sensor_hi.png
+│   │   │   │   ├── motion_sensor_mid.png
+│   │   │   │   ├── movemoney.png
+│   │   │   │   ├── movemoney@2x.png
+│   │   │   │   ├── movemoney@3x.png
+│   │   │   │   ├── mtnMomo.png
+│   │   │   │   ├── network_tower_mid.png
+│   │   │   │   ├── news_mid.png
+│   │   │   │   ├── onboarding1.png
+│   │   │   │   ├── onboarding2.png
+│   │   │   │   ├── onboarding3.png
+│   │   │   │   ├── onboarding4.png
+│   │   │   │   ├── openrewards.png
+│   │   │   │   ├── parental_control_mid.png
+│   │   │   │   ├── passwordeyeash.png
+│   │   │   │   ├── passwordkeyash.png
+│   │   │   │   ├── payg.png
+│   │   │   │   ├── payment-mid.png
+│   │   │   │   ├── pdf.png
+│   │   │   │   ├── permissions.png
+│   │   │   │   ├── phoneHiFi.png
+│   │   │   │   ├── phoneblack.png
+│   │   │   │   ├── plansicon.png
+│   │   │   │   ├── play_video.png
+│   │   │   │   ├── power.png
+│   │   │   │   ├── prepare-mid.png
+│   │   │   │   ├── privacy.png
+│   │   │   │   ├── public-sector-mid.png
+│   │   │   │   ├── qr_code.png
+│   │   │   │   ├── recordHifi.png
+│   │   │   │   ├── rewardwhite.png
+│   │   │   │   ├── roaming.png
+│   │   │   │   ├── routerEdited.png
+│   │   │   │   ├── routerHifi.png
+│   │   │   │   ├── routerHifiLight.png
+│   │   │   │   ├── router_hi.png
+│   │   │   │   ├── router_mid.png
+│   │   │   │   ├── savings_mid.png
+│   │   │   │   ├── search-mid.png
+│   │   │   │   ├── services.png
+│   │   │   │   ├── services_hi.png
+│   │   │   │   ├── settings.png
+│   │   │   │   ├── settings_icDashboard.png
+│   │   │   │   ├── settings_midhifi.png
+│   │   │   │   ├── settingsicon.png
+│   │   │   │   ├── shakeLogo.png
+│   │   │   │   ├── shake_phone.png
+│   │   │   │   ├── share.png
+│   │   │   │   ├── share_your_mins_mid.png
+│   │   │   │   ├── simcard.png
+│   │   │   │   ├── simswap.png
+│   │   │   │   ├── smartSurfHifiLight.png
+│   │   │   │   ├── smartsurf.png
+│   │   │   │   ├── smarttravellericon.png
+│   │   │   │   ├── smsMid.png
+│   │   │   │   ├── sms_ash.png
+│   │   │   │   ├── sos.png
+│   │   │   │   ├── spinlogo.png
+│   │   │   │   ├── storelocatoricon.png
+│   │   │   │   ├── supporticon.png
+│   │   │   │   ├── tick_outline_mid.png
+│   │   │   │   ├── topupMid.png
+│   │   │   │   ├── topupash.png
+│   │   │   │   ├── trade-in-system.png
+│   │   │   │   ├── twitter.png
+│   │   │   │   ├── unsubscribeicon.png
+│   │   │   │   ├── user.png
+│   │   │   │   ├── v_sim_and_device_mid.png
+│   │   │   │   ├── vasgame1.png
+│   │   │   │   ├── vasgame2.png
+│   │   │   │   ├── vcash2.png
+│   │   │   │   ├── vcashbanner.png
+│   │   │   │   ├── vf-cash.png
+│   │   │   │   ├── vf-covid-side-pic-land.png
+│   │   │   │   ├── vfcash.png
+│   │   │   │   ├── vficon.png
+│   │   │   │   ├── vodafone_music.jpg
+│   │   │   │   ├── vodafonecash.png
+│   │   │   │   ├── warning-hi.png
+│   │   │   │   ├── web-protection-system.png
+│   │   │   │   ├── web_protection_mid.png
+│   │   │   │   ├── whatsapp.png
+│   │   │   │   ├── wifi_midhifi.png
+│   │   │   │   ├── wiflix.png
+│   │   │   │   ├── withdrawcash.png
+│   │   │   │   ├── withdrawcash@2x.png
+│   │   │   │   ├── withdrawcash@3x.png
+│   │   │   │   ├── xls.png
+│   │   │   │   └── youtube.png
+│   │   │   ├── Payment
+│   │   │   │   ├── mastercard.png
+│   │   │   │   ├── mastercard@2x.png
+│   │   │   │   ├── mastercard@3x.png
+│   │   │   │   ├── visa.png
+│   │   │   │   ├── visa@2x.png
+│   │   │   │   └── visa@3x.png
+│   │   │   ├── Textures
+│   │   │   │   ├── prepaid_dark.png
+│   │   │   │   ├── prepaid_light.png
+│   │   │   │   ├── speechmark.jpg
+│   │   │   │   ├── speechmark90.jpg
+│   │   │   │   └── speechmarkzig.jpg
+│   │   │   ├── Tray
+│   │   │   │   ├── trayBackground.png
+│   │   │   │   ├── trayBackground@2x.png
+│   │   │   │   ├── trayBackground@3x.png
+│   │   │   │   ├── traySideLeft.png
+│   │   │   │   ├── traySideLeft@2x.png
+│   │   │   │   ├── traySideLeft@3x.png
+│   │   │   │   ├── traySideRight.png
+│   │   │   │   ├── traySideRight@2x.png
+│   │   │   │   └── traySideRight@3x.png
+│   │   │   └── tobi
+│   │   │       ├── TOBi.png
+│   │   │       ├── agentDefault.png
+│   │   │       ├── agentbigblack.png
+│   │   │       ├── agentsmallblack.png
+│   │   │       ├── agentsmallwhite.png
+│   │   │       ├── backbutton.png
+│   │   │       ├── chevron_right_white.png
+│   │   │       ├── close_white.png
+│   │   │       ├── connectinglivechatmodalactivityindicator.png
+│   │   │       ├── connectinglivechatmodalavatar.png
+│   │   │       ├── corner_left_tobi.png
+│   │   │       ├── corner_left_tobi_small.png
+│   │   │       ├── corner_right_tobi.png
+│   │   │       ├── corner_right_tobi_small.png
+│   │   │       ├── mediapictureholder.png
+│   │   │       ├── mediavideoplaybutton.png
+│   │   │       ├── seeall.png
+│   │   │       ├── tobinormal.png
+│   │   │       └── tobismall.png
+│   │   └── Utils
+│   │       └── htmls
+│   │           └── terms_and_conditions.html
+│   ├── Login
+│   │   └── Assets
+│   │       └── Images
+│   │           ├── Icons
+│   │           │   ├── calls_contacts.png
+│   │           │   ├── icArrowLeftWhite.png
+│   │           │   ├── icArrowLeftWhite@2x.png
+│   │           │   ├── icArrowLeftWhite@3x.png
+│   │           │   ├── icInfoCircle.png
+│   │           │   ├── icInfoCircle@2x.png
+│   │           │   ├── icInfoCircle@3x.png
+│   │           │   ├── icMobile.png
+│   │           │   ├── icMobile@2x.png
+│   │           │   ├── icMobile@3x.png
+│   │           │   ├── icWarningMid.png
+│   │           │   ├── icWarningMid@2x.png
+│   │           │   ├── icWarningMid@3x.png
+│   │           │   └── ic_sync.png
+│   │           └── Tobi
+│   │               ├── default.png
+│   │               ├── default@2x.png
+│   │               ├── default@3x.png
+│   │               ├── defaultShadow.png
+│   │               ├── defaultShadow@2x.png
+│   │               └── defaultShadow@3x.png
+│   └── node_modules
+│       ├── @react-navigation
+│       │   └── elements
+│       │       └── src
+│       │           └── assets
+│       │               ├── back-icon-mask.png
+│       │               ├── back-icon.png
+│       │               ├── back-icon@2x.png
+│       │               └── back-icon@3x.png
+│       ├── @vfgroup-oneplatform
+│       │   ├── billing
+│       │   │   └── Images
+│       │   │       ├── Background
+│       │   │       │   └── app_bg.png
+│       │   │       └── Icons
+│       │   │           ├── chargeToBillDark.png
+│       │   │           ├── downloadDark.png
+│       │   │           ├── icClockHiLightTheme.png
+│       │   │           ├── icClockHiLightTheme@2x.png
+│       │   │           ├── icClockHiLightTheme@3x.png
+│       │   │           ├── icInfoCircleGrey.png
+│       │   │           ├── icInfoCircleGrey@2x.png
+│       │   │           ├── icInfoCircleGrey@3x.png
+│       │   │           ├── icInfoCircleRed.png
+│       │   │           ├── icInfoCircleRed@2x.png
+│       │   │           ├── icInfoCircleRed@3x.png
+│       │   │           ├── icInfoRed.png
+│       │   │           ├── icInfoRed@2x.png
+│       │   │           ├── icInfoRed@3x.png
+│       │   │           ├── icMobileWhite.png
+│       │   │           ├── icMobileWhite@2x.png
+│       │   │           ├── icMobileWhite@3x.png
+│       │   │           ├── icParentalControlRed.png
+│       │   │           ├── icParentalControlRed@2x.png
+│       │   │           ├── icParentalControlRed@3x.png
+│       │   │           ├── icRouterWhite.png
+│       │   │           ├── icRouterWhite@2x.png
+│       │   │           ├── icRouterWhite@3x.png
+│       │   │           ├── ic_green_circle.png
+│       │   │           ├── ic_green_circle@2x.png
+│       │   │           ├── ic_green_circle@3x.png
+│       │   │           ├── ic_red_circle.png
+│       │   │           ├── ic_red_circle@2x.png
+│       │   │           ├── ic_red_circle@3x.png
+│       │   │           ├── mobileDark.png
+│       │   │           ├── parentalControlDark.png
+│       │   │           ├── routerDark.png
+│       │   │           └── tvDark.png
+│       │   ├── foundation
+│       │   │   └── Components
+│       │   │       └── Assets
+│       │   │           └── Images
+│       │   │               ├── Background
+│       │   │               │   ├── greyBgVideo.png
+│       │   │               │   ├── greyBgVideo@2x.png
+│       │   │               │   └── greyBgVideo@3x.png
+│       │   │               ├── HeaderOverlays
+│       │   │               │   ├── darkOverlay.png
+│       │   │               │   ├── darkOverlay@2x.png
+│       │   │               │   ├── darkOverlay@3x.png
+│       │   │               │   ├── lightOverlay.png
+│       │   │               │   ├── lightOverlay@2x.png
+│       │   │               │   └── lightOverlay@3x.png
+│       │   │               ├── Icons
+│       │   │               │   ├── 333333.png
+│       │   │               │   ├── 333333@2x.png
+│       │   │               │   ├── 333333@3x.png
+│       │   │               │   ├── alarmAssistantWhite.png
+│       │   │               │   ├── alarmAssistantWhite@2x.png
+│       │   │               │   ├── alarmAssistantWhite@3x.png
+│       │   │               │   ├── call_log.png
+│       │   │               │   ├── call_log@2x.png
+│       │   │               │   ├── call_log@3x.png
+│       │   │               │   ├── content.png
+│       │   │               │   ├── content@2x.png
+│       │   │               │   ├── content@3x.png
+│       │   │               │   ├── icAdmin.png
+│       │   │               │   ├── icAdmin@2x.png
+│       │   │               │   ├── icAdmin@3x.png
+│       │   │               │   ├── icAdminWhite.png
+│       │   │               │   ├── icAdminWhite@2x.png
+│       │   │               │   ├── icAdminWhite@3x.png
+│       │   │               │   ├── icAlarmAssistantDark.png
+│       │   │               │   ├── icAlarmAssistantDark@2x.png
+│       │   │               │   ├── icAlarmAssistantDark@3x.png
+│       │   │               │   ├── icAllRewards.png
+│       │   │               │   ├── icAllRewards@2x.png
+│       │   │               │   ├── icAllRewards@3x.png
+│       │   │               │   ├── icAllRewardsWhite.png
+│       │   │               │   ├── icAllRewardsWhite@2x.png
+│       │   │               │   ├── icAllRewardsWhite@3x.png
+│       │   │               │   ├── icArrowLeft.png
+│       │   │               │   ├── icArrowLeft@2x.png
+│       │   │               │   ├── icArrowLeft@3x.png
+│       │   │               │   ├── icArrowLeftWhite.png
+│       │   │               │   ├── icArrowLeftWhite@2x.png
+│       │   │               │   ├── icArrowLeftWhite@3x.png
+│       │   │               │   ├── icBillReportGenericTariffPlan.png
+│       │   │               │   ├── icBillReportGenericTariffPlan@2x.png
+│       │   │               │   ├── icBillReportGenericTariffPlan@3x.png
+│       │   │               │   ├── icCallsContacts.png
+│       │   │               │   ├── icCallsContacts@2x.png
+│       │   │               │   ├── icCallsContacts@3x.png
+│       │   │               │   ├── icCallsContactsDark.png
+│       │   │               │   ├── icCallsContactsDark@2x.png
+│       │   │               │   ├── icCallsContactsDark@3x.png
+│       │   │               │   ├── icChevronDown.png
+│       │   │               │   ├── icChevronDown@2x.png
+│       │   │               │   ├── icChevronDown@3x.png
+│       │   │               │   ├── icChevronDownOrange.png
+│       │   │               │   ├── icChevronDownOrange@2x.png
+│       │   │               │   ├── icChevronDownOrange@3x.png
+│       │   │               │   ├── icChevronDownWhite2.png
+│       │   │               │   ├── icChevronDownWhite2@2x.png
+│       │   │               │   ├── icChevronDownWhite2@3x.png
+│       │   │               │   ├── icChevronRightOrange.png
+│       │   │               │   ├── icChevronRightOrange@2x.png
+│       │   │               │   ├── icChevronRightOrange@3x.png
+│       │   │               │   ├── icChevronRightRed.png
+│       │   │               │   ├── icChevronRightRed@2x.png
+│       │   │               │   ├── icChevronRightRed@3x.png
+│       │   │               │   ├── icChevronRightWhite.png
+│       │   │               │   ├── icChevronRightWhite@2x.png
+│       │   │               │   ├── icChevronRightWhite@3x.png
+│       │   │               │   ├── icChevronUp.png
+│       │   │               │   ├── icChevronUp@2x.png
+│       │   │               │   ├── icChevronUp@3x.png
+│       │   │               │   ├── icChevronUpOrange.png
+│       │   │               │   ├── icChevronUpOrange@2x.png
+│       │   │               │   ├── icChevronUpOrange@3x.png
+│       │   │               │   ├── icClose.png
+│       │   │               │   ├── icClose@2x.png
+│       │   │               │   ├── icClose@3x.png
+│       │   │               │   ├── icCloseCircle.png
+│       │   │               │   ├── icCloseCircle@2x.png
+│       │   │               │   ├── icCloseCircle@3x.png
+│       │   │               │   ├── icCloseCircleDark.png
+│       │   │               │   ├── icCloseCircleDark@2x.png
+│       │   │               │   ├── icCloseCircleDark@3x.png
+│       │   │               │   ├── icCloseCircleWhite.png
+│       │   │               │   ├── icCloseCircleWhite@2x.png
+│       │   │               │   ├── icCloseCircleWhite@3x.png
+│       │   │               │   ├── icCloseWhite.png
+│       │   │               │   ├── icCloseWhite@2x.png
+│       │   │               │   ├── icCloseWhite@3x.png
+│       │   │               │   ├── icConnectedDevices.png
+│       │   │               │   ├── icConnectedDevices@2x.png
+│       │   │               │   ├── icConnectedDevices@3x.png
+│       │   │               │   ├── icFamily.png
+│       │   │               │   ├── icFamily@2x.png
+│       │   │               │   ├── icFamily@3x.png
+│       │   │               │   ├── icFamilyWhite.png
+│       │   │               │   ├── icFamilyWhite@2x.png
+│       │   │               │   ├── icFamilyWhite@3x.png
+│       │   │               │   ├── icHidePassword.png
+│       │   │               │   ├── icHidePassword@2x.png
+│       │   │               │   ├── icHidePassword@3x.png
+│       │   │               │   ├── icHomeWhite.png
+│       │   │               │   ├── icHomeWhite@2x.png
+│       │   │               │   ├── icHomeWhite@3x.png
+│       │   │               │   ├── icInfoCircle.png
+│       │   │               │   ├── icInfoCircle@2x.png
+│       │   │               │   ├── icInfoCircle@3x.png
+│       │   │               │   ├── icLandlineOrCallMinutes.png
+│       │   │               │   ├── icLandlineOrCallMinutes@2x.png
+│       │   │               │   ├── icLandlineOrCallMinutes@3x.png
+│       │   │               │   ├── icLocation.png
+│       │   │               │   ├── icLocation@2x.png
+│       │   │               │   ├── icLocation@3x.png
+│       │   │               │   ├── icLocationDark.png
+│       │   │               │   ├── icLocationDark@2x.png
+│       │   │               │   ├── icLocationDark@3x.png
+│       │   │               │   ├── icMobiles.png
+│       │   │               │   ├── icMobiles@2x.png
+│       │   │               │   ├── icMobiles@3x.png
+│       │   │               │   ├── icMobilesDark.png
+│       │   │               │   ├── icMobilesDark@2x.png
+│       │   │               │   ├── icMobilesDark@3x.png
+│       │   │               │   ├── icNetworkMap.png
+│       │   │               │   ├── icNetworkMap@2x.png
+│       │   │               │   ├── icNetworkMap@3x.png
+│       │   │               │   ├── icNetworkMapDark.png
+│       │   │               │   ├── icNetworkMapDark@2x.png
+│       │   │               │   ├── icNetworkMapDark@3x.png
+│       │   │               │   ├── icNotification.png
+│       │   │               │   ├── icNotification@2x.png
+│       │   │               │   ├── icNotification@3x.png
+│       │   │               │   ├── icNotificationDark.png
+│       │   │               │   ├── icNotificationDark@2x.png
+│       │   │               │   ├── icNotificationDark@3x.png
+│       │   │               │   ├── icPadlockClose.png
+│       │   │               │   ├── icPadlockClose@2x.png
+│       │   │               │   ├── icPadlockClose@3x.png
+│       │   │               │   ├── icRefresh.png
+│       │   │               │   ├── icRefresh@2x.png
+│       │   │               │   ├── icRefresh@3x.png
+│       │   │               │   ├── icRefreshDark.png
+│       │   │               │   ├── icRefreshDark@2x.png
+│       │   │               │   ├── icRefreshDark@3x.png
+│       │   │               │   ├── icRefreshRed.png
+│       │   │               │   ├── icRefreshRed@2x.png
+│       │   │               │   ├── icRefreshRed@3x.png
+│       │   │               │   ├── icRefreshWhite.png
+│       │   │               │   ├── icRefreshWhite@2x.png
+│       │   │               │   ├── icRefreshWhite@3x.png
+│       │   │               │   ├── icShare.png
+│       │   │               │   ├── icShare@2x.png
+│       │   │               │   ├── icShare@3x.png
+│       │   │               │   ├── icShareWhite.png
+│       │   │               │   ├── icShareWhite@2x.png
+│       │   │               │   ├── icShareWhite@3x.png
+│       │   │               │   ├── icShowPasswordInsights.png
+│       │   │               │   ├── icShowPasswordInsights@2x.png
+│       │   │               │   ├── icShowPasswordInsights@3x.png
+│       │   │               │   ├── icShowPasswordInsightsWhite.png
+│       │   │               │   ├── icShowPasswordInsightsWhite@2x.png
+│       │   │               │   ├── icShowPasswordInsightsWhite@3x.png
+│       │   │               │   ├── icSim.png
+│       │   │               │   ├── icSim@2x.png
+│       │   │               │   ├── icSim@3x.png
+│       │   │               │   ├── icSimWhite.png
+│       │   │               │   ├── icSimWhite@2x.png
+│       │   │               │   ├── icSimWhite@3x.png
+│       │   │               │   ├── icSmallCloseWhite.png
+│       │   │               │   ├── icSmallCloseWhite@2x.png
+│       │   │               │   ├── icSmallCloseWhite@3x.png
+│       │   │               │   ├── icTickSolved.png
+│       │   │               │   ├── icTickSolved@2x.png
+│       │   │               │   ├── icTickSolved@3x.png
+│       │   │               │   ├── icTickSolvedLemon.png
+│       │   │               │   ├── icTickSolvedLemon@2x.png
+│       │   │               │   ├── icTickSolvedLemon@3x.png
+│       │   │               │   ├── icTickSolvedWhite.png
+│       │   │               │   ├── icTickSolvedWhite@2x.png
+│       │   │               │   ├── icTickSolvedWhite@3x.png
+│       │   │               │   ├── icTopUp.png
+│       │   │               │   ├── icTopUp@2x.png
+│       │   │               │   ├── icTopUp@3x.png
+│       │   │               │   ├── icTopUpWhite.png
+│       │   │               │   ├── icTopUpWhite@2x.png
+│       │   │               │   ├── icTopUpWhite@3x.png
+│       │   │               │   ├── icUser.png
+│       │   │               │   ├── icUser@2x.png
+│       │   │               │   ├── icUser@3x.png
+│       │   │               │   ├── icUsersMembersCustomers.png
+│       │   │               │   ├── icUsersMembersCustomers@2x.png
+│       │   │               │   ├── icUsersMembersCustomers@3x.png
+│       │   │               │   ├── icUsersMembersCustomersDark.png
+│       │   │               │   ├── icUsersMembersCustomersDark@2x.png
+│       │   │               │   ├── icUsersMembersCustomersDark@3x.png
+│       │   │               │   ├── icVHomeMonitorDark.png
+│       │   │               │   ├── icVHomeMonitorDark@2x.png
+│       │   │               │   ├── icVHomeMonitorDark@3x.png
+│       │   │               │   ├── icVHomeMonitorWhite.png
+│       │   │               │   ├── icVHomeMonitorWhite@2x.png
+│       │   │               │   ├── icVHomeMonitorWhite@3x.png
+│       │   │               │   ├── icVideoCloud.png
+│       │   │               │   ├── icVideoCloud@2x.png
+│       │   │               │   ├── icVideoCloud@3x.png
+│       │   │               │   ├── icVideoCloudLight.png
+│       │   │               │   ├── icVideoCloudLight@2x.png
+│       │   │               │   ├── icVideoCloudLight@3x.png
+│       │   │               │   ├── icWarning.png
+│       │   │               │   ├── icWarning@2x.png
+│       │   │               │   ├── icWarning@3x.png
+│       │   │               │   ├── icWarningHiDarkTheme.png
+│       │   │               │   ├── icWarningHiDarkTheme@2x.png
+│       │   │               │   ├── icWarningHiDarkTheme@3x.png
+│       │   │               │   ├── icWarningHiLightTheme.png
+│       │   │               │   ├── icWarningHiLightTheme@2x.png
+│       │   │               │   ├── icWarningHiLightTheme@3x.png
+│       │   │               │   ├── icWarningMid.png
+│       │   │               │   ├── icWarningMid@2x.png
+│       │   │               │   ├── icWarningMid@3x.png
+│       │   │               │   ├── icWarningNotificationUiredActive.png
+│       │   │               │   ├── icWarningNotificationUiredActive@2x.png
+│       │   │               │   ├── icWarningNotificationUiredActive@3x.png
+│       │   │               │   ├── icWifiBroadband.png
+│       │   │               │   ├── icWifiBroadband@2x.png
+│       │   │               │   ├── icWifiBroadband@3x.png
+│       │   │               │   ├── icWifiBroadbandWhite.png
+│       │   │               │   ├── icWifiBroadbandWhite@2x.png
+│       │   │               │   ├── icWifiBroadbandWhite@3x.png
+│       │   │               │   ├── ic_admin_white.png
+│       │   │               │   ├── ic_admin_white@2x.png
+│       │   │               │   ├── ic_admin_white@3x.png
+│       │   │               │   ├── ic_bill_report_generic_tariff_plan_white.png
+│       │   │               │   ├── ic_bill_report_generic_tariff_plan_white@2x.png
+│       │   │               │   ├── ic_bill_report_generic_tariff_plan_white@3x.png
+│       │   │               │   ├── ic_chevron_down_red.png
+│       │   │               │   ├── ic_chevron_down_red@2x.png
+│       │   │               │   ├── ic_chevron_down_red@3x.png
+│       │   │               │   ├── ic_chevron_up.png
+│       │   │               │   ├── ic_chevron_up@2x.png
+│       │   │               │   ├── ic_chevron_up@3x.png
+│       │   │               │   ├── ic_chevron_up_red.png
+│       │   │               │   ├── ic_chevron_up_red@2x.png
+│       │   │               │   ├── ic_chevron_up_red@3x.png
+│       │   │               │   ├── ic_clock.png
+│       │   │               │   ├── ic_clock@2x.png
+│       │   │               │   ├── ic_clock@3x.png
+│       │   │               │   ├── ic_close_red.png
+│       │   │               │   ├── ic_close_red@2x.png
+│       │   │               │   ├── ic_close_red@3x.png
+│       │   │               │   ├── ic_hide_password_white.png
+│       │   │               │   ├── ic_hide_password_white@2x.png
+│       │   │               │   ├── ic_hide_password_white@3x.png
+│       │   │               │   ├── ic_info_circle_white.png
+│       │   │               │   ├── ic_info_circle_white@2x.png
+│       │   │               │   ├── ic_info_circle_white@3x.png
+│       │   │               │   ├── ic_item_badge.png
+│       │   │               │   ├── ic_item_badge@2x.png
+│       │   │               │   ├── ic_item_badge@3x.png
+│       │   │               │   ├── ic_landline_or_call_minutesDark.png
+│       │   │               │   ├── ic_landline_or_call_minutesDark@2x.png
+│       │   │               │   ├── ic_landline_or_call_minutesDark@3x.png
+│       │   │               │   ├── ic_mobile.png
+│       │   │               │   ├── ic_mobile@2x.png
+│       │   │               │   ├── ic_mobile@3x.png
+│       │   │               │   ├── ic_mobileDark.png
+│       │   │               │   ├── ic_mobileDark@2x.png
+│       │   │               │   ├── ic_mobileDark@3x.png
+│       │   │               │   ├── ic_security_white.png
+│       │   │               │   ├── ic_security_white@2x.png
+│       │   │               │   ├── ic_security_white@3x.png
+│       │   │               │   ├── ic_tick_solved.png
+│       │   │               │   ├── ic_tick_solved@2x.png
+│       │   │               │   ├── ic_tick_solved@3x.png
+│       │   │               │   ├── ic_warning_mid.png
+│       │   │               │   ├── ic_warning_mid@2x.png
+│       │   │               │   ├── ic_warning_mid@3x.png
+│       │   │               │   ├── ic_warning_notification_white.png
+│       │   │               │   ├── ic_warning_notification_white@2x.png
+│       │   │               │   ├── ic_warning_notification_white@3x.png
+│       │   │               │   ├── iconsIndicatorsSystemIconsAdmin333333.png
+│       │   │               │   ├── iconsIndicatorsSystemIconsAdmin333333@2x.png
+│       │   │               │   ├── iconsIndicatorsSystemIconsAdmin333333@3x.png
+│       │   │               │   ├── iconsIndicatorsSystemIconsBusiness333333.png
+│       │   │               │   ├── iconsIndicatorsSystemIconsBusiness333333@2x.png
+│       │   │               │   ├── iconsIndicatorsSystemIconsBusiness333333@3x.png
+│       │   │               │   ├── iconsIndicatorsSystemIconsBusinessFfffff.png
+│       │   │               │   ├── iconsIndicatorsSystemIconsBusinessFfffff@2x.png
+│       │   │               │   ├── iconsIndicatorsSystemIconsBusinessFfffff@3x.png
+│       │   │               │   ├── iconsIndicatorsSystemIconsHome333333.png
+│       │   │               │   ├── iconsIndicatorsSystemIconsHome333333@2x.png
+│       │   │               │   └── iconsIndicatorsSystemIconsHome333333@3x.png
+│       │   │               ├── Logo
+│       │   │               │   ├── red.png
+│       │   │               │   ├── red@2x.png
+│       │   │               │   ├── red@3x.png
+│       │   │               │   ├── white.png
+│       │   │               │   ├── white@2x.png
+│       │   │               │   └── white@3x.png
+│       │   │               ├── Tobi
+│       │   │               │   ├── default.png
+│       │   │               │   ├── default@2x.png
+│       │   │               │   └── default@3x.png
+│       │   │               └── ToolTips
+│       │   │                   ├── group2.png
+│       │   │                   ├── group2@2x.png
+│       │   │                   └── group2@3x.png
+│       │   ├── framework
+│       │   │   └── Assets
+│       │   │       └── Images
+│       │   │           ├── blue_dot.png
+│       │   │           ├── blue_dot@2x.png
+│       │   │           ├── blue_dot@3x.png
+│       │   │           ├── cardBackground.png
+│       │   │           ├── cardBackground@2x.png
+│       │   │           ├── cardBackground@3x.png
+│       │   │           ├── cardChip.png
+│       │   │           ├── cardChip@2x.png
+│       │   │           ├── cardChip@3x.png
+│       │   │           ├── cvv.png
+│       │   │           ├── cvv@2x.png
+│       │   │           ├── cvv@3x.png
+│       │   │           ├── dataSharing.png
+│       │   │           ├── dataSharing@2x.png
+│       │   │           ├── dataSharing@3x.png
+│       │   │           ├── dataSharingDark.png
+│       │   │           ├── dataSharingDark@2x.png
+│       │   │           ├── dataSharingDark@3x.png
+│       │   │           ├── icAccelerationMid.png
+│       │   │           ├── icAccelerationMid@2x.png
+│       │   │           ├── icAccelerationMid@3x.png
+│       │   │           ├── icAccelerationMidDark.png
+│       │   │           ├── icAccelerationMidDark@2x.png
+│       │   │           ├── icAccelerationMidDark@3x.png
+│       │   │           ├── icAdd.png
+│       │   │           ├── icAdd@2x.png
+│       │   │           ├── icAdd@3x.png
+│       │   │           ├── icAddDark.png
+│       │   │           ├── icAddDark@2x.png
+│       │   │           ├── icAddDark@3x.png
+│       │   │           ├── icAdminRed.png
+│       │   │           ├── icAdminRed@2x.png
+│       │   │           ├── icAdminRed@3x.png
+│       │   │           ├── icAdminRedDark.png
+│       │   │           ├── icAdminRedDark@2x.png
+│       │   │           ├── icAdminRedDark@3x.png
+│       │   │           ├── icBiometricAuthentication.png
+│       │   │           ├── icBiometricAuthentication@2x.png
+│       │   │           ├── icBiometricAuthentication@3x.png
+│       │   │           ├── icBundles.png
+│       │   │           ├── icBundles@2x.png
+│       │   │           ├── icBundles@3x.png
+│       │   │           ├── icBundlesRed.png
+│       │   │           ├── icBundlesRed@2x.png
+│       │   │           ├── icBundlesRed@3x.png
+│       │   │           ├── icCalendarRed.png
+│       │   │           ├── icCalendarRed@2x.png
+│       │   │           ├── icCalendarRed@3x.png
+│       │   │           ├── icCallsContactsWhite.png
+│       │   │           ├── icCallsContactsWhite@2x.png
+│       │   │           ├── icCallsContactsWhite@3x.png
+│       │   │           ├── icChevronLeftBlack.png
+│       │   │           ├── icChevronLeftBlack@2x.png
+│       │   │           ├── icChevronLeftBlack@3x.png
+│       │   │           ├── icChevronLeftWhite.png
+│       │   │           ├── icChevronLeftWhite@2x.png
+│       │   │           ├── icChevronLeftWhite@3x.png
+│       │   │           ├── icChevronRightBlack.png
+│       │   │           ├── icChevronRightBlack@2x.png
+│       │   │           ├── icChevronRightBlack@3x.png
+│       │   │           ├── icChevronRightWhite.png
+│       │   │           ├── icChevronRightWhite@2x.png
+│       │   │           ├── icChevronRightWhite@3x.png
+│       │   │           ├── icChevronUpRed.png
+│       │   │           ├── icChevronUpRed@2x.png
+│       │   │           ├── icChevronUpRed@3x.png
+│       │   │           ├── icCurrentLocation.png
+│       │   │           ├── icCurrentLocation@2x.png
+│       │   │           ├── icCurrentLocation@3x.png
+│       │   │           ├── icCvv.png
+│       │   │           ├── icCvv@2x.png
+│       │   │           ├── icCvv@3x.png
+│       │   │           ├── icDarkmode.png
+│       │   │           ├── icDarkmode@2x.png
+│       │   │           ├── icDarkmode@3x.png
+│       │   │           ├── icDeleteCoral.png
+│       │   │           ├── icDeleteCoral@2x.png
+│       │   │           ├── icDeleteCoral@3x.png
+│       │   │           ├── icDeleteOrange.png
+│       │   │           ├── icDeleteOrange@2x.png
+│       │   │           ├── icDeleteOrange@3x.png
+│       │   │           ├── icDeleteRed.png
+│       │   │           ├── icDeleteRed@2x.png
+│       │   │           ├── icDeleteRed@3x.png
+│       │   │           ├── icDemmedRemove.png
+│       │   │           ├── icDemmedRemove@2x.png
+│       │   │           ├── icDemmedRemove@3x.png
+│       │   │           ├── icDemmedRemoveDark.png
+│       │   │           ├── icDemmedRemoveDark@2x.png
+│       │   │           ├── icDemmedRemoveDark@3x.png
+│       │   │           ├── icDisplayModeDark.png
+│       │   │           ├── icDisplayModeDark@2x.png
+│       │   │           ├── icDisplayModeDark@3x.png
+│       │   │           ├── icEditCoral.png
+│       │   │           ├── icEditCoral@2x.png
+│       │   │           ├── icEditCoral@3x.png
+│       │   │           ├── icEditOrange.png
+│       │   │           ├── icEditOrange@2x.png
+│       │   │           ├── icEditOrange@3x.png
+│       │   │           ├── icEditRed.png
+│       │   │           ├── icEditRed@2x.png
+│       │   │           ├── icEditRed@3x.png
+│       │   │           ├── icHome.png
+│       │   │           ├── icHome@2x.png
+│       │   │           ├── icHome@3x.png
+│       │   │           ├── icHomeWhite.png
+│       │   │           ├── icHomeWhite@2x.png
+│       │   │           ├── icHomeWhite@3x.png
+│       │   │           ├── icList.png
+│       │   │           ├── icList@2x.png
+│       │   │           ├── icList@3x.png
+│       │   │           ├── icMobileWhite.png
+│       │   │           ├── icMobileWhite@2x.png
+│       │   │           ├── icMobileWhite@3x.png
+│       │   │           ├── icNetwork.png
+│       │   │           ├── icNetwork@2x.png
+│       │   │           ├── icNetwork@3x.png
+│       │   │           ├── icPaymentDark.png
+│       │   │           ├── icPaymentDark@2x.png
+│       │   │           ├── icPaymentDark@3x.png
+│       │   │           ├── icPaymentRed.png
+│       │   │           ├── icPaymentRed@2x.png
+│       │   │           ├── icPaymentRed@3x.png
+│       │   │           ├── icRearrange.png
+│       │   │           ├── icRearrange@2x.png
+│       │   │           ├── icRearrange@3x.png
+│       │   │           ├── icRearrangeDark.png
+│       │   │           ├── icRearrangeDark@2x.png
+│       │   │           ├── icRearrangeDark@3x.png
+│       │   │           ├── icRemove.png
+│       │   │           ├── icRemove@2x.png
+│       │   │           ├── icRemove@3x.png
+│       │   │           ├── icRemoveDark.png
+│       │   │           ├── icRemoveDark@2x.png
+│       │   │           ├── icRemoveDark@3x.png
+│       │   │           ├── icSecurityRed.png
+│       │   │           ├── icSecurityRed@2x.png
+│       │   │           ├── icSecurityRed@3x.png
+│       │   │           ├── icShopBlack.png
+│       │   │           ├── icShopBlack@2x.png
+│       │   │           ├── icShopBlack@3x.png
+│       │   │           ├── icShopWhite.png
+│       │   │           ├── icShopWhite@2x.png
+│       │   │           ├── icShopWhite@3x.png
+│       │   │           ├── icStore.png
+│       │   │           ├── icStore@2x.png
+│       │   │           ├── icStore@3x.png
+│       │   │           ├── icTickSolutionShakefinderGreen.png
+│       │   │           ├── icTickSolutionShakefinderGreen@2x.png
+│       │   │           ├── icTickSolutionShakefinderGreen@3x.png
+│       │   │           ├── icTutorial.png
+│       │   │           ├── icTutorial@2x.png
+│       │   │           ├── icTutorial@3x.png
+│       │   │           ├── ic_bulb.png
+│       │   │           ├── ic_bulb@2x.png
+│       │   │           ├── ic_bulb@3x.png
+│       │   │           ├── ic_bulb_white.png
+│       │   │           ├── ic_bulb_white@2x.png
+│       │   │           ├── ic_bulb_white@3x.png
+│       │   │           ├── ic_green_circle.png
+│       │   │           ├── ic_green_circle@2x.png
+│       │   │           ├── ic_green_circle@3x.png
+│       │   │           ├── ic_pause_white.png
+│       │   │           ├── ic_pause_white@2x.png
+│       │   │           ├── ic_pause_white@3x.png
+│       │   │           ├── ic_play_arrow_white.png
+│       │   │           ├── ic_play_arrow_white@2x.png
+│       │   │           ├── ic_play_arrow_white@3x.png
+│       │   │           ├── ic_red_circle.png
+│       │   │           ├── ic_red_circle@2x.png
+│       │   │           ├── ic_red_circle@3x.png
+│       │   │           ├── ic_red_triangle.png
+│       │   │           ├── ic_slider_thumb.png
+│       │   │           ├── ic_slider_thumb@2x.png
+│       │   │           ├── ic_slider_thumb@3x.png
+│       │   │           ├── ic_sound_active_white.png
+│       │   │           ├── ic_sound_active_white@2x.png
+│       │   │           ├── ic_sound_active_white@3x.png
+│       │   │           ├── ic_sound_off.png
+│       │   │           ├── ic_sound_off@2x.png
+│       │   │           ├── ic_sound_off@3x.png
+│       │   │           ├── ic_sync_white.png
+│       │   │           ├── ic_sync_white@2x.png
+│       │   │           ├── ic_sync_white@3x.png
+│       │   │           ├── icon_bill_report_generic.png
+│       │   │           ├── icon_bill_report_generic@2x.png
+│       │   │           ├── icon_bill_report_generic@3x.png
+│       │   │           ├── icon_bill_report_generic_dark.png
+│       │   │           ├── icon_bill_report_generic_dark@2x.png
+│       │   │           ├── icon_bill_report_generic_dark@3x.png
+│       │   │           ├── iconsIndicatorsSystemIconsBadge32LightBkgd.png
+│       │   │           ├── iconsIndicatorsSystemIconsBadge32LightBkgd@2x.png
+│       │   │           ├── iconsIndicatorsSystemIconsBadge32LightBkgd@3x.png
+│       │   │           ├── illustration.png
+│       │   │           ├── illustration@2x.png
+│       │   │           ├── illustration@3x.png
+│       │   │           ├── minimize.png
+│       │   │           ├── minimize@2x.png
+│       │   │           ├── minimize@3x.png
+│       │   │           ├── number1.png
+│       │   │           ├── number1@2x.png
+│       │   │           ├── number1@3x.png
+│       │   │           ├── number1_dark.png
+│       │   │           ├── number1_dark@2x.png
+│       │   │           ├── number1_dark@3x.png
+│       │   │           ├── number2.png
+│       │   │           ├── number2@2x.png
+│       │   │           ├── number2@3x.png
+│       │   │           ├── number2_dark.png
+│       │   │           ├── number2_dark@2x.png
+│       │   │           ├── number2_dark@3x.png
+│       │   │           ├── payment.png
+│       │   │           ├── payment@2x.png
+│       │   │           ├── payment@3x.png
+│       │   │           ├── storeMarker.png
+│       │   │           ├── storeMarker@2x.png
+│       │   │           ├── storeMarker@3x.png
+│       │   │           ├── storeMarkerDark.png
+│       │   │           ├── storeMarkerDark@2x.png
+│       │   │           ├── storeMarkerDark@3x.png
+│       │   │           ├── toBi.png
+│       │   │           ├── toBi@2x.png
+│       │   │           ├── toBi@3x.png
+│       │   │           ├── touch_screen.png
+│       │   │           ├── touch_screen@2x.png
+│       │   │           ├── touch_screen@3x.png
+│       │   │           ├── vfLogo.png
+│       │   │           ├── vfLogo@2x.png
+│       │   │           ├── vfLogo@3x.png
+│       │   │           ├── visa.png
+│       │   │           ├── visa@2x.png
+│       │   │           ├── visa@3x.png
+│       │   │           ├── visaPay.png
+│       │   │           ├── visaPay@2x.png
+│       │   │           └── visaPay@3x.png
+│       │   ├── message-center
+│       │   │   └── Assets
+│       │   │       └── Images
+│       │   │           ├── ic3G.png
+│       │   │           ├── ic3G@2x.png
+│       │   │           ├── ic3G@3x.png
+│       │   │           ├── icCloseWhite.png
+│       │   │           ├── icCloseWhite@2x.png
+│       │   │           ├── icCloseWhite@3x.png
+│       │   │           ├── icDeleteRed.png
+│       │   │           ├── icDeleteRed@2x.png
+│       │   │           ├── icDeleteRed@3x.png
+│       │   │           ├── icDeleteWhite.png
+│       │   │           ├── icDeleteWhite@2x.png
+│       │   │           ├── icDeleteWhite@3x.png
+│       │   │           ├── icMessage.png
+│       │   │           ├── icMessage@2x.png
+│       │   │           ├── icMessage@3x.png
+│       │   │           ├── icRefresh.png
+│       │   │           ├── icRefresh@2x.png
+│       │   │           ├── icRefresh@3x.png
+│       │   │           ├── icRefreshWhite.png
+│       │   │           ├── icRefreshWhite@2x.png
+│       │   │           ├── icRefreshWhite@3x.png
+│       │   │           ├── ic_delete_pink.png
+│       │   │           ├── ic_delete_pink@2x.png
+│       │   │           ├── ic_delete_pink@3x.png
+│       │   │           ├── ic_white_3G.png
+│       │   │           ├── ic_white_3G@2x.png
+│       │   │           └── ic_white_3G@3x.png
+│       │   ├── netperform
+│       │   │   └── assets
+│       │   │       └── icons
+│       │   │           ├── Overlay
+│       │   │           │   ├── icClose.png
+│       │   │           │   ├── icClose@2x.png
+│       │   │           │   ├── icClose@3x.png
+│       │   │           │   ├── icCloseWhite.png
+│       │   │           │   ├── icCloseWhite@2x.png
+│       │   │           │   ├── icCloseWhite@3x.png
+│       │   │           │   ├── settingsHi.png
+│       │   │           │   ├── settingsHi@2x.png
+│       │   │           │   └── settingsHi@3x.png
+│       │   │           ├── accelerationHi.png
+│       │   │           ├── accelerationHi@2x.png
+│       │   │           ├── accelerationHi@3x.png
+│       │   │           ├── average.png
+│       │   │           ├── average@2x.png
+│       │   │           ├── average@3x.png
+│       │   │           ├── dark_data_network.png
+│       │   │           ├── dark_data_network@2x.png
+│       │   │           ├── dark_data_network@3x.png
+│       │   │           ├── dark_wifi.png
+│       │   │           ├── dark_wifi@2x.png
+│       │   │           ├── dark_wifi@3x.png
+│       │   │           ├── download.png
+│       │   │           ├── download@2x.png
+│       │   │           ├── download@3x.png
+│       │   │           ├── good.png
+│       │   │           ├── good@2x.png
+│       │   │           ├── good@3x.png
+│       │   │           ├── icDownloadWhite.png
+│       │   │           ├── icDownloadWhite@2x.png
+│       │   │           ├── icDownloadWhite@3x.png
+│       │   │           ├── icInfoCircleOrange.png
+│       │   │           ├── icInfoCircleOrange@2x.png
+│       │   │           ├── icInfoCircleOrange@3x.png
+│       │   │           ├── icInfoCircleRed.png
+│       │   │           ├── icInfoCircleRed@2x.png
+│       │   │           ├── icInfoCircleRed@3x.png
+│       │   │           ├── icInfoCircleTransparent.png
+│       │   │           ├── icInfoCircleTransparent@2x.png
+│       │   │           ├── icInfoCircleTransparent@3x.png
+│       │   │           ├── icInfoCircleWhite.png
+│       │   │           ├── icInfoCircleWhite@2x.png
+│       │   │           ├── icInfoCircleWhite@3x.png
+│       │   │           ├── icNetworkWhite.png
+│       │   │           ├── icNetworkWhite@2x.png
+│       │   │           ├── icNetworkWhite@3x.png
+│       │   │           ├── icPadlockCloseHi.png
+│       │   │           ├── icPadlockCloseHi@2x.png
+│       │   │           ├── icPadlockCloseHi@3x.png
+│       │   │           ├── icRefreshOrange.png
+│       │   │           ├── icRefreshOrange@2x.png
+│       │   │           ├── icRefreshOrange@3x.png
+│       │   │           ├── icRefreshRed.png
+│       │   │           ├── icRefreshRed@2x.png
+│       │   │           ├── icRefreshRed@3x.png
+│       │   │           ├── icUploadWhite.png
+│       │   │           ├── icUploadWhite@2x.png
+│       │   │           ├── icUploadWhite@3x.png
+│       │   │           ├── icWifiBroadband.png
+│       │   │           ├── icWifiBroadband@2x.png
+│       │   │           ├── icWifiBroadband@3x.png
+│       │   │           ├── icWifiBroadbandWhite.png
+│       │   │           ├── icWifiBroadbandWhite@2x.png
+│       │   │           ├── icWifiBroadbandWhite@3x.png
+│       │   │           ├── ic_apps_orange.png
+│       │   │           ├── ic_apps_orange@2x.png
+│       │   │           ├── ic_apps_orange@3x.png
+│       │   │           ├── ic_apps_red.png
+│       │   │           ├── ic_apps_red@2x.png
+│       │   │           ├── ic_apps_red@3x.png
+│       │   │           ├── ic_calendar_orange.png
+│       │   │           ├── ic_calendar_orange@2x.png
+│       │   │           ├── ic_calendar_orange@3x.png
+│       │   │           ├── ic_calendar_red.png
+│       │   │           ├── ic_calendar_red@2x.png
+│       │   │           ├── ic_calendar_red@3x.png
+│       │   │           ├── lightTheme3g.png
+│       │   │           ├── lightTheme3g@2x.png
+│       │   │           ├── lightTheme3g@3x.png
+│       │   │           ├── lightThemeWifi.png
+│       │   │           ├── lightThemeWifi@3x.png
+│       │   │           ├── map.png
+│       │   │           ├── myLocationPin.png
+│       │   │           ├── myLocationPin@2x.png
+│       │   │           ├── myLocationPin@3x.png
+│       │   │           ├── myLocationPinWhite.png
+│       │   │           ├── myLocationPinWhite@2x.png
+│       │   │           ├── myLocationPinWhite@3x.png
+│       │   │           ├── network.png
+│       │   │           ├── network@2x.png
+│       │   │           ├── network@3x.png
+│       │   │           ├── pin.png
+│       │   │           ├── pin@2x.png
+│       │   │           ├── pin@3x.png
+│       │   │           ├── pin_wifi.png
+│       │   │           ├── pin_wifi@2x.png
+│       │   │           ├── pin_wifi@3x.png
+│       │   │           ├── poor.png
+│       │   │           ├── poor@2x.png
+│       │   │           ├── poor@3x.png
+│       │   │           ├── upload.png
+│       │   │           ├── upload@2x.png
+│       │   │           ├── upload@3x.png
+│       │   │           ├── warning.png
+│       │   │           ├── warning@2x.png
+│       │   │           └── warning@3x.png
+│       │   └── onboarding
+│       │       └── Components
+│       │           └── Assets
+│       │               └── Icons
+│       │                   ├── icActive.png
+│       │                   ├── icActive@2x.png
+│       │                   ├── icActive@3x.png
+│       │                   ├── icInactive.png
+│       │                   ├── icInactive@2x.png
+│       │                   └── icInactive@3x.png
+│       └── react-native-wheel-of-fortune
+│           └── assets
+│               └── images
+│                   └── knob.png
+├── device-names.json
+├── main.jsbundle
+└── myvodafoneapp
+
+176 directories, 1309 files
+</code></pre><!-- raw HTML omitted -->
+<p>The <strong>Info.plist</strong> file contents a summary of the information related to the application.</p>
+<pre tabindex="0"><code>	MinimumOSVersion: 13.0
+	NSAppTransportSecurity:
+    	NSExceptionDomains:
+        	localhost:
+            	NSExceptionAllowsInsecureHTTPLoads:  true
+        	New Exception Domain:
+            	NSExceptionAllowsInsecureHTTPLoads:  true
+            	NSIncludesSubdomains:  true
+        	NSAllowsArbitraryLoads:  true
+        	DTXcodeBuild: 13F17a
+        	firebase_json_raw: eyJhbmRyb2lkX3Rhc2tfZXhlY3V0b3JfbWF4aW11bV9wb29sX3NpemUiOiAxMCwgImFuZHJvaWRfdGFza19leGVjdXRvcl9rZWVwX2FsaXZlX3NlY29uZHMiOiAzfQ==
+            	UISupportedDevices[0]: iPhone10,1
+    	UISupportedDevices[1]: iPhone10,4
+    	UISupportedDevices[2]: iPhone12,8
+    	UISupportedDevices[3]: iPhone9,1
+    	UISupportedDevices[4]: iPhone9,3
+        	DTAppStoreToolsBuild: 13F100
+        	CFBundleName: myvodafoneapp
+            	CFBundleSupportedPlatforms[0]: iPhoneOS
+        	CFBundleDisplayName: My Vodafone
+        	ITSDRMScheme: v2
+        	DTPlatformBuild: 19F64
+        	CFBundleSignature: ????
+        	DTXcode: 1340
+        	CFBundleVersion: 82
+        	DTSDKName: iphoneos15.5
+            	UIDeviceFamily[0]: 1
+    	UIDeviceFamily[1]: 2
+            	UIBackgroundModes[0]: remote-notification
+        	UIFileSharingEnabled:  true
+        	CFBundleIcons:
+            	CFBundlePrimaryIcon:
+                	CFBundleIconName: AppIcon
+                        	CFBundleIconFiles[0]: AppIcon60x60
+            	DTPlatformName: iphoneos
+            	CFBundleDevelopmentRegion: en
+            	NSLocationWhenInUseUsageDescription: To show you Vodafone retail shops and other important information based on your location
+                  	FirebaseDynamicLinksCustomDomains[0]: https://vodafone.com.gh/home
+            	NSLocationAlwaysAndWhenInUseUsageDescription: My Vodafone would like to access your location
+                  	CFBundleURLTypes[0]:
+                        	CFBundleURLSchemes[0]: mva
+                	CFBundleTypeRole: Editor
+                	CFBundleURLName: myvodafoneapp
+            	CFBundleURLTypes[1]: com.vodafone.gh.myvodafone.app
+            	LSRequiresIPhoneOS:  true
+            	CFBundleURLTypes[2]: To set profile pictures for your accounts
+            	CFBundleURLTypes[3]: myvodafoneapp
+            	CFBundleURLTypes[4]: 21G72
+            	CFBundleURLTypes:
+        	CFBundlePackageType: APPL
+	LSApplicationQueriesSchemes[0]: whatsapp
+	LSApplicationQueriesSchemes[1]: vodafonemusic
+	LSApplicationQueriesSchemes[2]: fb
+	LSApplicationQueriesSchemes[3]: youtube
+	LSApplicationQueriesSchemes[4]: twitter
+	LSApplicationQueriesSchemes[5]: 2ctv
+	LSApplicationQueriesSchemes[6]: wi-flix
+	LSApplicationQueriesSchemes[7]: dreamlab
+	NSContactsUsageDescription: Get easy access to your contacts during transactions. Eg: VFCash and Top Up
+	UIUserInterfaceStyle: Light
+	DTCompiler: com.apple.compilers.llvm.clang.1_0
+	UIRequiredDeviceCapabilities[0]: arm64
+	NSLocationAlwaysUsageDescription: To show you Vodafone retail shops and other important information based on your location
+	UIViewControllerBasedStatusBarAppearance:  false
+	NSCameraUsageDescription: To set profile pictures for your accounts
+	UISupportedInterfaceOrientations[0]: UIInterfaceOrientationPortrait
+	CFBundleInfoDictionaryVersion: 6.0
+	UIAppFonts[0]: Vodafone Rg Bold.ttf
+	UIAppFonts[1]: VodafoneLt.ttf
+	UIAppFonts[2]: VodafoneRg.ttf
+	UIAppFonts[3]: AntDesign.ttf
+	UIAppFonts[4]: Entypo.ttf
+	UIAppFonts[5]: EvilIcons.ttf
+	UIAppFonts[6]: Feather.ttf
+	UIAppFonts[7]: FontAwesome.ttf
+	UIAppFonts[8]: FontAwesome5_Brands.ttf
+	UIAppFonts[9]: FontAwesome5_Regular.ttf
+	UIAppFonts[10]: FontAwesome5_Solid.ttf
+	UIAppFonts[11]: Fontisto.ttf
+	UIAppFonts[12]: Foundation.ttf
+	UIAppFonts[13]: Ionicons.ttf
+	UIAppFonts[14]: MaterialCommunityIcons.ttf
+	UIAppFonts[15]: MaterialIcons.ttf
+	UIAppFonts[16]: Octicons.ttf
+	UIAppFonts[17]: SimpleLineIcons.ttf
+	UIAppFonts[18]: Zocial.ttf
+	NSAppleMusicUsageDescription: To allow access to Apple Music
+	FirebaseCrashlyticsCollectionEnabled:  false
+	DTSDKBuild: 19F64
+	UILaunchStoryboardName: LaunchScreen
+	DTPlatformVersion: 15.5
+	CFBundleShortVersionString: 4.3.0
+	LSSupportsOpeningDocumentsInPlace: YES
+	UIRequiresFullScreen:  true
+</code></pre><p>In this file the spport devices are indicated; iPhone 10,4 etc. There is an exception to allow insure http loads.</p>
+<p>There is a <code>firebase_json_raw</code> field which is base64 encoded and its decode value is <code>{&quot;android_task_executor_maximum_pool_size&quot;: 10, &quot;android_task_executor_keep_alive_seconds&quot;: 3}</code>; nothing really interesting here.</p>
+<p>From the <code>Info.plist</code> file, there is a permission request for location, camera and contacts; <code>NSLocation</code>, <code>NSCamera</code> and <code>NSContacts</code>.</p>
+<p>Interestingly, there is a permission to allow access to <code>Apple Music</code>; 😅 indicated as <code>NSAppleMusicUsageDescription: To allow access to Apple Music</code>.</p>
+<p>The default application is indicated by <code>CFBundleURLName</code> and is <code>myvodafoneapp</code>. The bundle URL is defined by <code>CFBundleURLTypes</code> and the value is <code>com.vodafone.gh.myvodafone.app</code>.</p>
 ]]></content>
         </item>
         
