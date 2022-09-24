@@ -17,7 +17,7 @@
             <guid>https://sperixlabs.org/post/2022/09/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</guid>
             <description>This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
 Technical Details The platform for the analysis was iOS. Details are below:
-Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and uncompressed ipa file shows the following contents:
+Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and decompressed ipa file shows the following contents:
 . ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.</description>
             <content type="html"><![CDATA[<p>This research presents a security analysis on a cross-platform mobile application. The <strong>My Vodafone (Ghana)</strong> application formed the basis for the analysis; detailing both static and dynamic analysis.</p>
 <h3 id="technical-details">Technical Details</h3>
@@ -26,7 +26,7 @@ Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone
 Version: 4.3.0
 Bundle URL: com.vodafone.gh.myvodafone.app
 </code></pre><h4 id="directory-structure">Directory Structure</h4>
-<p>A decrypted and uncompressed ipa file shows the following contents:</p>
+<p>A decrypted and decompressed ipa file shows the following contents:</p>
 <!-- raw HTML omitted -->
 <pre tabindex="0"><code>.
 ├── AccessibilityResources.bundle
