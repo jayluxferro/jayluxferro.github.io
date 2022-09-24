@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Sun, 01 May 2022 17:23:24 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Sep 2022 17:23:24 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Obscurity is not Security: A Security Analysis of MyVodafone (Ghana) Application</title>
-      <link>https://sperixlabs.org/post/2022/05/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</link>
-      <pubDate>Sun, 01 May 2022 17:23:24 +0000</pubDate>
+      <link>https://sperixlabs.org/post/2022/09/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</link>
+      <pubDate>Sat, 24 Sep 2022 17:23:24 +0000</pubDate>
       
-      <guid>https://sperixlabs.org/post/2022/05/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</guid>
+      <guid>https://sperixlabs.org/post/2022/09/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</guid>
       <description>This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
 Technical Details The platform for the analysis was iOS. Details are below:
 Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and uncompressed ipa file shows the following contents:
