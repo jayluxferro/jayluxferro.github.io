@@ -1642,7 +1642,7 @@ developmentAppSecret: VbvEDaL5Rc22gL6WOoMXMQ
 inProduction: true
 productionAppKey: boEvpjshT9eKDIAM-ZQV1g
 productionAppSecret: zTYVipmoRRiI4rrmJcrl8Q
-</code></pre><p>The framework directory contains, <code>NetPerformSDK.framework</code>, <code>SecLibRNFramework.framework</code>, <code>TealiumIOS.framework</code> and <code>TealiumIOSLifecycle.framework</code>. The <code>NetPerformSDK</code> is used for network speed testing, the <code>SecLibRNFramework</code> implements such security functions (such as encryption/decryption of bytes of data, etc.), the <code>TealiumIOS</code> is a customer data hub framework.</p>
+</code></pre><p>The framework directory contains, <code>NetPerformSDK.framework</code>, <code>SecLibRNFramework.framework</code>, <code>TealiumIOS.framework</code> and <code>TealiumIOSLifecycle.framework</code>. The <code>NetPerformSDK</code> is used for network speed testing, the <code>SecLibRNFramework</code> implement security functions (such as encryption/decryption of bytes of data, etc.), the <code>TealiumIOS</code> is a customer data hub framework.</p>
 <p>The directory contains <code>device-names.json</code> file which probably indicates the various iOS devices supported by the application. The file contains the following contents:</p>
 <pre tabindex="0"><code>{
   &#34;iPhone4,1&#34;: {
