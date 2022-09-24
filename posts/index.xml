@@ -1643,7 +1643,574 @@ inProduction: true
 productionAppKey: boEvpjshT9eKDIAM-ZQV1g
 productionAppSecret: zTYVipmoRRiI4rrmJcrl8Q
 </code></pre><p>The framework directory contains, <code>NetPerformSDK.framework</code>, <code>SecLibRNFramework.framework</code>, <code>TealiumIOS.framework</code> and <code>TealiumIOSLifecycle.framework</code>. The <code>NetPerformSDK</code> is used for network speed testing, the <code>SecLibRNFramework</code> implements such security functions (such as encryption/decryption of bytes of data, etc.), the <code>TealiumIOS</code> is a customer data hub framework.</p>
-]]></content>
+<p>The directory contains <code>device-names.json</code> file which probably indicates the various iOS devices supported by the application. The file contains the following contents:</p>
+<pre tabindex="0"><code>{
+  &#34;iPhone4,1&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 4S&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone5,1&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 5&#34;,
+    &#34;model_variant&#34;: &#34;model A1428, AT&amp;T/Canada&#34;
+  },
+  &#34;iPhone5,2&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 5&#34;,
+    &#34;model_variant&#34;: &#34;A1429, except AT&amp;T/Canada)&#34;
+  },
+  &#34;iPhone5,3&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 5c&#34;,
+    &#34;model_variant&#34;: &#34;(model A1456, A1532 | GSM)&#34;
+  },
+  &#34;iPhone5,4&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 5c&#34;,
+    &#34;model_variant&#34;: &#34;(model A1507, A1516, A1526 (China), A1529 | Global)&#34;
+  },
+  &#34;iPhone6,1&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 5s&#34;,
+    &#34;model_variant&#34;: &#34;(model A1433, A1533 | GSM)&#34;
+  },
+  &#34;iPhone6,2&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 5s&#34;,
+    &#34;model_variant&#34;: &#34;(model A1457, A1518, A1528 (China), A1530 | Global)&#34;
+  },
+  &#34;iPhone7,1&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 6 Plus&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone7,2&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 6&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone8,1&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 6S&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone8,2&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 6S Plus&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone8,4&#34;: {
+    &#34;model_name&#34;: &#34;iPhone SE&#34;,
+    &#34;model_variant&#34;: &#34;CDMA&#34;
+  },
+  &#34;iPhone9,1&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 7&#34;,
+    &#34;model_variant&#34;: &#34;CDMA&#34;
+  },
+  &#34;iPhone9,2&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 7 Plus&#34;,
+    &#34;model_variant&#34;: &#34;CDMA&#34;
+  },
+  &#34;iPhone9,3&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 7&#34;,
+    &#34;model_variant&#34;: &#34;GSM&#34;
+  },
+  &#34;iPhone9,4&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 7 Plus&#34;,
+    &#34;model_variant&#34;: &#34;GSM&#34;
+  },
+  &#34;iPhone10,1&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 8&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone10,2&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 8 Plus&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone10,3&#34;: {
+    &#34;model_name&#34;: &#34;iPhone X&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone10,4&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 8&#34;,
+    &#34;model_variant&#34;: &#34;GSM&#34;
+  },
+  &#34;iPhone10,5&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 8 Plus&#34;,
+    &#34;model_variant&#34;: &#34;GSM&#34;
+  },
+  &#34;iPhone10,6&#34;: {
+    &#34;model_name&#34;: &#34;iPhone X&#34;,
+    &#34;model_variant&#34;: &#34;GSM&#34;
+  },
+  &#34;iPhone11,2&#34;: {
+    &#34;model_name&#34;: &#34;iPhone XS&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone11,4&#34;: {
+    &#34;model_name&#34;: &#34;iPhone XS Max&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone11,6&#34;: {
+    &#34;model_name&#34;: &#34;iPhone XS Max China&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone11,8&#34;: {
+    &#34;model_name&#34;: &#34;iPhone XR&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone12,1&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 11&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone12,3&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 11 Pro&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone12,5&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 11 Pro Max&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone12,8&#34;: {
+    &#34;model_name&#34;: &#34;iPhone SE 2nd Generation&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone13,1&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 12 Mini&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone13,2&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 12&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone13,3&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 12 Pro&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone13,4&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 12 Pro Max&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone14,2&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 13 Pro&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone14,3&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 13 Pro Max&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone14,4&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 13 Mini&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPhone14,5&#34;: {
+    &#34;model_name&#34;: &#34;iPhone 13&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPod5,1&#34;: {
+    &#34;model_name&#34;: &#34;iPod Touch 5th Generation&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPod7,1&#34;: {
+    &#34;model_name&#34;: &#34;iPod Touch 6th Generation&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPod9,1&#34;: {
+    &#34;model_name&#34;: &#34;iPod Touch 7th Generation&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPad2,1&#34;: {
+    &#34;model_name&#34;: &#34;iPad 2&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1432)&#34;
+  },
+  &#34;iPad2,2&#34;: {
+    &#34;model_name&#34;: &#34;iPad 2&#34;,
+    &#34;model_variant&#34;: &#34;GSM (model A1396)&#34;
+  },
+  &#34;iPad2,3&#34;: {
+    &#34;model_name&#34;: &#34;iPad 2&#34;,
+    &#34;model_variant&#34;: &#34;3G (model A1397)&#34;
+  },
+  &#34;iPad2,4&#34;: {
+    &#34;model_name&#34;: &#34;iPad 2&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1395)&#34;
+  },
+  &#34;iPad2,5&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1432)&#34;
+  },
+  &#34;iPad2,6&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model  A1454)&#34;
+  },
+  &#34;iPad2,7&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model  A1455)&#34;
+  },
+  &#34;iPad3,1&#34;: {
+    &#34;model_name&#34;: &#34;iPad 3&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1416)&#34;
+  },
+  &#34;iPad3,2&#34;: {
+    &#34;model_name&#34;: &#34;iPad 3&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model  A1403)&#34;
+  },
+  &#34;iPad3,3&#34;: {
+    &#34;model_name&#34;: &#34;iPad 3&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model  A1430)&#34;
+  },
+  &#34;iPad3,4&#34;: {
+    &#34;model_name&#34;: &#34;iPad 4&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1458)&#34;
+  },
+  &#34;iPad3,5&#34;: {
+    &#34;model_name&#34;: &#34;iPad 4&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model  A1459)&#34;
+  },
+  &#34;iPad3,6&#34;: {
+    &#34;model_name&#34;: &#34;iPad 4&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model  A1460)&#34;
+  },
+  &#34;iPad4,1&#34;: {
+    &#34;model_name&#34;: &#34;iPad Air&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1474)&#34;
+  },
+  &#34;iPad4,2&#34;: {
+    &#34;model_name&#34;: &#34;iPad Air&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model A1475)&#34;
+  },
+  &#34;iPad4,3&#34;: {
+    &#34;model_name&#34;: &#34;iPad Air&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model A1476)&#34;
+  },
+  &#34;iPad4,4&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini 2&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1489)&#34;
+  },
+  &#34;iPad4,5&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini 2&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model A1490)&#34;
+  },
+  &#34;iPad4,6&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini 2&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model A1491)&#34;
+  },
+  &#34;iPad4,7&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini 3&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1599)&#34;
+  },
+  &#34;iPad4,8&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini 3&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model A1600)&#34;
+  },
+  &#34;iPad4,9&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini 3&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model A1601)&#34;
+  },
+  &#34;iPad5,1&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini 4&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1538)&#34;
+  },
+  &#34;iPad5,2&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini 4&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model A1550)&#34;
+  },
+  &#34;iPad5,3&#34;: {
+    &#34;model_name&#34;: &#34;iPad Air 2&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1566)&#34;
+  },
+  &#34;iPad5,4&#34;: {
+    &#34;model_name&#34;: &#34;iPad Air 2&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model A1567)&#34;
+  },
+  &#34;iPad6,3&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 12.9\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1673)&#34;
+  },
+  &#34;iPad6,4&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 12.9\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model A1674, A1675)&#34;
+  },
+  &#34;iPad6,7&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 9.7\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;Wifi (model A1584)&#34;
+  },
+  &#34;iPad6,8&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 9.7\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model A1652)&#34;
+  },
+  &#34;iPad6,11&#34;: {
+    &#34;model_name&#34;: &#34;iPad 5th Gen 9.7\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi (model A1822)&#34;
+  },
+  &#34;iPad6,12&#34;: {
+    &#34;model_name&#34;: &#34;iPad 5th Gen 9.7\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;Wifi + Cellular (model A1823)&#34;
+  },
+  &#34;iPad7,1&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 12.9\&#34; 2nd Gen&#34;,
+    &#34;model_variant&#34;: &#34;WiFi (model A1670)&#34;
+  },
+  &#34;iPad7,2&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 12.9\&#34; 2nd Gen&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular (model A1671)&#34;
+  },
+  &#34;iPad7,3&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 10.5\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi (model A1701)&#34;
+  },
+  &#34;iPad7,4&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 10.5\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular (model A1709)&#34;
+  },
+  &#34;iPad7,5&#34;: {
+    &#34;model_name&#34;: &#34;iPad 6th Gen 9.7\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi (model A1893)&#34;
+  },
+  &#34;iPad7,6&#34;: {
+    &#34;model_name&#34;: &#34;iPad 6th Gen&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular (model A1954)&#34;
+  },
+  &#34;iPad7,11&#34;: {
+    &#34;model_name&#34;: &#34;iPad 7th Gen 10.2\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi (model A2197)&#34;
+  },
+  &#34;iPad7,12&#34;: {
+    &#34;model_name&#34;: &#34;iPad 7th Gen 10.2\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular (models A2200, A2198)&#34;
+  },
+  &#34;iPad8,1&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 3rd Gen 11\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi&#34;
+  },
+  &#34;iPad8,2&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 3rd Gen 11\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi 1TB&#34;
+  },
+  &#34;iPad8,3&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 3rd Gen 11\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular&#34;
+  },
+  &#34;iPad8,4&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 3rd Gen 11\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular 1TB&#34;
+  },
+  &#34;iPad8,5&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 3rd Gen 12.9\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi&#34;
+  },
+  &#34;iPad8,6&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 3rd Gen 12.9\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi 1TB&#34;
+  },
+  &#34;iPad8,7&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 3rd Gen 12.9\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular&#34;
+  },
+  &#34;iPad8,8&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 3rd Gen 12.9\&#34;&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular 1TB&#34;
+  },
+  &#34;iPad11,1&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini 5th Gen&#34;,
+    &#34;model_variant&#34;: &#34;WiFi&#34;
+  },
+  &#34;iPad11,2&#34;: {
+    &#34;model_name&#34;: &#34;iPad Mini 5th Gen&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular&#34;
+  },
+  &#34;iPad11,3&#34;: {
+    &#34;model_name&#34;: &#34;iPad Air 3rd Gen&#34;,
+    &#34;model_variant&#34;: &#34;WiFi&#34;
+  },
+  &#34;iPad11,4&#34;: {
+    &#34;model_name&#34;: &#34;iPad Air 3rd Gen&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular&#34;
+  },
+  &#34;iPad11,6&#34;: {
+    &#34;model_name&#34;: &#34;iPad 8th Gen&#34;,
+    &#34;model_variant&#34;: &#34;WiFi&#34;
+  },
+  &#34;iPad11,7&#34;: {
+    &#34;model_name&#34;: &#34;iPad 8th Gen&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular&#34;
+  },
+  &#34;iPad12,2&#34;: {
+    &#34;model_name&#34;: &#34;iPad 9th Gen&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPad14,2&#34;: {
+    &#34;model_name&#34;: &#34;iPad mini 6th Gen&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPad13,1&#34;: {
+    &#34;model_name&#34;: &#34;iPad air 4th Gen&#34;,
+    &#34;model_variant&#34;: &#34;WiFi&#34;
+  },
+  &#34;iPad13,2&#34;: {
+    &#34;model_name&#34;: &#34;iPad air 4th Gen&#34;,
+    &#34;model_variant&#34;: &#34;WiFi + Cellular&#34;
+  },
+  &#34;iPad13,4&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 11\&#34; 3rd Gen&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPad13,5&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 11\&#34; 3rd Gen&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPad13,6&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 11\&#34; 3rd Gen&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPad13,7&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 11\&#34; 3rd Gen&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPad13,8&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 12.9\&#34; 5th Gen&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPad13,9&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 12.9\&#34; 5th Gen&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPad13,10&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 12.9\&#34; 5th Gen&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;iPad13,11&#34;: {
+    &#34;model_name&#34;: &#34;iPad Pro 12.9\&#34; 5th Gen&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;AppleTV2,1&#34;: {
+    &#34;model_name&#34;: &#34;Apple TV 2nd Generation&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;AppleTV3,1&#34;: {
+    &#34;model_name&#34;: &#34;Apple TV 3rd Generation&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;AppleTV3,2&#34;: {
+    &#34;model_name&#34;: &#34;Apple TV 3rd Generation&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;AppleTV5,3&#34;: {
+    &#34;model_name&#34;: &#34;Apple TV 4th Generation&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;AppleTV6,2&#34;: {
+    &#34;model_name&#34;: &#34;Apple TV 4K&#34;,
+    &#34;model_variant&#34;: &#34;&#34;
+  },
+  &#34;Watch1,1&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch 1st Generation&#34;,
+    &#34;model_variant&#34;: &#34;38mm&#34;
+  },
+  &#34;Watch1,2&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch 1st Generation&#34;,
+    &#34;model_variant&#34;: &#34;42mm&#34;
+  },
+  &#34;Watch2,3&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 2&#34;,
+    &#34;model_variant&#34;: &#34;38mm&#34;
+  },
+  &#34;Watch2,4&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 2&#34;,
+    &#34;model_variant&#34;: &#34;42mm&#34;
+  },
+  &#34;Watch2,6&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 1&#34;,
+    &#34;model_variant&#34;: &#34;38mm&#34;
+  },
+  &#34;Watch2,7&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 1&#34;,
+    &#34;model_variant&#34;: &#34;42mm&#34;
+  },
+  &#34;Watch3,1&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 3&#34;,
+    &#34;model_variant&#34;: &#34;38mm Cellular&#34;
+  },
+  &#34;Watch3,2&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 3&#34;,
+    &#34;model_variant&#34;: &#34;42mm Cellular&#34;
+  },
+  &#34;Watch3,3&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 3&#34;,
+    &#34;model_variant&#34;: &#34;38mm&#34;
+  },
+  &#34;Watch3,4&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 3&#34;,
+    &#34;model_variant&#34;: &#34;42mm&#34;
+  },
+  &#34;Watch4,1&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 4&#34;,
+    &#34;model_variant&#34;: &#34;40mm&#34;
+  },
+  &#34;Watch4,2&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 4&#34;,
+    &#34;model_variant&#34;: &#34;44mm&#34;
+  },
+  &#34;Watch4,3&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 4&#34;,
+    &#34;model_variant&#34;: &#34;40mm Cellular&#34;
+  },
+  &#34;Watch4,4&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 4&#34;,
+    &#34;model_variant&#34;: &#34;44mm Cellular&#34;
+  },
+  &#34;Watch5,1&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 5&#34;,
+    &#34;model_variant&#34;: &#34;40mm&#34;
+  },
+  &#34;Watch5,2&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 5&#34;,
+    &#34;model_variant&#34;: &#34;44mm&#34;
+  },
+  &#34;Watch5,3&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 5&#34;,
+    &#34;model_variant&#34;: &#34;40mm Cellular&#34;
+  },
+  &#34;Watch5,4&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 5&#34;,
+    &#34;model_variant&#34;: &#34;44mm Cellular&#34;
+  },
+  &#34;Watch5,9&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch SE&#34;,
+    &#34;model_variant&#34;: &#34;40mm&#34;
+  },
+  &#34;Watch5,10&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch SE&#34;,
+    &#34;model_variant&#34;: &#34;44mm&#34;
+  },
+  &#34;Watch5,11&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch SE&#34;,
+    &#34;model_variant&#34;: &#34;40mm Cellular&#34;
+  },
+  &#34;Watch5,12&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch SE&#34;,
+    &#34;model_variant&#34;: &#34;44mm Cellular&#34;
+  },
+  &#34;Watch6,1&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 6&#34;,
+    &#34;model_variant&#34;: &#34;40mm&#34;
+  },
+  &#34;Watch6,2&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 6&#34;,
+    &#34;model_variant&#34;: &#34;44mm&#34;
+  },
+  &#34;Watch6,3&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 6&#34;,
+    &#34;model_variant&#34;: &#34;40mm Cellular&#34;
+  },
+  &#34;Watch6,4&#34;: {
+    &#34;model_name&#34;: &#34;Apple Watch Series 6&#34;,
+    &#34;model_variant&#34;: &#34;44mm Cellular&#34;
+  },
+  &#34;i386&#34;: {
+    &#34;model_name&#34;: &#34;Simulator&#34;,
+    &#34;model_variant&#34;: &#34;32-bit&#34;
+  },
+  &#34;x86_64&#34;: {
+    &#34;model_name&#34;: &#34;Simulator&#34;,
+    &#34;model_variant&#34;: &#34;64-bit&#34;
+  },
+  &#34;arm64&#34;: {
+    &#34;model_name&#34;: &#34;Simulator&#34;,
+    &#34;model_variant&#34;: &#34;64-bit&#34;
+  }
+}
+</code></pre>]]></content>
         </item>
         
         <item>
