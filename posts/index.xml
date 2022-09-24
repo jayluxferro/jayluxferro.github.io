@@ -1636,6 +1636,12 @@ PLIST_VERSION: 1
 PROJECT_ID: vodafoneapp-d4bce
 REVERSED_CLIENT_ID: com.googleusercontent.apps.636783196749-3fb9i3mkeok8ddvr53r2rd9n61ve5g2t
 STORAGE_BUCKET: vodafoneapp-d4bce.appspot.com
+</code></pre><p>The application contains <code>AirShip</code> (<a href="https://www.airship.com">https://www.airship.com</a>) configuration files and bundles; the default <code>AirshipConfig.plist</code> file contains the following contents:</p>
+<pre tabindex="0"><code>developmentAppKey: FzsjqaUATwK_H94p1kRhBw
+developmentAppSecret: VbvEDaL5Rc22gL6WOoMXMQ
+inProduction: true
+productionAppKey: boEvpjshT9eKDIAM-ZQV1g
+productionAppSecret: zTYVipmoRRiI4rrmJcrl8Q
 </code></pre>]]></content>
         </item>
         
