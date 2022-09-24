@@ -1642,7 +1642,8 @@ developmentAppSecret: VbvEDaL5Rc22gL6WOoMXMQ
 inProduction: true
 productionAppKey: boEvpjshT9eKDIAM-ZQV1g
 productionAppSecret: zTYVipmoRRiI4rrmJcrl8Q
-</code></pre>]]></content>
+</code></pre><p>The framework directory contains, <code>NetPerformSDK.framework</code>, <code>SecLibRNFramework.framework</code>, <code>TealiumIOS.framework</code> and <code>TealiumIOSLifecycle.framework</code>. The <code>NetPerformSDK</code> is used for network speed testing, the <code>SecLibRNFramework</code> implements such security functions (such as encryption/decryption of bytes of data, etc.), the <code>TealiumIOS</code> is a customer data hub framework.</p>
+]]></content>
         </item>
         
         <item>
