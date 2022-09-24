@@ -1619,7 +1619,24 @@ Bundle URL: com.vodafone.gh.myvodafone.app
 <p>The default application is indicated by <code>CFBundleURLName</code> and is <code>myvodafoneapp</code>. The bundle URL is defined by <code>CFBundleURLTypes</code> and the value is <code>com.vodafone.gh.myvodafone.app</code>.</p>
 <p>There are eight(8) launch services registered in the application (for more details on launch services visit <a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html);">https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html);</a> <code>whatsapp</code>, <code>vodafonemusic</code>, <code>fb</code>, <code>youtube</code>, <code>twitter</code>, <code>2ctv</code>, <code>wi-flix</code> and <code>dreamlab</code>.</p>
 <p>There are about 19 fonts that are reference in the <code>Info.plist</code> file. The app version is indicated by the key <code>CFBundleShortVersionString</code> and it&rsquo;s value is <code>4.3.0</code>.</p>
-]]></content>
+<p>Inside the directory, there is a <code>GoogleService-Info.plist</code> file; which contains google services API keys, firebase database URL etc.</p>
+<pre tabindex="0"><code>ANDROID_CLIENT_ID: 636783196749-8tjrvar0vs85oacf04m1nsbc89vjr4p4.apps.googleusercontent.com
+API_KEY: AIzaSyD9wu2nBwhYuQb0IS4eaWA0AzpbK_J3kzY
+BUNDLE_ID: com.vodafone.gh.myvodafone.app
+CLIENT_ID: 636783196749-3fb9i3mkeok8ddvr53r2rd9n61ve5g2t.apps.googleusercontent.com
+DATABASE_URL: https://vodafoneapp-d4bce.firebaseio.com
+GCM_SENDER_ID: 636783196749
+GOOGLE_APP_ID: 1:636783196749:ios:e91d4a80026b7a6b787a04
+IS_ADS_ENABLED: false
+IS_ANALYTICS_ENABLED: false
+IS_APPINVITE_ENABLED: true
+IS_GCM_ENABLED: true
+IS_SIGNIN_ENABLED: true
+PLIST_VERSION: 1
+PROJECT_ID: vodafoneapp-d4bce
+REVERSED_CLIENT_ID: com.googleusercontent.apps.636783196749-3fb9i3mkeok8ddvr53r2rd9n61ve5g2t
+STORAGE_BUCKET: vodafoneapp-d4bce.appspot.com
+</code></pre>]]></content>
         </item>
         
         <item>
