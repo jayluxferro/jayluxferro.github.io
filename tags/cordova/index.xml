@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/cordova/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/cordova/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Obscurity is not Security: A Security Analysis of MyVodafone (Ghana) Application</title>
       <link>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</link>
-      <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</guid>
       <description>This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.

@@ -6,13 +6,13 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>SPERIXLABS</copyright>
-        <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Sat, 08 Oct 2022 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://sperixlabs.org/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
             <title>Obscurity is not Security: A Security Analysis of MyVodafone (Ghana) Application</title>
             <link>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</link>
-            <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+            <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
             
             <guid>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-security-analysis-of-myvodafone-ghana-application/</guid>
             <description>This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
@@ -2526,7 +2526,366 @@ productionAppSecret: zTYVipmoRRiI4rrmJcrl8Q
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">shareMessage</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Get 1GB FREE for being digital! Perform transactions up to 80% faster on My Vodafone app. Buy your favourite offers, send money, pay bills and so much more! Download and register now: https://bit.ly/MyVodafoneGhana&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">simReregStatus</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;simReregistrationStatus&#34;</span>
 </span></span><span style="display:flex;"><span>    };
-</span></span></code></pre></div>]]></content>
+</span></span></code></pre></div><p>The <code>UserLoginAction</code> is shown below:</p>
+<pre tabindex="0"><code>var u = n.default.loginUserAction,
+                S = {
+                    username: t,
+                    password: s,
+                    action: u,
+                    OS: o
+                };
+            return function(t, s) {
+                t(x(!0)), (0, r(d[16]).makeRequest)(n.default.userAuthenticationUrl, &#39;post&#39;, S, function(n) {
+                    t(x(!1));
+                    var o = n.RESPONSECODE,
+                        u = s(),
+                        S = JSON.parse(JSON.stringify(u.authenticate.userData)),
+                        E = JSON.parse(JSON.stringify(u.authenticate.defaultService));
+                    if (0 == o) {
+                        var f = n.SESSION.key,
+                            l = n.SESSION.secret,
+                            p = n.SESSION.session,
+                            A = (0, r(d[17]).handleSessionVals)(f, p, l),
+                            R = p.replace(/-/g, &#39;&#39;);
+                        n.RESPONSEDATA.ServiceList;
+                        S.formattedSessionId = R, S.hashedKey = A, S.sessionId = p, t(z(S, E, &#39;&#39;)), t(w(!0)), c(!0, &#39;Successfully logged in&#39;)
+                    } else if (1 == o) {
+                        n.RESPONSEMESSAGE;
+                        t(w(!1))
+                    } else if (2 == o) {
+                        n.RESPONSEMESSAGE;
+                        t(w(!1))
+                    }
+                }, null)
+            }
+</code></pre><p>The parameters for the user login action are the <strong>username</strong>, <strong>password</strong>, <strong>action</strong> and <strong>os</strong>. From the code snippet, the response returns a session <strong>key</strong>, <strong>secret</strong> and a <strong>session</strong> value.</p>
+<p>A <strong>hashedKey</strong> is computed from the expression <code>A = (0, r(d[17]).handleSessionVals)(f, p, l)</code>. A <strong>formattedSesssionId</strong> is also derived from the expression <code>R = p.replace(/-/g, '')</code>.</p>
+<p><strong>handleSessionVals</strong> function is shown below:</p>
+<pre tabindex="0"><code>e.handleSessionVals = function(t, c, o) {
+    var u = t.concat(c).concat(o);
+    return n.default.hex_md5(u).substring(0, 16)
+};
+    
+</code></pre><p>From the above function, the <strong>handleSessionVals</strong> takes the following parameters respectively: <strong>SESSION.key</strong>, <strong>SESSION.session</strong>, and <strong>SESSION.secret</strong>. To generate the <strong>handleSessionVals</strong>, the <strong>SESSION.key</strong> is concatenated with the <strong>SESSION.session</strong>, and further concatenated with the <strong>SESSION.secret</strong>. The result is passed to <strong>hex_md5</strong> function and first <strong>16</strong> characters returned.</p>
+<p>The <code>hex_md5</code> function is shown below:</p>
+<pre tabindex="0"><code>m.exports.hex_md5 = function(n) {
+    return _(o(l(n), n.length * t))
+}
+</code></pre><p>It also relies on other subroutines as shown below:</p>
+<pre tabindex="0"><code>var n = &#34;&#34;, t = 8;
+
+function o(n, t) {
+    n[t &gt;&gt; 5] |= 128 &lt;&lt; t % 32, n[14 + (t + 64 &gt;&gt;&gt; 9 &lt;&lt; 4)] = t;
+    for (var o = 1732584193, u = -271733879, i = -1732584194, l = 271733878, d = 0; d &lt; n.length; d += 16) {
+        var _ = o,
+            s = u,
+            x = i,
+            A = l;
+        u = h(u = h(u = h(u = h(u = f(u = f(u = f(u = f(u = a(u = a(u = a(u = a(u = c(u = c(u = c(u = c(u, i = c(i, l = c(l, o = c(o, u, i, l, n[d + 0], 7, -680876936), u, i, n[d + 1], 12, -389564586), o, u, n[d + 2], 17, 606105819), l, o, n[d + 3], 22, -1044525330), i = c(i, l = c(l, o = c(o, u, i, l, n[d + 4], 7, -176418897), u, i, n[d + 5], 12, 1200080426), o, u, n[d + 6], 17, -1473231341), l, o, n[d + 7], 22, -45705983), i = c(i, l = c(l, o = c(o, u, i, l, n[d + 8], 7, 1770035416), u, i, n[d + 9], 12, -1958414417), o, u, n[d + 10], 17, -42063), l, o, n[d + 11], 22, -1990404162), i = c(i, l = c(l, o = c(o, u, i, l, n[d + 12], 7, 1804603682), u, i, n[d + 13], 12, -40341101), o, u, n[d + 14], 17, -1502002290), l, o, n[d + 15], 22, 1236535329), i = a(i, l = a(l, o = a(o, u, i, l, n[d + 1], 5, -165796510), u, i, n[d + 6], 9, -1069501632), o, u, n[d + 11], 14, 643717713), l, o, n[d + 0], 20, -373897302), i = a(i, l = a(l, o = a(o, u, i, l, n[d + 5], 5, -701558691), u, i, n[d + 10], 9, 38016083), o, u, n[d + 15], 14, -660478335), l, o, n[d + 4], 20, -405537848), i = a(i, l = a(l, o = a(o, u, i, l, n[d + 9], 5, 568446438), u, i, n[d + 14], 9, -1019803690), o, u, n[d + 3], 14, -187363961), l, o, n[d + 8], 20, 1163531501), i = a(i, l = a(l, o = a(o, u, i, l, n[d + 13], 5, -1444681467), u, i, n[d + 2], 9, -51403784), o, u, n[d + 7], 14, 1735328473), l, o, n[d + 12], 20, -1926607734), i = f(i, l = f(l, o = f(o, u, i, l, n[d + 5], 4, -378558), u, i, n[d + 8], 11, -2022574463), o, u, n[d + 11], 16, 1839030562), l, o, n[d + 14], 23, -35309556), i = f(i, l = f(l, o = f(o, u, i, l, n[d + 1], 4, -1530992060), u, i, n[d + 4], 11, 1272893353), o, u, n[d + 7], 16, -155497632), l, o, n[d + 10], 23, -1094730640), i = f(i, l = f(l, o = f(o, u, i, l, n[d + 13], 4, 681279174), u, i, n[d + 0], 11, -358537222), o, u, n[d + 3], 16, -722521979), l, o, n[d + 6], 23, 76029189), i = f(i, l = f(l, o = f(o, u, i, l, n[d + 9], 4, -640364487), u, i, n[d + 12], 11, -421815835), o, u, n[d + 15], 16, 530742520), l, o, n[d + 2], 23, -995338651), i = h(i, l = h(l, o = h(o, u, i, l, n[d + 0], 6, -198630844), u, i, n[d + 7], 10, 1126891415), o, u, n[d + 14], 15, -1416354905), l, o, n[d + 5], 21, -57434055), i = h(i, l = h(l, o = h(o, u, i, l, n[d + 12], 6, 1700485571), u, i, n[d + 3], 10, -1894986606), o, u, n[d + 10], 15, -1051523), l, o, n[d + 1], 21, -2054922799), i = h(i, l = h(l, o = h(o, u, i, l, n[d + 8], 6, 1873313359), u, i, n[d + 15], 10, -30611744), o, u, n[d + 6], 15, -1560198380), l, o, n[d + 13], 21, 1309151649), i = h(i, l = h(l, o = h(o, u, i, l, n[d + 4], 6, -145523070), u, i, n[d + 11], 10, -1120210379), o, u, n[d + 2], 15, 718787259), l, o, n[d + 9], 21, -343485551), o = v(o, _), u = v(u, s), i = v(i, x), l = v(l, A)
+    }
+    return Array(o, u, i, l)
+}
+
+function u(n, t, o, u, c, a) {
+    return v((f = v(v(t, n), v(u, a))) &lt;&lt; (h = c) | f &gt;&gt;&gt; 32 - h, o);
+    var f, h
+}
+
+function c(n, t, o, c, a, f, h) {
+    return u(t &amp; o | ~t &amp; c, n, t, a, f, h)
+}
+
+function a(n, t, o, c, a, f, h) {
+    return u(t &amp; c | o &amp; ~c, n, t, a, f, h)
+}
+
+function f(n, t, o, c, a, f, h) {
+    return u(t ^ o ^ c, n, t, a, f, h)
+}
+
+function h(n, t, o, c, a, f, h) {
+    return u(o ^ (t | ~c), n, t, a, f, h)
+}
+
+function i(n, u) {
+    var c = l(n);
+    c.length &gt; 16 &amp;&amp; (c = o(c, n.length * t));
+    for (var a = Array(16), f = Array(16), h = 0; h &lt; 16; h++) a[h] = 909522486 ^ c[h], f[h] = 1549556828 ^ c[h];
+    var i = o(a.concat(l(u)), 512 + u.length * t);
+    return o(f.concat(i), 640)
+}
+
+function v(n, t) {
+    var o = (65535 &amp; n) + (65535 &amp; t);
+    return (n &gt;&gt; 16) + (t &gt;&gt; 16) + (o &gt;&gt; 16) &lt;&lt; 16 | 65535 &amp; o
+}
+
+function l(n) {
+    for (var o = Array(), u = 0; u &lt; n.length * t; u += t) o[u &gt;&gt; 5] |= (255 &amp; n.charCodeAt(u / t)) &lt;&lt; u % 32;
+    return o
+}
+
+function d(n) {
+    for (var o = &#34;&#34;, u = 0; u &lt; 32 * n.length; u += t) o += String.fromCharCode(n[u &gt;&gt; 5] &gt;&gt;&gt; u % 32 &amp; 255);
+    return o
+}
+
+function _(n) {
+    for (var t = &#34;&#34;, o = 0; o &lt; 4 * n.length; o++) t += &#34;0123456789abcdef&#34;.charAt(n[o &gt;&gt; 2] &gt;&gt; o % 4 * 8 + 4 &amp; 15) + &#34;0123456789abcdef&#34;.charAt(n[o &gt;&gt; 2] &gt;&gt; o % 4 * 8 &amp; 15);
+    return t
+}
+
+function s(t) {
+    for (var o = &#34;&#34;, u = 0; u &lt; 4 * t.length; u += 3)
+        for (var c = (t[u &gt;&gt; 2] &gt;&gt; u % 4 * 8 &amp; 255) &lt;&lt; 16 | (t[u + 1 &gt;&gt; 2] &gt;&gt; (u + 1) % 4 * 8 &amp; 255) &lt;&lt; 8 | t[u + 2 &gt;&gt; 2] &gt;&gt; (u + 2) % 4 * 8 &amp; 255, a = 0; a &lt; 4; a++) 8 * u + 6 * a &gt; 32 * t.length ? o += n : o += &#34;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#34;.charAt(c &gt;&gt; 6 * (3 - a) &amp; 63);
+    return o
+}
+</code></pre><p>From the analysis of the bundle JS, all network requests aside the <code>UserLoginAction</code> involve an <code>encryption</code> of the request payload and a <code>decryption</code> of the response payload. Example is shown below:</p>
+<pre tabindex="0"><code>return function(t) {
+	(0, r(d[18]).encrypt2)(l, S, S).then(function(s) {
+	    t(Y(&#39;deleting default service&#39;));
+	    var f = {
+	        requestBody: s
+	    };
+	    (0, r(d[16]).makeRequest)(n.default.userAuthenticationUrl, &#39;post&#39;, f, function(n) {
+	        (0, r(d[18]).decrypt2)(n.responseBody, S, S).then(function(n) {
+	            t(Y(&#39;deleting account response&#39;));
+	            var s = JSON.parse(n),
+	                f = s.RESPONSECODE;
+	            if (0 === f) {
+	                t(ie()), t(se(E, o, c, u, S)), t(Y(&#39;deleting account passed&#39;));
+	                var l = s.RESPONSEMESSAGE;
+	                t(oe(l))
+	            } else if (1 === f || 2 === f) {
+	                t(Y(&#39;deleting account failed&#39;));
+	                var l = s.RESPONSEMESSAGE;
+	                t(oe(l))
+	            }
+	        })
+	    }, p)
+	})
+}
+</code></pre><p>The next action is to figure out what <code>encrypt2</code> and <code>decrypt2</code> do. These two functions are shown below:</p>
+<pre tabindex="0"><code>e.encrypt2 = e.decrypt2 = void 0;
+var n = r(d[0])(r(d[1])),
+    t = r(d[0])(r(d[2])),
+    u = r(d[3]),
+    c = u.NativeModules.AesCrypto;
+e.encrypt2 = function(o, f, l) {
+    return n.default.async(function(n) {
+        for (;;) switch (n.prev = n.next) {
+            case 0:
+                if (&#39;android&#39; !== u.Platform.OS) {
+                    n.next = 2;
+                    break
+                }
+                return n.abrupt(&#34;return&#34;, c.encrypt(o, f, l).then(function(n) {
+                    return n
+                }).catch(function(n) {}));
+            case 2:
+                return n.abrupt(&#34;return&#34;, t.default.encrypt(o, f, l).then(function(n) {
+                    return n
+                }).catch(function(n) {}));
+            case 3:
+            case &#34;end&#34;:
+                return n.stop()
+        }
+    }, null, null, null, Promise)
+};
+e.decrypt2 = function(o, f, l) {
+    return n.default.async(function(n) {
+        for (;;) switch (n.prev = n.next) {
+            case 0:
+                if (&#39;android&#39; !== u.Platform.OS) {
+                    n.next = 2;
+                    break
+                }
+                return n.abrupt(&#34;return&#34;, c.decrypt(o, f, l).then(function(n) {
+                    return n
+                }).catch(function(n) {}));
+            case 2:
+                return n.abrupt(&#34;return&#34;, t.default.decrypt(o, f, l).then(function(n) {
+                    return n
+                }).catch(function(n) {}));
+            case 3:
+            case &#34;end&#34;:
+                return n.stop()
+        }
+    }, null, null, null, Promise)
+}
+</code></pre><p>The above encryption and decryption function relies on a native AES crypto library <code>c = u.NativeModules.AesCrypto</code>; a React-Native bridge.</p>
+<p>Decompiling the <code>myvodafoneapp</code> binary in <strong>Hopper</strong> (<a href="https://www.hopperapp.com">https://www.hopperapp.com</a>) shows the following <code>RCTAesCrypto</code> encrypt/decrypt function. The parameters to both the encryption/decryption function takes two arguments; the <strong>key</strong> and the <strong>initialization vector</strong>.</p>
+<p>Encryption Code (Assembly):</p>
+<pre tabindex="0"><code>-[RCTAesCrypto encrypt:appkey:gIv:resolver:rejecter:]:
+00000001006b4d34         stp        x28, x27, [sp, #-0x60]!                     ; Objective C Implementation defined at 0x10172eb58 (instance method), DATA XREF=0x10172eb58
+00000001006b4d38         stp        x26, x25, [sp, #0x10]
+00000001006b4d3c         stp        x24, x23, [sp, #0x20]
+00000001006b4d40         stp        x22, x21, [sp, #0x30]
+00000001006b4d44         stp        x20, x19, [sp, #0x40]
+00000001006b4d48         stp        fp, lr, [sp, #0x50]
+00000001006b4d4c         add        fp, sp, #0x50
+00000001006b4d50         mov        x22, x6
+00000001006b4d54         mov        x23, x5
+00000001006b4d58         mov        x21, x4
+00000001006b4d5c         mov        x20, x3
+00000001006b4d60         mov        x0, x2                                      ; argument &#34;instance&#34; for method imp___stubs__objc_retain
+00000001006b4d64         bl         imp___stubs__objc_retain                    ; objc_retain
+00000001006b4d68         mov        x19, x0
+00000001006b4d6c         mov        x0, x20                                     ; argument &#34;instance&#34; for method imp___stubs__objc_retain
+00000001006b4d70         bl         imp___stubs__objc_retain                    ; objc_retain
+00000001006b4d74         mov        x20, x0
+00000001006b4d78         mov        x0, x21                                     ; argument &#34;instance&#34; for method imp___stubs__objc_retain
+00000001006b4d7c         bl         imp___stubs__objc_retain                    ; objc_retain
+00000001006b4d80         mov        x21, x0
+00000001006b4d84         mov        x0, x22                                     ; argument &#34;instance&#34; for method imp___stubs__objc_retain
+00000001006b4d88         bl         imp___stubs__objc_retain                    ; objc_retain
+00000001006b4d8c         mov        x22, x0
+00000001006b4d90         adrp       x27, #0x101880000
+00000001006b4d94         ldr        x25, [x27, #0x160]                          ; objc_cls_ref_SecurityUtil,__objc_class_SecurityUtil_class
+00000001006b4d98         adrp       x8, #0x10186e000                            ; &amp;@selector(sharedMenuController)
+00000001006b4d9c         ldr        x24, [x8, #0x398]                           ; &#34;encryptAESData:app_key:gIv:&#34;,@selector(encryptAESData:app_key:gIv:)
+00000001006b4da0         mov        x0, x23                                     ; argument &#34;instance&#34; for method imp___stubs__objc_retain
+00000001006b4da4         bl         imp___stubs__objc_retain                    ; objc_retain
+00000001006b4da8         mov        x23, x0
+00000001006b4dac         mov        x0, x25                                     ; argument &#34;instance&#34; for method imp___stubs__objc_msgSend
+00000001006b4db0         mov        x1, x24                                     ; argument &#34;selector&#34; for method imp___stubs__objc_msgSend
+00000001006b4db4         mov        x2, x19
+00000001006b4db8         mov        x3, x20
+00000001006b4dbc         mov        x4, x21
+00000001006b4dc0         bl         imp___stubs__objc_msgSend                   ; objc_msgSend
+00000001006b4dc4         mov        fp, fp
+00000001006b4dc8         bl         imp___stubs__objc_retainAutoreleasedReturnValue ; objc_retainAutoreleasedReturnValue
+00000001006b4dcc         mov        x25, x0
+00000001006b4dd0         adrp       x8, #0x101861000                            ; &amp;@selector(dealloc)
+00000001006b4dd4         ldr        x1, [x8, #0x58]                             ; argument &#34;selector&#34; for method imp___stubs__objc_msgSend, &#34;length&#34;,@selector(length)
+00000001006b4dd8         bl         imp___stubs__objc_msgSend                   ; objc_msgSend
+00000001006b4ddc         mov        x26, x0
+00000001006b4de0         mov        x0, x25                                     ; argument &#34;instance&#34; for method imp___stubs__objc_release
+00000001006b4de4         bl         imp___stubs__objc_release                   ; objc_release
+</code></pre><p>Encryption Code (Obj C):</p>
+<pre tabindex="0"><code>-(void)encrypt:(void *)arg2 appkey:(void *)arg3 gIv:(void *)arg4 resolver:(void *)arg5 rejecter:(void *)arg6 {
+    var_50 = r28;
+    stack[-88] = r27;
+    r31 = r31 + 0xffffffffffffffa0;
+    var_40 = r26;
+    stack[-72] = r25;
+    var_30 = r24;
+    stack[-56] = r23;
+    var_20 = r22;
+    stack[-40] = r21;
+    var_10 = r20;
+    stack[-24] = r19;
+    saved_fp = r29;
+    stack[-8] = r30;
+    r19 = [arg2 retain];
+    r20 = [arg3 retain];
+    r21 = [arg4 retain];
+    r22 = [arg6 retain];
+    r23 = [arg5 retain];
+    r0 = [SecurityUtil encryptAESData:r19 app_key:r20 gIv:r21];
+    r29 = &amp;saved_fp;
+    r0 = [r0 retain];
+    r26 = [r0 length];
+    [r0 release];
+    if (r26 == 0x0) {
+            (*(r22 + 0x10))(r22, @&#34;ERROR&#34;, @&#34;decrypt failed&#34;, 0x0);
+    }
+    (*(r23 + 0x10))(r23, [[SecurityUtil encryptAESData:r19 app_key:r20 gIv:r21] retain]);
+    [r23 release];
+    [r24 release];
+    [r22 release];
+    [r21 release];
+    [r20 release];
+    [r19 release];
+    return;
+}
+</code></pre><p>Decryption Code (Assembly):</p>
+<pre tabindex="0"><code>                     -[RCTAesCrypto decrypt:appkey:gIv:resolver:rejecter:]:
+00000001006b4e94         stp        x28, x27, [sp, #-0x60]!                     ; Objective C Implementation defined at 0x10172eb70 (instance method), DATA XREF=0x10172eb70
+00000001006b4e98         stp        x26, x25, [sp, #0x10]
+00000001006b4e9c         stp        x24, x23, [sp, #0x20]
+00000001006b4ea0         stp        x22, x21, [sp, #0x30]
+00000001006b4ea4         stp        x20, x19, [sp, #0x40]
+00000001006b4ea8         stp        fp, lr, [sp, #0x50]
+00000001006b4eac         add        fp, sp, #0x50
+00000001006b4eb0         mov        x22, x6
+00000001006b4eb4         mov        x23, x5
+00000001006b4eb8         mov        x21, x4
+00000001006b4ebc         mov        x20, x3
+00000001006b4ec0         mov        x0, x2                                      ; argument &#34;instance&#34; for method imp___stubs__objc_retain
+00000001006b4ec4         bl         imp___stubs__objc_retain                    ; objc_retain
+00000001006b4ec8         mov        x19, x0
+00000001006b4ecc         mov        x0, x20                                     ; argument &#34;instance&#34; for method imp___stubs__objc_retain
+00000001006b4ed0         bl         imp___stubs__objc_retain                    ; objc_retain
+00000001006b4ed4         mov        x20, x0
+00000001006b4ed8         mov        x0, x21                                     ; argument &#34;instance&#34; for method imp___stubs__objc_retain
+00000001006b4edc         bl         imp___stubs__objc_retain                    ; objc_retain
+00000001006b4ee0         mov        x21, x0
+00000001006b4ee4         mov        x0, x22                                     ; argument &#34;instance&#34; for method imp___stubs__objc_retain
+00000001006b4ee8         bl         imp___stubs__objc_retain                    ; objc_retain
+00000001006b4eec         mov        x22, x0
+00000001006b4ef0         adrp       x27, #0x101880000
+00000001006b4ef4         ldr        x25, [x27, #0x160]                          ; objc_cls_ref_SecurityUtil,__objc_class_SecurityUtil_class
+00000001006b4ef8         adrp       x8, #0x10186e000                            ; &amp;@selector(sharedMenuController)
+00000001006b4efc         ldr        x24, [x8, #0x3a0]                           ; &#34;decryptAESNString:app_key:gIv:&#34;,@selector(decryptAESNString:app_key:gIv:)
+00000001006b4f00         mov        x0, x23                                     ; argument &#34;instance&#34; for method imp___stubs__objc_retain
+00000001006b4f04         bl         imp___stubs__objc_retain                    ; objc_retain
+00000001006b4f08         mov        x23, x0
+00000001006b4f0c         mov        x0, x25                                     ; argument &#34;instance&#34; for method imp___stubs__objc_msgSend
+00000001006b4f10         mov        x1, x24                                     ; argument &#34;selector&#34; for method imp___stubs__objc_msgSend
+00000001006b4f14         mov        x2, x19
+00000001006b4f18         mov        x3, x20
+00000001006b4f1c         mov        x4, x21
+00000001006b4f20         bl         imp___stubs__objc_msgSend                   ; objc_msgSend
+00000001006b4f24         mov        fp, fp
+00000001006b4f28         bl         imp___stubs__objc_retainAutoreleasedReturnValue ; objc_retainAutoreleasedReturnValue
+00000001006b4f2c         mov        x25, x0
+00000001006b4f30         adrp       x8, #0x101861000                            ; &amp;@selector(dealloc)
+00000001006b4f34         ldr        x1, [x8, #0x58]                             ; argument &#34;selector&#34; for method imp___stubs__objc_msgSend, &#34;length&#34;,@selector(length)
+00000001006b4f38         bl         imp___stubs__objc_msgSend                   ; objc_msgSend
+00000001006b4f3c         mov        x26, x0
+00000001006b4f40         mov        x0, x25                                     ; argument &#34;instance&#34; for method imp___stubs__objc_release
+00000001006b4f44         bl         imp___stubs__objc_release                   ; objc_release
+</code></pre><p>Decryption Code (Obj C):</p>
+<pre tabindex="0"><code>-(void)decrypt:(void *)arg2 appkey:(void *)arg3 gIv:(void *)arg4 resolver:(void *)arg5 rejecter:(void *)arg6 {
+    var_50 = r28;
+    stack[-88] = r27;
+    r31 = r31 + 0xffffffffffffffa0;
+    var_40 = r26;
+    stack[-72] = r25;
+    var_30 = r24;
+    stack[-56] = r23;
+    var_20 = r22;
+    stack[-40] = r21;
+    var_10 = r20;
+    stack[-24] = r19;
+    saved_fp = r29;
+    stack[-8] = r30;
+    r19 = [arg2 retain];
+    r20 = [arg3 retain];
+    r21 = [arg4 retain];
+    r22 = [arg6 retain];
+    r23 = [arg5 retain];
+    r0 = [SecurityUtil decryptAESNString:r19 app_key:r20 gIv:r21];
+    r29 = &amp;saved_fp;
+    r0 = [r0 retain];
+    r26 = [r0 length];
+    [r0 release];
+    if (r26 == 0x0) {
+            (*(r22 + 0x10))(r22, @&#34;ERROR&#34;, @&#34;decrypt failed&#34;, 0x0);
+    }
+    (*(r23 + 0x10))(r23, [[SecurityUtil decryptAESNString:r19 app_key:r20 gIv:r21] retain]);
+    [r23 release];
+    [r24 release];
+    [r22 release];
+    [r21 release];
+    [r20 release];
+    [r19 release];
+    return;
+}
+</code></pre><p>From the above analysis, it can be figured out that the <strong>handleSessionVals</strong> is used in the encryption and decryption of the payload; it is passed as both the <strong>key</strong> and <strong>iv</strong>.</p>
+<h3 id="dynamic-analysis-of-the-application">Dynamic Analysis of the Application</h3>
+]]></content>
         </item>
         
         <item>
