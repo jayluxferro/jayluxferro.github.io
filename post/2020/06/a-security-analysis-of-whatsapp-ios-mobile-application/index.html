@@ -54,14 +54,12 @@
 
 
 
-
     <meta property="og:title" content="A Security Analysis of WhatsApp iOS Mobile Application" />
 <meta property="og:description" content="This research presents an investigation into WhatsApp&rsquo;s on-device data storage on iOS. WhatsApp is one of the most widely used messaging application and hence it is required that a secured on-device storage mechanism be implemented to complement Apple&rsquo;s security measures for their devices. This will help protect a user&rsquo;s data in instances where his/her device is compromised physically. The research presents a security analysis on the storage format of data used by WhatsApp on end-users&rsquo; devices." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sperixlabs.org/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/" /><meta property="og:image" content="https://sperixlabs.org/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-06-17T17:00:58+00:00" />
 <meta property="article:modified_time" content="2020-06-17T17:00:58+00:00" />
-
 
 
 
@@ -177,7 +175,7 @@
 <img src="https://sperixlabs.org/img/wa/video.png" alt="Video Extension">
 <strong>Fig. 7:</strong> Video Extension <!-- raw HTML omitted --></p>
 <p>Chat messages are stored in &ldquo;<strong>CallHistory.sqlite</strong>&rdquo;. This SQLite file stores names of groups a user belongs to (shown in Fig. 8), messages sent to and received in the group, messages sent/received from other users (shown in Fig. 9) and links to encrypted images and videos sent/received (shown in Fig. 10 and 11).
-<img src="https://sperixlabs.org/img/wa/ch1.png" alt="User&amp;rsquo;s WhatsApp Groups">
+<img src="https://sperixlabs.org/img/wa/ch1.png" alt="User&rsquo;s WhatsApp Groups">
 <strong>Fig. 8:</strong> User&rsquo;s WhatsApp Groups <!-- raw HTML omitted --></p>
 <p><img src="https://sperixlabs.org/img/wa/ch2.png" alt="Links to Encrypted Shared or Received Images/Documents">
 <strong>Fig. 9:</strong> Links to Encrypted Shared or Received Images/Documents <!-- raw HTML omitted --></p>
@@ -189,12 +187,12 @@
 <img src="https://sperixlabs.org/img/wa/audio.png" alt="Audio File(s)">
 <strong>Fig. 12:</strong> Audio Files(s) <!-- raw HTML omitted --></p>
 <p>WhatsApp has a privacy consent that enables them to upload all contacts on a user&rsquo;s phone to their server. This is shown in Fig. 13.
-<img src="https://sperixlabs.org/img/wa/ct.png" alt="Privacy Consent to upload contacts to WhatsApp&amp;rsquo;s Server">
+<img src="https://sperixlabs.org/img/wa/ct.png" alt="Privacy Consent to upload contacts to WhatsApp&rsquo;s Server">
 <strong>Fig. 13:</strong> Privacy Consent to upload contacts to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
 <p>A copy of all contacts on a user&rsquo;s phone is stored in &ldquo;<strong>ContactsV2.sqlite</strong>&rdquo;. This is shown in Fig. 14 and 15.
-<img src="https://sperixlabs.org/img/wa/ct1.png" alt="User&amp;rsquo;s Contacts collected and uploaded to WhatsApp Server">
+<img src="https://sperixlabs.org/img/wa/ct1.png" alt="User&rsquo;s Contacts collected and uploaded to WhatsApp Server">
 <strong>Fig. 14:</strong> User&rsquo;s contacts collected and uploaded to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
-<p><img src="https://sperixlabs.org/img/wa/ct2.png" alt="User&amp;rsquo;s Contacts collected and uploaded to WhatsApp Server">
+<p><img src="https://sperixlabs.org/img/wa/ct2.png" alt="User&rsquo;s Contacts collected and uploaded to WhatsApp Server">
 <strong>Fig. 15:</strong> User&rsquo;s contacts collected and uploaded to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
 <p>From the above security analysis, it can be observed that most of the data stored on the device is in plain text. Hence, it can be inferred that WhatsApp does not implement a secured on-device data storage mechanism.</p>
 <h3 id="conclusion-and-recommendation">Conclusion and Recommendation</h3>
@@ -400,15 +398,16 @@
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2023</span>
             <span><a href="https://sperixlabs.org/">Jay</a></span>
-            <span>SPERIXLABS</span><span><a href="https://sperixlabs.org/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span>SPERIXLABS</span>
+            <span><a href="https://sperixlabs.org/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
         <div class="footer__content">
-            <span>👨🏿‍💻</span>
-            <span>🧐</span>
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
           </div>
     </div>
 </footer>
@@ -420,7 +419,7 @@
 
 
 
-<script type="text/javascript" src="https://sperixlabs.org/bundle.min.91b03af39e8c6ceb503c5f2a5c538120b6268aae846d5270ad4525b1a14a70bb8a36c018153373ee038d0792ba365d8a046da674a740cd5205dfc8ca1e1c1179.js" integrity="sha512-kbA6856MbOtQPF8qXFOBILYmiq6EbVJwrUUlsaFKcLuKNsAYFTNz7gONB5K6Nl2KBG2mdKdAzVIF38jKHhwReQ=="></script>
+<script type="text/javascript" src="https://sperixlabs.org/bundle.min.e11ff2f0d819b185989bb91b5aeb5907ed9d1b406b64377f6c1244f7927027d4ed95d91c10d600c42dffda37326d4b8d60d9576995e3255d7d29030bf4c0b6f8.js" integrity="sha512-4R/y8NgZsYWYm7kbWutZB&#43;2dG0BrZDd/bBJE95JwJ9TtldkcENYAxC3/2jcybUuNYNlXaZXjJV19KQML9MC2&#43;A=="></script>
 
 
 

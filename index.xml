@@ -73,10 +73,9 @@ Academic Research Antwi, R.; Gadze, J.D.; Tchao, E.T.; Sikora, A.; Nunoo-Mensah,
       <pubDate>Sun, 31 Jan 2021 22:55:13 +0000</pubDate>
       
       <guid>https://sperixlabs.org/about/</guid>
-      <description>SPERIXLABS is a Cybersecurity Research Lab. The research lab conducts research in the technologies and techniques which will secure information systems of tomorrow.
-The Lab conducts research in the following areas:
-Internet of Things (IoT). Network and Application Security. Applied Artificial Intelligence. Applied Crytography. The lab also performs the following activities:
-Application Security Testing (Web, Mobile and Desktop). Network Penetration Testing. </description>
+      <description>SPERIXLABS is a Cybersecurity Research Center. The research center conducts research in the technologies and techniques which will secure information systems of tomorrow. We also work at the intersectino of application development and offensive engineering to help companies build secure code.
+The Lab conducts the following security assessments:
+Web Applications and APIs Mobile Applications Desktop &amp;amp; Server Applications Cloud Security Reverse Engineering Smart Contracts We uncover vulnerabilities that may elude others and contribute to risk reduction by offering practical solutions.</description>
     </item>
     
     <item>
@@ -101,20 +100,20 @@ Details of the Flaw The iRokoTV iOS application (version 1.7.12) presents a user
     
     <item>
       <title>GhanaPostGPS REST API</title>
-      <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
+      <link>https://sperixlabs.org/ghpgps/</link>
       <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
       
-      <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
+      <guid>https://sperixlabs.org/ghpgps/</guid>
       <description>Whitepaper Read Now
 API Details Read Now</description>
     </item>
     
     <item>
       <title>GhanaPostGPS REST API</title>
-      <link>https://sperixlabs.org/ghpgps/</link>
+      <link>https://sperixlabs.org/post/ghpgps/</link>
       <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
       
-      <guid>https://sperixlabs.org/ghpgps/</guid>
+      <guid>https://sperixlabs.org/post/ghpgps/</guid>
       <description>Whitepaper Read Now
 API Details Read Now</description>
     </item>
