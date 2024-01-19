@@ -7,50 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Thu, 18 Feb 2021 16:43:21 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/categories/api/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Feb 2021 16:43:21 +0000</lastBuildDate>
+    <atom:link href="https://sperixlabs.org/categories/api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sample Projects</title>
       <link>https://sperixlabs.org/api/</link>
       <pubDate>Thu, 18 Feb 2021 16:43:21 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/api/</guid>
-      <description>UnminifyJS. Free tool to unminify JS, CSS, HTML. https://github.com/jayluxferro/unminifyjs, https://unminifyjs.sperixlabs.org
-Snowflake Extension for Safari Browser. WebRTC pluggable transport for Tor. https://github.com/jayluxferro/snowflake
-pbcopy. A small utility that allows you to dump clipboard contents on your Jailbroken iPhone to the terminal https://github.com/jayluxferro/pbcopy
-pbpaste. A small utility to paste text to the clipboard on a jailbroken iPhone https://github.com/jayluxferro/pbpaste
-A DNS Ad-Blocker for iOS, macOS and Android. https://github.com/jayluxferro/block-ads
-Cookie-Editor extension for Safari. https://github.com/jayluxferro/Cookie-Editor</description>
+      <description>UnminifyJS. Free tool to unminify JS, CSS, HTML. https://github.com/jayluxferro/unminifyjs, https://unminifyjs.sperixlabs.org&#xA;Snowflake Extension for Safari Browser. WebRTC pluggable transport for Tor. https://github.com/jayluxferro/snowflake&#xA;pbcopy. A small utility that allows you to dump clipboard contents on your Jailbroken iPhone to the terminal https://github.com/jayluxferro/pbcopy&#xA;pbpaste. A small utility to paste text to the clipboard on a jailbroken iPhone https://github.com/jayluxferro/pbpaste&#xA;A DNS Ad-Blocker for iOS, macOS and Android. https://github.com/jayluxferro/block-ads&#xA;Cookie-Editor extension for Safari. https://github.com/jayluxferro/Cookie-Editor</description>
     </item>
-    
-    <item>
-      <title>GhanaPostGPS REST API</title>
-      <link>https://sperixlabs.org/ghpgps/</link>
-      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      
-      <guid>https://sperixlabs.org/ghpgps/</guid>
-      <description>Whitepaper Read Now
-API Details Read Now</description>
-    </item>
-    
-    <item>
-      <title>GhanaPostGPS REST API</title>
-      <link>https://sperixlabs.org/post/ghpgps/</link>
-      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      
-      <guid>https://sperixlabs.org/post/ghpgps/</guid>
-      <description>Whitepaper Read Now
-API Details Read Now</description>
-    </item>
-    
     <item>
       <title>GhanaPostGPS REST API</title>
       <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
       <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
-      <description>Whitepaper Read Now
-API Details Read Now</description>
+      <description>Whitepaper Read Now&#xA;API Details Read Now</description>
     </item>
-    
+    <item>
+      <title>GhanaPostGPS REST API</title>
+      <link>https://sperixlabs.org/ghpgps/</link>
+      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
+      <guid>https://sperixlabs.org/ghpgps/</guid>
+      <description>Whitepaper Read Now&#xA;API Details Read Now</description>
+    </item>
+    <item>
+      <title>GhanaPostGPS REST API</title>
+      <link>https://sperixlabs.org/post/ghpgps/</link>
+      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/ghpgps/</guid>
+      <description>Whitepaper Read Now&#xA;API Details Read Now</description>
+    </item>
   </channel>
 </rss>

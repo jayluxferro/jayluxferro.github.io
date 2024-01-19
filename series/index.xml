@@ -6,6 +6,7 @@
     <description>Recent content in Series on SPERIXLABS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>SPERIXLABS</copyright><atom:link href="https://sperixlabs.org/series/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>SPERIXLABS</copyright>
+    <atom:link href="https://sperixlabs.org/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

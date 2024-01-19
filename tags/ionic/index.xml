@@ -7,28 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/ionic/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sperixlabs.org/tags/ionic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Obscurity is not Security: A Case Study of a Cross-Platform Mobile Application</title>
       <link>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</link>
       <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</guid>
-      <description>This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
-Technical Details The platform for the analysis was iOS. Details are below:
-Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and decompressed ipa file shows the following contents:
-. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.</description>
+      <description>This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.&#xA;Technical Details The platform for the analysis was iOS. Details are below:&#xA;Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and decompressed ipa file shows the following contents:&#xA;. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.</description>
     </item>
-    
     <item>
       <title>Possible Implementation Flaws in Mobile Applications: A Security Audit of a  Mobile Application</title>
       <link>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</link>
       <pubDate>Sun, 10 Jan 2021 17:21:02 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</guid>
-      <description>This research presents a security flaw in a mobile application (both iOS and Android). The platform used for the assessment was iOS. Both platforms (iOS and Android) are affected by this flaw due the fact that they were built using a cross-platform framework (ionic).
-Technical Details Details </description>
+      <description>This research presents a security flaw in a mobile application (both iOS and Android). The platform used for the assessment was iOS. Both platforms (iOS and Android) are affected by this flaw due the fact that they were built using a cross-platform framework (ionic).&#xA;Technical Details Details </description>
     </item>
-    
   </channel>
 </rss>

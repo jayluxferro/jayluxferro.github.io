@@ -7,116 +7,77 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sperixlabs.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Obscurity is not Security: A Case Study of a Cross-Platform Mobile Application</title>
       <link>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</link>
       <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</guid>
-      <description>This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
-Technical Details The platform for the analysis was iOS. Details are below:
-Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and decompressed ipa file shows the following contents:
-. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.</description>
+      <description>This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.&#xA;Technical Details The platform for the analysis was iOS. Details are below:&#xA;Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and decompressed ipa file shows the following contents:&#xA;. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.</description>
     </item>
-    
     <item>
       <title>Protecting Your Privacy Online</title>
       <link>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</link>
       <pubDate>Sun, 13 Mar 2022 18:41:53 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</guid>
       <description>The current surge in the usage of smart devices has contributed significantly to the large volumes of internet traffic data being generated. In the year 2021, it was estimated that the total population in the world was 7.83 billion and about 4.66 billion of them are active internet users; which constitutes about 59.5 of the total population [1]. On average, 57 exabytes of data were generated per month in that year [2].</description>
     </item>
-    
     <item>
       <title>How to Sign macOS PKG Files for Deployment</title>
       <link>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</link>
       <pubDate>Wed, 02 Feb 2022 09:36:53 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</guid>
-      <description>Signing a package is a multi-step process.
-Generate a signing request. Generate Developer ID Installer certificate. Sign the macOS PKG file. Steps to Generate a Signing Request For generating a certificate, first of all you require a Certificate Signing Request (CSR) file.
-Open “Keychain Access” program within your macOS device. Click on Keychain Access appearing on the top menu bar. Go to Certificate Assistant &amp;gt; Request a Certificate From a Certificate Authority.</description>
+      <description>Signing a package is a multi-step process.&#xA;Generate a signing request. Generate Developer ID Installer certificate. Sign the macOS PKG file. Steps to Generate a Signing Request For generating a certificate, first of all you require a Certificate Signing Request (CSR) file.&#xA;Open “Keychain Access” program within your macOS device. Click on Keychain Access appearing on the top menu bar. Go to Certificate Assistant &amp;gt; Request a Certificate From a Certificate Authority.</description>
     </item>
-    
     <item>
       <title>Sample Projects</title>
       <link>https://sperixlabs.org/api/</link>
       <pubDate>Thu, 18 Feb 2021 16:43:21 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/api/</guid>
-      <description>UnminifyJS. Free tool to unminify JS, CSS, HTML. https://github.com/jayluxferro/unminifyjs, https://unminifyjs.sperixlabs.org
-Snowflake Extension for Safari Browser. WebRTC pluggable transport for Tor. https://github.com/jayluxferro/snowflake
-pbcopy. A small utility that allows you to dump clipboard contents on your Jailbroken iPhone to the terminal https://github.com/jayluxferro/pbcopy
-pbpaste. A small utility to paste text to the clipboard on a jailbroken iPhone https://github.com/jayluxferro/pbpaste
-A DNS Ad-Blocker for iOS, macOS and Android. https://github.com/jayluxferro/block-ads
-Cookie-Editor extension for Safari. https://github.com/jayluxferro/Cookie-Editor</description>
+      <description>UnminifyJS. Free tool to unminify JS, CSS, HTML. https://github.com/jayluxferro/unminifyjs, https://unminifyjs.sperixlabs.org&#xA;Snowflake Extension for Safari Browser. WebRTC pluggable transport for Tor. https://github.com/jayluxferro/snowflake&#xA;pbcopy. A small utility that allows you to dump clipboard contents on your Jailbroken iPhone to the terminal https://github.com/jayluxferro/pbcopy&#xA;pbpaste. A small utility to paste text to the clipboard on a jailbroken iPhone https://github.com/jayluxferro/pbpaste&#xA;A DNS Ad-Blocker for iOS, macOS and Android. https://github.com/jayluxferro/block-ads&#xA;Cookie-Editor extension for Safari. https://github.com/jayluxferro/Cookie-Editor</description>
     </item>
-    
     <item>
       <title>Research Publications</title>
       <link>https://sperixlabs.org/publication/</link>
       <pubDate>Thu, 18 Feb 2021 16:42:36 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/publication/</guid>
-      <description>Reverse Engineering Possible Implementation Flaws in Mobile Applications: A Security Audit of a Bank&amp;rsquo;s Mobile Application. https://tinyurl.com/yc3fxh3k
-Unauthorised User Account Access on iRokotv platform. http://dx.doi.org/10.13140/RG.2.2.25486.79681/2
-Reverse Engineering GhanaPostGPS Mobile Application to Create an Application Programming Interface for Local Developers. http://dx.doi.org/10.13140/RG.2.2.24355.27684/2
-A Security Analysis of WhatsApp iOS Mobile Application. http://dx.doi.org/10.13140/RG.2.2.30510.33605
-Academic Research Antwi, R.; Gadze, J.D.; Tchao, E.T.; Sikora, A.; Nunoo-Mensah, H.; Agbemenu, A.S.; Obour Agyekum, K.O.-B.; Agyemang, J.O.; Welte, D.; Keelson, E.</description>
+      <description>Reverse Engineering Possible Implementation Flaws in Mobile Applications: A Security Audit of a Bank&amp;rsquo;s Mobile Application. https://tinyurl.com/yc3fxh3k&#xA;Unauthorised User Account Access on iRokotv platform. http://dx.doi.org/10.13140/RG.2.2.25486.79681/2&#xA;Reverse Engineering GhanaPostGPS Mobile Application to Create an Application Programming Interface for Local Developers. http://dx.doi.org/10.13140/RG.2.2.24355.27684/2&#xA;A Security Analysis of WhatsApp iOS Mobile Application. http://dx.doi.org/10.13140/RG.2.2.30510.33605&#xA;Academic Research Awumee, G.S., Agyemang, J.O., Boakye, S.S., Bempong, D. (2024). SmishShield: A Machine Learning-Based Smishing Detection System. In: Woungang, I., Dhurandher, S.</description>
     </item>
-    
     <item>
       <title>About</title>
       <link>https://sperixlabs.org/about/</link>
       <pubDate>Sun, 31 Jan 2021 22:55:13 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/about/</guid>
-      <description>SPERIXLABS is a Cybersecurity Research Center. The research center conducts research in the technologies and techniques which will secure information systems of tomorrow. We also work at the intersectino of application development and offensive engineering to help companies build secure code.
-The Lab conducts the following security assessments:
-Web Applications and APIs Mobile Applications Desktop &amp;amp; Server Applications Cloud Security Reverse Engineering Smart Contracts We uncover vulnerabilities that may elude others and contribute to risk reduction by offering practical solutions.</description>
+      <description>SPERIXLABS is a Cybersecurity Research Center. The research center conducts research in the technologies and techniques which will secure information systems of tomorrow. We also work at the intersectino of application development and offensive engineering to help companies build secure code.&#xA;The Lab conducts the following security assessments:&#xA;Web Applications and APIs Mobile Applications Desktop &amp;amp; Server Applications Cloud Security Reverse Engineering Smart Contracts We uncover vulnerabilities that may elude others and contribute to risk reduction by offering practical solutions.</description>
     </item>
-    
     <item>
       <title>Possible Implementation Flaws in Mobile Applications: A Security Audit of a  Mobile Application</title>
       <link>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</link>
       <pubDate>Sun, 10 Jan 2021 17:21:02 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</guid>
-      <description>This research presents a security flaw in a mobile application (both iOS and Android). The platform used for the assessment was iOS. Both platforms (iOS and Android) are affected by this flaw due the fact that they were built using a cross-platform framework (ionic).
-Technical Details Details </description>
+      <description>This research presents a security flaw in a mobile application (both iOS and Android). The platform used for the assessment was iOS. Both platforms (iOS and Android) are affected by this flaw due the fact that they were built using a cross-platform framework (ionic).&#xA;Technical Details Details </description>
     </item>
-    
     <item>
       <title>Unauthorised User Account Access on iRokoTV Platform</title>
       <link>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</link>
       <pubDate>Mon, 30 Nov 2020 17:15:25 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</guid>
-      <description>This research presents a flaw in user authentication that enables an unauthorised user to enumerate valid user accounts on the iRokoTV client applications (mobile and web) and also crack a person’s pin code. The security analysis was done on the iOS platform; the flaw translates to other platforms (android and web).
-Details of the Flaw The iRokoTV iOS application (version 1.7.12) presents a user with the option to sign up or log in as an existing user.</description>
+      <description>This research presents a flaw in user authentication that enables an unauthorised user to enumerate valid user accounts on the iRokoTV client applications (mobile and web) and also crack a person’s pin code. The security analysis was done on the iOS platform; the flaw translates to other platforms (android and web).&#xA;Details of the Flaw The iRokoTV iOS application (version 1.7.12) presents a user with the option to sign up or log in as an existing user.</description>
     </item>
-    
+    <item>
+      <title>GhanaPostGPS REST API</title>
+      <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
+      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
+      <description>Whitepaper Read Now&#xA;API Details Read Now</description>
+    </item>
     <item>
       <title>GhanaPostGPS REST API</title>
       <link>https://sperixlabs.org/ghpgps/</link>
       <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/ghpgps/</guid>
-      <description>Whitepaper Read Now
-API Details Read Now</description>
+      <description>Whitepaper Read Now&#xA;API Details Read Now</description>
     </item>
-    
-    <item>
-      <title>GhanaPostGPS REST API</title>
-      <link>https://sperixlabs.org/post/ghpgps/</link>
-      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      
-      <guid>https://sperixlabs.org/post/ghpgps/</guid>
-      <description>Whitepaper Read Now
-API Details Read Now</description>
-    </item>
-    
   </channel>
 </rss>

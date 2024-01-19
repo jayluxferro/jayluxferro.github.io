@@ -7,17 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Wed, 02 Feb 2022 09:36:53 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Feb 2022 09:36:53 +0000</lastBuildDate>
+    <atom:link href="https://sperixlabs.org/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Sign macOS PKG Files for Deployment</title>
       <link>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</link>
       <pubDate>Wed, 02 Feb 2022 09:36:53 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</guid>
-      <description>Signing a package is a multi-step process.
-Generate a signing request. Generate Developer ID Installer certificate. Sign the macOS PKG file. Steps to Generate a Signing Request For generating a certificate, first of all you require a Certificate Signing Request (CSR) file.
-Open “Keychain Access” program within your macOS device. Click on Keychain Access appearing on the top menu bar. Go to Certificate Assistant &amp;gt; Request a Certificate From a Certificate Authority.</description>
+      <description>Signing a package is a multi-step process.&#xA;Generate a signing request. Generate Developer ID Installer certificate. Sign the macOS PKG file. Steps to Generate a Signing Request For generating a certificate, first of all you require a Certificate Signing Request (CSR) file.&#xA;Open “Keychain Access” program within your macOS device. Click on Keychain Access appearing on the top menu bar. Go to Certificate Assistant &amp;gt; Request a Certificate From a Certificate Authority.</description>
     </item>
-    
   </channel>
 </rss>

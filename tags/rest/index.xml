@@ -7,36 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Mon, 05 Oct 2020 17:07:23 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/rest/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>GhanaPostGPS REST API</title>
-      <link>https://sperixlabs.org/ghpgps/</link>
-      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      
-      <guid>https://sperixlabs.org/ghpgps/</guid>
-      <description>Whitepaper Read Now
-API Details Read Now</description>
-    </item>
-    
-    <item>
-      <title>GhanaPostGPS REST API</title>
-      <link>https://sperixlabs.org/post/ghpgps/</link>
-      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      
-      <guid>https://sperixlabs.org/post/ghpgps/</guid>
-      <description>Whitepaper Read Now
-API Details Read Now</description>
-    </item>
-    
+    <lastBuildDate>Mon, 05 Oct 2020 17:07:23 +0000</lastBuildDate>
+    <atom:link href="https://sperixlabs.org/tags/rest/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GhanaPostGPS REST API</title>
       <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
       <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
-      <description>Whitepaper Read Now
-API Details Read Now</description>
+      <description>Whitepaper Read Now&#xA;API Details Read Now</description>
     </item>
-    
+    <item>
+      <title>GhanaPostGPS REST API</title>
+      <link>https://sperixlabs.org/ghpgps/</link>
+      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
+      <guid>https://sperixlabs.org/ghpgps/</guid>
+      <description>Whitepaper Read Now&#xA;API Details Read Now</description>
+    </item>
+    <item>
+      <title>GhanaPostGPS REST API</title>
+      <link>https://sperixlabs.org/post/ghpgps/</link>
+      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/ghpgps/</guid>
+      <description>Whitepaper Read Now&#xA;API Details Read Now</description>
+    </item>
   </channel>
 </rss>

@@ -7,19 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Thu, 18 Feb 2021 16:42:36 +0000</lastBuildDate><atom:link href="https://sperixlabs.org/tags/publications/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Feb 2021 16:42:36 +0000</lastBuildDate>
+    <atom:link href="https://sperixlabs.org/tags/publications/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Research Publications</title>
       <link>https://sperixlabs.org/publication/</link>
       <pubDate>Thu, 18 Feb 2021 16:42:36 +0000</pubDate>
-      
       <guid>https://sperixlabs.org/publication/</guid>
-      <description>Reverse Engineering Possible Implementation Flaws in Mobile Applications: A Security Audit of a Bank&amp;rsquo;s Mobile Application. https://tinyurl.com/yc3fxh3k
-Unauthorised User Account Access on iRokotv platform. http://dx.doi.org/10.13140/RG.2.2.25486.79681/2
-Reverse Engineering GhanaPostGPS Mobile Application to Create an Application Programming Interface for Local Developers. http://dx.doi.org/10.13140/RG.2.2.24355.27684/2
-A Security Analysis of WhatsApp iOS Mobile Application. http://dx.doi.org/10.13140/RG.2.2.30510.33605
-Academic Research Antwi, R.; Gadze, J.D.; Tchao, E.T.; Sikora, A.; Nunoo-Mensah, H.; Agbemenu, A.S.; Obour Agyekum, K.O.-B.; Agyemang, J.O.; Welte, D.; Keelson, E.</description>
+      <description>Reverse Engineering Possible Implementation Flaws in Mobile Applications: A Security Audit of a Bank&amp;rsquo;s Mobile Application. https://tinyurl.com/yc3fxh3k&#xA;Unauthorised User Account Access on iRokotv platform. http://dx.doi.org/10.13140/RG.2.2.25486.79681/2&#xA;Reverse Engineering GhanaPostGPS Mobile Application to Create an Application Programming Interface for Local Developers. http://dx.doi.org/10.13140/RG.2.2.24355.27684/2&#xA;A Security Analysis of WhatsApp iOS Mobile Application. http://dx.doi.org/10.13140/RG.2.2.30510.33605&#xA;Academic Research Awumee, G.S., Agyemang, J.O., Boakye, S.S., Bempong, D. (2024). SmishShield: A Machine Learning-Based Smishing Detection System. In: Woungang, I., Dhurandher, S.</description>
     </item>
-    
   </channel>
 </rss>
