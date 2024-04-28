@@ -42,7 +42,7 @@
       <link>https://sperixlabs.org/publication/</link>
       <pubDate>Thu, 18 Feb 2021 16:42:36 +0000</pubDate>
       <guid>https://sperixlabs.org/publication/</guid>
-      <description>Reverse Engineering Possible Implementation Flaws in Mobile Applications: A Security Audit of a Bank&amp;rsquo;s Mobile Application. https://tinyurl.com/yc3fxh3k&#xA;Unauthorised User Account Access on iRokotv platform. http://dx.doi.org/10.13140/RG.2.2.25486.79681/2&#xA;Reverse Engineering GhanaPostGPS Mobile Application to Create an Application Programming Interface for Local Developers. http://dx.doi.org/10.13140/RG.2.2.24355.27684/2&#xA;A Security Analysis of WhatsApp iOS Mobile Application. http://dx.doi.org/10.13140/RG.2.2.30510.33605&#xA;Academic Research Awumee, G.S., Agyemang, J.O., Boakye, S.S., Bempong, D. (2024). SmishShield: A Machine Learning-Based Smishing Detection System. In: Woungang, I., Dhurandher, S.</description>
+      <description>Reverse Engineering Possible Implementation Flaws in Mobile Applications: A Security Audit of a Bank&amp;rsquo;s Mobile Application. https://tinyurl.com/yc3fxh3k&#xA;Unauthorised User Account Access on iRokotv platform. http://dx.doi.org/10.13140/RG.2.2.25486.79681/2&#xA;Reverse Engineering GhanaPostGPS Mobile Application to Create an Application Programming Interface for Local Developers. http://dx.doi.org/10.13140/RG.2.2.24355.27684/2&#xA;A Security Analysis of WhatsApp iOS Mobile Application. http://dx.doi.org/10.13140/RG.2.2.30510.33605&#xA;Academic Research F. A. Wulnye, E. A. Essanoah Arthur, D. A. Nana Gookyi, D. Kwaku Pobi Asiedu, M. Wilson and J. O.</description>
     </item>
     <item>
       <title>About</title>
@@ -73,11 +73,11 @@
       <description>Whitepaper Read Now&#xA;API Details Read Now</description>
     </item>
     <item>
-      <title>GhanaPostGPS REST API</title>
-      <link>https://sperixlabs.org/ghpgps/</link>
-      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      <guid>https://sperixlabs.org/ghpgps/</guid>
-      <description>Whitepaper Read Now&#xA;API Details Read Now</description>
+      <title>Reverse Engineering GhanaPostGPS Mobile Application to Create an API for Local Developers</title>
+      <link>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</link>
+      <pubDate>Sat, 05 Sep 2020 17:07:23 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</guid>
+      <description>GhanaPostGPS is Ghana&amp;rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp;amp; area code). Its core functionality is to translate a user&amp;rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions.</description>
     </item>
   </channel>
 </rss>
