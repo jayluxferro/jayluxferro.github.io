@@ -4,11 +4,18 @@
     <title>SPERIXLABS</title>
     <link>https://sperixlabs.org/</link>
     <description>Recent content on SPERIXLABS</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2024 09:36:53 +0000</lastBuildDate>
     <atom:link href="https://sperixlabs.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analyzing KD Live Memory Dump with Volatility</title>
+      <link>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</link>
+      <pubDate>Wed, 01 May 2024 09:36:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</guid>
+      <description>Step 1: Identify the Memory Image NB: Volatility version 2&#xA;Ensure you have the memory dump file ready, potentially in a raw format or the specific format used by the capture tool.&#xA;Step 2: Determine the Profile Use the following command to identify the appropriate profile for the memory dump:&#xA;volatility -f [dumpfile] imageinfo This command helps in suggesting the most likely profile(s) based on the memory dump.&#xA;Step 3: Basic Commands for Analysis Once the profile is identified, utilize the following commands to begin your analysis:</description>
+    </item>
     <item>
       <title>Obscurity is not Security: A Case Study of a Cross-Platform Mobile Application</title>
       <link>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</link>
@@ -71,13 +78,6 @@
       <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
       <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
       <description>Whitepaper Read Now&#xA;API Details Read Now</description>
-    </item>
-    <item>
-      <title>Reverse Engineering GhanaPostGPS Mobile Application to Create an API for Local Developers</title>
-      <link>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</link>
-      <pubDate>Sat, 05 Sep 2020 17:07:23 +0000</pubDate>
-      <guid>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</guid>
-      <description>GhanaPostGPS is Ghana&amp;rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp;amp; area code). Its core functionality is to translate a user&amp;rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions.</description>
     </item>
   </channel>
 </rss>
