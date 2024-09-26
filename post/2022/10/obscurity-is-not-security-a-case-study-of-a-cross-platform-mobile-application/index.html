@@ -8,7 +8,8 @@
 <meta name="description" content="This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
 Technical Details The platform for the analysis was iOS. Details are below:
 Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and decompressed ipa file shows the following contents:
-. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable." />
+. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.strings ├── AirshipAutomationResources.bundle ├── AirshipConfig.plist ├── AirshipCoreResources.bundle ├── AirshipExtendedActionsResources.bundle ├── AirshipMessageCenterResources.bundle ├── Foundation.ttf ├── Frameworks │ ├── NetPerformSDK.framework │ ├── SecLibRNFramework.framework │ ├── TealiumIOS.framework │ └── TealiumIOSLifecycle.framework ├── GoogleMaps.bundle ├── GoogleService-Info.plist ├── Info.plist ├── Ionicons.ttf ├── LaunchScreen.storyboardc ├── MaterialCommunityIcons.ttf ├── MaterialIcons.ttf ├── Octicons.ttf ├── PkgInfo ├── SC_Info ├── SimpleLineIcons.ttf ├── Vodafone Rg Bold.ttf ├── VodafoneLt.ttf ├── VodafoneRg.ttf ├── Zocial.ttf ├── _CodeSignature │ └── CodeResources ├── assets │ ├── App │ │ ├── ExternalComponents │ │ ├── Images ├── device-names.json ├── main.jsbundle └── myvodafoneapp The Info.plist file contents a summary of the information related to the application.
+" />
 <meta name="keywords" content="research, cybersecurity, Android, iOS, Security, Audit, Cordova, Ionic, React Native" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -43,7 +44,7 @@ Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone
   <meta itemprop="description" content="This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
 Technical Details The platform for the analysis was iOS. Details are below:
 Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and decompressed ipa file shows the following contents:
-. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.">
+. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.strings ├── AirshipAutomationResources.bundle ├── AirshipConfig.plist ├── AirshipCoreResources.bundle ├── AirshipExtendedActionsResources.bundle ├── AirshipMessageCenterResources.bundle ├── Foundation.ttf ├── Frameworks │ ├── NetPerformSDK.framework │ ├── SecLibRNFramework.framework │ ├── TealiumIOS.framework │ └── TealiumIOSLifecycle.framework ├── GoogleMaps.bundle ├── GoogleService-Info.plist ├── Info.plist ├── Ionicons.ttf ├── LaunchScreen.storyboardc ├── MaterialCommunityIcons.ttf ├── MaterialIcons.ttf ├── Octicons.ttf ├── PkgInfo ├── SC_Info ├── SimpleLineIcons.ttf ├── Vodafone Rg Bold.ttf ├── VodafoneLt.ttf ├── VodafoneRg.ttf ├── Zocial.ttf ├── _CodeSignature │ └── CodeResources ├── assets │ ├── App │ │ ├── ExternalComponents │ │ ├── Images ├── device-names.json ├── main.jsbundle └── myvodafoneapp The Info.plist file contents a summary of the information related to the application.">
   <meta itemprop="datePublished" content="2022-10-09T00:00:00+00:00">
   <meta itemprop="dateModified" content="2022-10-09T00:00:00+00:00">
   <meta itemprop="wordCount" content="4263">
@@ -56,7 +57,7 @@ Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone
   <meta name="twitter:description" content="This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
 Technical Details The platform for the analysis was iOS. Details are below:
 Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and decompressed ipa file shows the following contents:
-. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.">
+. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.strings ├── AirshipAutomationResources.bundle ├── AirshipConfig.plist ├── AirshipCoreResources.bundle ├── AirshipExtendedActionsResources.bundle ├── AirshipMessageCenterResources.bundle ├── Foundation.ttf ├── Frameworks │ ├── NetPerformSDK.framework │ ├── SecLibRNFramework.framework │ ├── TealiumIOS.framework │ └── TealiumIOSLifecycle.framework ├── GoogleMaps.bundle ├── GoogleService-Info.plist ├── Info.plist ├── Ionicons.ttf ├── LaunchScreen.storyboardc ├── MaterialCommunityIcons.ttf ├── MaterialIcons.ttf ├── Octicons.ttf ├── PkgInfo ├── SC_Info ├── SimpleLineIcons.ttf ├── Vodafone Rg Bold.ttf ├── VodafoneLt.ttf ├── VodafoneRg.ttf ├── Zocial.ttf ├── _CodeSignature │ └── CodeResources ├── assets │ ├── App │ │ ├── ExternalComponents │ │ ├── Images ├── device-names.json ├── main.jsbundle └── myvodafoneapp The Info.plist file contents a summary of the information related to the application.">
 
 
 
@@ -66,7 +67,7 @@ Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone
   <meta property="og:description" content="This research presents a security analysis on a cross-platform mobile application. The My Vodafone (Ghana) application formed the basis for the analysis; detailing both static and dynamic analysis.
 Technical Details The platform for the analysis was iOS. Details are below:
 Title: My Vodafone (Ghana) Version: 4.3.0 Bundle URL: com.vodafone.gh.myvodafone.app Directory Structure A decrypted and decompressed ipa file shows the following contents:
-. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.">
+. ├── AccessibilityResources.bundle │ ├── Info.plist │ └── en.lproj │ └── Localizable.strings ├── AirshipAutomationResources.bundle ├── AirshipConfig.plist ├── AirshipCoreResources.bundle ├── AirshipExtendedActionsResources.bundle ├── AirshipMessageCenterResources.bundle ├── Foundation.ttf ├── Frameworks │ ├── NetPerformSDK.framework │ ├── SecLibRNFramework.framework │ ├── TealiumIOS.framework │ └── TealiumIOSLifecycle.framework ├── GoogleMaps.bundle ├── GoogleService-Info.plist ├── Info.plist ├── Ionicons.ttf ├── LaunchScreen.storyboardc ├── MaterialCommunityIcons.ttf ├── MaterialIcons.ttf ├── Octicons.ttf ├── PkgInfo ├── SC_Info ├── SimpleLineIcons.ttf ├── Vodafone Rg Bold.ttf ├── VodafoneLt.ttf ├── VodafoneRg.ttf ├── Zocial.ttf ├── _CodeSignature │ └── CodeResources ├── assets │ ├── App │ │ ├── ExternalComponents │ │ ├── Images ├── device-names.json ├── main.jsbundle └── myvodafoneapp The Info.plist file contents a summary of the information related to the application.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -1090,7 +1091,7 @@ Bundle URL: com.vodafone.gh.myvodafone.app
 
 
 
-<script type="text/javascript" src="https://sperixlabs.org/bundle.min.85fad2de4f13fec3bcb3b3cb10430cdb44a7b4a9749b32938241a5c6e77718df7624f1002b880521fdc26e24ec1077fda214bf1cb36ee3045510760d09638cae.js" integrity="sha512-hfrS3k8T/sO8s7PLEEMM20SntKl0mzKTgkGlxud3GN92JPEAK4gFIf3CbiTsEHf9ohS/HLNu4wRVEHYNCWOMrg=="></script>
+<script type="text/javascript" src="https://sperixlabs.org/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
 
 
 

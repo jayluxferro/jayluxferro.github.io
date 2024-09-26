@@ -2,10 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</loc>
-    <lastmod>2024-05-01T09:36:53+00:00</lastmod>
+    <loc>https://sperixlabs.org/tags/android/</loc>
+    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/audit/</loc>
+    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/categories/</loc>
+    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2024/08/intercepting-https-traffic-in-flutter-applications/</loc>
+    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/ios/</loc>
+    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/posts/</loc>
+    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
+    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/security/</loc>
+    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/</loc>
+    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/</loc>
+    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</loc>
     <lastmod>2024-05-01T09:36:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/forensics/</loc>
@@ -17,40 +44,16 @@
     <loc>https://sperixlabs.org/tags/malware/</loc>
     <lastmod>2024-05-01T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/posts/</loc>
-    <lastmod>2024-05-01T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/</loc>
-    <lastmod>2024-05-01T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/</loc>
-    <lastmod>2024-05-01T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/android/</loc>
-    <lastmod>2022-10-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/audit/</loc>
-    <lastmod>2022-10-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://sperixlabs.org/tags/cordova/</loc>
     <lastmod>2022-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/ionic/</loc>
     <lastmod>2022-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/tags/ios/</loc>
-    <lastmod>2022-10-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</loc>
     <lastmod>2022-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/react-native/</loc>
-    <lastmod>2022-10-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
-    <lastmod>2022-10-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/security/</loc>
     <lastmod>2022-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</loc>
