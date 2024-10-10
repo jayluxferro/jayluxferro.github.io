@@ -7,15 +7,8 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Fri, 16 Aug 2024 09:36:53 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2024 09:36:53 +0000</lastBuildDate>
     <atom:link href="https://sperixlabs.org/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Intercepting HTTPS traffic in Flutter Applications</title>
-      <link>https://sperixlabs.org/post/2024/08/intercepting-https-traffic-in-flutter-applications/</link>
-      <pubDate>Fri, 16 Aug 2024 09:36:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/post/2024/08/intercepting-https-traffic-in-flutter-applications/</guid>
-      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;</description>
-    </item>
     <item>
       <title>Analyzing KD Live Memory Dump with Volatility</title>
       <link>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</link>
@@ -78,6 +71,13 @@
       <pubDate>Mon, 30 Nov 2020 17:15:25 +0000</pubDate>
       <guid>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</guid>
       <description>&lt;p&gt;This research presents a flaw in user authentication that enables an unauthorised user to enumerate valid user accounts on the iRokoTV client applications (mobile and web) and also crack a person’s pin code.&#xA;The security analysis was done on the iOS platform; the flaw translates to other platforms (android and web).&lt;/p&gt;&#xA;&lt;h3 id=&#34;details-of-the-flaw&#34;&gt;Details of the Flaw&lt;/h3&gt;&#xA;&lt;p&gt;The iRokoTV iOS application (version 1.7.12) presents a user with the option to sign up or log in as an existing user. When a user signs up, a 4 digit verification code is sent to the user’s number. Upon verifying, the user is made to create a 4 digit pin code that will be used in accessing the platform; together with his phone number ( as shown below).&#xA;&lt;img src=&#34;https://sperixlabs.org/img/itv/login.jpg&#34; alt=&#34;Verification code&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GhanaPostGPS REST API</title>
+      <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
+      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
+      <description>&lt;h3 id=&#34;whitepaper&#34;&gt;Whitepaper&lt;/h3&gt;&#xA;&#xA;&#xA;&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://dx.doi.org/10.13140/RG.2.2.24355.27684/2&#34;&gt;Read Now&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/p&gt;&#xA;&#xA;&#xA;&lt;h3 id=&#34;api-details&#34;&gt;API Details&lt;/h3&gt;&#xA;&#xA;&#xA;&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;https://github.com/jayluxferro/GhanaPostGPS-REST-API&#34;&gt;Read Now&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

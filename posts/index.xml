@@ -10,17 +10,6 @@
         <atom:link href="https://sperixlabs.org/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Intercepting HTTPS traffic in Flutter Applications</title>
-            <link>https://sperixlabs.org/post/2024/08/intercepting-https-traffic-in-flutter-applications/</link>
-            <pubDate>Fri, 16 Aug 2024 09:36:53 +0000</pubDate>
-            
-            <guid>https://sperixlabs.org/post/2024/08/intercepting-https-traffic-in-flutter-applications/</guid>
-            <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;</description>
-            <content type="html"><![CDATA[<h2 id="background">Background</h2>
-]]></content>
-        </item>
-        
-        <item>
             <title>Analyzing KD Live Memory Dump with Volatility</title>
             <link>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</link>
             <pubDate>Wed, 01 May 2024 09:36:53 +0000</pubDate>
