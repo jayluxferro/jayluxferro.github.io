@@ -10,6 +10,84 @@
         <atom:link href="https://sperixlabs.org/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Frida APK Patcher</title>
+            <link>https://sperixlabs.org/post/2024/08/frida-apk-patcher/</link>
+            <pubDate>Fri, 16 Aug 2024 09:36:53 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2024/08/frida-apk-patcher/</guid>
+            <description>&lt;h1 id=&#34;apk-patcher-for-frida-instrumentation&#34;&gt;APK Patcher for Frida Instrumentation&lt;/h1&gt;
+&lt;p&gt;This tool allows you to patch APK files for Frida instrumentation using the Frida gadget. It injects the required libraries and smali code into the APK, re-signs it, and ensures the APK is ready to use with Frida for reverse engineering or penetration testing.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Disassembles APK files using &lt;code&gt;apktool&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Adds &lt;code&gt;INTERNET&lt;/code&gt; permission and custom &lt;code&gt;network_security_config.xml&lt;/code&gt; if not already present&lt;/li&gt;
+&lt;li&gt;Injects Frida gadget libraries into the APK&lt;/li&gt;
+&lt;li&gt;Modifies the APK&amp;rsquo;s smali code to load the Frida gadget&lt;/li&gt;
+&lt;li&gt;Rebuilds, aligns, and signs the APK for use&lt;/li&gt;
+&lt;li&gt;Compatible with Android versions that support APK Signature Schemes v1 and v2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Before using this tool, ensure the following tools are installed on your system:&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h1 id="apk-patcher-for-frida-instrumentation">APK Patcher for Frida Instrumentation</h1>
+<p>This tool allows you to patch APK files for Frida instrumentation using the Frida gadget. It injects the required libraries and smali code into the APK, re-signs it, and ensures the APK is ready to use with Frida for reverse engineering or penetration testing.</p>
+<hr>
+<h2 id="features">Features</h2>
+<ul>
+<li>Disassembles APK files using <code>apktool</code></li>
+<li>Adds <code>INTERNET</code> permission and custom <code>network_security_config.xml</code> if not already present</li>
+<li>Injects Frida gadget libraries into the APK</li>
+<li>Modifies the APK&rsquo;s smali code to load the Frida gadget</li>
+<li>Rebuilds, aligns, and signs the APK for use</li>
+<li>Compatible with Android versions that support APK Signature Schemes v1 and v2</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before using this tool, ensure the following tools are installed on your system:</p>
+<ul>
+<li><code>aapt</code> (Android Asset Packaging Tool)</li>
+<li><code>apktool</code></li>
+<li><code>zipalign</code></li>
+<li><code>apksigner</code></li>
+<li>Python 3.x</li>
+<li>Java Development Kit (JDK) for APK signing</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="step-1-clone-the-repository">Step 1: Clone the Repository</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/sperixlabs/frida-apk-patcher.git
+</span></span><span style="display:flex;"><span>cd frida-apk-patcher
+</span></span></code></pre></div><h3 id="step-2-prepare-your-apk">Step 2: Prepare Your APK</h3>
+<p>Place the APK you want to patch in a known directory. Note the absolute path to the APK, as it will be needed during execution.</p>
+<h3 id="step-3-download-frida-gadget">Step 3: Download Frida Gadget</h3>
+<p>Run <code>getlibs.sh</code> to fetch the latest Frida Gadgets</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bash getlibs.sh
+</span></span></code></pre></div><h3 id="step-4-run-the-tool">Step 4: Run the Tool</h3>
+<p>Run the script with the path to the APK you want to patch. Here&rsquo;s the command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python apk_builder.py --apk /path/to/your.apk
+</span></span></code></pre></div><h3 id="example">Example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python apk_builder.py --apk /home/user/downloads/sample.apk
+</span></span></code></pre></div><h3 id="step-5-patched-apk-output">Step 5: Patched APK Output</h3>
+<p>After the tool finishes running, it will output the patched APK file as <code>your-apk-appmon.apk</code> in the same directory where the original APK was located.</p>
+<h3 id="options">Options</h3>
+<ul>
+<li><code>--apk</code>: Absolute path to the APK you want to patch.</li>
+</ul>
+<h3 id="output-files">Output Files</h3>
+<ul>
+<li>The patched APK file will be created in the current working directory as <code>app_name-appmon.apk</code>.</li>
+</ul>
+<h2 id="usage-1">Usage</h2>
+<ul>
+<li>Over USB</li>
+</ul>
+<pre tabindex="0"><code>frida -U Gadget -l [frida_script]
+</code></pre><ul>
+<li>Specific Device</li>
+</ul>
+<pre tabindex="0"><code>frida Gadget -l [frida_script] -D [device_name]
+</code></pre>]]></content>
+        </item>
+        
+        <item>
             <title>Analyzing KD Live Memory Dump with Volatility</title>
             <link>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</link>
             <pubDate>Wed, 01 May 2024 09:36:53 +0000</pubDate>
