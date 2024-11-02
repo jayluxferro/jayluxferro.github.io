@@ -2,34 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sperixlabs.org/tags/android/</loc>
+    <lastmod>2024-11-02T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/audit/</loc>
+    <lastmod>2024-11-02T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/categories/</loc>
+    <lastmod>2024-11-02T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/flutter/</loc>
+    <lastmod>2024-11-02T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</loc>
+    <lastmod>2024-11-02T09:36:53+00:00</lastmod>
+  </url><url>
     <loc>https://sperixlabs.org/posts/</loc>
+    <lastmod>2024-11-02T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
+    <lastmod>2024-11-02T09:36:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/security/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/tags/android/</loc>
-    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/audit/</loc>
-    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/categories/</loc>
-    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
+    <loc>https://sperixlabs.org/tags/</loc>
+    <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/2024/08/frida-apk-patcher/</loc>
     <lastmod>2024-08-16T09:36:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/ios/</loc>
-    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
-    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/security/</loc>
-    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/</loc>
     <lastmod>2024-08-16T09:36:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</loc>

@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Fri, 16 Aug 2024 09:36:53 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 Nov 2024 09:36:53 +0000</lastBuildDate>
     <atom:link href="https://sperixlabs.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intercepting HTTP traffic in Android Flutter Apps</title>
+      <link>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</link>
+      <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</guid>
+      <description>&lt;h1 id=&#34;intercepting-http-traffic-in-android-flutter-apps&#34;&gt;Intercepting HTTP Traffic in Android Flutter Apps&lt;/h1&gt;&#xA;&lt;p&gt;Intercepting HTTP traffic in Flutter apps has attracted significant interest among security researchers. Tools like &lt;a href=&#34;https://github.com/Impact-I/reFlutter&#34;&gt;reflutter&lt;/a&gt; have simplified this process. However, these tools often rely on hard-coded HTTP ports, which can limit flexibility in some cases.&lt;/p&gt;&#xA;&lt;p&gt;This guide outlines a straightforward approach for analyzing Android Flutter apps without the need to rely on specific, fixed ports.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;required-tools&#34;&gt;Required Tools&lt;/h2&gt;&#xA;&lt;p&gt;To intercept HTTP traffic in Flutter apps, you will need the following tools:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Frida APK Patcher</title>
       <link>https://sperixlabs.org/post/2024/08/frida-apk-patcher/</link>
@@ -71,13 +78,6 @@
       <pubDate>Sun, 10 Jan 2021 17:21:02 +0000</pubDate>
       <guid>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</guid>
       <description>&lt;p&gt;This research presents a security flaw in a mobile application (both iOS and Android). The platform used for the assessment was iOS. Both platforms (iOS and Android) are affected by this flaw due the fact that they were built using a cross-platform framework (ionic).&lt;/p&gt;&#xA;&lt;h3 id=&#34;technical-details&#34;&gt;Technical Details&lt;/h3&gt;&#xA;&#xA;&#xA;&lt;p&gt;&lt;/p&gt;&#xA;&lt;a href=&#34;https://www.researchgate.net/publication/348844973_Possible_Implementation_Flaws_in_Mobile_Applications_A_Security_Audit_of_a_Mobile_Application&#34; target=&#34;_blank&#34;&gt;Details&lt;/a&gt;</description>
-    </item>
-    <item>
-      <title>Unauthorised User Account Access on iRokoTV Platform</title>
-      <link>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</link>
-      <pubDate>Mon, 30 Nov 2020 17:15:25 +0000</pubDate>
-      <guid>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</guid>
-      <description>&lt;p&gt;This research presents a flaw in user authentication that enables an unauthorised user to enumerate valid user accounts on the iRokoTV client applications (mobile and web) and also crack a person’s pin code.&#xA;The security analysis was done on the iOS platform; the flaw translates to other platforms (android and web).&lt;/p&gt;&#xA;&lt;h3 id=&#34;details-of-the-flaw&#34;&gt;Details of the Flaw&lt;/h3&gt;&#xA;&lt;p&gt;The iRokoTV iOS application (version 1.7.12) presents a user with the option to sign up or log in as an existing user. When a user signs up, a 4 digit verification code is sent to the user’s number. Upon verifying, the user is made to create a 4 digit pin code that will be used in accessing the platform; together with his phone number ( as shown below).&#xA;&lt;img src=&#34;https://sperixlabs.org/img/itv/login.jpg&#34; alt=&#34;Verification code&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

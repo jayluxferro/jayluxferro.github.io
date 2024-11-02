@@ -10,6 +10,67 @@
         <atom:link href="https://sperixlabs.org/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Intercepting HTTP traffic in Android Flutter Apps</title>
+            <link>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</link>
+            <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</guid>
+            <description>&lt;h1 id=&#34;intercepting-http-traffic-in-android-flutter-apps&#34;&gt;Intercepting HTTP Traffic in Android Flutter Apps&lt;/h1&gt;
+&lt;p&gt;Intercepting HTTP traffic in Flutter apps has attracted significant interest among security researchers. Tools like &lt;a href=&#34;https://github.com/Impact-I/reFlutter&#34;&gt;reflutter&lt;/a&gt; have simplified this process. However, these tools often rely on hard-coded HTTP ports, which can limit flexibility in some cases.&lt;/p&gt;
+&lt;p&gt;This guide outlines a straightforward approach for analyzing Android Flutter apps without the need to rely on specific, fixed ports.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;required-tools&#34;&gt;Required Tools&lt;/h2&gt;
+&lt;p&gt;To intercept HTTP traffic in Flutter apps, you will need the following tools:&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h1 id="intercepting-http-traffic-in-android-flutter-apps">Intercepting HTTP Traffic in Android Flutter Apps</h1>
+<p>Intercepting HTTP traffic in Flutter apps has attracted significant interest among security researchers. Tools like <a href="https://github.com/Impact-I/reFlutter">reflutter</a> have simplified this process. However, these tools often rely on hard-coded HTTP ports, which can limit flexibility in some cases.</p>
+<p>This guide outlines a straightforward approach for analyzing Android Flutter apps without the need to rely on specific, fixed ports.</p>
+<hr>
+<h2 id="required-tools">Required Tools</h2>
+<p>To intercept HTTP traffic in Flutter apps, you will need the following tools:</p>
+<ul>
+<li><a href="https://frida.re">Frida</a>: A dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers.</li>
+<li><a href="https://github.com/SPERIXLABS/frida-apk-patcher">Frida APK Patcher</a>: A tool to patch APKs for Frida compatibility.</li>
+<li><a href="https://github.com/jayluxferro/ProxyMe">ProxyMe</a>: A proxy tool for easier traffic routing.</li>
+<li><a href="https://portswigger.net/burp/releases">Burp Suite</a>: A powerful tool for web application security testing.</li>
+</ul>
+<hr>
+<h2 id="steps-to-intercept-traffic">Steps to Intercept Traffic</h2>
+<ol>
+<li>
+<p><strong>Patch the APK with Frida APK Patcher</strong></p>
+<ul>
+<li>Use <code>frida-apk-patcher</code> to modify the APK, allowing Frida instrumentation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Up Burp Suite Proxy</strong></p>
+<ul>
+<li>Configure Burp Suite to act as the proxy for HTTP and HTTPS traffic.</li>
+</ul>
+</li>
+<li>
+<p><strong>Install and Set Up ProxyMe</strong></p>
+<ul>
+<li>ProxyMe facilitates the routing of app traffic through Burp Suite.</li>
+<li>Refer to the <a href="https://github.com/jayluxferro/ProxyMe">ProxyMe documentation</a> for installation instructions.</li>
+</ul>
+</li>
+<li>
+<p><strong>Intercept Traffic</strong></p>
+<ul>
+<li>Use the frida script (<a href="https://github.com/NVISOsecurity/disable-flutter-tls-verification">https://github.com/NVISOsecurity/disable-flutter-tls-verification</a>) to disable the TLS verification in the Flutter App.</li>
+</ul>
+</li>
+</ol>
+<pre tabindex="0"><code>frida -U Gadget -l disable-flutter-tls.js
+</code></pre><ul>
+<li>Launch BurpSuite and set up the proxy listener on the desired port.</li>
+<li>Open the app on the Android device and observe the HTTP traffic in Burp Suite.</li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
             <title>Frida APK Patcher</title>
             <link>https://sperixlabs.org/post/2024/08/frida-apk-patcher/</link>
             <pubDate>Fri, 16 Aug 2024 09:36:53 +0000</pubDate>

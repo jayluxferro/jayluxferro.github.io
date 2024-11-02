@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Fri, 16 Aug 2024 09:36:53 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 Nov 2024 09:36:53 +0000</lastBuildDate>
     <atom:link href="https://sperixlabs.org/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intercepting HTTP traffic in Android Flutter Apps</title>
+      <link>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</link>
+      <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</guid>
+      <description>&lt;h1 id=&#34;intercepting-http-traffic-in-android-flutter-apps&#34;&gt;Intercepting HTTP Traffic in Android Flutter Apps&lt;/h1&gt;&#xA;&lt;p&gt;Intercepting HTTP traffic in Flutter apps has attracted significant interest among security researchers. Tools like &lt;a href=&#34;https://github.com/Impact-I/reFlutter&#34;&gt;reflutter&lt;/a&gt; have simplified this process. However, these tools often rely on hard-coded HTTP ports, which can limit flexibility in some cases.&lt;/p&gt;&#xA;&lt;p&gt;This guide outlines a straightforward approach for analyzing Android Flutter apps without the need to rely on specific, fixed ports.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;required-tools&#34;&gt;Required Tools&lt;/h2&gt;&#xA;&lt;p&gt;To intercept HTTP traffic in Flutter apps, you will need the following tools:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Frida APK Patcher</title>
       <link>https://sperixlabs.org/post/2024/08/frida-apk-patcher/</link>
