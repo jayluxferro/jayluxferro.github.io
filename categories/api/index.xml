@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>API on SPERIXLABS</title>
+    <link>https://sperixlabs.org/categories/api/</link>
+    <description>Recent content in API on SPERIXLABS</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>SPERIXLABS</copyright>
+    <lastBuildDate>Thu, 18 Feb 2021 16:43:21 +0000</lastBuildDate>
+    <atom:link href="https://sperixlabs.org/categories/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sample Projects</title>
+      <link>https://sperixlabs.org/api/</link>
+      <pubDate>Thu, 18 Feb 2021 16:43:21 +0000</pubDate>
+      <guid>https://sperixlabs.org/api/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;UnminifyJS. Free tool to unminify JS, CSS, HTML. &lt;a href=&#34;https://github.com/jayluxferro/unminifyjs&#34;&gt;https://github.com/jayluxferro/unminifyjs&lt;/a&gt;, &lt;a href=&#34;https://unminifyjs.sperixlabs.org&#34;&gt;https://unminifyjs.sperixlabs.org&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Snowflake Extension for Safari Browser. WebRTC pluggable transport for Tor. &lt;a href=&#34;https://github.com/jayluxferro/snowflake&#34;&gt;https://github.com/jayluxferro/snowflake&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;pbcopy. A small utility that allows you to dump clipboard contents on your Jailbroken iPhone to the terminal &lt;a href=&#34;https://github.com/jayluxferro/pbcopy&#34;&gt;https://github.com/jayluxferro/pbcopy&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;pbpaste.  A small utility to paste text to the clipboard on a jailbroken iPhone &lt;a href=&#34;https://github.com/jayluxferro/pbpaste&#34;&gt;https://github.com/jayluxferro/pbpaste&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;A DNS Ad-Blocker for iOS, macOS and Android. &lt;a href=&#34;https://github.com/jayluxferro/block-ads&#34;&gt;https://github.com/jayluxferro/block-ads&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Cookie-Editor extension for Safari. &lt;a href=&#34;https://github.com/jayluxferro/Cookie-Editor&#34;&gt;https://github.com/jayluxferro/Cookie-Editor&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Hack-Tools extension for Safari. &lt;a href=&#34;https://github.com/jayluxferro/Hack-Tools-Safari-Extension&#34;&gt;https://github.com/jayluxferro/Hack-Tools-Safari-Extension&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;APK Downloader. &lt;a href=&#34;https://github.com/jayluxferro/APK-Downloader&#34;&gt;https://github.com/jayluxferro/APK-Downloader&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;ECG Power Recharge Platform. &lt;a href=&#34;https://enersmart.sperixlabs.org&#34;&gt;https://enersmart.sperixlabs.org&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GhanaPostGPS REST API</title>
+      <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
+      <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
+      <description>&lt;h3 id=&#34;whitepaper&#34;&gt;Whitepaper&lt;/h3&gt;&#xA;&#xA;&#xA;&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://dx.doi.org/10.13140/RG.2.2.24355.27684/2&#34;&gt;Read Now&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/p&gt;&#xA;&#xA;&#xA;&lt;h3 id=&#34;api-details&#34;&gt;API Details&lt;/h3&gt;&#xA;&#xA;&#xA;&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;https://github.com/jayluxferro/GhanaPostGPS-REST-API&#34;&gt;Read Now&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

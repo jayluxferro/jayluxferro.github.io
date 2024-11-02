@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tips on SPERIXLABS</title>
+    <link>https://sperixlabs.org/categories/tips/</link>
+    <description>Recent content in Tips on SPERIXLABS</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>SPERIXLABS</copyright>
+    <lastBuildDate>Sun, 13 Mar 2022 18:41:53 +0000</lastBuildDate>
+    <atom:link href="https://sperixlabs.org/categories/tips/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Protecting Your Privacy Online</title>
+      <link>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</link>
+      <pubDate>Sun, 13 Mar 2022 18:41:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</guid>
+      <description>&lt;p&gt;The current surge in the usage of smart devices has contributed significantly to the large volumes of internet traffic data being generated. In the year 2021, it was estimated that the total population in the world was 7.83 billion and about 4.66 billion of them are active internet users; which constitutes about 59.5 of the total population [1]. On average, 57 exabytes of data were generated per month in that year [2]. These facts illustrate how many people are engaged in online activities, hence the need for people to protect their privacy online.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Sign macOS PKG Files for Deployment</title>
+      <link>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</link>
+      <pubDate>Wed, 02 Feb 2022 09:36:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</guid>
+      <description>&lt;p&gt;Signing a package is a multi-step process.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Generate a signing request.&lt;/li&gt;&#xA;&lt;li&gt;Generate Developer ID Installer certificate.&lt;/li&gt;&#xA;&lt;li&gt;Sign the macOS PKG file.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;steps-to-generate-a-signing-request&#34;&gt;Steps to Generate a Signing Request&lt;/h3&gt;&#xA;&lt;p&gt;For generating a certificate, first of all you require a Certificate Signing Request (CSR) file.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Open “&lt;strong&gt;Keychain Access&lt;/strong&gt;” program within your macOS device.&lt;/li&gt;&#xA;&lt;li&gt;Click on Keychain Access appearing on the top menu bar.&lt;/li&gt;&#xA;&lt;li&gt;Go to &lt;strong&gt;Certificate Assistant&lt;/strong&gt; &amp;gt; &lt;strong&gt;Request a Certificate From a Certificate Authority&lt;/strong&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Add your email address in the User Email Address field, and name in the Common Name field. Leave the CA Email Address field blank.&lt;/li&gt;&#xA;&lt;li&gt;Under the Request is option, click Saved to Disc.&lt;/li&gt;&#xA;&lt;li&gt;Click Continue.&lt;/li&gt;&#xA;&lt;li&gt;Specify the location on the device where the .csr file is to be saved and click Save.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;The signing request will be saved to your machine in the specified location. This file is required to generate the “&lt;strong&gt;Developer ID Installer&lt;/strong&gt;” certificate.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
