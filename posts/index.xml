@@ -15,14 +15,12 @@
             <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
             
             <guid>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</guid>
-            <description>&lt;h1 id=&#34;intercepting-http-traffic-in-android-flutter-apps&#34;&gt;Intercepting HTTP Traffic in Android Flutter Apps&lt;/h1&gt;
-&lt;p&gt;Intercepting HTTP traffic in Flutter apps has attracted significant interest among security researchers. Tools like &lt;a href=&#34;https://github.com/Impact-I/reFlutter&#34;&gt;reflutter&lt;/a&gt; have simplified this process. However, these tools often rely on hard-coded HTTP ports, which can limit flexibility in some cases.&lt;/p&gt;
+            <description>&lt;p&gt;Intercepting HTTP traffic in Flutter apps has attracted significant interest among security researchers. Tools like &lt;a href=&#34;https://github.com/Impact-I/reFlutter&#34;&gt;reflutter&lt;/a&gt; have simplified this process. However, these tools often rely on hard-coded HTTP ports, which can limit flexibility in some cases.&lt;/p&gt;
 &lt;p&gt;This guide outlines a straightforward approach for analyzing Android Flutter apps without the need to rely on specific, fixed ports.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;required-tools&#34;&gt;Required Tools&lt;/h2&gt;
 &lt;p&gt;To intercept HTTP traffic in Flutter apps, you will need the following tools:&lt;/p&gt;</description>
-            <content type="html"><![CDATA[<h1 id="intercepting-http-traffic-in-android-flutter-apps">Intercepting HTTP Traffic in Android Flutter Apps</h1>
-<p>Intercepting HTTP traffic in Flutter apps has attracted significant interest among security researchers. Tools like <a href="https://github.com/Impact-I/reFlutter">reflutter</a> have simplified this process. However, these tools often rely on hard-coded HTTP ports, which can limit flexibility in some cases.</p>
+            <content type="html"><![CDATA[<p>Intercepting HTTP traffic in Flutter apps has attracted significant interest among security researchers. Tools like <a href="https://github.com/Impact-I/reFlutter">reflutter</a> have simplified this process. However, these tools often rely on hard-coded HTTP ports, which can limit flexibility in some cases.</p>
 <p>This guide outlines a straightforward approach for analyzing Android Flutter apps without the need to rely on specific, fixed ports.</p>
 <hr>
 <h2 id="required-tools">Required Tools</h2>
@@ -76,8 +74,7 @@
             <pubDate>Fri, 16 Aug 2024 09:36:53 +0000</pubDate>
             
             <guid>https://sperixlabs.org/post/2024/08/frida-apk-patcher/</guid>
-            <description>&lt;h1 id=&#34;apk-patcher-for-frida-instrumentation&#34;&gt;APK Patcher for Frida Instrumentation&lt;/h1&gt;
-&lt;p&gt;This tool allows you to patch APK files for Frida instrumentation using the Frida gadget. It injects the required libraries and smali code into the APK, re-signs it, and ensures the APK is ready to use with Frida for reverse engineering or penetration testing.&lt;/p&gt;
+            <description>&lt;p&gt;This tool allows you to patch APK files for Frida instrumentation using the Frida gadget. It injects the required libraries and smali code into the APK, re-signs it, and ensures the APK is ready to use with Frida for reverse engineering or penetration testing.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
 &lt;ul&gt;
@@ -90,8 +87,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;Before using this tool, ensure the following tools are installed on your system:&lt;/p&gt;</description>
-            <content type="html"><![CDATA[<h1 id="apk-patcher-for-frida-instrumentation">APK Patcher for Frida Instrumentation</h1>
-<p>This tool allows you to patch APK files for Frida instrumentation using the Frida gadget. It injects the required libraries and smali code into the APK, re-signs it, and ensures the APK is ready to use with Frida for reverse engineering or penetration testing.</p>
+            <content type="html"><![CDATA[<p>This tool allows you to patch APK files for Frida instrumentation using the Frida gadget. It injects the required libraries and smali code into the APK, re-signs it, and ensures the APK is ready to use with Frida for reverse engineering or penetration testing.</p>
 <hr>
 <h2 id="features">Features</h2>
 <ul>
