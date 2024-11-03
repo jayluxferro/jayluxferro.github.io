@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>REST on SPERIXLABS</title>
-    <link>https://sperixlabs.org/tags/rest/</link>
+    <link>http://localhost:1313/tags/rest/</link>
     <description>Recent content in REST on SPERIXLABS</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
     <lastBuildDate>Mon, 05 Oct 2020 17:07:23 +0000</lastBuildDate>
-    <atom:link href="https://sperixlabs.org/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/rest/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GhanaPostGPS REST API</title>
-      <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
+      <link>http://localhost:1313/post/2020/10/ghanapostgps-rest-api/</link>
       <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
-      <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
+      <guid>http://localhost:1313/post/2020/10/ghanapostgps-rest-api/</guid>
       <description>&lt;h3 id=&#34;whitepaper&#34;&gt;Whitepaper&lt;/h3&gt;&#xA;&#xA;&#xA;&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://dx.doi.org/10.13140/RG.2.2.24355.27684/2&#34;&gt;Read Now&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/p&gt;&#xA;&#xA;&#xA;&lt;h3 id=&#34;api-details&#34;&gt;API Details&lt;/h3&gt;&#xA;&#xA;&#xA;&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;https://github.com/jayluxferro/GhanaPostGPS-REST-API&#34;&gt;Read Now&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/p&gt;</description>
     </item>
   </channel>

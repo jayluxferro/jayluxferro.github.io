@@ -1,20 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on SPERIXLABS</title>
-        <link>https://sperixlabs.org/posts/</link>
+        <link>http://localhost:1313/posts/</link>
         <description>Recent content in Posts on SPERIXLABS</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>SPERIXLABS</copyright>
         <lastBuildDate>Sat, 02 Nov 2024 09:36:53 +0000</lastBuildDate>
-        <atom:link href="https://sperixlabs.org/posts/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
             <title>Intercepting HTTP traffic in Android Flutter Apps</title>
-            <link>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</link>
+            <link>http://localhost:1313/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</link>
             <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</guid>
+            <guid>http://localhost:1313/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</guid>
             <description>&lt;p&gt;Intercepting HTTP traffic in Flutter apps has attracted significant interest among security researchers. Tools like &lt;a href=&#34;https://github.com/Impact-I/reFlutter&#34;&gt;reflutter&lt;/a&gt; have simplified this process. However, these tools often rely on hard-coded HTTP ports, which can limit flexibility in some cases.&lt;/p&gt;
 &lt;p&gt;This guide outlines a straightforward approach for analyzing Android Flutter apps without the need to rely on specific, fixed ports.&lt;/p&gt;
 &lt;hr&gt;
@@ -70,10 +70,10 @@
         
         <item>
             <title>Frida APK Patcher</title>
-            <link>https://sperixlabs.org/post/2024/08/frida-apk-patcher/</link>
+            <link>http://localhost:1313/post/2024/08/frida-apk-patcher/</link>
             <pubDate>Fri, 16 Aug 2024 09:36:53 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2024/08/frida-apk-patcher/</guid>
+            <guid>http://localhost:1313/post/2024/08/frida-apk-patcher/</guid>
             <description>&lt;p&gt;This tool allows you to patch APK files for Frida instrumentation using the Frida gadget. It injects the required libraries and smali code into the APK, re-signs it, and ensures the APK is ready to use with Frida for reverse engineering or penetration testing.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
@@ -146,10 +146,10 @@
         
         <item>
             <title>Analyzing KD Live Memory Dump with Volatility</title>
-            <link>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</link>
+            <link>http://localhost:1313/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</link>
             <pubDate>Wed, 01 May 2024 09:36:53 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</guid>
+            <guid>http://localhost:1313/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</guid>
             <description>&lt;h3 id=&#34;step-1-identify-the-memory-image&#34;&gt;Step 1: Identify the Memory Image&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;NB&lt;/strong&gt;: Volatility version 2&lt;/p&gt;
 &lt;p&gt;Ensure you have the memory dump file ready, potentially in a raw format or the specific format used by the capture tool.&lt;/p&gt;
@@ -225,10 +225,10 @@
         
         <item>
             <title>Obscurity is not Security: A Case Study of a Cross-Platform Mobile Application</title>
-            <link>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</link>
+            <link>http://localhost:1313/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</link>
             <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</guid>
+            <guid>http://localhost:1313/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</guid>
             <description>&lt;p&gt;This research presents a security analysis on a cross-platform mobile application. The &lt;strong&gt;My Vodafone (Ghana)&lt;/strong&gt; application formed the basis for the analysis; detailing both static and dynamic analysis.&lt;/p&gt;
 &lt;h3 id=&#34;technical-details&#34;&gt;Technical Details&lt;/h3&gt;
 &lt;p&gt;The platform for the analysis was iOS. Details are below:&lt;/p&gt;
@@ -1006,10 +1006,10 @@ Bundle URL: com.vodafone.gh.myvodafone.app
         
         <item>
             <title>Protecting Your Privacy Online</title>
-            <link>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</link>
+            <link>http://localhost:1313/post/2022/03/protecting-your-privacy-online/</link>
             <pubDate>Sun, 13 Mar 2022 18:41:53 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</guid>
+            <guid>http://localhost:1313/post/2022/03/protecting-your-privacy-online/</guid>
             <description>&lt;p&gt;The current surge in the usage of smart devices has contributed significantly to the large volumes of internet traffic data being generated. In the year 2021, it was estimated that the total population in the world was 7.83 billion and about 4.66 billion of them are active internet users; which constitutes about 59.5 of the total population [1]. On average, 57 exabytes of data were generated per month in that year [2]. These facts illustrate how many people are engaged in online activities, hence the need for people to protect their privacy online.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>The current surge in the usage of smart devices has contributed significantly to the large volumes of internet traffic data being generated. In the year 2021, it was estimated that the total population in the world was 7.83 billion and about 4.66 billion of them are active internet users; which constitutes about 59.5 of the total population [1]. On average, 57 exabytes of data were generated per month in that year [2]. These facts illustrate how many people are engaged in online activities, hence the need for people to protect their privacy online.</p>
 <p>There are several ways internet users can adopt to enhance their privacy online. This article focuses mainly on how users can prevent or minimize online tracking through the use of “cookies”. A brief overview of online tracking is presented together with some techniques to minimize the tracking.</p>
@@ -1028,10 +1028,10 @@ Bundle URL: com.vodafone.gh.myvodafone.app
         
         <item>
             <title>How to Sign macOS PKG Files for Deployment</title>
-            <link>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</link>
+            <link>http://localhost:1313/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</link>
             <pubDate>Wed, 02 Feb 2022 09:36:53 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</guid>
+            <guid>http://localhost:1313/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</guid>
             <description>&lt;p&gt;Signing a package is a multi-step process.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Generate a signing request.&lt;/li&gt;
@@ -1110,10 +1110,10 @@ Bundle URL: com.vodafone.gh.myvodafone.app
         
         <item>
             <title>Possible Implementation Flaws in Mobile Applications: A Security Audit of a  Mobile Application</title>
-            <link>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</link>
+            <link>http://localhost:1313/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</link>
             <pubDate>Sun, 10 Jan 2021 17:21:02 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</guid>
+            <guid>http://localhost:1313/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</guid>
             <description>&lt;p&gt;This research presents a security flaw in a mobile application (both iOS and Android). The platform used for the assessment was iOS. Both platforms (iOS and Android) are affected by this flaw due the fact that they were built using a cross-platform framework (ionic).&lt;/p&gt;
 &lt;h3 id=&#34;technical-details&#34;&gt;Technical Details&lt;/h3&gt;
 
@@ -1133,15 +1133,15 @@ Bundle URL: com.vodafone.gh.myvodafone.app
         
         <item>
             <title>Unauthorised User Account Access on iRokoTV Platform</title>
-            <link>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</link>
+            <link>http://localhost:1313/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</link>
             <pubDate>Mon, 30 Nov 2020 17:15:25 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</guid>
+            <guid>http://localhost:1313/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</guid>
             <description>&lt;p&gt;This research presents a flaw in user authentication that enables an unauthorised user to enumerate valid user accounts on the iRokoTV client applications (mobile and web) and also crack a person’s pin code.
 The security analysis was done on the iOS platform; the flaw translates to other platforms (android and web).&lt;/p&gt;
 &lt;h3 id=&#34;details-of-the-flaw&#34;&gt;Details of the Flaw&lt;/h3&gt;
 &lt;p&gt;The iRokoTV iOS application (version 1.7.12) presents a user with the option to sign up or log in as an existing user. When a user signs up, a 4 digit verification code is sent to the user’s number. Upon verifying, the user is made to create a 4 digit pin code that will be used in accessing the platform; together with his phone number ( as shown below).
-&lt;img src=&#34;https://sperixlabs.org/img/itv/login.jpg&#34; alt=&#34;Verification code&#34;&gt;&lt;/p&gt;</description>
+&lt;img src=&#34;http://localhost:1313/img/itv/login.jpg&#34; alt=&#34;Verification code&#34;&gt;&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>This research presents a flaw in user authentication that enables an unauthorised user to enumerate valid user accounts on the iRokoTV client applications (mobile and web) and also crack a person’s pin code.
 The security analysis was done on the iOS platform; the flaw translates to other platforms (android and web).</p>
 <h3 id="details-of-the-flaw">Details of the Flaw</h3>
@@ -1168,10 +1168,10 @@ This endpoint API can be leveraged on by an unauthorised user to enumerate accou
         
         <item>
             <title>GhanaPostGPS REST API</title>
-            <link>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</link>
+            <link>http://localhost:1313/post/2020/10/ghanapostgps-rest-api/</link>
             <pubDate>Mon, 05 Oct 2020 17:07:23 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</guid>
+            <guid>http://localhost:1313/post/2020/10/ghanapostgps-rest-api/</guid>
             <description>&lt;h3 id=&#34;whitepaper&#34;&gt;Whitepaper&lt;/h3&gt;
 
 
@@ -1203,10 +1203,10 @@ This endpoint API can be leveraged on by an unauthorised user to enumerate accou
         
         <item>
             <title>Reverse Engineering GhanaPostGPS Mobile Application to Create an API for Local Developers</title>
-            <link>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</link>
+            <link>http://localhost:1313/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</link>
             <pubDate>Sat, 05 Sep 2020 17:07:23 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</guid>
+            <guid>http://localhost:1313/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</guid>
             <description>&lt;p&gt;GhanaPostGPS is Ghana&amp;rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp;amp; area code). Its core functionality is to translate a user&amp;rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions. This research presents how the digital addressing system&amp;rsquo;s mobile application was reversed engineered to create a publicly available API (&lt;strong&gt;&lt;a href=&#34;https://jayluxferro.github.io/post/ghpgps/&#34;&gt;https://jayluxferro.github.io/post/ghpgps/&lt;/a&gt;&lt;/strong&gt;).&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>GhanaPostGPS is Ghana&rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp; area code). Its core functionality is to translate a user&rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions. This research presents how the digital addressing system&rsquo;s mobile application was reversed engineered to create a publicly available API (<strong><a href="https://jayluxferro.github.io/post/ghpgps/">https://jayluxferro.github.io/post/ghpgps/</a></strong>).</p>
 <h3 id="introduction">Introduction</h3>
@@ -1311,10 +1311,10 @@ This endpoint API can be leveraged on by an unauthorised user to enumerate accou
         
         <item>
             <title>A Security Analysis of WhatsApp iOS Mobile Application</title>
-            <link>https://sperixlabs.org/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/</link>
+            <link>http://localhost:1313/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/</link>
             <pubDate>Wed, 17 Jun 2020 17:00:58 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/</guid>
+            <guid>http://localhost:1313/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/</guid>
             <description>&lt;p&gt;This research presents an investigation into  WhatsApp&amp;rsquo;s on-device data storage on iOS. WhatsApp is one of the most widely used messaging application and hence it is required that a secured on-device storage mechanism be implemented to complement Apple&amp;rsquo;s security measures for their devices. This will help protect a user&amp;rsquo;s data  in instances where his/her device is compromised physically. The research presents a security analysis on the storage format of data used by WhatsApp on end-users&amp;rsquo; devices.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>This research presents an investigation into  WhatsApp&rsquo;s on-device data storage on iOS. WhatsApp is one of the most widely used messaging application and hence it is required that a secured on-device storage mechanism be implemented to complement Apple&rsquo;s security measures for their devices. This will help protect a user&rsquo;s data  in instances where his/her device is compromised physically. The research presents a security analysis on the storage format of data used by WhatsApp on end-users&rsquo; devices.</p>
 <h3 id="introduction">Introduction</h3>
@@ -1385,16 +1385,16 @@ This endpoint API can be leveraged on by an unauthorised user to enumerate accou
         
         <item>
             <title>Security Flaw in the KNUST AIM Application</title>
-            <link>https://sperixlabs.org/post/2019/09/security-flaw-in-the-knust-aim-application/</link>
+            <link>http://localhost:1313/post/2019/09/security-flaw-in-the-knust-aim-application/</link>
             <pubDate>Fri, 20 Sep 2019 23:12:53 +0000</pubDate>
             
-            <guid>https://sperixlabs.org/post/2019/09/security-flaw-in-the-knust-aim-application/</guid>
+            <guid>http://localhost:1313/post/2019/09/security-flaw-in-the-knust-aim-application/</guid>
             <description>&lt;p&gt;The Academic Information Manager (AIM) is the official mobile application for KNUST students. The key functions of AIM include: course registration, checking of results, editing of personal records, access to news from the University&amp;rsquo;s website, notifications and checking of fees. This research presents a flaw in the bearer authorization token implementation in the REST API for the AIM app. This authorization token is not validated per user basis, hence can be exploited to access or modify any student&amp;rsquo;s information through the REST API.
 
 
 &lt;br/&gt;
 &lt;br/&gt;
-&lt;img src=&#34;https://sperixlabs.org/img/knustaim/logo.jpg&#34; style=&#34;width: 450px;&#34;/&gt;
+&lt;img src=&#34;http://localhost:1313/img/knustaim/logo.jpg&#34; style=&#34;width: 450px;&#34;/&gt;
 &lt;br/&gt;
 
 &lt;/p&gt;</description>

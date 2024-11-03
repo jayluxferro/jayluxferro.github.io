@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on SPERIXLABS</title>
-    <link>https://sperixlabs.org/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on SPERIXLABS</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
     <lastBuildDate>Sat, 02 Nov 2024 09:36:53 +0000</lastBuildDate>
-    <atom:link href="https://sperixlabs.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reverse Engineering</title>
-      <link>https://sperixlabs.org/categories/reverse-engineering/</link>
+      <link>http://localhost:1313/categories/reverse-engineering/</link>
       <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/categories/reverse-engineering/</guid>
+      <guid>http://localhost:1313/categories/reverse-engineering/</guid>
       <description></description>
     </item>
     <item>
       <title>Forensics</title>
-      <link>https://sperixlabs.org/categories/forensics/</link>
+      <link>http://localhost:1313/categories/forensics/</link>
       <pubDate>Wed, 01 May 2024 09:36:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/categories/forensics/</guid>
+      <guid>http://localhost:1313/categories/forensics/</guid>
       <description></description>
     </item>
     <item>
       <title>Tips</title>
-      <link>https://sperixlabs.org/categories/tips/</link>
+      <link>http://localhost:1313/categories/tips/</link>
       <pubDate>Sun, 13 Mar 2022 18:41:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/categories/tips/</guid>
+      <guid>http://localhost:1313/categories/tips/</guid>
       <description></description>
     </item>
     <item>
       <title>API</title>
-      <link>https://sperixlabs.org/categories/api/</link>
+      <link>http://localhost:1313/categories/api/</link>
       <pubDate>Thu, 18 Feb 2021 16:43:21 +0000</pubDate>
-      <guid>https://sperixlabs.org/categories/api/</guid>
+      <guid>http://localhost:1313/categories/api/</guid>
       <description></description>
     </item>
     <item>
       <title>Research</title>
-      <link>https://sperixlabs.org/categories/research/</link>
+      <link>http://localhost:1313/categories/research/</link>
       <pubDate>Thu, 18 Feb 2021 16:42:36 +0000</pubDate>
-      <guid>https://sperixlabs.org/categories/research/</guid>
+      <guid>http://localhost:1313/categories/research/</guid>
       <description></description>
     </item>
     <item>
       <title>Flaw</title>
-      <link>https://sperixlabs.org/categories/flaw/</link>
+      <link>http://localhost:1313/categories/flaw/</link>
       <pubDate>Mon, 30 Nov 2020 17:15:25 +0000</pubDate>
-      <guid>https://sperixlabs.org/categories/flaw/</guid>
+      <guid>http://localhost:1313/categories/flaw/</guid>
       <description></description>
     </item>
   </channel>
