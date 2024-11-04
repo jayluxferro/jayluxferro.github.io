@@ -2,81 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on SPERIXLABS</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://sperixlabs.org/tags/</link>
     <description>Recent content in Tags on SPERIXLABS</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
     <lastBuildDate>Sat, 02 Nov 2024 09:36:53 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sperixlabs.org/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Android</title>
-      <link>http://localhost:1313/tags/android/</link>
+      <link>https://sperixlabs.org/tags/android/</link>
       <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
-      <guid>http://localhost:1313/tags/android/</guid>
+      <guid>https://sperixlabs.org/tags/android/</guid>
       <description></description>
     </item>
     <item>
       <title>Audit</title>
-      <link>http://localhost:1313/tags/audit/</link>
+      <link>https://sperixlabs.org/tags/audit/</link>
       <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
-      <guid>http://localhost:1313/tags/audit/</guid>
+      <guid>https://sperixlabs.org/tags/audit/</guid>
       <description></description>
     </item>
     <item>
       <title>Flutter</title>
-      <link>http://localhost:1313/tags/flutter/</link>
+      <link>https://sperixlabs.org/tags/flutter/</link>
       <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
-      <guid>http://localhost:1313/tags/flutter/</guid>
+      <guid>https://sperixlabs.org/tags/flutter/</guid>
       <description></description>
     </item>
     <item>
       <title>Security</title>
-      <link>http://localhost:1313/tags/security/</link>
+      <link>https://sperixlabs.org/tags/security/</link>
       <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
-      <guid>http://localhost:1313/tags/security/</guid>
+      <guid>https://sperixlabs.org/tags/security/</guid>
       <description></description>
     </item>
     <item>
       <title>IOS</title>
-      <link>http://localhost:1313/tags/ios/</link>
+      <link>https://sperixlabs.org/tags/ios/</link>
       <pubDate>Fri, 16 Aug 2024 09:36:53 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ios/</guid>
+      <guid>https://sperixlabs.org/tags/ios/</guid>
       <description></description>
     </item>
     <item>
       <title>Forensics</title>
-      <link>http://localhost:1313/tags/forensics/</link>
+      <link>https://sperixlabs.org/tags/forensics/</link>
       <pubDate>Wed, 01 May 2024 09:36:53 +0000</pubDate>
-      <guid>http://localhost:1313/tags/forensics/</guid>
+      <guid>https://sperixlabs.org/tags/forensics/</guid>
       <description></description>
     </item>
     <item>
       <title>Malware</title>
-      <link>http://localhost:1313/tags/malware/</link>
+      <link>https://sperixlabs.org/tags/malware/</link>
       <pubDate>Wed, 01 May 2024 09:36:53 +0000</pubDate>
-      <guid>http://localhost:1313/tags/malware/</guid>
+      <guid>https://sperixlabs.org/tags/malware/</guid>
       <description></description>
     </item>
     <item>
       <title>Cordova</title>
-      <link>http://localhost:1313/tags/cordova/</link>
+      <link>https://sperixlabs.org/tags/cordova/</link>
       <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/cordova/</guid>
+      <guid>https://sperixlabs.org/tags/cordova/</guid>
       <description></description>
     </item>
     <item>
       <title>Ionic</title>
-      <link>http://localhost:1313/tags/ionic/</link>
+      <link>https://sperixlabs.org/tags/ionic/</link>
       <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ionic/</guid>
+      <guid>https://sperixlabs.org/tags/ionic/</guid>
       <description></description>
     </item>
     <item>
       <title>React Native</title>
-      <link>http://localhost:1313/tags/react-native/</link>
+      <link>https://sperixlabs.org/tags/react-native/</link>
       <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/react-native/</guid>
+      <guid>https://sperixlabs.org/tags/react-native/</guid>
       <description></description>
     </item>
   </channel>

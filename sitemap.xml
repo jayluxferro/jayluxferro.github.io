@@ -2,126 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/android/</loc>
+    <loc>https://sperixlabs.org/tags/android/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/audit/</loc>
+    <loc>https://sperixlabs.org/tags/audit/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://sperixlabs.org/categories/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/flutter/</loc>
+    <loc>https://sperixlabs.org/tags/flutter/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</loc>
+    <loc>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://sperixlabs.org/posts/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/reverse-engineering/</loc>
+    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/security/</loc>
+    <loc>https://sperixlabs.org/tags/security/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://sperixlabs.org/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://sperixlabs.org/tags/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2024/08/frida-apk-patcher/</loc>
+    <loc>https://sperixlabs.org/post/2024/08/frida-apk-patcher/</loc>
     <lastmod>2024-08-16T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ios/</loc>
+    <loc>https://sperixlabs.org/tags/ios/</loc>
     <lastmod>2024-08-16T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</loc>
+    <loc>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</loc>
     <lastmod>2024-05-01T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/forensics/</loc>
+    <loc>https://sperixlabs.org/tags/forensics/</loc>
     <lastmod>2024-05-01T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/forensics/</loc>
+    <loc>https://sperixlabs.org/categories/forensics/</loc>
     <lastmod>2024-05-01T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/malware/</loc>
+    <loc>https://sperixlabs.org/tags/malware/</loc>
     <lastmod>2024-05-01T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/cordova/</loc>
+    <loc>https://sperixlabs.org/tags/cordova/</loc>
     <lastmod>2022-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ionic/</loc>
+    <loc>https://sperixlabs.org/tags/ionic/</loc>
     <lastmod>2022-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</loc>
+    <loc>https://sperixlabs.org/post/2022/10/obscurity-is-not-security-a-case-study-of-a-cross-platform-mobile-application/</loc>
     <lastmod>2022-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/react-native/</loc>
+    <loc>https://sperixlabs.org/tags/react-native/</loc>
     <lastmod>2022-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2022/03/protecting-your-privacy-online/</loc>
+    <loc>https://sperixlabs.org/post/2022/03/protecting-your-privacy-online/</loc>
     <lastmod>2022-03-13T18:41:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/tips/</loc>
+    <loc>https://sperixlabs.org/categories/tips/</loc>
     <lastmod>2022-03-13T18:41:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</loc>
+    <loc>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</loc>
     <lastmod>2022-02-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/macos/</loc>
+    <loc>https://sperixlabs.org/tags/macos/</loc>
     <lastmod>2022-02-02T09:36:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/api/</loc>
+    <loc>https://sperixlabs.org/tags/api/</loc>
     <lastmod>2021-02-18T16:43:21+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/api/</loc>
+    <loc>https://sperixlabs.org/categories/api/</loc>
     <lastmod>2021-02-18T16:43:21+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/api/</loc>
+    <loc>https://sperixlabs.org/api/</loc>
     <lastmod>2021-02-18T16:43:21+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/publications/</loc>
+    <loc>https://sperixlabs.org/tags/publications/</loc>
     <lastmod>2021-02-18T16:42:36+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/research/</loc>
+    <loc>https://sperixlabs.org/tags/research/</loc>
     <lastmod>2021-02-18T16:42:36+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/research/</loc>
+    <loc>https://sperixlabs.org/categories/research/</loc>
     <lastmod>2021-02-18T16:42:36+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/publication/</loc>
+    <loc>https://sperixlabs.org/publication/</loc>
     <lastmod>2021-02-18T16:42:36+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://sperixlabs.org/about/</loc>
     <lastmod>2021-01-31T22:55:13+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</loc>
+    <loc>https://sperixlabs.org/post/2021/01/possible-implementation-flaws-in-mobile-applications-a-security-audit-of-a-mobile-application/</loc>
     <lastmod>2021-01-10T17:21:02+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/flaw/</loc>
+    <loc>https://sperixlabs.org/categories/flaw/</loc>
     <lastmod>2020-11-30T17:15:25+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</loc>
+    <loc>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</loc>
     <lastmod>2020-11-30T17:15:25+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2020/10/ghanapostgps-rest-api/</loc>
+    <loc>https://sperixlabs.org/post/2020/10/ghanapostgps-rest-api/</loc>
     <lastmod>2020-10-05T17:07:23+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/rest/</loc>
+    <loc>https://sperixlabs.org/tags/rest/</loc>
     <lastmod>2020-10-05T17:07:23+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</loc>
+    <loc>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</loc>
     <lastmod>2020-09-05T17:07:23+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/</loc>
+    <loc>https://sperixlabs.org/post/2020/06/a-security-analysis-of-whatsapp-ios-mobile-application/</loc>
     <lastmod>2020-06-17T17:00:58+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/2019/09/security-flaw-in-the-knust-aim-application/</loc>
+    <loc>https://sperixlabs.org/post/2019/09/security-flaw-in-the-knust-aim-application/</loc>
     <lastmod>2019-09-20T23:12:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/</loc>
+    <loc>https://sperixlabs.org/series/</loc>
   </url>
 </urlset>

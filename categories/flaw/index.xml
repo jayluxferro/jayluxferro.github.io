@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Flaw on SPERIXLABS</title>
-    <link>http://localhost:1313/categories/flaw/</link>
+    <link>https://sperixlabs.org/categories/flaw/</link>
     <description>Recent content in Flaw on SPERIXLABS</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
     <lastBuildDate>Mon, 30 Nov 2020 17:15:25 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/flaw/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sperixlabs.org/categories/flaw/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unauthorised User Account Access on iRokoTV Platform</title>
-      <link>http://localhost:1313/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</link>
+      <link>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</link>
       <pubDate>Mon, 30 Nov 2020 17:15:25 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</guid>
-      <description>&lt;p&gt;This research presents a flaw in user authentication that enables an unauthorised user to enumerate valid user accounts on the iRokoTV client applications (mobile and web) and also crack a person’s pin code.&#xA;The security analysis was done on the iOS platform; the flaw translates to other platforms (android and web).&lt;/p&gt;&#xA;&lt;h3 id=&#34;details-of-the-flaw&#34;&gt;Details of the Flaw&lt;/h3&gt;&#xA;&lt;p&gt;The iRokoTV iOS application (version 1.7.12) presents a user with the option to sign up or log in as an existing user. When a user signs up, a 4 digit verification code is sent to the user’s number. Upon verifying, the user is made to create a 4 digit pin code that will be used in accessing the platform; together with his phone number ( as shown below).&#xA;&lt;img src=&#34;http://localhost:1313/img/itv/login.jpg&#34; alt=&#34;Verification code&#34;&gt;&lt;/p&gt;</description>
+      <guid>https://sperixlabs.org/post/2020/11/unauthorised-user-account-access-on-irokotv-platform/</guid>
+      <description>&lt;p&gt;This research presents a flaw in user authentication that enables an unauthorised user to enumerate valid user accounts on the iRokoTV client applications (mobile and web) and also crack a person’s pin code.&#xA;The security analysis was done on the iOS platform; the flaw translates to other platforms (android and web).&lt;/p&gt;&#xA;&lt;h3 id=&#34;details-of-the-flaw&#34;&gt;Details of the Flaw&lt;/h3&gt;&#xA;&lt;p&gt;The iRokoTV iOS application (version 1.7.12) presents a user with the option to sign up or log in as an existing user. When a user signs up, a 4 digit verification code is sent to the user’s number. Upon verifying, the user is made to create a 4 digit pin code that will be used in accessing the platform; together with his phone number ( as shown below).&#xA;&lt;img src=&#34;https://sperixlabs.org/img/itv/login.jpg&#34; alt=&#34;Verification code&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
