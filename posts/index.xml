@@ -1207,96 +1207,96 @@ This endpoint API can be leveraged on by an unauthorised user to enumerate accou
             <pubDate>Sat, 05 Sep 2020 17:07:23 +0000</pubDate>
             
             <guid>https://sperixlabs.org/post/2020/09/reverse-engineering-ghanapostgps-mobile-application-to-create-an-api-for-local-developers/</guid>
-            <description>&lt;p&gt;GhanaPostGPS is Ghana&amp;rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp;amp; area code). Its core functionality is to translate a user&amp;rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions. This research presents how the digital addressing system&amp;rsquo;s mobile application was reversed engineered to create a publicly available API (&lt;strong&gt;&lt;a href=&#34;https://jayluxferro.github.io/post/ghpgps/&#34;&gt;https://jayluxferro.github.io/post/ghpgps/&lt;/a&gt;&lt;/strong&gt;).&lt;/p&gt;</description>
-            <content type="html"><![CDATA[<p>GhanaPostGPS is Ghana&rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp; area code). Its core functionality is to translate a user&rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions. This research presents how the digital addressing system&rsquo;s mobile application was reversed engineered to create a publicly available API (<strong><a href="https://jayluxferro.github.io/post/ghpgps/">https://jayluxferro.github.io/post/ghpgps/</a></strong>).</p>
+            <description>&lt;p&gt;GhanaPostGPS is Ghana&amp;rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp;amp; area code). Its core functionality is to translate a user&amp;rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions. This research presents how the digital addressing system&amp;rsquo;s mobile application was reversed engineered to create a publicly available API (&lt;strong&gt;&lt;a href=&#34;https://github.com/jayluxferro/GhanaPostGPS-REST-API&#34;&gt;https://github.com/jayluxferro/GhanaPostGPS-REST-API&lt;/a&gt;&lt;/strong&gt;).&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<p>GhanaPostGPS is Ghana&rsquo;s official digital addressing system which ensures that all locations in the country are addressed. Each location has a unique address which is a composite of the postcode (region, district &amp; area code). Its core functionality is to translate a user&rsquo;s GPS location coordinates to a user-friendly digital address. Those who developed the addressing system did not make available a public application programming interface (API) that can be used by local developers in building technological solutions. This research presents how the digital addressing system&rsquo;s mobile application was reversed engineered to create a publicly available API (<strong><a href="https://github.com/jayluxferro/GhanaPostGPS-REST-API">https://github.com/jayluxferro/GhanaPostGPS-REST-API</a></strong>).</p>
 <h3 id="introduction">Introduction</h3>
 <p>Digital addressing is a modern and revolutionary approach to allocating addresses within a defined space with the aid of the latest geocoding technology. Ghana, in its effort of enhancing digitization, has introduced this digital addressing system (GhanaPostGPS) which covers every inch of the country and ensures that all locations in the country are addressed [1]. With GhanaPostGPS, every location has a unique digital address. It is rather unfortunate that digital solutions built in the country do not make use of this addressing system since there isn&rsquo;t a publicly available API; hence the essence of this research.</p>
 <h3 id="how-does-the-ghanapostgps-application-work">How does the GhanaPostGPS Application work?</h3>
 <p>The communication process follows a client-server architecture (as shown in the figure below). The application runs on both mobile (iOS and Android) and web platforms.</p>
 <!-- raw HTML omitted -->
-<p>When a user launches the application, he has the option to sign in (if he&rsquo;s an existing using), sign up as a new user or use the app without registering (anonymous account). Phone numbers are used in signing on to the platform and verified through a short message service (SMS). When a user signs in successfully, he has the ability to register/generate a digital address and also query for location details (either by name or by address). The mobile applications (iOS and Android) have panic buttons which help users in easy communication with the Police, Fire and Ambulance services in the event of an imminent danger. This is made possible due to the integration of a session initiation protocol (SIP)[2] API in the mobile clients.</p>
+<p>When a user launches the application, he has the option to sign in (if he&rsquo;s an existing using), sign up as a new user or use the app without registering (anonymous account). Phone numbers are used in signing on to the platform and verified through a short message service (SMS). When a user signs in successfully, he has the ability to register/generate a digital address and also query for location details (either by name or by address). The mobile applications (iOS and Android) have panic buttons which help users in easy communication with the Police, Fire and Ambulance services in the event of an imminent danger. This is made possible due to the integration of a session initiation protocol <a href="2">SIP</a> API in the mobile clients.</p>
 <h3 id="end-to-end--encryption-e2ee">End-to-End  Encryption (E2EE)</h3>
 <p>Communication between the clients and the web service uses asymmetric encryption. When the application is launched for the first time, the mobile client connects to the endpoint <strong><a href="https://api.ghanapostgps.com/GetAPIData.aspx">https://api.ghanapostgps.com/GetAPIData.aspx</a></strong> to get the server&rsquo;s public key (a sample is shown below).</p>
-<pre tabindex="0"><code>	-----BEGIN PUBLIC KEY-----
-	MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlO6O2gAGlT4+YP+evP9c
-	9qynWdv/qIAx5Jc4kp+UTmrsn8wJn4bD9H8rynSvepH0navZiDwYvioAPbIcR6cG
-	MMFnP5/2wN9zrBFZtnofcpSrk4q9/GRHj4IuHheQjvMiislrRdIEgqxjMQ1aaiG7
-	+MeoeQuHz08O+aecHuMtJTXzcIQDqkMHkeA/yt/ge/ASDqSRn0Hdpa/4OA/ZtVpT
-	8Ph2lLgMv+O5Iz11UIwSqyewSdAZzX0H4jUPKCCfnhgWsS+7WJU6KufYptvl0/P4
-	NSdJKSdYg/y44pWiPxlgMUf6s1nOXJJ0vSi0zrDFjx+y+GD2h+dMBRWe9nym+NmJ
-	1QIDAQAB
-	-----END PUBLIC KEY-----
+<pre tabindex="0"><code> -----BEGIN PUBLIC KEY-----
+ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlO6O2gAGlT4+YP+evP9c
+ 9qynWdv/qIAx5Jc4kp+UTmrsn8wJn4bD9H8rynSvepH0navZiDwYvioAPbIcR6cG
+ MMFnP5/2wN9zrBFZtnofcpSrk4q9/GRHj4IuHheQjvMiislrRdIEgqxjMQ1aaiG7
+ +MeoeQuHz08O+aecHuMtJTXzcIQDqkMHkeA/yt/ge/ASDqSRn0Hdpa/4OA/ZtVpT
+ 8Ph2lLgMv+O5Iz11UIwSqyewSdAZzX0H4jUPKCCfnhgWsS+7WJU6KufYptvl0/P4
+ NSdJKSdYg/y44pWiPxlgMUf6s1nOXJJ0vSi0zrDFjx+y+GD2h+dMBRWe9nym+NmJ
+ 1QIDAQAB
+ -----END PUBLIC KEY-----
 </code></pre><p>Upon getting the public key, the mobile client generates a random string (using the method below) of length 16 characters.</p>
-<pre tabindex="0"><code>	 private static final String ALLOWED_CHARACTERS = &#34;0123456789qwertyuiopasdfghjklzxcvbnm!@$#^&amp;*()&#34;;
-	 public static String getRandomString(int i) {
-	 	Random random = new Random();
-	 	StringBuilder sb = new StringBuilder(i);
-	 	for (int i2 = 0; i2 &lt; i; i2++) {
-	 		sb.append(ALLOWED_CHARACTERS.charAt(random.nextInt(ALLOWED_CHARACTERS.length())));
-	 	}
-	 	return sb.toString();
-	 }
+<pre tabindex="0"><code>  private static final String ALLOWED_CHARACTERS = &#34;0123456789qwertyuiopasdfghjklzxcvbnm!@$#^&amp;*()&#34;;
+  public static String getRandomString(int i) {
+   Random random = new Random();
+   StringBuilder sb = new StringBuilder(i);
+   for (int i2 = 0; i2 &lt; i; i2++) {
+    sb.append(ALLOWED_CHARACTERS.charAt(random.nextInt(ALLOWED_CHARACTERS.length())));
+   }
+   return sb.toString();
+  }
 </code></pre><p>The generated random string becomes a symmetric key that is used in the encryption and decryption of data between the client and the server. The client sends the generated random string (16 bytes) together with a universally unique identifier (UUID) and the operating system&rsquo;s name (Android or iOS) to the server. This data is encrypted (using RSA) and encoded in base64 using the server&rsquo;s public key before it is sent. A sample is shown below:</p>
-<pre tabindex="0"><code>	TiJ/O4d2rFzaR046lLMYBJ6yU3e+vqDjkrYNVrhFm9K+jLXbMzTB6xAdtz/f/Rx+Nyw5ZB64ok3v8MRJq9jf8NwpYeFQZUGR0UzMmg
-	EgYR3MlAgFz7vRkQt0GGt/BwEaK081PJKxnqVqqXjr3NqNbfJr3GDDkfIfVKT4xOZRZbcCFdPpDD6Ofb5RD7mL8LQLvwOPOUVq3+/
-	MlNDVhxOD4Osq0PqWh8CvrZY8y2Q1sDJYDTUsKFn0ChxFNtJhso1ImtqLBkNFZbrWUXn6NbHV+p3HBJVeZNcJxlWPPHaBh8Ip7
-	qPOnnMww4ZXWC88/tWTlScFemwTcyGpT58T9rMySA==
+<pre tabindex="0"><code> TiJ/O4d2rFzaR046lLMYBJ6yU3e+vqDjkrYNVrhFm9K+jLXbMzTB6xAdtz/f/Rx+Nyw5ZB64ok3v8MRJq9jf8NwpYeFQZUGR0UzMmg
+ EgYR3MlAgFz7vRkQt0GGt/BwEaK081PJKxnqVqqXjr3NqNbfJr3GDDkfIfVKT4xOZRZbcCFdPpDD6Ofb5RD7mL8LQLvwOPOUVq3+/
+ MlNDVhxOD4Osq0PqWh8CvrZY8y2Q1sDJYDTUsKFn0ChxFNtJhso1ImtqLBkNFZbrWUXn6NbHV+p3HBJVeZNcJxlWPPHaBh8Ip7
+ qPOnnMww4ZXWC88/tWTlScFemwTcyGpT58T9rMySA==
 </code></pre><p>The server responds by sending a base64 encoded data which can be decrypted using the client&rsquo;s symmetric key. The decrypted data is shown below.</p>
-<pre tabindex="0"><code>	PlsUseYourOwnKey||https://api.ghanapostgps.com/PublicGPGPSAPI.aspx
+<pre tabindex="0"><code> PlsUseYourOwnKey||https://api.ghanapostgps.com/PublicGPGPSAPI.aspx
 </code></pre><p>The decrypted data contained a new endpoint <strong><a href="https://api.ghanapostgps.com/PublicGPGPSAPI.aspx">https://api.ghanapostgps.com/PublicGPGPSAPI.aspx</a></strong> through which all subsequent communications were made. The symmetric encryption used is advanced encryption standard (AES); as shown below.</p>
-<pre tabindex="0"><code>	// Java, AES CBC Encryption
-	package com.ghanapostgps.ghanapost.util;
+<pre tabindex="0"><code> // Java, AES CBC Encryption
+ package com.ghanapostgps.ghanapost.util;
 
-	import android.util.Base64;
-	import javax.crypto.Cipher;
-	import javax.crypto.spec.IvParameterSpec;
-	import javax.crypto.spec.SecretKeySpec;
-	import org.apache.commons.compress.utils.CharsetNames;
+ import android.util.Base64;
+ import javax.crypto.Cipher;
+ import javax.crypto.spec.IvParameterSpec;
+ import javax.crypto.spec.SecretKeySpec;
+ import org.apache.commons.compress.utils.CharsetNames;
 
-	public class AESenc {
-		private String key = &#34;&#34;;
+ public class AESenc {
+  private String key = &#34;&#34;;
 
-		public AESenc(String str) {
-			this.key = str;
-		}
+  public AESenc(String str) {
+   this.key = str;
+  }
 
-		public String encrypt(String str) {
-			try {
-				byte[] bytes = Utils.getRandomString(16).getBytes(CharsetNames.UTF_8);
-				IvParameterSpec ivParameterSpec = new IvParameterSpec(bytes);
-				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &#34;AES&#34;);
-				Cipher instance = Cipher.getInstance(&#34;AES/CBC/PKCS7PADDING&#34;);
-				instance.init(1, secretKeySpec, ivParameterSpec);
-				byte[] doFinal = instance.doFinal(str.getBytes());
-				byte[] bArr = new byte[(bytes.length + doFinal.length)];
-				System.arraycopy(bytes, 0, bArr, 0, bytes.length);
-				System.arraycopy(doFinal, 0, bArr, 16, doFinal.length);
-				return Base64.encodeToString(bArr, 0);
-			} catch (Exception e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
+  public String encrypt(String str) {
+   try {
+    byte[] bytes = Utils.getRandomString(16).getBytes(CharsetNames.UTF_8);
+    IvParameterSpec ivParameterSpec = new IvParameterSpec(bytes);
+    SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &#34;AES&#34;);
+    Cipher instance = Cipher.getInstance(&#34;AES/CBC/PKCS7PADDING&#34;);
+    instance.init(1, secretKeySpec, ivParameterSpec);
+    byte[] doFinal = instance.doFinal(str.getBytes());
+    byte[] bArr = new byte[(bytes.length + doFinal.length)];
+    System.arraycopy(bytes, 0, bArr, 0, bytes.length);
+    System.arraycopy(doFinal, 0, bArr, 16, doFinal.length);
+    return Base64.encodeToString(bArr, 0);
+   } catch (Exception e) {
+    e.printStackTrace();
+    return null;
+   }
+  }
 
-		public String decrypt(String str) {
-			try {
-				byte[] decode = Base64.decode(str, 0);
-				int length = decode.length - 16;
-				byte[] bArr = new byte[length];
-				byte[] bArr2 = new byte[16];
-				System.arraycopy(decode, 0, bArr2, 0, 16);
-				System.arraycopy(decode, 16, bArr, 0, length);
-				IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr2);
-				SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &#34;AES&#34;);
-				Cipher instance = Cipher.getInstance(&#34;AES/CBC/PKCS5PADDING&#34;);
-				instance.init(2, secretKeySpec, ivParameterSpec);
-				return new String(instance.doFinal(bArr));
-			} catch (Exception e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
-	}
+  public String decrypt(String str) {
+   try {
+    byte[] decode = Base64.decode(str, 0);
+    int length = decode.length - 16;
+    byte[] bArr = new byte[length];
+    byte[] bArr2 = new byte[16];
+    System.arraycopy(decode, 0, bArr2, 0, 16);
+    System.arraycopy(decode, 16, bArr, 0, length);
+    IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr2);
+    SecretKeySpec secretKeySpec = new SecretKeySpec(this.key.getBytes(CharsetNames.UTF_8), &#34;AES&#34;);
+    Cipher instance = Cipher.getInstance(&#34;AES/CBC/PKCS5PADDING&#34;);
+    instance.init(2, secretKeySpec, ivParameterSpec);
+    return new String(instance.doFinal(bArr));
+   } catch (Exception e) {
+    e.printStackTrace();
+    return null;
+   }
+  }
+ }
 </code></pre><p>From the AES encryption/decryption method, the initializing vector (IV) is the first 16 bytes of the base64 decoded data. When the client is encrypting a piece of data to be sent to the server, it generates a 16 byte string based on the <strong>getRandomString</strong> method; this forms the first 16 bytes of the data to be sent. The actual data is encrypted using the symmetric key and the randomly generated 16 bytes string (the IV). Afterwards, the data is base64 encoded before it is sent.</p>
 <p>The client decrypts the information received from the server by decoding the base64 string. It then extracts the first 16 bytes as the IV. The remaining bytes of data is decrypted using the symmetric key and the IV.</p>
 <p>The same E2EE mechanism was implemented in Golang which was used in developing the public API. Details of the implementation can be found using <strong><a href="https://github.com/jayluxferro/ghanapostgps">https://github.com/jayluxferro/ghanapostgps</a></strong>.</p>
