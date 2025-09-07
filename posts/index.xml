@@ -15,12 +15,12 @@
             <pubDate>Sun, 07 Sep 2025 21:26:53 +0000</pubDate>
             
             <guid>https://sperixlabs.org/post/2025/09/analyzing-a-weird-behavior-in-a-tenda-ax3000-wifi6-mesh-router/</guid>
-            <description>&lt;p&gt;I recently purchased a Tenda AX3000 WiFi6 Mesh Router from &lt;a href=&#34;https://www.aliexpress.com/item/1005006332758836.html&#34;&gt;AliExpress&lt;/a&gt;. The setup was quite straightforward and it works well. However I was tempted to figure out what the device might be doing on my network and I encountered something very strange. Let&amp;rsquo;s take a look at the device and its behavior.&lt;/p&gt;
+            <description>&lt;p&gt;I recently purchased a Tenda AX3000 WiFi6 Mesh Router from &lt;a href=&#34;https://www.aliexpress.com/item/1005006332758836.html&#34;&gt;AliExpress&lt;/a&gt;. The setup was quite straightforward and it works well. However, I was tempted to figure out what the device might be doing on my network and I encountered something very strange. Let&amp;rsquo;s take a look at the device and its behavior.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;the-device&#34;&gt;The Device&lt;/h2&gt;
 &lt;p&gt;The device consisted of 3 nodes; one as the main router and two as mesh nodes.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://sperixlabs.org/img/tenda-ax3000/device.jpeg&#34; alt=&#34;Tenda AX3000&#34;&gt;&lt;/p&gt;</description>
-            <content type="html"><![CDATA[<p>I recently purchased a Tenda AX3000 WiFi6 Mesh Router from <a href="https://www.aliexpress.com/item/1005006332758836.html">AliExpress</a>. The setup was quite straightforward and it works well. However I was tempted to figure out what the device might be doing on my network and I encountered something very strange. Let&rsquo;s take a look at the device and its behavior.</p>
+            <content type="html"><![CDATA[<p>I recently purchased a Tenda AX3000 WiFi6 Mesh Router from <a href="https://www.aliexpress.com/item/1005006332758836.html">AliExpress</a>. The setup was quite straightforward and it works well. However, I was tempted to figure out what the device might be doing on my network and I encountered something very strange. Let&rsquo;s take a look at the device and its behavior.</p>
 <hr>
 <h2 id="the-device">The Device</h2>
 <p>The device consisted of 3 nodes; one as the main router and two as mesh nodes.</p>
