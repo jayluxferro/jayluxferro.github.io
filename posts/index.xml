@@ -6,8 +6,71 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>SPERIXLABS</copyright>
-        <lastBuildDate>Sat, 02 Nov 2024 09:36:53 +0000</lastBuildDate>
+        <lastBuildDate>Sun, 07 Sep 2025 21:26:53 +0000</lastBuildDate>
         <atom:link href="https://sperixlabs.org/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Analyzing a Weird Behavior in a Tenda AX3000 WiFi6 Mesh Router</title>
+            <link>https://sperixlabs.org/post/2025/09/analyzing-a-weird-behavior-in-a-tenda-ax3000-wifi6-mesh-router/</link>
+            <pubDate>Sun, 07 Sep 2025 21:26:53 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2025/09/analyzing-a-weird-behavior-in-a-tenda-ax3000-wifi6-mesh-router/</guid>
+            <description>&lt;p&gt;I recently purchased a Tenda AX3000 WiFi6 Mesh Router from &lt;a href=&#34;https://www.aliexpress.com/item/1005006332758836.html&#34;&gt;AliExpress&lt;/a&gt;. The setup was quite straightforward and it works well. However I was tempted to figure out what the device might be doing on my network and I encountered something very strange. Let&amp;rsquo;s take a look at the device and its behavior.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;the-device&#34;&gt;The Device&lt;/h2&gt;
+&lt;p&gt;The device consisted of 3 nodes; one as the main router and two as mesh nodes.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sperixlabs.org/img/tenda-ax3000/device.jpeg&#34; alt=&#34;Tenda AX3000&#34;&gt;&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<p>I recently purchased a Tenda AX3000 WiFi6 Mesh Router from <a href="https://www.aliexpress.com/item/1005006332758836.html">AliExpress</a>. The setup was quite straightforward and it works well. However I was tempted to figure out what the device might be doing on my network and I encountered something very strange. Let&rsquo;s take a look at the device and its behavior.</p>
+<hr>
+<h2 id="the-device">The Device</h2>
+<p>The device consisted of 3 nodes; one as the main router and two as mesh nodes.</p>
+<p><img src="/img/tenda-ax3000/device.jpeg" alt="Tenda AX3000"></p>
+<p>The main router is connected to the internet and the two mesh nodes are connected to the main router via WiFi6. The device has a web interface that allows you to configure it, and also a mobile app (Android/iOS) that can be used to manage the device.</p>
+<h2 id="network-analysis">Network Analysis</h2>
+<p>I did an nmap scan of the device and found that it had the following open ports:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>PORT      STATE SERVICE         VERSION
+</span></span><span style="display:flex;"><span>23/tcp    open  tcpwrapped
+</span></span><span style="display:flex;"><span>80/tcp    open  http
+</span></span><span style="display:flex;"><span>443/tcp   open  ssl/https
+</span></span><span style="display:flex;"><span>8888/tcp  open  sun-answerbook?
+</span></span><span style="display:flex;"><span>9000/tcp  open  cslistener?
+</span></span><span style="display:flex;"><span>10004/tcp open  emcrmirccd?
+</span></span><span style="display:flex;"><span>49152/tcp open  upnp
+</span></span></code></pre></div><p>Then I moved to analyzing the egress traffic from the device. I realized a network request was being made almost every 7 seconds to the domain: <code>mac.cloud.tenda.com.cn</code>. This domain was being resolved to the IP address <code>116.62.171.30</code> which is managed by Aliyun Computing Co., Ltd. in China.</p>
+<p>The request payload contained the first 3 bytes of the MAC addresses of the devices on the network which is the OUI (Organizationally Unique Identifier) that identifies the manufacturer of the device. This request payload was being sent in plaintext over HTTP to that domain.</p>
+<p><img src="/img/tenda-ax3000/logs.png" alt="Network Logs">
+<img src="/img/tenda-ax3000/logs2.png" alt="Network Logs"></p>
+<p>Quite weird why a router will be sending this information to a server in China every 7 seconds 🤔.</p>
+<h2 id="remediation">Remediation</h2>
+<p>I tried blocking the domain <code>mac.cloud.tenda.com.cn</code> on my firewall but I realized the device throughput dropped significantly. Quite weird. I then decided to setup a local DNS server that would resolve the domain to an internal IP on my network. I used <code>dnsmasq</code> for this purpose. I configured <code>dnsmasq</code> to resolve the domain <code>mac.cloud.tenda.com.cn</code> to the local IP address of my DNS server. That didn&rsquo;t solve the throughput issue.</p>
+<p>I had to reverse engineer the backend REST API of the domain to replicate the expected response on my local DNS server. Since the request was being sent in plain text over HTTP, I was able to figure out the request and response and replicated that on my local DNS server using python.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> FastAPI
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi.middleware.cors <span style="color:#f92672">import</span> CORSMiddleware
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> models <span style="color:#f92672">import</span> DeviceMac
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> FastAPI()
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>add_middleware(
+</span></span><span style="display:flex;"><span>    CORSMiddleware,
+</span></span><span style="display:flex;"><span>    allow_origins<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;*&#34;</span>],
+</span></span><span style="display:flex;"><span>    allow_credentials<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>    allow_methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;*&#34;</span>],
+</span></span><span style="display:flex;"><span>    allow_headers<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;*&#34;</span>],
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.post</span>(<span style="color:#e6db74">&#34;/route/mac_vendor/v1&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mac_vendor</span>(mac_addresses: DeviceMac):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Get the MAC vendor information.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;resp&#34;</span>: {<span style="color:#e6db74">&#34;mac_list&#34;</span>: {}, <span style="color:#e6db74">&#34;interval&#34;</span>: <span style="color:#ae81ff">1135296000</span>}}
+</span></span></code></pre></div><p>In the end, I was able to replicate the expected response and the device throughput was back to normal without forwarding any information to the server in China.</p>
+<p><img src="/img/tenda-ax3000/nginx_logs.png" alt="Nginx Logs"></p>
+]]></content>
+        </item>
         
         <item>
             <title>Intercepting HTTP traffic in Android Flutter Apps</title>
