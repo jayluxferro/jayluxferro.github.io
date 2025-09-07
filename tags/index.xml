@@ -31,6 +31,20 @@
       <description></description>
     </item>
     <item>
+      <title>Certifications</title>
+      <link>https://sperixlabs.org/tags/certifications/</link>
+      <pubDate>Sun, 07 Sep 2025 16:43:21 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/certifications/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Courses</title>
+      <link>https://sperixlabs.org/tags/courses/</link>
+      <pubDate>Sun, 07 Sep 2025 16:43:21 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/courses/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Android</title>
       <link>https://sperixlabs.org/tags/android/</link>
       <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
@@ -63,20 +77,6 @@
       <link>https://sperixlabs.org/tags/forensics/</link>
       <pubDate>Wed, 01 May 2024 09:36:53 +0000</pubDate>
       <guid>https://sperixlabs.org/tags/forensics/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Malware</title>
-      <link>https://sperixlabs.org/tags/malware/</link>
-      <pubDate>Wed, 01 May 2024 09:36:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/malware/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cordova</title>
-      <link>https://sperixlabs.org/tags/cordova/</link>
-      <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/cordova/</guid>
       <description></description>
     </item>
   </channel>
