@@ -2,31 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://sperixlabs.org/post/2025/09/analyzing-a-weird-behavior-in-a-tenda-ax3000-wifi6-mesh-router/</loc>
-    <lastmod>2025-09-07T21:26:53+00:00</lastmod>
+    <loc>https://sperixlabs.org/tags/android/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/audit/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/categories/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/flutter/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2025/09/identifying-packages-used-by-flutter-apps/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/ios/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/posts/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/security/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/tips/</loc>
+    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2025/09/analyzing-a-weird-behavior-in-a-tenda-ax3000-wifi6-mesh-router/</loc>
     <lastmod>2025-09-07T21:26:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/network/</loc>
     <lastmod>2025-09-07T21:26:53+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/posts/</loc>
-    <lastmod>2025-09-07T21:26:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
-    <lastmod>2025-09-07T21:26:53+00:00</lastmod>
-  </url><url>
     <loc>https://sperixlabs.org/tags/router/</loc>
-    <lastmod>2025-09-07T21:26:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/security/</loc>
-    <lastmod>2025-09-07T21:26:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/</loc>
-    <lastmod>2025-09-07T21:26:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/</loc>
     <lastmod>2025-09-07T21:26:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/categories/certifications/</loc>
@@ -44,22 +62,10 @@
     <loc>https://sperixlabs.org/tags/courses/</loc>
     <lastmod>2025-09-07T16:43:21+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/tags/android/</loc>
-    <lastmod>2024-11-02T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/audit/</loc>
-    <lastmod>2024-11-02T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/flutter/</loc>
-    <lastmod>2024-11-02T09:36:53+00:00</lastmod>
-  </url><url>
     <loc>https://sperixlabs.org/post/2024/11/intercepting-http-traffic-in-android-flutter-apps/</loc>
     <lastmod>2024-11-02T09:36:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/2024/08/frida-apk-patcher/</loc>
-    <lastmod>2024-08-16T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/ios/</loc>
     <lastmod>2024-08-16T09:36:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/</loc>

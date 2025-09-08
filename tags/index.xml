@@ -7,8 +7,50 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Sun, 07 Sep 2025 21:26:53 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Sep 2025 21:46:53 +0000</lastBuildDate>
     <atom:link href="https://sperixlabs.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android</title>
+      <link>https://sperixlabs.org/tags/android/</link>
+      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Audit</title>
+      <link>https://sperixlabs.org/tags/audit/</link>
+      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/audit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flutter</title>
+      <link>https://sperixlabs.org/tags/flutter/</link>
+      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/flutter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IOS</title>
+      <link>https://sperixlabs.org/tags/ios/</link>
+      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/ios/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>https://sperixlabs.org/tags/security/</link>
+      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tips</title>
+      <link>https://sperixlabs.org/tags/tips/</link>
+      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/tips/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Network</title>
       <link>https://sperixlabs.org/tags/network/</link>
@@ -24,13 +66,6 @@
       <description></description>
     </item>
     <item>
-      <title>Security</title>
-      <link>https://sperixlabs.org/tags/security/</link>
-      <pubDate>Sun, 07 Sep 2025 21:26:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/security/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Certifications</title>
       <link>https://sperixlabs.org/tags/certifications/</link>
       <pubDate>Sun, 07 Sep 2025 16:43:21 +0000</pubDate>
@@ -42,41 +77,6 @@
       <link>https://sperixlabs.org/tags/courses/</link>
       <pubDate>Sun, 07 Sep 2025 16:43:21 +0000</pubDate>
       <guid>https://sperixlabs.org/tags/courses/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Android</title>
-      <link>https://sperixlabs.org/tags/android/</link>
-      <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/android/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Audit</title>
-      <link>https://sperixlabs.org/tags/audit/</link>
-      <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/audit/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Flutter</title>
-      <link>https://sperixlabs.org/tags/flutter/</link>
-      <pubDate>Sat, 02 Nov 2024 09:36:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/flutter/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>IOS</title>
-      <link>https://sperixlabs.org/tags/ios/</link>
-      <pubDate>Fri, 16 Aug 2024 09:36:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/ios/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Forensics</title>
-      <link>https://sperixlabs.org/tags/forensics/</link>
-      <pubDate>Wed, 01 May 2024 09:36:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/forensics/</guid>
       <description></description>
     </item>
   </channel>
