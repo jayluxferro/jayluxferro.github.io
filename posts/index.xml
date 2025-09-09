@@ -19,12 +19,12 @@
 &lt;h2 id=&#34;technique&#34;&gt;Technique&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;For android apps, extract or export the &lt;code&gt;libapp.so&lt;/code&gt; file from the APK file. This file is usually located in the &lt;code&gt;lib/&amp;lt;architecture&amp;gt;/&lt;/code&gt; directory inside the APK or IPA file. For iOS, you can find an equivalent binary file in the &lt;code&gt;Frameworks/App.framework/App&lt;/code&gt; inside the extracted IPA file.&lt;/p&gt;</description>
+&lt;p&gt;For android apps, extract or export the &lt;code&gt;libapp.so&lt;/code&gt; file from the APK file. This file is usually located in the &lt;code&gt;lib/&amp;lt;architecture&amp;gt;/&lt;/code&gt; directory inside the APK file. For iOS, you can find an equivalent binary file in the &lt;code&gt;Frameworks/App.framework/App&lt;/code&gt; inside the extracted IPA file.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>Sometimes it&rsquo;s useful to determine what Flutter packages are used in a Flutter app. This can be useful for security audits, vulnerability assessments, or just to understand the app better.</p>
 <h2 id="technique">Technique</h2>
 <ol>
 <li>
-<p>For android apps, extract or export the <code>libapp.so</code> file from the APK file. This file is usually located in the <code>lib/&lt;architecture&gt;/</code> directory inside the APK or IPA file. For iOS, you can find an equivalent binary file in the <code>Frameworks/App.framework/App</code> inside the extracted IPA file.</p>
+<p>For android apps, extract or export the <code>libapp.so</code> file from the APK file. This file is usually located in the <code>lib/&lt;architecture&gt;/</code> directory inside the APK file. For iOS, you can find an equivalent binary file in the <code>Frameworks/App.framework/App</code> inside the extracted IPA file.</p>
 </li>
 <li>
 <p>Use the <code>strings</code> command to extract the package names from the <code>libapp.so</code> or <code>App</code> binary file. This command will search for strings that contain the word <code>package:</code> which is usually followed by the package name.</p>
