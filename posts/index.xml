@@ -6,8 +6,129 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>SPERIXLABS</copyright>
-        <lastBuildDate>Mon, 08 Sep 2025 21:46:53 +0000</lastBuildDate>
+        <lastBuildDate>Mon, 10 Nov 2025 15:26:53 +0000</lastBuildDate>
         <atom:link href="https://sperixlabs.org/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Malicious Code Loading via Base64 Encoded .dex File</title>
+            <link>https://sperixlabs.org/post/2025/11/malicious-code-loading-via-base64-encoded-.dex-file/</link>
+            <pubDate>Mon, 10 Nov 2025 15:26:53 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2025/11/malicious-code-loading-via-base64-encoded-.dex-file/</guid>
+            <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In the course of analyzing a decompiled Java application, we encountered an unusual code segment that decodes a Base64 encoded &lt;code&gt;.dex&lt;/code&gt; file, loads it dynamically, and invokes methods from it. This practice is often associated with malicious activities such as code injection, runtime manipulation, and delivery of payloads without being detected during static analysis.&lt;/p&gt;
+&lt;h2 id=&#34;code-analysis&#34;&gt;Code Analysis&lt;/h2&gt;
+&lt;p&gt;The following Java code snippet outlines the suspicious behavior:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;final&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;attachBaseContext&lt;/span&gt;(Context context) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;boolean&lt;/span&gt; z;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Method method;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;attachBaseContext&lt;/span&gt;(context);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; strArr &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;L&amp;#34;&lt;/span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Object obj &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; BootstrapClass.&lt;span style=&#34;color:#a6e22e&#34;&gt;f2044Wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (obj &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; (method &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; BootstrapClass.&lt;span style=&#34;color:#a6e22e&#34;&gt;f2043Wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        z &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        z &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            method.&lt;span style=&#34;color:#a6e22e&#34;&gt;invoke&lt;/span&gt;(obj, strArr);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; (Throwable unused) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (z) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; bArrDecode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Base64.&lt;span style=&#34;color:#a6e22e&#34;&gt;decode&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ZGV4CjAzNQCl4EprGS2pXI...REDACTED...&amp;#34;&lt;/span&gt;, 2); &lt;span style=&#34;color:#75715e&#34;&gt;// Base64 encoded&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        File file &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; File(context.&lt;span style=&#34;color:#a6e22e&#34;&gt;getCodeCacheDir&lt;/span&gt;(), System.&lt;span style=&#34;color:#a6e22e&#34;&gt;currentTimeMillis&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.dex&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        FileOutputStream fileOutputStream &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; FileOutputStream(file);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            fileOutputStream.&lt;span style=&#34;color:#a6e22e&#34;&gt;write&lt;/span&gt;(bArrDecode);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            fileOutputStream.&lt;span style=&#34;color:#a6e22e&#34;&gt;close&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ((Boolean) &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; DexFile(file).&lt;span style=&#34;color:#a6e22e&#34;&gt;loadClass&lt;/span&gt;(BootstrapClass.&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;getCanonicalName&lt;/span&gt;(), &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;getDeclaredMethod&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;exemptAll&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Class&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;invoke&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Object&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;)).&lt;span style=&#34;color:#a6e22e&#34;&gt;booleanValue&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;finally&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; (Throwable th) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        th.&lt;span style=&#34;color:#a6e22e&#34;&gt;printStackTrace&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;key-points&#34;&gt;Key Points:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Base64 Decoding&lt;/strong&gt;: A &lt;code&gt;.dex&lt;/code&gt; file is decoded from a Base64 string.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dynamic Loading&lt;/strong&gt;: The &lt;code&gt;.dex&lt;/code&gt; file is written to the application&amp;rsquo;s code cache and loaded dynamically using &lt;code&gt;DexFile&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Method Invocation&lt;/strong&gt;: A method named &lt;code&gt;exemptAll&lt;/code&gt; is invoked on the loaded class.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;security-implications&#34;&gt;Security Implications&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Code Injection&lt;/strong&gt;: Dynamic loading of external code allows attackers to inject malicious payloads into the application at runtime.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Evasion of Detection&lt;/strong&gt;: Since the code is not present in the original APK, static analysis tools may miss this behavior.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Privilege Escalation&lt;/strong&gt;: Malicious code can exploit system permissions and functionalities available to the compromised application.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Theft and Manipulation&lt;/strong&gt;: Attackers can use the injected code to exfiltrate sensitive data or manipulate app behavior.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Static Analysis Enhancements&lt;/strong&gt;: Use advanced static analysis tools that can detect Base64 encoded payloads and dynamic loading techniques.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Runtime Monitoring&lt;/strong&gt;: Implement runtime monitoring to detect unusual behaviors such as unexpected file writes, dynamic class loading, and method invocations.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;The identified behavior is indicative of a potential security threat. Continuous monitoring and adherence to best practices are crucial in safeguarding against emerging threats in the dynamic landscape of mobile app development.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>In the course of analyzing a decompiled Java application, we encountered an unusual code segment that decodes a Base64 encoded <code>.dex</code> file, loads it dynamically, and invokes methods from it. This practice is often associated with malicious activities such as code injection, runtime manipulation, and delivery of payloads without being detected during static analysis.</p>
+<h2 id="code-analysis">Code Analysis</h2>
+<p>The following Java code snippet outlines the suspicious behavior:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">attachBaseContext</span>(Context context) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">boolean</span> z;
+</span></span><span style="display:flex;"><span>    Method method;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>.<span style="color:#a6e22e">attachBaseContext</span>(context);
+</span></span><span style="display:flex;"><span>    String<span style="color:#f92672">[]</span> strArr <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;L&#34;</span>};
+</span></span><span style="display:flex;"><span>    Object obj <span style="color:#f92672">=</span> BootstrapClass.<span style="color:#a6e22e">f2044Wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (obj <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> (method <span style="color:#f92672">=</span> BootstrapClass.<span style="color:#a6e22e">f2043Wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</span>) <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>        z <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        z <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            method.<span style="color:#a6e22e">invoke</span>(obj, strArr);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Throwable unused) {
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (z) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> bArrDecode <span style="color:#f92672">=</span> Base64.<span style="color:#a6e22e">decode</span>(<span style="color:#e6db74">&#34;ZGV4CjAzNQCl4EprGS2pXI...REDACTED...&#34;</span>, 2); <span style="color:#75715e">// Base64 encoded</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>        File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File(context.<span style="color:#a6e22e">getCodeCacheDir</span>(), System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.dex&#34;</span>);
+</span></span><span style="display:flex;"><span>        FileOutputStream fileOutputStream <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileOutputStream(file);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            fileOutputStream.<span style="color:#a6e22e">write</span>(bArrDecode);
+</span></span><span style="display:flex;"><span>            fileOutputStream.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            ((Boolean) <span style="color:#66d9ef">new</span> DexFile(file).<span style="color:#a6e22e">loadClass</span>(BootstrapClass.<span style="color:#a6e22e">class</span>.<span style="color:#a6e22e">getCanonicalName</span>(), <span style="color:#66d9ef">null</span>).<span style="color:#a6e22e">getDeclaredMethod</span>(<span style="color:#e6db74">&#34;exemptAll&#34;</span>, <span style="color:#66d9ef">new</span> Class<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>).<span style="color:#a6e22e">invoke</span>(<span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>)).<span style="color:#a6e22e">booleanValue</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (Throwable th) {
+</span></span><span style="display:flex;"><span>        th.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="key-points">Key Points:</h3>
+<ol>
+<li><strong>Base64 Decoding</strong>: A <code>.dex</code> file is decoded from a Base64 string.</li>
+<li><strong>Dynamic Loading</strong>: The <code>.dex</code> file is written to the application&rsquo;s code cache and loaded dynamically using <code>DexFile</code>.</li>
+<li><strong>Method Invocation</strong>: A method named <code>exemptAll</code> is invoked on the loaded class.</li>
+</ol>
+<h2 id="security-implications">Security Implications</h2>
+<ol>
+<li><strong>Code Injection</strong>: Dynamic loading of external code allows attackers to inject malicious payloads into the application at runtime.</li>
+<li><strong>Evasion of Detection</strong>: Since the code is not present in the original APK, static analysis tools may miss this behavior.</li>
+<li><strong>Privilege Escalation</strong>: Malicious code can exploit system permissions and functionalities available to the compromised application.</li>
+<li><strong>Data Theft and Manipulation</strong>: Attackers can use the injected code to exfiltrate sensitive data or manipulate app behavior.</li>
+</ol>
+<h2 id="recommendations">Recommendations</h2>
+<ol>
+<li><strong>Static Analysis Enhancements</strong>: Use advanced static analysis tools that can detect Base64 encoded payloads and dynamic loading techniques.</li>
+<li><strong>Runtime Monitoring</strong>: Implement runtime monitoring to detect unusual behaviors such as unexpected file writes, dynamic class loading, and method invocations.</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>The identified behavior is indicative of a potential security threat. Continuous monitoring and adherence to best practices are crucial in safeguarding against emerging threats in the dynamic landscape of mobile app development.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Identifying Packages Used by Flutter Apps</title>

@@ -3,12 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sperixlabs.org/tags/android/</loc>
-    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/tags/audit/</loc>
-    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
+    <loc>https://sperixlabs.org/tags/application/</loc>
+    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/categories/</loc>
+    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2025/11/malicious-code-loading-via-base64-encoded-.dex-file/</loc>
+    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/posts/</loc>
+    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
+    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/security/</loc>
+    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/</loc>
+    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/</loc>
+    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/audit/</loc>
     <lastmod>2025-09-08T21:46:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/flutter/</loc>
@@ -18,21 +39,6 @@
     <lastmod>2025-09-08T21:46:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/ios/</loc>
-    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/posts/</loc>
-    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
-    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/security/</loc>
-    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/</loc>
-    <lastmod>2025-09-08T21:46:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/</loc>
     <lastmod>2025-09-08T21:46:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/tips/</loc>

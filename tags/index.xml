@@ -7,13 +7,27 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Mon, 08 Sep 2025 21:46:53 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Nov 2025 15:26:53 +0000</lastBuildDate>
     <atom:link href="https://sperixlabs.org/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Android</title>
       <link>https://sperixlabs.org/tags/android/</link>
-      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
+      <pubDate>Mon, 10 Nov 2025 15:26:53 +0000</pubDate>
       <guid>https://sperixlabs.org/tags/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Application</title>
+      <link>https://sperixlabs.org/tags/application/</link>
+      <pubDate>Mon, 10 Nov 2025 15:26:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/application/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>https://sperixlabs.org/tags/security/</link>
+      <pubDate>Mon, 10 Nov 2025 15:26:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/security/</guid>
       <description></description>
     </item>
     <item>
@@ -35,13 +49,6 @@
       <link>https://sperixlabs.org/tags/ios/</link>
       <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
       <guid>https://sperixlabs.org/tags/ios/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Security</title>
-      <link>https://sperixlabs.org/tags/security/</link>
-      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/security/</guid>
       <description></description>
     </item>
     <item>
@@ -70,13 +77,6 @@
       <link>https://sperixlabs.org/tags/certifications/</link>
       <pubDate>Sun, 07 Sep 2025 16:43:21 +0000</pubDate>
       <guid>https://sperixlabs.org/tags/certifications/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Courses</title>
-      <link>https://sperixlabs.org/tags/courses/</link>
-      <pubDate>Sun, 07 Sep 2025 16:43:21 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/courses/</guid>
       <description></description>
     </item>
   </channel>
