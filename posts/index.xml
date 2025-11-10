@@ -450,7 +450,8 @@ Version: 4.3.0
 Bundle URL: com.vodafone.gh.myvodafone.app
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;directory-structure&#34;&gt;Directory Structure&lt;/h4&gt;
 &lt;p&gt;A decrypted and decompressed ipa file shows the following contents:&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;details&gt;
+&lt;summary&gt;Directory Structure of the Application&lt;/summary&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── AccessibilityResources.bundle
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── Info.plist
@@ -491,7 +492,7 @@ Bundle URL: com.vodafone.gh.myvodafone.app
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── device-names.json
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── main.jsbundle
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── myvodafoneapp
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/details&gt;
 &lt;p&gt;The &lt;strong&gt;Info.plist&lt;/strong&gt; file contents a summary of the information related to the application.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>This research presents a security analysis on a cross-platform mobile application. The <strong>My Vodafone (Ghana)</strong> application formed the basis for the analysis; detailing both static and dynamic analysis.</p>
 <h3 id="technical-details">Technical Details</h3>
@@ -501,7 +502,8 @@ Version: 4.3.0
 Bundle URL: com.vodafone.gh.myvodafone.app
 </code></pre><h4 id="directory-structure">Directory Structure</h4>
 <p>A decrypted and decompressed ipa file shows the following contents:</p>
-<!-- raw HTML omitted -->
+<details>
+<summary>Directory Structure of the Application</summary>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
 </span></span><span style="display:flex;"><span>├── AccessibilityResources.bundle
 </span></span><span style="display:flex;"><span>│   ├── Info.plist
@@ -542,7 +544,7 @@ Bundle URL: com.vodafone.gh.myvodafone.app
 </span></span><span style="display:flex;"><span>├── device-names.json
 </span></span><span style="display:flex;"><span>├── main.jsbundle
 </span></span><span style="display:flex;"><span>└── myvodafoneapp
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div></details>
 <p>The <strong>Info.plist</strong> file contents a summary of the information related to the application.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>	MinimumOSVersion: 13.0
 </span></span><span style="display:flex;"><span>	NSAppTransportSecurity:
@@ -1426,7 +1428,7 @@ This endpoint API can be leveraged on by an unauthorised user to enumerate accou
 <p>Digital addressing is a modern and revolutionary approach to allocating addresses within a defined space with the aid of the latest geocoding technology. Ghana, in its effort of enhancing digitization, has introduced this digital addressing system (GhanaPostGPS) which covers every inch of the country and ensures that all locations in the country are addressed [1]. With GhanaPostGPS, every location has a unique digital address. It is rather unfortunate that digital solutions built in the country do not make use of this addressing system since there isn&rsquo;t a publicly available API; hence the essence of this research.</p>
 <h3 id="how-does-the-ghanapostgps-application-work">How does the GhanaPostGPS Application work?</h3>
 <p>The communication process follows a client-server architecture (as shown in the figure below). The application runs on both mobile (iOS and Android) and web platforms.</p>
-<!-- raw HTML omitted -->
+<img src="/img/gpgps/architecture.png" style="width: 350px;"/>
 <p>When a user launches the application, he has the option to sign in (if he&rsquo;s an existing using), sign up as a new user or use the app without registering (anonymous account). Phone numbers are used in signing on to the platform and verified through a short message service (SMS). When a user signs in successfully, he has the ability to register/generate a digital address and also query for location details (either by name or by address). The mobile applications (iOS and Android) have panic buttons which help users in easy communication with the Police, Fire and Ambulance services in the event of an imminent danger. This is made possible due to the integration of a session initiation protocol <a href="2">SIP</a> API in the mobile clients.</p>
 <h3 id="end-to-end--encryption-e2ee">End-to-End  Encryption (E2EE)</h3>
 <p>Communication between the clients and the web service uses asymmetric encryption. When the application is launched for the first time, the mobile client connects to the endpoint <strong><a href="https://api.ghanapostgps.com/GetAPIData.aspx">https://api.ghanapostgps.com/GetAPIData.aspx</a></strong> to get the server&rsquo;s public key (a sample is shown below).</p>
@@ -1540,43 +1542,43 @@ This endpoint API can be leveraged on by an unauthorised user to enumerate accou
 <h3 id="security-analysis">Security Analysis</h3>
 <p>The WhatsApp version used in this research was <strong>2.20.52.7</strong>. A brief content of the application&rsquo;s <strong>info.plist</strong> is shown in Fig. 1.
 <img src="/img/wa/infolist.png" alt="Info.plist Contents">
-<strong>Fig. 1:</strong> Info.plist Contents <!-- raw HTML omitted --></p>
+<strong>Fig. 1:</strong> Info.plist Contents <br></p>
 <p>The content&rsquo;s of WhatsApp&rsquo;s application folder is shown in Fig. 2.
 <img src="/img/wa/1.png" alt="Contents of Application Data">
-<strong>Fig. 2:</strong> Contents of Application Data <!-- raw HTML omitted --></p>
+<strong>Fig. 2:</strong> Contents of Application Data <br></p>
 <p>The <strong>Biz</strong> folder contains an SQLite file; which stores the details of all WhatsApp Business clients that a user has in his/her contacts. Details of such clients are stored in plain text in the SQLite file as shown in Figs. 3, 4 and 5. This details include their business names, phone numbers, business addresses, business location cooordinates, email addresses etc.
 <img src="/img/wa/wb3.png" alt="Details of WhatsApp Business Clients">
-<strong>Fig. 3:</strong> Details of WhatsApp Business Clients <!-- raw HTML omitted --></p>
+<strong>Fig. 3:</strong> Details of WhatsApp Business Clients <br></p>
 <p><img src="/img/wa/wb4.png" alt="Details of WhatsApp Business Clients">
-<strong>Fig. 4:</strong> Details of WhatsApp Business Clients <!-- raw HTML omitted --></p>
+<strong>Fig. 4:</strong> Details of WhatsApp Business Clients <br></p>
 <p><img src="/img/wa/wb5.png" alt="Details of WhatsApp Business Clients">
-<strong>Fig. 5:</strong> Details of WhatsApp Business Clients <!-- raw HTML omitted --></p>
+<strong>Fig. 5:</strong> Details of WhatsApp Business Clients <br></p>
 <p>It was realized that WhatsApp filters certain keywords from all messages sent/received. This is stored in an SQLite file called &ldquo;<strong>ChatSearchV5f</strong>&rdquo;. A sample content is shown in Fig. 6. As at the time of writing, it is unknown what such information is used for.
 <img src="/img/wa/fts.png" alt="Chat Search">
-<strong>Fig. 6:</strong> Chat Search <!-- raw HTML omitted --></p>
-<p>&lsquo;<strong>Status</strong>&rsquo; images and videos are stored in the media library folder. The images have a <strong>.thumb</strong> extension whereas the videos have no file extension. It was realized that the streaming files are <strong>mp4</strong> encoded (shown in Fig. 7). Adding <!-- raw HTML omitted -->.mp4<!-- raw HTML omitted --> as an extension to the streaming files enables you to play them.
+<strong>Fig. 6:</strong> Chat Search <br></p>
+<p>&lsquo;<strong>Status</strong>&rsquo; images and videos are stored in the media library folder. The images have a <strong>.thumb</strong> extension whereas the videos have no file extension. It was realized that the streaming files are <strong>mp4</strong> encoded (shown in Fig. 7). Adding <b>.mp4</b> as an extension to the streaming files enables you to play them.
 <img src="/img/wa/video.png" alt="Video Extension">
-<strong>Fig. 7:</strong> Video Extension <!-- raw HTML omitted --></p>
+<strong>Fig. 7:</strong> Video Extension <br></p>
 <p>Chat messages are stored in &ldquo;<strong>CallHistory.sqlite</strong>&rdquo;. This SQLite file stores names of groups a user belongs to (shown in Fig. 8), messages sent to and received in the group, messages sent/received from other users (shown in Fig. 9) and links to encrypted images and videos sent/received (shown in Fig. 10 and 11).
 <img src="/img/wa/ch1.png" alt="User&rsquo;s WhatsApp Groups">
-<strong>Fig. 8:</strong> User&rsquo;s WhatsApp Groups <!-- raw HTML omitted --></p>
+<strong>Fig. 8:</strong> User&rsquo;s WhatsApp Groups <br></p>
 <p><img src="/img/wa/ch2.png" alt="Links to Encrypted Shared or Received Images/Documents">
-<strong>Fig. 9:</strong> Links to Encrypted Shared or Received Images/Documents <!-- raw HTML omitted --></p>
+<strong>Fig. 9:</strong> Links to Encrypted Shared or Received Images/Documents <br></p>
 <p><img src="/img/wa/ch3.png" alt="Chat Messages">
-<strong>Fig. 10:</strong> Chat Messages <!-- raw HTML omitted --></p>
+<strong>Fig. 10:</strong> Chat Messages <br></p>
 <p><img src="/img/wa/ch4.png" alt="Push Names of WhatsApp Contacts">
-<strong>Fig. 11:</strong> Push Names of WhatsApp Contacts <!-- raw HTML omitted --></p>
-<p>Audio files (sent/received) are stored in <!-- raw HTML omitted -->.opus<!-- raw HTML omitted --> extension (shown in Fig. 12).
+<strong>Fig. 11:</strong> Push Names of WhatsApp Contacts <br></p>
+<p>Audio files (sent/received) are stored in <b>.opus</b> extension (shown in Fig. 12).
 <img src="/img/wa/audio.png" alt="Audio File(s)">
-<strong>Fig. 12:</strong> Audio Files(s) <!-- raw HTML omitted --></p>
+<strong>Fig. 12:</strong> Audio Files(s) <br></p>
 <p>WhatsApp has a privacy consent that enables them to upload all contacts on a user&rsquo;s phone to their server. This is shown in Fig. 13.
 <img src="/img/wa/ct.png" alt="Privacy Consent to upload contacts to WhatsApp&rsquo;s Server">
-<strong>Fig. 13:</strong> Privacy Consent to upload contacts to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
+<strong>Fig. 13:</strong> Privacy Consent to upload contacts to WhatsApp&rsquo;s Server <br></p>
 <p>A copy of all contacts on a user&rsquo;s phone is stored in &ldquo;<strong>ContactsV2.sqlite</strong>&rdquo;. This is shown in Fig. 14 and 15.
 <img src="/img/wa/ct1.png" alt="User&rsquo;s Contacts collected and uploaded to WhatsApp Server">
-<strong>Fig. 14:</strong> User&rsquo;s contacts collected and uploaded to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
+<strong>Fig. 14:</strong> User&rsquo;s contacts collected and uploaded to WhatsApp&rsquo;s Server <br></p>
 <p><img src="/img/wa/ct2.png" alt="User&rsquo;s Contacts collected and uploaded to WhatsApp Server">
-<strong>Fig. 15:</strong> User&rsquo;s contacts collected and uploaded to WhatsApp&rsquo;s Server <!-- raw HTML omitted --></p>
+<strong>Fig. 15:</strong> User&rsquo;s contacts collected and uploaded to WhatsApp&rsquo;s Server <br></p>
 <p>From the above security analysis, it can be observed that most of the data stored on the device is in plain text. Hence, it can be inferred that WhatsApp does not implement a secured on-device data storage mechanism.</p>
 <h3 id="conclusion-and-recommendation">Conclusion and Recommendation</h3>
 <p>This research analyzes how WhatsApp secures on-device data of its users. It has been demonstrated how WhatsApp&rsquo;s data is not securely stored  on end-users&rsquo; devices; hence can be retrieved by an attacker who has physical access to the device.</p>
