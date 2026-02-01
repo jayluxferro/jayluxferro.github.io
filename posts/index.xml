@@ -6,8 +6,326 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>SPERIXLABS</copyright>
-        <lastBuildDate>Mon, 10 Nov 2025 15:26:53 +0000</lastBuildDate>
+        <lastBuildDate>Sun, 01 Feb 2026 10:19:53 +0000</lastBuildDate>
         <atom:link href="https://sperixlabs.org/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Unlocking the Vault: A Deep Dive into macOS ARM64 Trial Enforcement and Binary Patching</title>
+            <link>https://sperixlabs.org/post/2026/02/unlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching/</link>
+            <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
+            
+            <guid>https://sperixlabs.org/post/2026/02/unlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching/</guid>
+            <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In the course of analyzing a decompiled macOS productivity application—a calendar and meeting alert utility with a time-limited trial—we encountered a multi-layered enforcement mechanism governing trial expiry, feature gating, and application termination. This practice is common in commercial software: when the trial expires, the app displays warnings, disables premium features, and eventually terminates unless the user purchases or restores a license.&lt;/p&gt;
+&lt;p&gt;This article documents the complete reverse engineering journey: from initial string reconnaissance through call-graph tracing, assembly-level analysis, and ultimately the development of six binary patches that bypass trial termination, re-enable gated features, and customize the UI—all without modifying the application&amp;rsquo;s source code or runtime environment.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>In the course of analyzing a decompiled macOS productivity application—a calendar and meeting alert utility with a time-limited trial—we encountered a multi-layered enforcement mechanism governing trial expiry, feature gating, and application termination. This practice is common in commercial software: when the trial expires, the app displays warnings, disables premium features, and eventually terminates unless the user purchases or restores a license.</p>
+<p>This article documents the complete reverse engineering journey: from initial string reconnaissance through call-graph tracing, assembly-level analysis, and ultimately the development of six binary patches that bypass trial termination, re-enable gated features, and customize the UI—all without modifying the application&rsquo;s source code or runtime environment.</p>
+<hr>
+<h2 id="overview--goals">Overview &amp; Goals</h2>
+<p><strong>Target:</strong> A macOS calendar/meeting alert application with a trial period, distributed as a Mach-O 64-bit executable (ARM64, with optional universal x86_64+ARM64 support).</p>
+<p><strong>Observed behavior:</strong> When the trial expires, the app shows &ldquo;Trial expired - Alerts disabled&rdquo; and eventually displays a modal: &ldquo;Your trial is complete. Purchase [the app] to continue using the app, or the app will close.&rdquo; If the user does not click &ldquo;Restore,&rdquo; the application terminates.</p>
+<p><strong>Goals:</strong></p>
+<ol>
+<li>Trace the trial validation flow from UI strings to enforcement logic</li>
+<li>Identify the critical branch that triggers app termination</li>
+<li>Re-enable alerts and other license-gated features</li>
+<li>Customize banner text and UI elements</li>
+<li>Create reproducible binary patches for both single-arch and universal binaries</li>
+</ol>
+<hr>
+<h2 id="tools--environment">Tools &amp; Environment</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Hopper Disassembler</strong></td>
+          <td>Primary analysis (ARM64 decompilation, cross-references, call graphs)</td>
+      </tr>
+      <tr>
+          <td><strong>HopperPyMCP</strong> (optional)</td>
+          <td>MCP integration for AI-assisted analysis</td>
+      </tr>
+      <tr>
+          <td><strong>xxd</strong></td>
+          <td>Hex dump for binary inspection and patch verification</td>
+      </tr>
+      <tr>
+          <td><strong>otool</strong></td>
+          <td>Mach-O structure inspection (segments, slices)</td>
+      </tr>
+      <tr>
+          <td><strong>PlistBuddy</strong></td>
+          <td>UserDefaults/plist inspection (alternative bypass vectors)</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Binary path:</strong> <code>[App].app/Contents/MacOS/[App]</code><br>
+<strong>Architecture:</strong> ARM64 (Mach-O 64-bit executable)<br>
+<strong>Base address:</strong> <code>0x100000000</code> (standard macOS PIE)</p>
+<p><strong>Important:</strong> For Mach-O executables, the <code>__TEXT</code> segment typically has <code>vmaddr 0x100000000</code> and <code>fileoff 0</code>, so virtual addresses map directly to file offsets within each architecture slice.</p>
+<hr>
+<h2 id="step-1-initial-reconnaissance">Step 1: Initial Reconnaissance</h2>
+<h3 id="locating-the-binary">Locating the Binary</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>file <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: Mach-O 64-bit executable arm64</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Or: Mach-O universal binary with 2 architectures: [x86_64, arm64]</span>
+</span></span></code></pre></div><h3 id="string-hunting">String Hunting</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>strings <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span> | grep -iE <span style="color:#e6db74">&#34;trial|expired|purchase&#34;</span>
+</span></span></code></pre></div><p><strong>Key strings found:</strong></p>
+<ul>
+<li><code>Trial expired - Alerts disabled</code></li>
+<li><code>Trial not started</code></li>
+<li><code>1h left in trial</code></li>
+<li><code>Your trial is complete. Purchase [App] to continue using the app, or the app will close.</code></li>
+<li><code>app_quit_after_trial_expiry</code></li>
+<li><code>trialStartDateKey</code></li>
+<li><code>trialValidationKey</code></li>
+<li><code>purchased_product_ids</code></li>
+</ul>
+<h3 id="data-storage">Data Storage</h3>
+<p>The application is sandboxed. Preferences and purchase state live in the app container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls ~/Library/Containers/<span style="color:#f92672">[</span>bundle_id<span style="color:#f92672">]</span>/Data/Library/
+</span></span><span style="display:flex;"><span>plutil -p ~/Library/Containers/<span style="color:#f92672">[</span>bundle_id<span style="color:#f92672">]</span>/Data/Library/Preferences/<span style="color:#f92672">[</span>bundle_id<span style="color:#f92672">]</span>.plist
+</span></span></code></pre></div><p><strong>Relevant keys:</strong> <code>purchased_product_ids</code>, <code>trial_duration_migration_v1</code>, <code>app_install_date</code></p>
+<hr>
+<h2 id="step-2-tracing-string-references">Step 2: Tracing String References</h2>
+<h3 id="cross-references-in-hopper">Cross-References in Hopper</h3>
+<ol>
+<li>Open the binary in Hopper Disassembler</li>
+<li>Search for the string <code>Trial expired - Alerts disabled</code></li>
+<li>Right-click → <strong>References to this address</strong></li>
+</ol>
+<p><strong>&ldquo;Trial expired - Alerts disabled&rdquo;</strong> is referenced by two procedures. One of them—the banner text getter—selects which trial message to display based on trial state.</p>
+<h3 id="call-graph-backward">Call Graph (Backward)</h3>
+<pre tabindex="0"><code>TrialBannerView → sub_1000cd914 → sub_1000ccde0 (banner text getter)
+</code></pre><h3 id="key-components-identified">Key Components Identified</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>PurchaseManager</strong></td>
+          <td>Trial state, StoreKit integration, UserDefaults keys</td>
+      </tr>
+      <tr>
+          <td><strong>BannerNotificationManager</strong></td>
+          <td>Notification banner UI</td>
+      </tr>
+      <tr>
+          <td><strong>TrialBannerView</strong></td>
+          <td>SwiftUI trial banner view</td>
+      </tr>
+      <tr>
+          <td><strong>NotificationPreferenceManager</strong></td>
+          <td>Alert preferences and gating</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="step-3-understanding-the-banner-display-logic">Step 3: Understanding the Banner Display Logic</h2>
+<h3 id="decompiled-logic-banner-text-getter">Decompiled Logic (Banner Text Getter)</h3>
+<p>The banner text getter receives a <code>TrialState</code> enum and returns the appropriate string:</p>
+<pre tabindex="0"><code>Input: TrialState enum (case + payload)
+- var_38 = case selector (0 = active, 1 = expired/notStarted)
+- x22 = hours remaining (for active) or 0 for expired
+
+If case == 1 (expired/notStarted):
+  If x22 == 0: return &#34;Trial expired - Alerts disabled&#34;
+  Else:        return &#34;Trial not started&#34;
+If x22 == 1:
+  return &#34;1h left in trial&#34;
+If x22 &lt;= 23:
+  return &#34;{x22}h left in trial&#34;
+If x22 &gt;= 24:
+  days = x22 / 24
+  return &#34;{days} day(s) left in trial&#34;
+</code></pre><h3 id="trialstate-enum-from-hopper-metadata">TrialState Enum (from Hopper metadata)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">PurchaseManager</span>.TrialState {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> active(hoursRemaining: Int)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> notStarted
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> expired
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="step-4-locating-the-trial-expiry-handler">Step 4: Locating the Trial Expiry Handler</h2>
+<h3 id="search-for-termination-strings">Search for Termination Strings</h3>
+<p>The string &ldquo;Your trial is complete&rdquo; references a procedure that displays an <code>NSAlert</code> and calls <code>[NSApp terminate]</code>. The analytics event <code>app_quit_after_trial_expiry</code> is logged immediately before termination.</p>
+<h3 id="call-chain-to-trial-expiry">Call Chain to Trial Expiry</h3>
+<pre tabindex="0"><code>sub_1001165a8 → sub_1001156a0 → sub_100115738 → sub_100115a18
+</code></pre><p><strong>sub_100115a18</strong> is the trial expiry alert handler:</p>
+<ol>
+<li>Creates <code>NSAlert</code> with &ldquo;Trial Complete - Upgrade to Continue&rdquo; and &ldquo;Your trial is complete&hellip;&rdquo;</li>
+<li>Adds buttons: &ldquo;Restore&rdquo; and &ldquo;Purchase&rdquo;</li>
+<li>Runs modal: <code>[alert runModal]</code></li>
+<li><strong>If return value == 0x3e8 (1000):</strong> User clicked &ldquo;Restore&rdquo; → call restore flow, do not terminate</li>
+<li><strong>Else:</strong> Log <code>app_quit_after_trial_expiry</code>, call <code>[NSApp terminate:0]</code></li>
+</ol>
+<hr>
+<h2 id="step-5-assembly-analysis-of-the-critical-branch">Step 5: Assembly Analysis of the Critical Branch</h2>
+<h3 id="the-critical-instruction">The Critical Instruction</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Address</th>
+          <th>Instruction</th>
+          <th>Bytes (hex)</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>0x100115b5c</code></td>
+          <td><code>cmp x0, #0x3e8</code></td>
+          <td><code>0a 09 00 d1</code> (LE)</td>
+          <td>Compare <code>runModal</code> return value to 1000 (Restore button)</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Branch behavior:</strong></p>
+<ul>
+<li>If <code>x0 == 0x3e8</code> (Z=1): Branch to Restore path → no terminate</li>
+<li>If <code>x0 != 0x3e8</code> (Z=0): Fall through to terminate block → app quits</li>
+</ul>
+<h3 id="patch-strategy-option-b">Patch Strategy: Option B</h3>
+<p><strong>Goal:</strong> Make the branch always take the Restore path.</p>
+<p><strong>Chosen approach:</strong> Replace <code>cmp x0, #0x3e8</code> with <code>cmp x0, x0</code>. This always sets Z=1 (equal), so the subsequent <code>b.eq</code> (branch if equal) will always branch to the Restore block.</p>
+<p><strong>ARM64 encoding:</strong></p>
+<ul>
+<li>Original: <code>cmp x0, #0x3e8</code> → <code>0a 09 00 d1</code></li>
+<li>Patch: <code>cmp x0, x0</code> → <code>1f 00 00 eb</code></li>
+</ul>
+<hr>
+<h2 id="step-6-alert-gating--why-patches-1-alone-isnt-enough">Step 6: Alert Gating — Why Patches 1 Alone Isn&rsquo;t Enough</h2>
+<p>Patch 1 prevents termination, but alerts remain disabled. The alert scheduler checks a function we call <code>has_valid_license</code> before showing any alert:</p>
+<pre tabindex="0"><code>alert_scheduler
+  if (has_valid_license())
+    → show alert
+  else
+    → log &#34;alert_blocked_no_license&#34;
+    → skip alert
+</code></pre><p><strong>has_valid_license</strong> returns 1 if: lifetime purchased OR annual/monthly purchased OR trial still active. Returns 0 when trial expired and no purchase.</p>
+<p><strong>Patch 2:</strong> Replace the first 8 bytes of <code>has_valid_license</code> with <code>mov w0, #1; ret</code> — always return true. Alerts are then shown regardless of trial state.</p>
+<p><strong>ARM64 encoding:</strong></p>
+<ul>
+<li><code>mov w0, #1</code> → <code>20 00 80 52</code></li>
+<li><code>ret</code> → <code>c0 03 5f d6</code></li>
+</ul>
+<hr>
+<h2 id="step-7-two-banner-systems">Step 7: Two Banner Systems</h2>
+<p>The application has two distinct banner systems:</p>
+<ol>
+<li>
+<p><strong>Trial banner (orange)</strong> — Uses the banner text getter. Shows &ldquo;Trial expired - Alerts disabled&rdquo;, &ldquo;1h left in trial&rdquo;, etc. <strong>Patch 3</strong> modifies the <code>adrp</code>/<code>add</code> instructions to load &ldquo;Your lifetime license is active&rdquo; instead of &ldquo;Trial expired - Alerts disabled&rdquo; when trial is expired.</p>
+</li>
+<li>
+<p><strong>License status banner (green checkmark)</strong> — Shown when <code>has_valid_license()</code> returns true (Patch 2 enables this). Calls a separate text getter that returns:</p>
+<ul>
+<li>If lifetime purchased → &ldquo;Your lifetime license is active&rdquo;</li>
+<li>If annual/monthly → subscription message</li>
+<li>Else → &ldquo;X days remaining&rdquo; (trial)</li>
+</ul>
+</li>
+</ol>
+<p><strong>Patch 4:</strong> Replace the prologue of the license status text getter with <code>movz x0, #0x1f; movk x0, #0xd000, lsl #48; ret</code> — always return the Swift string for &ldquo;Your lifetime license is active&rdquo;.</p>
+<hr>
+<h2 id="step-8-universal-binary-considerations">Step 8: Universal Binary Considerations</h2>
+<p>For universal binaries (x86_64 + ARM64), each architecture occupies a separate slice. The Mach-O fat header stores the file offset of each slice. Patches must be applied at:</p>
+<pre tabindex="0"><code>file_offset = slice_offset + virtual_offset_within_slice
+</code></pre><p>For example, if the ARM64 slice starts at <code>0x2e4000</code>, Patch 1 (virtual offset <code>0x115b5c</code>) is applied at file offset <code>0x2e4000 + 0x115b5c</code>.</p>
+<p>String patches (e.g., overwriting &ldquo;Upgrade to restore alerts&rdquo; with &ldquo;@jayluxferro&rdquo;) may need to be applied to both slices if the string exists in both.</p>
+<hr>
+<h2 id="step-9-patch-summary">Step 9: Patch Summary</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Patch</th>
+          <th>Purpose</th>
+          <th>Technique</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>Terminate bypass</td>
+          <td><code>cmp x0, #0x3e8</code> → <code>cmp x0, x0</code></td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Alerts enable</td>
+          <td>Prologue of <code>has_valid_license</code> → <code>mov w0, #1; ret</code></td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>Trial banner text</td>
+          <td><code>adrp</code>/<code>add</code> → load &ldquo;Your lifetime license is active&rdquo;</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>License status banner</td>
+          <td>Prologue of text getter → return Swift string directly</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>Trial banner subtitle</td>
+          <td>Overwrite &ldquo;Upgrade to restore alerts&rdquo; with &ldquo;@jayluxferro&rdquo;</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>Hide &ldquo;About&rdquo; in settings</td>
+          <td>Overwrite &ldquo;About&rdquo; strings with null bytes</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="step-10-applying-the-patches">Step 10: Applying the Patches</h2>
+<h3 id="manual-application-arm64-only-binary">Manual Application (ARM64-only binary)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Backup first</span>
+</span></span><span style="display:flex;"><span>cp <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.bak
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Patch 1 — Terminate bypass</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#39;\x1f\x00\x00\xeb&#39;</span> | dd of<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[App]&#34;</span> bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> seek<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#ae81ff">0</span>x115b5c<span style="color:#66d9ef">))</span> conv<span style="color:#f92672">=</span>notrunc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Patch 2 — Alerts enable</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#39;\x20\x00\x80\x52\xc0\x03\x5f\xd6&#39;</span> | dd of<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[App]&#34;</span> bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> seek<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#ae81ff">0</span>x12c990<span style="color:#66d9ef">))</span> conv<span style="color:#f92672">=</span>notrunc
+</span></span></code></pre></div><h3 id="verification">Verification</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>xxd -s 0x115b58 -l <span style="color:#ae81ff">16</span> <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected at 0x115b5c: 1f 00 00 eb</span>
+</span></span></code></pre></div><h3 id="code-signing">Code Signing</h3>
+<p>After patching, macOS may reject the modified binary. Re-sign with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>codesign -f -s - <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
+</span></span></code></pre></div><hr>
+<h2 id="alternative-bypass-userdefaults-injection">Alternative Bypass: UserDefaults Injection</h2>
+<p>If the application does not perform server-side verification, injecting a fake purchase into UserDefaults may suffice:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PLIST<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/Library/Containers/[bundle_id]/Data/Library/Preferences/[bundle_id].plist&#34;</span>
+</span></span><span style="display:flex;"><span>/usr/libexec/PlistBuddy -c <span style="color:#e6db74">&#34;Delete :purchased_product_ids&#34;</span> <span style="color:#e6db74">&#34;</span>$PLIST<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>/usr/libexec/PlistBuddy -c <span style="color:#e6db74">&#34;Add :purchased_product_ids array&#34;</span> <span style="color:#e6db74">&#34;</span>$PLIST<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>/usr/libexec/PlistBuddy -c <span style="color:#e6db74">&#34;Add :purchased_product_ids:0 string &#39;[product_id]&#39;&#34;</span> <span style="color:#e6db74">&#34;</span>$PLIST<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Quit the application before modifying; relaunch after. This approach may not persist if StoreKit verifies purchases server-side.</p>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>This reverse engineering exercise demonstrated a systematic approach to analyzing trial enforcement in a macOS ARM64 application:</p>
+<ol>
+<li><strong>String hunting</strong> — Identify UI and analytics strings as entry points</li>
+<li><strong>Cross-reference tracing</strong> — Follow references from strings to procedures</li>
+<li><strong>Call graph analysis</strong> — Map the flow from UI to enforcement logic</li>
+<li><strong>Assembly-level understanding</strong> — Identify critical branches and comparison instructions</li>
+<li><strong>Minimal patching</strong> — Apply the smallest possible changes to achieve the desired behavior</li>
+<li><strong>Universal binary awareness</strong> — Account for slice offsets when patching fat binaries</li>
+</ol>
+<p>The techniques described—instruction substitution, prologue replacement, and string overwriting—are applicable to similar analyses of commercial macOS applications. Understanding how trial and license enforcement is implemented helps security researchers assess robustness and developers improve their protection strategies.</p>
+<hr>
+<p><em>For educational and authorized security research only.</em></p>
+]]></content>
+        </item>
         
         <item>
             <title>Malicious Code Loading via Base64 Encoded .dex File</title>

@@ -2,31 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sperixlabs.org/tags/arm64/</loc>
+    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/binary-patching/</loc>
+    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/categories/</loc>
+    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/macos/</loc>
+    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/posts/</loc>
+    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
+    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/reverse-engineering/</loc>
+    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/security-research/</loc>
+    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/</loc>
+    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/</loc>
+    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2026/02/unlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching/</loc>
+    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
+  </url><url>
     <loc>https://sperixlabs.org/tags/android/</loc>
     <lastmod>2025-11-10T15:26:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/application/</loc>
     <lastmod>2025-11-10T15:26:53+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/categories/</loc>
-    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
-  </url><url>
     <loc>https://sperixlabs.org/post/2025/11/malicious-code-loading-via-base64-encoded-.dex-file/</loc>
     <lastmod>2025-11-10T15:26:53+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/posts/</loc>
-    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
-    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
-  </url><url>
     <loc>https://sperixlabs.org/tags/security/</loc>
-    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/</loc>
-    <lastmod>2025-11-10T15:26:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/</loc>
     <lastmod>2025-11-10T15:26:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/audit/</loc>
@@ -105,9 +123,6 @@
     <lastmod>2022-03-13T18:41:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/2022/02/how-to-sign-macos-pkg-files-for-deployment/</loc>
-    <lastmod>2022-02-02T09:36:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/macos/</loc>
     <lastmod>2022-02-02T09:36:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/categories/api/</loc>

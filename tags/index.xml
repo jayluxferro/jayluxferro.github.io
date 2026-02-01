@@ -7,8 +7,43 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Mon, 10 Nov 2025 15:26:53 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Feb 2026 10:19:53 +0000</lastBuildDate>
     <atom:link href="https://sperixlabs.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARM64</title>
+      <link>https://sperixlabs.org/tags/arm64/</link>
+      <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/arm64/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Binary Patching</title>
+      <link>https://sperixlabs.org/tags/binary-patching/</link>
+      <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/binary-patching/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MacOS</title>
+      <link>https://sperixlabs.org/tags/macos/</link>
+      <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/macos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reverse Engineering</title>
+      <link>https://sperixlabs.org/tags/reverse-engineering/</link>
+      <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/reverse-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security Research</title>
+      <link>https://sperixlabs.org/tags/security-research/</link>
+      <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/security-research/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Android</title>
       <link>https://sperixlabs.org/tags/android/</link>
@@ -42,41 +77,6 @@
       <link>https://sperixlabs.org/tags/flutter/</link>
       <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
       <guid>https://sperixlabs.org/tags/flutter/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>IOS</title>
-      <link>https://sperixlabs.org/tags/ios/</link>
-      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/ios/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tips</title>
-      <link>https://sperixlabs.org/tags/tips/</link>
-      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/tips/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Network</title>
-      <link>https://sperixlabs.org/tags/network/</link>
-      <pubDate>Sun, 07 Sep 2025 21:26:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/network/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Router</title>
-      <link>https://sperixlabs.org/tags/router/</link>
-      <pubDate>Sun, 07 Sep 2025 21:26:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/router/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Certifications</title>
-      <link>https://sperixlabs.org/tags/certifications/</link>
-      <pubDate>Sun, 07 Sep 2025 16:43:21 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/certifications/</guid>
       <description></description>
     </item>
   </channel>

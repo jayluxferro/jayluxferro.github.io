@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="Introduction In the course of analyzing a decompiled macOS productivity application—a calendar and meeting alert utility with a time-limited trial—we encountered a multi-layered enforcement mechanism governing trial expiry, feature gating, and application termination. This practice is common in commercial software: when the trial expires, the app displays warnings, disables premium features, and eventually terminates unless the user purchases or restores a license.
+This article documents the complete reverse engineering journey: from initial string reconnaissance through call-graph tracing, assembly-level analysis, and ultimately the development of six binary patches that bypass trial termination, re-enable gated features, and customize the UI—all without modifying the application&rsquo;s source code or runtime environment.
+" />
+<meta name="keywords" content="research, cybersecurity, macOS, ARM64, Reverse Engineering, Binary Patching, Security Research" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://sperixlabs.org/post/2026/02/unlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching/" />
+
+
+    <title>
+        
+            Unlocking the Vault: A Deep Dive into macOS ARM64 Trial Enforcement and Binary Patching :: SPERIXLABS 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="https://sperixlabs.org/main.b78c3be9451dc4ca61ca377f3dc2cf2e6345a44c2bae46216a322ef366daa399.css" integrity="sha256-t4w76UUdxMphyjd/PcLPLmNFpEwrrkYhajIu82bao5k=">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sperixlabs.org/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sperixlabs.org/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://sperixlabs.org/favicon-16x16.png">
+    <link rel="manifest" href="https://sperixlabs.org/site.webmanifest">
+    <link rel="mask-icon" href="https://sperixlabs.org/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://sperixlabs.org/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Unlocking the Vault: A Deep Dive into macOS ARM64 Trial Enforcement and Binary Patching">
+  <meta itemprop="description" content="Introduction In the course of analyzing a decompiled macOS productivity application—a calendar and meeting alert utility with a time-limited trial—we encountered a multi-layered enforcement mechanism governing trial expiry, feature gating, and application termination. This practice is common in commercial software: when the trial expires, the app displays warnings, disables premium features, and eventually terminates unless the user purchases or restores a license.
+This article documents the complete reverse engineering journey: from initial string reconnaissance through call-graph tracing, assembly-level analysis, and ultimately the development of six binary patches that bypass trial termination, re-enable gated features, and customize the UI—all without modifying the application’s source code or runtime environment.">
+  <meta itemprop="datePublished" content="2026-02-01T10:19:53+00:00">
+  <meta itemprop="dateModified" content="2026-02-01T10:19:53+00:00">
+  <meta itemprop="wordCount" content="1487">
+  <meta itemprop="image" content="https://sperixlabs.org/">
+  <meta itemprop="keywords" content="MacOS,ARM64,Reverse Engineering,Binary Patching,Security Research">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://sperixlabs.org/">
+  <meta name="twitter:title" content="Unlocking the Vault: A Deep Dive into macOS ARM64 Trial Enforcement and Binary Patching">
+  <meta name="twitter:description" content="Introduction In the course of analyzing a decompiled macOS productivity application—a calendar and meeting alert utility with a time-limited trial—we encountered a multi-layered enforcement mechanism governing trial expiry, feature gating, and application termination. This practice is common in commercial software: when the trial expires, the app displays warnings, disables premium features, and eventually terminates unless the user purchases or restores a license.
+This article documents the complete reverse engineering journey: from initial string reconnaissance through call-graph tracing, assembly-level analysis, and ultimately the development of six binary patches that bypass trial termination, re-enable gated features, and customize the UI—all without modifying the application’s source code or runtime environment.">
+
+
+
+    <meta property="og:url" content="https://sperixlabs.org/post/2026/02/unlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching/">
+  <meta property="og:site_name" content="SPERIXLABS">
+  <meta property="og:title" content="Unlocking the Vault: A Deep Dive into macOS ARM64 Trial Enforcement and Binary Patching">
+  <meta property="og:description" content="Introduction In the course of analyzing a decompiled macOS productivity application—a calendar and meeting alert utility with a time-limited trial—we encountered a multi-layered enforcement mechanism governing trial expiry, feature gating, and application termination. This practice is common in commercial software: when the trial expires, the app displays warnings, disables premium features, and eventually terminates unless the user purchases or restores a license.
+This article documents the complete reverse engineering journey: from initial string reconnaissance through call-graph tracing, assembly-level analysis, and ultimately the development of six binary patches that bypass trial termination, re-enable gated features, and customize the UI—all without modifying the application’s source code or runtime environment.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-01T10:19:53+00:00">
+    <meta property="article:modified_time" content="2026-02-01T10:19:53+00:00">
+    <meta property="article:tag" content="MacOS">
+    <meta property="article:tag" content="ARM64">
+    <meta property="article:tag" content="Reverse Engineering">
+    <meta property="article:tag" content="Binary Patching">
+    <meta property="article:tag" content="Security Research">
+    <meta property="og:image" content="https://sperixlabs.org/">
+
+
+
+
+    <meta property="article:section" content="Reverse Engineering" />
+
+
+
+    <meta property="article:published_time" content="2026-02-01 10:19:53 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://sperixlabs.org/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~/home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://sperixlabs.org/about/">About</a></li><li><a href="https://sperixlabs.org/posts/">Blog</a></li><li><a href="https://sperixlabs.org/certifications/">Courses &amp; Certs</a></li><li><a href="https://sperixlabs.org/api/">Projects</a></li><li><a href="https://sperixlabs.org/publication/">Research</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        7 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://sperixlabs.org/post/2026/02/unlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching/">Unlocking the Vault: A Deep Dive into macOS ARM64 Trial Enforcement and Binary Patching</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <h2 id="introduction">Introduction</h2>
+<p>In the course of analyzing a decompiled macOS productivity application—a calendar and meeting alert utility with a time-limited trial—we encountered a multi-layered enforcement mechanism governing trial expiry, feature gating, and application termination. This practice is common in commercial software: when the trial expires, the app displays warnings, disables premium features, and eventually terminates unless the user purchases or restores a license.</p>
+<p>This article documents the complete reverse engineering journey: from initial string reconnaissance through call-graph tracing, assembly-level analysis, and ultimately the development of six binary patches that bypass trial termination, re-enable gated features, and customize the UI—all without modifying the application&rsquo;s source code or runtime environment.</p>
+<hr>
+<h2 id="overview--goals">Overview &amp; Goals</h2>
+<p><strong>Target:</strong> A macOS calendar/meeting alert application with a trial period, distributed as a Mach-O 64-bit executable (ARM64, with optional universal x86_64+ARM64 support).</p>
+<p><strong>Observed behavior:</strong> When the trial expires, the app shows &ldquo;Trial expired - Alerts disabled&rdquo; and eventually displays a modal: &ldquo;Your trial is complete. Purchase [the app] to continue using the app, or the app will close.&rdquo; If the user does not click &ldquo;Restore,&rdquo; the application terminates.</p>
+<p><strong>Goals:</strong></p>
+<ol>
+<li>Trace the trial validation flow from UI strings to enforcement logic</li>
+<li>Identify the critical branch that triggers app termination</li>
+<li>Re-enable alerts and other license-gated features</li>
+<li>Customize banner text and UI elements</li>
+<li>Create reproducible binary patches for both single-arch and universal binaries</li>
+</ol>
+<hr>
+<h2 id="tools--environment">Tools &amp; Environment</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Hopper Disassembler</strong></td>
+          <td>Primary analysis (ARM64 decompilation, cross-references, call graphs)</td>
+      </tr>
+      <tr>
+          <td><strong>HopperPyMCP</strong> (optional)</td>
+          <td>MCP integration for AI-assisted analysis</td>
+      </tr>
+      <tr>
+          <td><strong>xxd</strong></td>
+          <td>Hex dump for binary inspection and patch verification</td>
+      </tr>
+      <tr>
+          <td><strong>otool</strong></td>
+          <td>Mach-O structure inspection (segments, slices)</td>
+      </tr>
+      <tr>
+          <td><strong>PlistBuddy</strong></td>
+          <td>UserDefaults/plist inspection (alternative bypass vectors)</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Binary path:</strong> <code>[App].app/Contents/MacOS/[App]</code><br>
+<strong>Architecture:</strong> ARM64 (Mach-O 64-bit executable)<br>
+<strong>Base address:</strong> <code>0x100000000</code> (standard macOS PIE)</p>
+<p><strong>Important:</strong> For Mach-O executables, the <code>__TEXT</code> segment typically has <code>vmaddr 0x100000000</code> and <code>fileoff 0</code>, so virtual addresses map directly to file offsets within each architecture slice.</p>
+<hr>
+<h2 id="step-1-initial-reconnaissance">Step 1: Initial Reconnaissance</h2>
+<h3 id="locating-the-binary">Locating the Binary</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>file <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: Mach-O 64-bit executable arm64</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Or: Mach-O universal binary with 2 architectures: [x86_64, arm64]</span>
+</span></span></code></pre></div><h3 id="string-hunting">String Hunting</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>strings <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span> | grep -iE <span style="color:#e6db74">&#34;trial|expired|purchase&#34;</span>
+</span></span></code></pre></div><p><strong>Key strings found:</strong></p>
+<ul>
+<li><code>Trial expired - Alerts disabled</code></li>
+<li><code>Trial not started</code></li>
+<li><code>1h left in trial</code></li>
+<li><code>Your trial is complete. Purchase [App] to continue using the app, or the app will close.</code></li>
+<li><code>app_quit_after_trial_expiry</code></li>
+<li><code>trialStartDateKey</code></li>
+<li><code>trialValidationKey</code></li>
+<li><code>purchased_product_ids</code></li>
+</ul>
+<h3 id="data-storage">Data Storage</h3>
+<p>The application is sandboxed. Preferences and purchase state live in the app container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls ~/Library/Containers/<span style="color:#f92672">[</span>bundle_id<span style="color:#f92672">]</span>/Data/Library/
+</span></span><span style="display:flex;"><span>plutil -p ~/Library/Containers/<span style="color:#f92672">[</span>bundle_id<span style="color:#f92672">]</span>/Data/Library/Preferences/<span style="color:#f92672">[</span>bundle_id<span style="color:#f92672">]</span>.plist
+</span></span></code></pre></div><p><strong>Relevant keys:</strong> <code>purchased_product_ids</code>, <code>trial_duration_migration_v1</code>, <code>app_install_date</code></p>
+<hr>
+<h2 id="step-2-tracing-string-references">Step 2: Tracing String References</h2>
+<h3 id="cross-references-in-hopper">Cross-References in Hopper</h3>
+<ol>
+<li>Open the binary in Hopper Disassembler</li>
+<li>Search for the string <code>Trial expired - Alerts disabled</code></li>
+<li>Right-click → <strong>References to this address</strong></li>
+</ol>
+<p><strong>&ldquo;Trial expired - Alerts disabled&rdquo;</strong> is referenced by two procedures. One of them—the banner text getter—selects which trial message to display based on trial state.</p>
+<h3 id="call-graph-backward">Call Graph (Backward)</h3>
+<pre tabindex="0"><code>TrialBannerView → sub_1000cd914 → sub_1000ccde0 (banner text getter)
+</code></pre><h3 id="key-components-identified">Key Components Identified</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>PurchaseManager</strong></td>
+          <td>Trial state, StoreKit integration, UserDefaults keys</td>
+      </tr>
+      <tr>
+          <td><strong>BannerNotificationManager</strong></td>
+          <td>Notification banner UI</td>
+      </tr>
+      <tr>
+          <td><strong>TrialBannerView</strong></td>
+          <td>SwiftUI trial banner view</td>
+      </tr>
+      <tr>
+          <td><strong>NotificationPreferenceManager</strong></td>
+          <td>Alert preferences and gating</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="step-3-understanding-the-banner-display-logic">Step 3: Understanding the Banner Display Logic</h2>
+<h3 id="decompiled-logic-banner-text-getter">Decompiled Logic (Banner Text Getter)</h3>
+<p>The banner text getter receives a <code>TrialState</code> enum and returns the appropriate string:</p>
+<pre tabindex="0"><code>Input: TrialState enum (case + payload)
+- var_38 = case selector (0 = active, 1 = expired/notStarted)
+- x22 = hours remaining (for active) or 0 for expired
+
+If case == 1 (expired/notStarted):
+  If x22 == 0: return &#34;Trial expired - Alerts disabled&#34;
+  Else:        return &#34;Trial not started&#34;
+If x22 == 1:
+  return &#34;1h left in trial&#34;
+If x22 &lt;= 23:
+  return &#34;{x22}h left in trial&#34;
+If x22 &gt;= 24:
+  days = x22 / 24
+  return &#34;{days} day(s) left in trial&#34;
+</code></pre><h3 id="trialstate-enum-from-hopper-metadata">TrialState Enum (from Hopper metadata)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">PurchaseManager</span>.TrialState {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> active(hoursRemaining: Int)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> notStarted
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> expired
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="step-4-locating-the-trial-expiry-handler">Step 4: Locating the Trial Expiry Handler</h2>
+<h3 id="search-for-termination-strings">Search for Termination Strings</h3>
+<p>The string &ldquo;Your trial is complete&rdquo; references a procedure that displays an <code>NSAlert</code> and calls <code>[NSApp terminate]</code>. The analytics event <code>app_quit_after_trial_expiry</code> is logged immediately before termination.</p>
+<h3 id="call-chain-to-trial-expiry">Call Chain to Trial Expiry</h3>
+<pre tabindex="0"><code>sub_1001165a8 → sub_1001156a0 → sub_100115738 → sub_100115a18
+</code></pre><p><strong>sub_100115a18</strong> is the trial expiry alert handler:</p>
+<ol>
+<li>Creates <code>NSAlert</code> with &ldquo;Trial Complete - Upgrade to Continue&rdquo; and &ldquo;Your trial is complete&hellip;&rdquo;</li>
+<li>Adds buttons: &ldquo;Restore&rdquo; and &ldquo;Purchase&rdquo;</li>
+<li>Runs modal: <code>[alert runModal]</code></li>
+<li><strong>If return value == 0x3e8 (1000):</strong> User clicked &ldquo;Restore&rdquo; → call restore flow, do not terminate</li>
+<li><strong>Else:</strong> Log <code>app_quit_after_trial_expiry</code>, call <code>[NSApp terminate:0]</code></li>
+</ol>
+<hr>
+<h2 id="step-5-assembly-analysis-of-the-critical-branch">Step 5: Assembly Analysis of the Critical Branch</h2>
+<h3 id="the-critical-instruction">The Critical Instruction</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Address</th>
+          <th>Instruction</th>
+          <th>Bytes (hex)</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>0x100115b5c</code></td>
+          <td><code>cmp x0, #0x3e8</code></td>
+          <td><code>0a 09 00 d1</code> (LE)</td>
+          <td>Compare <code>runModal</code> return value to 1000 (Restore button)</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Branch behavior:</strong></p>
+<ul>
+<li>If <code>x0 == 0x3e8</code> (Z=1): Branch to Restore path → no terminate</li>
+<li>If <code>x0 != 0x3e8</code> (Z=0): Fall through to terminate block → app quits</li>
+</ul>
+<h3 id="patch-strategy-option-b">Patch Strategy: Option B</h3>
+<p><strong>Goal:</strong> Make the branch always take the Restore path.</p>
+<p><strong>Chosen approach:</strong> Replace <code>cmp x0, #0x3e8</code> with <code>cmp x0, x0</code>. This always sets Z=1 (equal), so the subsequent <code>b.eq</code> (branch if equal) will always branch to the Restore block.</p>
+<p><strong>ARM64 encoding:</strong></p>
+<ul>
+<li>Original: <code>cmp x0, #0x3e8</code> → <code>0a 09 00 d1</code></li>
+<li>Patch: <code>cmp x0, x0</code> → <code>1f 00 00 eb</code></li>
+</ul>
+<hr>
+<h2 id="step-6-alert-gating--why-patches-1-alone-isnt-enough">Step 6: Alert Gating — Why Patches 1 Alone Isn&rsquo;t Enough</h2>
+<p>Patch 1 prevents termination, but alerts remain disabled. The alert scheduler checks a function we call <code>has_valid_license</code> before showing any alert:</p>
+<pre tabindex="0"><code>alert_scheduler
+  if (has_valid_license())
+    → show alert
+  else
+    → log &#34;alert_blocked_no_license&#34;
+    → skip alert
+</code></pre><p><strong>has_valid_license</strong> returns 1 if: lifetime purchased OR annual/monthly purchased OR trial still active. Returns 0 when trial expired and no purchase.</p>
+<p><strong>Patch 2:</strong> Replace the first 8 bytes of <code>has_valid_license</code> with <code>mov w0, #1; ret</code> — always return true. Alerts are then shown regardless of trial state.</p>
+<p><strong>ARM64 encoding:</strong></p>
+<ul>
+<li><code>mov w0, #1</code> → <code>20 00 80 52</code></li>
+<li><code>ret</code> → <code>c0 03 5f d6</code></li>
+</ul>
+<hr>
+<h2 id="step-7-two-banner-systems">Step 7: Two Banner Systems</h2>
+<p>The application has two distinct banner systems:</p>
+<ol>
+<li>
+<p><strong>Trial banner (orange)</strong> — Uses the banner text getter. Shows &ldquo;Trial expired - Alerts disabled&rdquo;, &ldquo;1h left in trial&rdquo;, etc. <strong>Patch 3</strong> modifies the <code>adrp</code>/<code>add</code> instructions to load &ldquo;Your lifetime license is active&rdquo; instead of &ldquo;Trial expired - Alerts disabled&rdquo; when trial is expired.</p>
+</li>
+<li>
+<p><strong>License status banner (green checkmark)</strong> — Shown when <code>has_valid_license()</code> returns true (Patch 2 enables this). Calls a separate text getter that returns:</p>
+<ul>
+<li>If lifetime purchased → &ldquo;Your lifetime license is active&rdquo;</li>
+<li>If annual/monthly → subscription message</li>
+<li>Else → &ldquo;X days remaining&rdquo; (trial)</li>
+</ul>
+</li>
+</ol>
+<p><strong>Patch 4:</strong> Replace the prologue of the license status text getter with <code>movz x0, #0x1f; movk x0, #0xd000, lsl #48; ret</code> — always return the Swift string for &ldquo;Your lifetime license is active&rdquo;.</p>
+<hr>
+<h2 id="step-8-universal-binary-considerations">Step 8: Universal Binary Considerations</h2>
+<p>For universal binaries (x86_64 + ARM64), each architecture occupies a separate slice. The Mach-O fat header stores the file offset of each slice. Patches must be applied at:</p>
+<pre tabindex="0"><code>file_offset = slice_offset + virtual_offset_within_slice
+</code></pre><p>For example, if the ARM64 slice starts at <code>0x2e4000</code>, Patch 1 (virtual offset <code>0x115b5c</code>) is applied at file offset <code>0x2e4000 + 0x115b5c</code>.</p>
+<p>String patches (e.g., overwriting &ldquo;Upgrade to restore alerts&rdquo; with &ldquo;@jayluxferro&rdquo;) may need to be applied to both slices if the string exists in both.</p>
+<hr>
+<h2 id="step-9-patch-summary">Step 9: Patch Summary</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Patch</th>
+          <th>Purpose</th>
+          <th>Technique</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>Terminate bypass</td>
+          <td><code>cmp x0, #0x3e8</code> → <code>cmp x0, x0</code></td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Alerts enable</td>
+          <td>Prologue of <code>has_valid_license</code> → <code>mov w0, #1; ret</code></td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>Trial banner text</td>
+          <td><code>adrp</code>/<code>add</code> → load &ldquo;Your lifetime license is active&rdquo;</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>License status banner</td>
+          <td>Prologue of text getter → return Swift string directly</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>Trial banner subtitle</td>
+          <td>Overwrite &ldquo;Upgrade to restore alerts&rdquo; with &ldquo;@jayluxferro&rdquo;</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>Hide &ldquo;About&rdquo; in settings</td>
+          <td>Overwrite &ldquo;About&rdquo; strings with null bytes</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="step-10-applying-the-patches">Step 10: Applying the Patches</h2>
+<h3 id="manual-application-arm64-only-binary">Manual Application (ARM64-only binary)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Backup first</span>
+</span></span><span style="display:flex;"><span>cp <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.bak
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Patch 1 — Terminate bypass</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#39;\x1f\x00\x00\xeb&#39;</span> | dd of<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[App]&#34;</span> bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> seek<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#ae81ff">0</span>x115b5c<span style="color:#66d9ef">))</span> conv<span style="color:#f92672">=</span>notrunc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Patch 2 — Alerts enable</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#39;\x20\x00\x80\x52\xc0\x03\x5f\xd6&#39;</span> | dd of<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[App]&#34;</span> bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> seek<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#ae81ff">0</span>x12c990<span style="color:#66d9ef">))</span> conv<span style="color:#f92672">=</span>notrunc
+</span></span></code></pre></div><h3 id="verification">Verification</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>xxd -s 0x115b58 -l <span style="color:#ae81ff">16</span> <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected at 0x115b5c: 1f 00 00 eb</span>
+</span></span></code></pre></div><h3 id="code-signing">Code Signing</h3>
+<p>After patching, macOS may reject the modified binary. Re-sign with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>codesign -f -s - <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
+</span></span></code></pre></div><hr>
+<h2 id="alternative-bypass-userdefaults-injection">Alternative Bypass: UserDefaults Injection</h2>
+<p>If the application does not perform server-side verification, injecting a fake purchase into UserDefaults may suffice:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PLIST<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/Library/Containers/[bundle_id]/Data/Library/Preferences/[bundle_id].plist&#34;</span>
+</span></span><span style="display:flex;"><span>/usr/libexec/PlistBuddy -c <span style="color:#e6db74">&#34;Delete :purchased_product_ids&#34;</span> <span style="color:#e6db74">&#34;</span>$PLIST<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>/usr/libexec/PlistBuddy -c <span style="color:#e6db74">&#34;Add :purchased_product_ids array&#34;</span> <span style="color:#e6db74">&#34;</span>$PLIST<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>/usr/libexec/PlistBuddy -c <span style="color:#e6db74">&#34;Add :purchased_product_ids:0 string &#39;[product_id]&#39;&#34;</span> <span style="color:#e6db74">&#34;</span>$PLIST<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Quit the application before modifying; relaunch after. This approach may not persist if StoreKit verifies purchases server-side.</p>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>This reverse engineering exercise demonstrated a systematic approach to analyzing trial enforcement in a macOS ARM64 application:</p>
+<ol>
+<li><strong>String hunting</strong> — Identify UI and analytics strings as entry points</li>
+<li><strong>Cross-reference tracing</strong> — Follow references from strings to procedures</li>
+<li><strong>Call graph analysis</strong> — Map the flow from UI to enforcement logic</li>
+<li><strong>Assembly-level understanding</strong> — Identify critical branches and comparison instructions</li>
+<li><strong>Minimal patching</strong> — Apply the smallest possible changes to achieve the desired behavior</li>
+<li><strong>Universal binary awareness</strong> — Account for slice offsets when patching fat binaries</li>
+</ol>
+<p>The techniques described—instruction substitution, prologue replacement, and string overwriting—are applicable to similar analyses of commercial macOS applications. Understanding how trial and license enforcement is implemented helps security researchers assess robustness and developers improve their protection strategies.</p>
+<hr>
+<p><em>For educational and authorized security research only.</em></p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://sperixlabs.org/tags/macos/">macOS</a></span>
+        <span class="tag"><a href="https://sperixlabs.org/tags/arm64/">ARM64</a></span>
+        <span class="tag"><a href="https://sperixlabs.org/tags/reverse-engineering/">Reverse Engineering</a></span>
+        <span class="tag"><a href="https://sperixlabs.org/tags/binary-patching/">Binary Patching</a></span>
+        <span class="tag"><a href="https://sperixlabs.org/tags/security-research/">Security Research</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://sperixlabs.org/categories/reverse-engineering/">Reverse Engineering</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1487 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2026-02-01 10:19
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Unlocking%20the%20Vault%3a%20A%20Deep%20Dive%20into%20macOS%20ARM64%20Trial%20Enforcement%20and%20Binary%20Patching&amp;caption=Unlocking%20the%20Vault%3a%20A%20Deep%20Dive%20into%20macOS%20ARM64%20Trial%20Enforcement%20and%20Binary%20Patching&amp;canonicalUrl=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Unlocking%20the%20Vault%3a%20A%20Deep%20Dive%20into%20macOS%20ARM64%20Trial%20Enforcement%20and%20Binary%20Patching&amp;body=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f&amp;media=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f;description=Unlocking%20the%20Vault%3a%20A%20Deep%20Dive%20into%20macOS%20ARM64%20Trial%20Enforcement%20and%20Binary%20Patching" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f&amp;title=Unlocking%20the%20Vault%3a%20A%20Deep%20Dive%20into%20macOS%20ARM64%20Trial%20Enforcement%20and%20Binary%20Patching&amp;summary=Unlocking%20the%20Vault%3a%20A%20Deep%20Dive%20into%20macOS%20ARM64%20Trial%20Enforcement%20and%20Binary%20Patching&amp;source=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f&amp;resubmit=true&amp;title=Unlocking%20the%20Vault%3a%20A%20Deep%20Dive%20into%20macOS%20ARM64%20Trial%20Enforcement%20and%20Binary%20Patching" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f;title=Unlocking%20the%20Vault%3a%20A%20Deep%20Dive%20into%20macOS%20ARM64%20Trial%20Enforcement%20and%20Binary%20Patching" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Unlocking%20the%20Vault%3a%20A%20Deep%20Dive%20into%20macOS%20ARM64%20Trial%20Enforcement%20and%20Binary%20Patching%20https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f&amp;t=Unlocking%20the%20Vault%3a%20A%20Deep%20Dive%20into%20macOS%20ARM64%20Trial%20Enforcement%20and%20Binary%20Patching" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Unlocking%20the%20Vault%3a%20A%20Deep%20Dive%20into%20macOS%20ARM64%20Trial%20Enforcement%20and%20Binary%20Patching&amp;url=https%3a%2f%2fsperixlabs.org%2fpost%2f2026%2f02%2funlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://sperixlabs.org/post/2025/11/malicious-code-loading-via-base64-encoded-.dex-file/">
+                    <span class="button__text">Malicious Code Loading via Base64 Encoded .dex File</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://sperixlabs.org/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+
+    </body>
+</html>

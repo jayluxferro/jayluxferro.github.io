@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security Research on SPERIXLABS</title>
+    <link>https://sperixlabs.org/tags/security-research/</link>
+    <description>Recent content in Security Research on SPERIXLABS</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>SPERIXLABS</copyright>
+    <lastBuildDate>Sun, 01 Feb 2026 10:19:53 +0000</lastBuildDate>
+    <atom:link href="https://sperixlabs.org/tags/security-research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unlocking the Vault: A Deep Dive into macOS ARM64 Trial Enforcement and Binary Patching</title>
+      <link>https://sperixlabs.org/post/2026/02/unlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching/</link>
+      <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/2026/02/unlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In the course of analyzing a decompiled macOS productivity application—a calendar and meeting alert utility with a time-limited trial—we encountered a multi-layered enforcement mechanism governing trial expiry, feature gating, and application termination. This practice is common in commercial software: when the trial expires, the app displays warnings, disables premium features, and eventually terminates unless the user purchases or restores a license.&lt;/p&gt;&#xA;&lt;p&gt;This article documents the complete reverse engineering journey: from initial string reconnaissance through call-graph tracing, assembly-level analysis, and ultimately the development of six binary patches that bypass trial termination, re-enable gated features, and customize the UI—all without modifying the application&amp;rsquo;s source code or runtime environment.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
