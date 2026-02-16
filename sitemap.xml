@@ -2,34 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sperixlabs.org/categories/</loc>
+    <lastmod>2026-02-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/llm/</loc>
+    <lastmod>2026-02-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/local-ai/</loc>
+    <lastmod>2026-02-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/ollama/</loc>
+    <lastmod>2026-02-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/post/2026/02/ollama-forge-for-security-research-local-models-refusal-ablation-and-reproducible-pipelines/</loc>
+    <lastmod>2026-02-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/posts/</loc>
+    <lastmod>2026-02-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/red-team/</loc>
+    <lastmod>2026-02-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/security-research/</loc>
+    <lastmod>2026-02-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/</loc>
+    <lastmod>2026-02-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/tags/</loc>
+    <lastmod>2026-02-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sperixlabs.org/categories/tools/</loc>
+    <lastmod>2026-02-16T12:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://sperixlabs.org/tags/arm64/</loc>
     <lastmod>2026-02-01T10:19:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/binary-patching/</loc>
     <lastmod>2026-02-01T10:19:53+00:00</lastmod>
   </url><url>
-    <loc>https://sperixlabs.org/categories/</loc>
-    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
-  </url><url>
     <loc>https://sperixlabs.org/tags/macos/</loc>
-    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/posts/</loc>
     <lastmod>2026-02-01T10:19:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/categories/reverse-engineering/</loc>
     <lastmod>2026-02-01T10:19:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/tags/reverse-engineering/</loc>
-    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/security-research/</loc>
-    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/</loc>
-    <lastmod>2026-02-01T10:19:53+00:00</lastmod>
-  </url><url>
-    <loc>https://sperixlabs.org/tags/</loc>
     <lastmod>2026-02-01T10:19:53+00:00</lastmod>
   </url><url>
     <loc>https://sperixlabs.org/post/2026/02/unlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching/</loc>

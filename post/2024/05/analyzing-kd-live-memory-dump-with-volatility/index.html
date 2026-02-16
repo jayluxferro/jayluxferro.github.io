@@ -179,30 +179,30 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
 <p>Ensure you have the memory dump file ready, potentially in a raw format or the specific format used by the capture tool.</p>
 <h3 id="step-2-determine-the-profile">Step 2: Determine the Profile</h3>
 <p>Use the following command to identify the appropriate profile for the memory dump:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> imageinfo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> imageinfo
 </span></span></code></pre></div><p>This command helps in suggesting the most likely profile(s) based on the memory dump.</p>
 <h3 id="step-3-basic-commands-for-analysis">Step 3: Basic Commands for Analysis</h3>
 <p>Once the profile is identified, utilize the following commands to begin your analysis:</p>
 <ul>
 <li>
 <p><strong>List Running Processes</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> pslist
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> pslist
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Check Active Network Connections</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> netscan
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> netscan
 </span></span></code></pre></div></li>
 <li>
 <p><strong>View Open Files</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> filescan
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> filescan
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Dump Process Memory</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> memdump -p <span style="color:#f92672">[</span>pid<span style="color:#f92672">]</span> -D <span style="color:#f92672">[</span>output_directory<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> memdump -p <span style="color:#f92672">[</span>pid<span style="color:#f92672">]</span> -D <span style="color:#f92672">[</span>output_directory<span style="color:#f92672">]</span>
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Extract Registry Keys</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> printkey -K <span style="color:#e6db74">&#34;Software\Microsoft\Windows\CurrentVersion\Run&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> printkey -K <span style="color:#e6db74">&#34;Software\Microsoft\Windows\CurrentVersion\Run&#34;</span>
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="step-4-advanced-analysis">Step 4: Advanced Analysis</h3>
@@ -210,15 +210,15 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
 <ul>
 <li>
 <p><strong>Check for Hidden Processes</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> psxview
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> psxview
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Analyze Loaded DLLs</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> dlllist -p <span style="color:#f92672">[</span>pid<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> dlllist -p <span style="color:#f92672">[</span>pid<span style="color:#f92672">]</span>
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Search for Rootkits</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> malfind
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> malfind
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="step-5-extract-artifacts">Step 5: Extract Artifacts</h3>
@@ -226,12 +226,12 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
 <ul>
 <li>
 <p><strong>Dump Registry for Offline Analysis</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> hivelist
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> hivelist
 </span></span><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> dumpregistry -H <span style="color:#f92672">[</span>hive_address<span style="color:#f92672">]</span> -D <span style="color:#f92672">[</span>output_directory<span style="color:#f92672">]</span>
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Recover Passwords</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> hashdump
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> hashdump
 </span></span></code></pre></div></li>
 </ul>
 <p>Replace <code>[dumpfile]</code>, <code>[profile]</code>, <code>[pid]</code>, <code>[hive_address]</code>, and <code>[output_directory]</code> with the actual details specific to your case.</p>

@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Sun, 01 Feb 2026 10:19:53 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Feb 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://sperixlabs.org/tags/security-research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ollama-Forge for Security Research: Local Models, Refusal Ablation, and Reproducible Pipelines</title>
+      <link>https://sperixlabs.org/post/2026/02/ollama-forge-for-security-research-local-models-refusal-ablation-and-reproducible-pipelines/</link>
+      <pubDate>Mon, 16 Feb 2026 12:00:00 +0000</pubDate>
+      <guid>https://sperixlabs.org/post/2026/02/ollama-forge-for-security-research-local-models-refusal-ablation-and-reproducible-pipelines/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Security work often involves prompts and data you cannot send to commercial APIs: malware descriptions, exploit drafts, jailbreak and prompt-injection tests, or sensitive internal docs. Running models locally gives you control and keeps that data on your machine. &lt;a href=&#34;https://pypi.org/project/ollama-forge/&#34;&gt;&lt;strong&gt;ollama-forge&lt;/strong&gt;&lt;/a&gt; is a CLI (&lt;a href=&#34;https://pypi.org/project/ollama-forge/&#34;&gt;PyPI&lt;/a&gt; · &lt;a href=&#34;https://github.com/jayluxferro/ollama-forge&#34;&gt;GitHub&lt;/a&gt;) that makes it straightforward to fetch open-weight models, convert them to &lt;a href=&#34;https://ollama.com&#34;&gt;Ollama&lt;/a&gt;, remove refusal behavior when you need it for defensive or red-team research, run security evals (e.g. ASR, refusal rate) against your local model, and lock down exact setups for reproducibility.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Unlocking the Vault: A Deep Dive into macOS ARM64 Trial Enforcement and Binary Patching</title>
       <link>https://sperixlabs.org/post/2026/02/unlocking-the-vault-a-deep-dive-into-macos-arm64-trial-enforcement-and-binary-patching/</link>

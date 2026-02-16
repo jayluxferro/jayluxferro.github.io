@@ -7,8 +7,43 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Sun, 01 Feb 2026 10:19:53 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Feb 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://sperixlabs.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LLM</title>
+      <link>https://sperixlabs.org/tags/llm/</link>
+      <pubDate>Mon, 16 Feb 2026 12:00:00 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Local AI</title>
+      <link>https://sperixlabs.org/tags/local-ai/</link>
+      <pubDate>Mon, 16 Feb 2026 12:00:00 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/local-ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ollama</title>
+      <link>https://sperixlabs.org/tags/ollama/</link>
+      <pubDate>Mon, 16 Feb 2026 12:00:00 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/ollama/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Red Team</title>
+      <link>https://sperixlabs.org/tags/red-team/</link>
+      <pubDate>Mon, 16 Feb 2026 12:00:00 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/red-team/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security Research</title>
+      <link>https://sperixlabs.org/tags/security-research/</link>
+      <pubDate>Mon, 16 Feb 2026 12:00:00 +0000</pubDate>
+      <guid>https://sperixlabs.org/tags/security-research/</guid>
+      <description></description>
+    </item>
     <item>
       <title>ARM64</title>
       <link>https://sperixlabs.org/tags/arm64/</link>
@@ -38,45 +73,10 @@
       <description></description>
     </item>
     <item>
-      <title>Security Research</title>
-      <link>https://sperixlabs.org/tags/security-research/</link>
-      <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/security-research/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Android</title>
       <link>https://sperixlabs.org/tags/android/</link>
       <pubDate>Mon, 10 Nov 2025 15:26:53 +0000</pubDate>
       <guid>https://sperixlabs.org/tags/android/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Application</title>
-      <link>https://sperixlabs.org/tags/application/</link>
-      <pubDate>Mon, 10 Nov 2025 15:26:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/application/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Security</title>
-      <link>https://sperixlabs.org/tags/security/</link>
-      <pubDate>Mon, 10 Nov 2025 15:26:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/security/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Audit</title>
-      <link>https://sperixlabs.org/tags/audit/</link>
-      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/audit/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Flutter</title>
-      <link>https://sperixlabs.org/tags/flutter/</link>
-      <pubDate>Mon, 08 Sep 2025 21:46:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/flutter/</guid>
       <description></description>
     </item>
   </channel>

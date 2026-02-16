@@ -171,7 +171,7 @@ The Device The device consisted of 3 nodes; one as the main router and two as me
 <p>The main router is connected to the internet and the two mesh nodes are connected to the main router via WiFi6. The device has a web interface that allows you to configure it, and also a mobile app (Android/iOS) that can be used to manage the device.</p>
 <h2 id="network-analysis">Network Analysis</h2>
 <p>I did an nmap scan of the device and found that it had the following open ports:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>PORT      STATE SERVICE         VERSION
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>PORT      STATE SERVICE         VERSION
 </span></span><span style="display:flex;"><span>23/tcp    open  tcpwrapped
 </span></span><span style="display:flex;"><span>80/tcp    open  http
 </span></span><span style="display:flex;"><span>443/tcp   open  ssl/https
@@ -187,7 +187,7 @@ The Device The device consisted of 3 nodes; one as the main router and two as me
 <h2 id="remediation">Remediation</h2>
 <p>I tried blocking the domain <code>mac.cloud.tenda.com.cn</code> on my firewall but I realized the device throughput dropped significantly. Quite weird. I then decided to setup a local DNS server that would resolve the domain to an internal IP on my network. I used <code>dnsmasq</code> for this purpose. I configured <code>dnsmasq</code> to resolve the domain <code>mac.cloud.tenda.com.cn</code> to the local IP address of my DNS server. That didn&rsquo;t solve the throughput issue.</p>
 <p>I had to reverse engineer the backend REST API of the domain to replicate the expected response on my local DNS server. Since the request was being sent in plain text over HTTP, I was able to figure out the request and response and replicated that on my local DNS server using python.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> FastAPI
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi.middleware.cors <span style="color:#f92672">import</span> CORSMiddleware

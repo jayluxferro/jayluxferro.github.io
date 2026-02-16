@@ -171,7 +171,7 @@ public final void attachBaseContext(Context context) { boolean z; Method method;
 <p>In the course of analyzing a decompiled Java application, we encountered an unusual code segment that decodes a Base64 encoded <code>.dex</code> file, loads it dynamically, and invokes methods from it. This practice is often associated with malicious activities such as code injection, runtime manipulation, and delivery of payloads without being detected during static analysis.</p>
 <h2 id="code-analysis">Code Analysis</h2>
 <p>The following Java code snippet outlines the suspicious behavior:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">attachBaseContext</span>(Context context) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">attachBaseContext</span>(Context context) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">boolean</span> z;
 </span></span><span style="display:flex;"><span>    Method method;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>.<span style="color:#a6e22e">attachBaseContext</span>(context);

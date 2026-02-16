@@ -187,18 +187,18 @@ Features Disassembles APK files using apktool Adds INTERNET permission and custo
 </ul>
 <h2 id="usage">Usage</h2>
 <h3 id="step-1-clone-the-repository">Step 1: Clone the Repository</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/sperixlabs/frida-apk-patcher.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/sperixlabs/frida-apk-patcher.git
 </span></span><span style="display:flex;"><span>cd frida-apk-patcher
 </span></span></code></pre></div><h3 id="step-2-prepare-your-apk">Step 2: Prepare Your APK</h3>
 <p>Place the APK you want to patch in a known directory. Note the absolute path to the APK, as it will be needed during execution.</p>
 <h3 id="step-3-download-frida-gadget">Step 3: Download Frida Gadget</h3>
 <p>Run <code>getlibs.sh</code> to fetch the latest Frida Gadgets</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bash getlibs.sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bash getlibs.sh
 </span></span></code></pre></div><h3 id="step-4-run-the-tool">Step 4: Run the Tool</h3>
 <p>Run the script with the path to the APK you want to patch. Here&rsquo;s the command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python apk_builder.py --apk /path/to/your.apk
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python apk_builder.py --apk /path/to/your.apk
 </span></span></code></pre></div><h3 id="example">Example</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python apk_builder.py --apk /home/user/downloads/sample.apk
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python apk_builder.py --apk /home/user/downloads/sample.apk
 </span></span></code></pre></div><h3 id="step-5-patched-apk-output">Step 5: Patched APK Output</h3>
 <p>After the tool finishes running, it will output the patched APK file as <code>your-apk-appmon.apk</code> in the same directory where the original APK was located.</p>
 <h3 id="options">Options</h3>

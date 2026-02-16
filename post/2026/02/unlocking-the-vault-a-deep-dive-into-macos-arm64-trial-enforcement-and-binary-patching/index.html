@@ -219,11 +219,11 @@ This article documents the complete reverse engineering journey: from initial st
 <hr>
 <h2 id="step-1-initial-reconnaissance">Step 1: Initial Reconnaissance</h2>
 <h3 id="locating-the-binary">Locating the Binary</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>file <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>file <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: Mach-O 64-bit executable arm64</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Or: Mach-O universal binary with 2 architectures: [x86_64, arm64]</span>
 </span></span></code></pre></div><h3 id="string-hunting">String Hunting</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>strings <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span> | grep -iE <span style="color:#e6db74">&#34;trial|expired|purchase&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>strings <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span> | grep -iE <span style="color:#e6db74">&#34;trial|expired|purchase&#34;</span>
 </span></span></code></pre></div><p><strong>Key strings found:</strong></p>
 <ul>
 <li><code>Trial expired - Alerts disabled</code></li>
@@ -237,7 +237,7 @@ This article documents the complete reverse engineering journey: from initial st
 </ul>
 <h3 id="data-storage">Data Storage</h3>
 <p>The application is sandboxed. Preferences and purchase state live in the app container:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls ~/Library/Containers/<span style="color:#f92672">[</span>bundle_id<span style="color:#f92672">]</span>/Data/Library/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls ~/Library/Containers/<span style="color:#f92672">[</span>bundle_id<span style="color:#f92672">]</span>/Data/Library/
 </span></span><span style="display:flex;"><span>plutil -p ~/Library/Containers/<span style="color:#f92672">[</span>bundle_id<span style="color:#f92672">]</span>/Data/Library/Preferences/<span style="color:#f92672">[</span>bundle_id<span style="color:#f92672">]</span>.plist
 </span></span></code></pre></div><p><strong>Relevant keys:</strong> <code>purchased_product_ids</code>, <code>trial_duration_migration_v1</code>, <code>app_install_date</code></p>
 <hr>
@@ -297,7 +297,7 @@ If x22 &gt;= 24:
   days = x22 / 24
   return &#34;{days} day(s) left in trial&#34;
 </code></pre><h3 id="trialstate-enum-from-hopper-metadata">TrialState Enum (from Hopper metadata)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">PurchaseManager</span>.TrialState {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">PurchaseManager</span>.TrialState {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> active(hoursRemaining: Int)
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> notStarted
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> expired
@@ -435,7 +435,7 @@ If x22 &gt;= 24:
 <hr>
 <h2 id="step-10-applying-the-patches">Step 10: Applying the Patches</h2>
 <h3 id="manual-application-arm64-only-binary">Manual Application (ARM64-only binary)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Backup first</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Backup first</span>
 </span></span><span style="display:flex;"><span>cp <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.bak
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Patch 1 — Terminate bypass</span>
@@ -444,15 +444,15 @@ If x22 &gt;= 24:
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Patch 2 — Alerts enable</span>
 </span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#39;\x20\x00\x80\x52\xc0\x03\x5f\xd6&#39;</span> | dd of<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[App]&#34;</span> bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> seek<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#ae81ff">0</span>x12c990<span style="color:#66d9ef">))</span> conv<span style="color:#f92672">=</span>notrunc
 </span></span></code></pre></div><h3 id="verification">Verification</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>xxd -s 0x115b58 -l <span style="color:#ae81ff">16</span> <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>xxd -s 0x115b58 -l <span style="color:#ae81ff">16</span> <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected at 0x115b5c: 1f 00 00 eb</span>
 </span></span></code></pre></div><h3 id="code-signing">Code Signing</h3>
 <p>After patching, macOS may reject the modified binary. Re-sign with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>codesign -f -s - <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>codesign -f -s - <span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>.app/Contents/MacOS/<span style="color:#f92672">[</span>App<span style="color:#f92672">]</span>
 </span></span></code></pre></div><hr>
 <h2 id="alternative-bypass-userdefaults-injection">Alternative Bypass: UserDefaults Injection</h2>
 <p>If the application does not perform server-side verification, injecting a fake purchase into UserDefaults may suffice:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PLIST<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/Library/Containers/[bundle_id]/Data/Library/Preferences/[bundle_id].plist&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PLIST<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/Library/Containers/[bundle_id]/Data/Library/Preferences/[bundle_id].plist&#34;</span>
 </span></span><span style="display:flex;"><span>/usr/libexec/PlistBuddy -c <span style="color:#e6db74">&#34;Delete :purchased_product_ids&#34;</span> <span style="color:#e6db74">&#34;</span>$PLIST<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>/usr/libexec/PlistBuddy -c <span style="color:#e6db74">&#34;Add :purchased_product_ids array&#34;</span> <span style="color:#e6db74">&#34;</span>$PLIST<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>/usr/libexec/PlistBuddy -c <span style="color:#e6db74">&#34;Add :purchased_product_ids:0 string &#39;[product_id]&#39;&#34;</span> <span style="color:#e6db74">&#34;</span>$PLIST<span style="color:#e6db74">&#34;</span>
@@ -625,6 +625,13 @@ If x22 &gt;= 24:
         
 
         <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://sperixlabs.org/post/2026/02/ollama-forge-for-security-research-local-models-refusal-ablation-and-reproducible-pipelines/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Ollama-Forge for Security Research: Local Models, Refusal Ablation, and Reproducible Pipelines</span>
+                </a>
+            </span>
             
 
             
