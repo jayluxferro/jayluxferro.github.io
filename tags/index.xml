@@ -7,8 +7,43 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>SPERIXLABS</copyright>
-    <lastBuildDate>Mon, 16 Feb 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2026 05:52:00 -0600</lastBuildDate>
     <atom:link href="https://sperixlabs.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android</title>
+      <link>https://sperixlabs.org/tags/android/</link>
+      <pubDate>Fri, 06 Mar 2026 05:52:00 -0600</pubDate>
+      <guid>https://sperixlabs.org/tags/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cryptography</title>
+      <link>https://sperixlabs.org/tags/cryptography/</link>
+      <pubDate>Fri, 06 Mar 2026 05:52:00 -0600</pubDate>
+      <guid>https://sperixlabs.org/tags/cryptography/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Frida</title>
+      <link>https://sperixlabs.org/tags/frida/</link>
+      <pubDate>Fri, 06 Mar 2026 05:52:00 -0600</pubDate>
+      <guid>https://sperixlabs.org/tags/frida/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mobile-Security</title>
+      <link>https://sperixlabs.org/tags/mobile-security/</link>
+      <pubDate>Fri, 06 Mar 2026 05:52:00 -0600</pubDate>
+      <guid>https://sperixlabs.org/tags/mobile-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reverse-Engineering</title>
+      <link>https://sperixlabs.org/tags/reverse-engineering/</link>
+      <pubDate>Fri, 06 Mar 2026 05:52:00 -0600</pubDate>
+      <guid>https://sperixlabs.org/tags/reverse-engineering/</guid>
+      <description></description>
+    </item>
     <item>
       <title>LLM</title>
       <link>https://sperixlabs.org/tags/llm/</link>
@@ -42,41 +77,6 @@
       <link>https://sperixlabs.org/tags/security-research/</link>
       <pubDate>Mon, 16 Feb 2026 12:00:00 +0000</pubDate>
       <guid>https://sperixlabs.org/tags/security-research/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>ARM64</title>
-      <link>https://sperixlabs.org/tags/arm64/</link>
-      <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/arm64/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Binary Patching</title>
-      <link>https://sperixlabs.org/tags/binary-patching/</link>
-      <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/binary-patching/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>MacOS</title>
-      <link>https://sperixlabs.org/tags/macos/</link>
-      <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/macos/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Reverse Engineering</title>
-      <link>https://sperixlabs.org/tags/reverse-engineering/</link>
-      <pubDate>Sun, 01 Feb 2026 10:19:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/reverse-engineering/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Android</title>
-      <link>https://sperixlabs.org/tags/android/</link>
-      <pubDate>Mon, 10 Nov 2025 15:26:53 +0000</pubDate>
-      <guid>https://sperixlabs.org/tags/android/</guid>
       <description></description>
     </item>
   </channel>

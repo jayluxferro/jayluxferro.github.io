@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="Step 1: Identify the Memory Image NB: Volatility version 2
@@ -27,7 +28,9 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
 
 
 
-<link rel="stylesheet" href="https://sperixlabs.org/main.b78c3be9451dc4ca61ca377f3dc2cf2e6345a44c2bae46216a322ef366daa399.css" integrity="sha256-t4w76UUdxMphyjd/PcLPLmNFpEwrrkYhajIu82bao5k=">
+  <link rel="stylesheet" href="https://sperixlabs.org/main.min.ebe3824dfa5345ef854f8b255c278f701966e9be3892354b588fb1650ecd358e.css" integrity="sha256-6&#43;OCTfpTRe&#43;FT4slXCePcBlm6b44kjVLWI&#43;xZQ7NNY4=" crossorigin="anonymous">
+
+
 
 
 
@@ -98,7 +101,6 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
 
 
 
-    
 
 
 
@@ -128,11 +130,21 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
 
 
         <span class="header__right">
-            
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://sperixlabs.org/about/">About</a></li><li><a href="https://sperixlabs.org/posts/">Blog</a></li><li><a href="https://sperixlabs.org/certifications/">Courses &amp; Certs</a></li><li><a href="https://sperixlabs.org/api/">Projects</a></li><li><a href="https://sperixlabs.org/publication/">Research</a></li>
+    <ul class="menu__inner">
+                <li><a href="https://sperixlabs.org/about/">About</a></li>
+            
+                <li><a href="https://sperixlabs.org/api/">Projects</a></li>
+            
+                <li><a href="https://sperixlabs.org/posts/">Blog</a></li>
+            
+                <li><a href="https://sperixlabs.org/certifications/">Courses &amp; Certs</a></li>
+            
+                <li><a href="https://sperixlabs.org/publication/">Research</a></li>
+            
     </ul>
 </nav>
+
 
                 <span class="menu-trigger">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -140,69 +152,63 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
                         <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
                     </svg>
                 </span>
-            
         </span>
     </span>
 </header>
 
 
-            <div class="content">
-                
-  <main class="post">
+            
+  <div class="content">
+    <main class="post">
 
-    <div class="post-info">
-      <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
-        </svg>
-        2 minutes
+      <div class="post-info">
+        <p>
+
+          
+        </p>
+      </div>
+
+      <article>
+        <h1 class="post-title">
+          <a href="https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/">Analyzing KD Live Memory Dump with Volatility</a>
+        </h1>
 
         
-      </p>
-    </div>
 
-    <article>
-      <h1 class="post-title">
-        <a href="https://sperixlabs.org/post/2024/05/analyzing-kd-live-memory-dump-with-volatility/">Analyzing KD Live Memory Dump with Volatility</a>
-      </h1>
+        
 
-      
+        
 
-      
-
-      
-
-      <div class="post-content">
-        <h3 id="step-1-identify-the-memory-image">Step 1: Identify the Memory Image</h3>
+        <div class="post-content">
+          <h3 id="step-1-identify-the-memory-image">Step 1: Identify the Memory Image</h3>
 <p><strong>NB</strong>: Volatility version 2</p>
 <p>Ensure you have the memory dump file ready, potentially in a raw format or the specific format used by the capture tool.</p>
 <h3 id="step-2-determine-the-profile">Step 2: Determine the Profile</h3>
 <p>Use the following command to identify the appropriate profile for the memory dump:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> imageinfo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> imageinfo
 </span></span></code></pre></div><p>This command helps in suggesting the most likely profile(s) based on the memory dump.</p>
 <h3 id="step-3-basic-commands-for-analysis">Step 3: Basic Commands for Analysis</h3>
 <p>Once the profile is identified, utilize the following commands to begin your analysis:</p>
 <ul>
 <li>
 <p><strong>List Running Processes</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> pslist
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> pslist
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Check Active Network Connections</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> netscan
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> netscan
 </span></span></code></pre></div></li>
 <li>
 <p><strong>View Open Files</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> filescan
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> filescan
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Dump Process Memory</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> memdump -p <span style="color:#f92672">[</span>pid<span style="color:#f92672">]</span> -D <span style="color:#f92672">[</span>output_directory<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> memdump -p <span style="color:#f92672">[</span>pid<span style="color:#f92672">]</span> -D <span style="color:#f92672">[</span>output_directory<span style="color:#f92672">]</span>
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Extract Registry Keys</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> printkey -K <span style="color:#e6db74">&#34;Software\Microsoft\Windows\CurrentVersion\Run&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> printkey -K <span style="color:#e6db74">&#34;Software\Microsoft\Windows\CurrentVersion\Run&#34;</span>
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="step-4-advanced-analysis">Step 4: Advanced Analysis</h3>
@@ -210,15 +216,15 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
 <ul>
 <li>
 <p><strong>Check for Hidden Processes</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> psxview
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> psxview
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Analyze Loaded DLLs</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> dlllist -p <span style="color:#f92672">[</span>pid<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> dlllist -p <span style="color:#f92672">[</span>pid<span style="color:#f92672">]</span>
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Search for Rootkits</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> malfind
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> malfind
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="step-5-extract-artifacts">Step 5: Extract Artifacts</h3>
@@ -226,23 +232,23 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
 <ul>
 <li>
 <p><strong>Dump Registry for Offline Analysis</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> hivelist
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> hivelist
 </span></span><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> dumpregistry -H <span style="color:#f92672">[</span>hive_address<span style="color:#f92672">]</span> -D <span style="color:#f92672">[</span>output_directory<span style="color:#f92672">]</span>
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Recover Passwords</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> hashdump
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>volatility -f <span style="color:#f92672">[</span>dumpfile<span style="color:#f92672">]</span> --profile<span style="color:#f92672">=[</span>profile<span style="color:#f92672">]</span> hashdump
 </span></span></code></pre></div></li>
 </ul>
 <p>Replace <code>[dumpfile]</code>, <code>[profile]</code>, <code>[pid]</code>, <code>[hive_address]</code>, and <code>[output_directory]</code> with the actual details specific to your case.</p>
 
-      </div>
-    </article>
+        </div>
+      </article>
 
-    <hr />
+      <hr />
 
-    <div class="post-info">
-      
+      <div class="post-info">
+        
     <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
 
@@ -251,7 +257,7 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
         
     </p>
 
-      
+        
     <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
 
@@ -260,36 +266,36 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
     </p>
 
 
-      <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <polyline points="14 2 14 8 20 8"></polyline>
-          <line x1="16" y1="13" x2="8" y2="13"></line>
-          <line x1="16" y1="17" x2="8" y2="17"></line>
-          <polyline points="10 9 9 9 8 9"></polyline>
-        </svg>
-        223 Words
-      </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          223 Words
+        </p>
 
-      <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-          <line x1="16" y1="2" x2="16" y2="6"></line>
-          <line x1="8" y1="2" x2="8" y2="6"></line>
-          <line x1="3" y1="10" x2="21" y2="10"></line>
-        </svg>
-        
-          2024-05-01 09:36
-        
-
-         
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
           
-        
-      </p>
-    </div>
-      <hr />
-      <div class="sharing-buttons">
-        
+            2024-05-01 04:36
+          
+
+           
+            
+          
+        </p>
+      </div>
+        <hr />
+        <div class="sharing-buttons">
+          
 <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsperixlabs.org%2fpost%2f2024%2f05%2fanalyzing-kd-live-memory-dump-with-volatility%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
   <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
@@ -379,9 +385,9 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
   </div>
 </a>
 
-      </div>
+        </div>
 
-    
+      
     <div class="pagination">
         
 
@@ -407,13 +413,15 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
     </div>
 
 
-    
+      
 
-    
+      
 
-  </main>
+      
 
-            </div>
+    </main>
+  </div>
+
 
             
                 <footer class="footer">
@@ -428,7 +436,8 @@ Step 3: Basic Commands for Analysis Once the profile is identified, utilize the 
 
 
 
-<script type="text/javascript" src="https://sperixlabs.org/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+<script type="text/javascript" src="https://sperixlabs.org/bundle.min.08b680078a3cf9c69e3dd217a5aa52cfddd4a1d850f8cdff127fdd7421a71f8b2b474be69386f67819edace92273916e7230c9054f38107db9dc6730b3530ab5.js" integrity="sha512-CLaAB4o8&#43;caePdIXpapSz93UodhQ&#43;M3/En/ddCGnH4srR0vmk4b2eBntrOkic5FucjDJBU84EH253Gcws1MKtQ=="></script>
+
 
 
 

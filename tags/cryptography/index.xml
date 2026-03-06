@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cryptography on SPERIXLABS</title>
+    <link>https://sperixlabs.org/tags/cryptography/</link>
+    <description>Recent content in Cryptography on SPERIXLABS</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>SPERIXLABS</copyright>
+    <lastBuildDate>Fri, 06 Mar 2026 05:52:00 -0600</lastBuildDate>
+    <atom:link href="https://sperixlabs.org/tags/cryptography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I Decrypted Obfuscated Mobile API Payloads</title>
+      <link>https://sperixlabs.org/post/2026/03/how-i-decrypted-obfuscated-mobile-api-payloads/</link>
+      <pubDate>Fri, 06 Mar 2026 05:52:00 -0600</pubDate>
+      <guid>https://sperixlabs.org/post/2026/03/how-i-decrypted-obfuscated-mobile-api-payloads/</guid>
+      <description>&lt;p&gt;I’ll tell this exactly how it happened.&lt;/p&gt;&#xA;&lt;p&gt;I started with an Android app whose network endpoints returned text files that looked like gibberish. At first glance, they looked Base64-ish, but decoding them still produced high-entropy binary. No JSON. No obvious compression headers. No quick win.&lt;/p&gt;&#xA;&lt;p&gt;Then static analysis hit a familiar wall.&lt;/p&gt;&#xA;&lt;h2 id=&#34;step-1-static-analysis-looked-promising-until-it-didnt&#34;&gt;Step 1: Static analysis looked promising… until it didn’t&lt;/h2&gt;&#xA;&lt;p&gt;I decompiled the APK and quickly found signs of a shell/packer layer (&lt;code&gt;StubApp&lt;/code&gt;, native loader libs). That usually means the interesting logic is not where JADX wants it to be.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
